@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {View, Animated, PanResponder,Dimensions, Vibration, Text} from 'react-native';
+import {View, Animated, PanResponder,Dimensions, Vibration, Text, Button} from 'react-native';
 import { Constants, Accelerometer } from 'expo';
+import { withNavigation } from 'react-navigation'
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SWIPE_THRESHOLD = .25*SCREEN_WIDTH;
@@ -71,7 +72,7 @@ class Deck extends Component{
     const { position } = this.state;
     const rotate = position.x.interpolate({
       inputRange:[-SCREEN_WIDTH*8,0,SCREEN_WIDTH*8],
-      outputRange:['-20deg','0deg','20deg']
+      outputRange:['-60deg','0deg','60deg']
     })
 
     return {
@@ -111,6 +112,8 @@ class Deck extends Component{
            key= {item.id}
            style = {[styles.cardStyle,{left:5-3*(i-this.state.index)}]}>
           { this.props.renderCard(item)}
+
+        
            </Animated.View>
          );
     }).reverse();
@@ -131,6 +134,7 @@ const styles = {
   cardStyle: {
     position:'absolute',
     top:100,
+    left:10
 
 
 
@@ -139,4 +143,4 @@ const styles = {
 
 
 
-export default Deck;
+export default withNavigation(Deck);

@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {View, Animated, PanResponder,Dimensions, Vibration, Text} from 'react-native';
 import { Constants, Accelerometer } from 'expo';
+import { LinearGradient } from "expo";
+const {width, height} = Dimensions.get('window');
 
 class Ball extends Component{
 
@@ -51,26 +53,25 @@ class Ball extends Component{
   render() {
 
     return(
+      <LinearGradient
+       colors={['#56CCF2', '#56CCF2', 'white']}
+       style={{ height: height, width:width}}>
     <View>
           <Animated.View style={this.state.position.getLayout()}
           {...this.state.panResponder.panHandlers}>
           <View style = {{
             height:60,
             width:60,
-            borderRadius:0,
+            borderRadius:60,
             borderWidth:2,
-            borderColor:'black'
-
+            borderColor:'lightgrey',
+            backgroundColor:'lightgrey',
           }} />
           </Animated.View>
 
-          <Text>
-          Accelerometer:
-            x = {this.state.accelerometerData.x.toFixed(2)}{', '}
-            y = {this.state.accelerometerData.y.toFixed(2)}{', '}
-            z = {this.state.accelerometerData.z.toFixed(2)}
-          </Text>
+
     </View>
+    </LinearGradient>
 
     )
   }
