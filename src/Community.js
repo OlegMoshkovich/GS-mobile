@@ -7,7 +7,7 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 const SWIPE_THRESHOLD = .25*SCREEN_WIDTH;
 const SWIPE_OUT_DURATION = 100;
 
-class Deck extends Component{
+class Community extends Component{
 
   static defaultProps ={
     onSwipeRight:()=>{},
@@ -147,4 +147,4 @@ const styles = {
 
 
 
-export default withNavigation(Deck);
+export default withNavigation(Community);
