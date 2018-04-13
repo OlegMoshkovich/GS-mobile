@@ -2,12 +2,15 @@ import React from 'react';
 import Dimensions from 'Dimensions';
 import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle} from 'react-native';
 import Ball from './src/Ball';
+import Test from './src/Test';
+import MapScreen from './src/MapScreen';
 import Community from './src/Community';
 import Deck from './src/Deck';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
-import { LinearGradient } from "expo"
+import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons';
+
 
 const {width, height} = Dimensions.get('window');
 
@@ -33,8 +36,8 @@ class HomeScreen extends React.Component {
       ),
       headerLeft: (
         <Button
-          onPress={() => navigation.navigate('Community')}
-          title=""
+          onPress={() => navigation.navigate('map')}
+          title="<"
           color = 'lightgrey'
           backgroundColor='#56CCF2'
         />
@@ -97,7 +100,7 @@ class TestScreen extends React.Component {
       headerLeft: (
         <Button
           onPress={() => navigation.navigate('Community')}
-          title="<"
+          title="community"
           color = 'lightgrey'
           backgroundColor='#56CCF2'
         />
@@ -264,6 +267,19 @@ const MainStack = StackNavigator(
             },
           }),
     },
+    map: {
+      screen: MapScreen,
+      navigationOptions: ({ navigation }) => ({
+            gesturesEnabled: true,
+            title: `#map`,
+            headerTintColor: 'lightgrey',
+            headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent' },
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontSize: 30
+            },
+          }),
+    },
   Test: {
       screen: TestScreen,
       navigationOptions: ({ navigation }) => ({
@@ -292,7 +308,7 @@ const MainStack = StackNavigator(
       },
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'map',
   }
 );
 const RootStack = StackNavigator(
@@ -311,29 +327,41 @@ const RootStack = StackNavigator(
 );
 
 
-
-export default TabNavigator(
-  {
-    Home: { screen: RootStack },
-    explore: { screen: HomeScreen },
-    community: { screen: CommunityScreen },
-    test: { screen: TestScreen }
-  },
-  {
-    navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
-        const { routeName } = navigation.state;
-
-      },
-    }),
-
-    tabBarComponent: TabBarBottom,
-    tabBarPosition: 'bottom',
-    tabBarOptions: {
-      activeTintColor: 'tomato',
-      inactiveTintColor: 'gray',
-    },
-    animationEnabled: false,
-    swipeEnabled: false,
+export default class App extends React.Component {
+  render() {
+    return <RootStack />;
   }
-);
+}
+
+// export default TabNavigator(
+//   {
+//     map: {screen:MapScreen},
+//     // Home: { screen: RootStack },
+//     explore: { screen: HomeScreen },
+//     community: { screen: CommunityScreen },
+//     // test: { screen: TestScreen },
+//     testScreen: {screen:Test},
+//
+//   },
+//   {
+//     navigationOptions: ({ navigation }) => ({
+//       tabBarIcon: ({ focused, tintColor }) => {
+//         const { routeName } = navigation.state;
+//
+//       },
+//     }),
+//
+//     tabBarComponent: TabBarBottom,
+//     tabBarPosition: 'bottom',
+//     tabBarOptions: {
+//       activeTintColor: 'tomato',
+//       inactiveTintColor: 'grey',
+//
+//       style: {
+//         backgroundColor: 'blue'
+//       },
+//     },
+//     animationEnabled: false,
+//     swipeEnabled: false,
+//   }
+// );
