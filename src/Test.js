@@ -14,20 +14,21 @@ class Test extends React.Component {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <Button
-          onPress={() => navigation.navigate('Community')}
-          title=""
-          color = 'lightgrey'
-          backgroundColor='#56CCF2'
-        />
+        <TouchableHighlight onPress={() => navigation.navigate('Home')}>
+          <Image
+            style={{height: 0,width: 0, right:20}}
+            source={require('../assets/Explore-icon.png')}
+          />
+        </TouchableHighlight>
+
       ),
       headerLeft: (
-        <Button
-          onPress={() => navigation.navigate('Community')}
-          title="community"
-          color = 'lightgrey'
-          backgroundColor='#56CCF2'
-        />
+        <TouchableHighlight onPress={() => navigation.navigate('Home')}>
+          <Image
+            style={{height: 20,width: 20,left:20}}
+            source={require('../assets/Explore-icon.png')}
+          />
+        </TouchableHighlight>
       )
     };
   };

@@ -27,20 +27,21 @@ class HomeScreen extends React.Component {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <Button
-          onPress={() => navigation.navigate('Community')}
-          title=">"
-          color = 'lightgrey'
-          backgroundColor='#56CCF2'
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Community')}>
+          <Image
+            style={{height: 40 ,width: 40, right:20}}
+            source={require('./assets/Community-icon.png')}
+          />
+        </TouchableOpacity>
+
       ),
       headerLeft: (
-        <Button
-          onPress={() => navigation.navigate('map')}
-          title="<"
-          color = 'lightgrey'
-          backgroundColor='#56CCF2'
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Map')}>
+          <Image
+            style={{height: 40,width: 40,left:20}}
+            source={require('./assets/Map-icon.png')}
+          />
+        </TouchableOpacity>
       )
     };
   };
@@ -79,8 +80,47 @@ class HomeScreen extends React.Component {
          data = {DATA}
          renderCard = {this.renderCard}
          renderNoMoreCards = {this.renderNoMoreCards}/>
+         <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:0,marginLeft:30,bottom:200,right:20, alignItems:'flex-end'}}>
+         <TouchableOpacity
+              onPress={() => this.props.navigation.goBack()}
+         >
+          <Image
+            style={{height: 150,width: 100, right:0, top:120}}
+            source={require('./assets//Nav_Avatar_Face_Animations.png')}
+          />
+         </TouchableOpacity>
 
 
+
+                   </View>
+
+                   <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:30,marginLeft:20,height:10,top:600 , alignItems:'flex-start'}}>
+                       <TouchableOpacity style={{ margin: 5}} >
+                       <Image
+                         style={{height: 30,width: 30, right:0, top:0}}
+                         source={require('./assets/Explore-icon.png')}
+                       />
+                       </TouchableOpacity>
+
+                       <TouchableOpacity style={{margin: 5}} >
+                       <Image
+                         style={{height: 30,width: 30, right:0, top:0}}
+                         source={require('./assets/Community-icon.png')}
+                       />
+                       </TouchableOpacity>
+                       <TouchableOpacity style={{margin: 5 }} >
+                       <Image
+                         style={{height: 30,width: 30, right:0, top:0}}
+                         source={require('./assets/Map-icon.png')}
+                       />
+                       </TouchableOpacity>
+                       <TouchableOpacity style={{margin: 5}} >
+                       <Image
+                         style={{height: 30,width: 30, right:0, top:0}}
+                         source={require('./assets/Chat-icon.png')}
+                       />
+                       </TouchableOpacity>
+                   </View>
       </LinearGradient>
     );
   }
@@ -90,20 +130,21 @@ class TestScreen extends React.Component {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <Button
-          onPress={() => navigation.navigate('Community')}
-          title=""
-          color = 'lightgrey'
-          backgroundColor='#56CCF2'
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <Image
+            style={{height: 0,width: 0, right:20}}
+            source={require('./assets/Explore-icon.png')}
+          />
+        </TouchableOpacity>
+
       ),
       headerLeft: (
-        <Button
-          onPress={() => navigation.navigate('Community')}
-          title="community"
-          color = 'lightgrey'
-          backgroundColor='#56CCF2'
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <Image
+            style={{height: 40,width: 40,left:20}}
+            source={require('./assets/Explore-icon.png')}
+          />
+        </TouchableOpacity>
       )
     };
   };
@@ -120,21 +161,22 @@ class CommunityScreen extends React.Component {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <Button
-          onPress={() => navigation.navigate('Test')}
-          title=">"
-          color = 'lightgrey'
-          backgroundColor='#56CCF2'
-        />
+        <TouchableOpacity onPress={() => navigation.navigate('Test')}>
+          <Image
+            style={{height: 55,width: 55, right:20}}
+            source={require('./assets/pin1.png')}
+          />
+        </TouchableOpacity>
+
       ),
       headerLeft: (
-        <Button
-          onPress={() => navigation.navigate('Home')}
-          title="<"
-          color = 'lightgrey'
-          backgroundColor='#56CCF2'
-        />
-    )
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+          <Image
+            style={{height: 40,width: 40,left:20}}
+            source={require('./assets/Explore-icon.png')}
+          />
+        </TouchableOpacity>
+      )
     };
   };
 
@@ -210,29 +252,60 @@ class ModalScreen extends React.Component {
 
     return (
       <View >
-         <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:30,marginLeft:30,height:100, alignItems:'center'}}>
-             <TouchableOpacity style={{width: 27, height: 27,borderRadius:100, margin: 5, backgroundColor: 'dimgrey'}} />
-             <TouchableOpacity style={{width: 27, height: 27, borderRadius:100,margin: 5, backgroundColor: 'dimgrey'}} />
-             <TouchableOpacity style={{width: 27, height: 27, borderRadius:100,margin: 5, backgroundColor: 'dimgrey'}} />
-             <TouchableOpacity style={{width: 27, height: 27, borderRadius:100,margin: 5, backgroundColor: 'dimgrey'}} />
+
+
+         <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:60,marginLeft:20,height:100 , alignItems:'flex-start'}}>
+             <TouchableOpacity style={{ margin: 5}} >
+             <Image
+               style={{height: 30,width: 30, right:0, top:0}}
+               source={require('./assets/Share.png')}
+             />
+             </TouchableOpacity>
+
+             <TouchableOpacity style={{margin: 5}} >
+             <Image
+               style={{height: 30,width: 30, right:0, top:0}}
+               source={require('./assets/Star.png')}
+             />
+             </TouchableOpacity>
+             <TouchableOpacity style={{margin: 5 }} >
+             <Image
+               style={{height: 30,width: 30, right:0, top:0}}
+               source={require('./assets/Comment.png')}
+             />
+             </TouchableOpacity>
+             <TouchableOpacity style={{margin: 5}} >
+             <Image
+               style={{height: 30,width: 30, right:0, top:0}}
+               source={require('./assets/Clap.png')}
+             />
+             </TouchableOpacity>
          </View>
 
 
       <TouchableOpacity
          style={{
              borderWidth:1,
-             borderColor:'rgba(0,0,0,0.2)',
-             marginTop:65,
+             borderColor:'transparent',
+             marginTop:60,
              marginBottom:10,
              position:'relative',
              left:332,
              width:27,
              height:27,
-             backgroundColor:'black',
+             backgroundColor:'transparent',
              borderRadius:100,
            }}
            onPress={() => this.props.navigation.goBack()}
+       >
+
+       <Image
+         style={{height: 40,width: 40, right:10}}
+         source={require('./assets/Exit-icon.png')}
        />
+       </TouchableOpacity>
+
+
        <ScrollView >
          <Text style ={{marginTop:24,marginBottom:0,left:26,color:"black",fontSize: 22,fontWeight:'bold' }}>{JSON.stringify(title)}</Text>
          <Image
@@ -259,21 +332,21 @@ const MainStack = StackNavigator(
       navigationOptions: ({ navigation }) => ({
             gesturesEnabled: true,
             title: `#explore`,
-            headerTintColor: 'lightgrey',
-            headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent' },
+            headerTintColor: 'white',
+            headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent',height:50 },
             headerTitleStyle: {
               fontWeight: 'bold',
-              fontSize: 30
+              fontSize: 35
             },
           }),
     },
-    map: {
+    Map: {
       screen: MapScreen,
       navigationOptions: ({ navigation }) => ({
             gesturesEnabled: true,
             title: `#map`,
-            headerTintColor: 'lightgrey',
-            headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent' },
+            headerTintColor: 'white',
+            headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
             headerTitleStyle: {
               fontWeight: 'bold',
               fontSize: 30
@@ -285,11 +358,11 @@ const MainStack = StackNavigator(
       navigationOptions: ({ navigation }) => ({
             gesturesEnabled: true,
             title: `#test`,
-            headerTintColor: 'lightgrey',
-            headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent' },
+            headerTintColor: 'white',
+            headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
             headerTitleStyle: {
               fontWeight: 'bold',
-              fontSize: 30
+              fontSize: 40
             },
           }),
     },
@@ -298,8 +371,8 @@ const MainStack = StackNavigator(
         navigationOptions: ({ navigation }) => ({
               gesturesEnabled: true,
               title: `#community`,
-              headerTintColor: 'lightgrey',
-              headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent' },
+              headerTintColor: 'white',
+              headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
               headerTitleStyle: {
                 fontWeight: 'bold',
                 fontSize: 30
@@ -308,7 +381,7 @@ const MainStack = StackNavigator(
       },
   },
   {
-    initialRouteName: 'map',
+    initialRouteName: 'Map',
   }
 );
 const RootStack = StackNavigator(
@@ -335,7 +408,7 @@ export default class App extends React.Component {
 
 // export default TabNavigator(
 //   {
-//     map: {screen:MapScreen},
+//     Map: {screen:MapScreen},
 //     // Home: { screen: RootStack },
 //     explore: { screen: HomeScreen },
 //     community: { screen: CommunityScreen },

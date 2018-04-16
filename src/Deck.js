@@ -51,9 +51,6 @@ class Deck extends Component{
       duration:SWIPE_OUT_DURATION
     }).start(() => this.onSwipeComplete(direction));
   }
-
-
-
   onSwipeComplete(direction){
     const { onSwipeLeft,onSwipeRight,data } = this.props;
     const item = data[this.state.index];
@@ -61,18 +58,14 @@ class Deck extends Component{
     this.state.position.setValue({x:0,y:0});
     this.setState({index: this.state.index+1});
   }
-
   resetState(){
     this.setState({index: 0});
   }
-
-
   resetPosition(){
     Animated.spring(this.state.position,{
       toValue:{x:0,y:0}
     }).start();
   }
-
   getCardStyle(){
     const { position } = this.state;
     const rotate = position.x.interpolate({
@@ -85,7 +78,6 @@ class Deck extends Component{
       transform:[{rotate:rotate}]
     };
   };
-
   renderCards(){
     if (this.state.index >= this.props.data.length) {
 
@@ -123,7 +115,6 @@ class Deck extends Component{
          );
     }).reverse();
   }
-
   render() {
     return (
     <View>
@@ -138,7 +129,7 @@ class Deck extends Component{
 const styles = {
   cardStyle: {
     position:'absolute',
-    top:100,
+    top:65,
 
 
 
