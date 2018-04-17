@@ -192,10 +192,10 @@ class MapScreen extends React.Component {
             </TouchableOpacity>
           ),
           headerLeft: (
-            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
               <Image
-                style={{height: 0,width: 0,left:20}}
-                source={require('../assets/Explore-icon.png')}
+                style={{height: 40,width: 40,left:20}}
+                source={require('../assets/Calendar_icon.png')}
               />
             </TouchableOpacity>
           )
@@ -236,13 +236,33 @@ class MapScreen extends React.Component {
       },
       {
         coordinate: {
-          latitude: 40.723301,
-          longitude: -74.002988,
+          latitude: 40.74,
+          longitude: -74,
         },
         title: "Nicole Clark",
         description: "",
         image: require('../assets/Avatar_1.png'),
       },
+
+      {
+        coordinate: {
+          latitude: 40.731,
+          longitude: -73.985428,
+        },
+        title: "Emma Brownstein",
+        description: "",
+        image: require('../assets/Avatar_3.png'),
+      },
+      {
+        coordinate: {
+          latitude: 40.785091,
+          longitude: -73.968285,
+        },
+        title: "Chloe Miller",
+        description: "",
+        image: require('../assets/Avatar_4.png'),
+      },
+
     ],
     region: {
       latitude: 40.74,
@@ -316,7 +336,7 @@ class MapScreen extends React.Component {
       ];
       const scale = this.animation.interpolate({
         inputRange,
-        outputRange: [1, 2.5, 1],
+        outputRange: [1, 1.5, 1],
         extrapolate: "clamp",
       });
       const opacity = this.animation.interpolate({
@@ -333,6 +353,7 @@ class MapScreen extends React.Component {
           ref={map => this.map = map}
           initialRegion={this.state.region}
           style={styles.container}
+          showsCompass={false}
 
         >
           {this.state.markers.map((marker, index) => {
@@ -350,7 +371,12 @@ class MapScreen extends React.Component {
               <MapView.Marker key={index} coordinate={marker.coordinate}>
                 <Animated.View style={[styles.markerWrap, opacityStyle]}>
                   <Animated.View style={[styles.ring, scaleStyle]} />
-                  <View style={styles.marker} />
+                  <Image
+                    style={styles.marker}
+                    source={marker.image}
+                  />
+
+
                 </Animated.View>
               </MapView.Marker>
             );
@@ -360,7 +386,7 @@ class MapScreen extends React.Component {
           horizontal
           scrollEventThrottle={1}
           showsHorizontalScrollIndicator={false}
-          snapToInterval={CARD_WIDTH}
+          snapToInterval={CARD_WIDTH-30}
           onScroll={Animated.event(
             [
               {
@@ -392,11 +418,12 @@ class MapScreen extends React.Component {
             </View>
           ))}
         </Animated.ScrollView>
+
         <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:30,marginLeft:30,height:10, alignItems:'flex-start'}}>
                <TouchableOpacity onPress={this._onPressButton} >
                <Image
-                 style={{height: 55,width: 55, right:20}}
-                 source={require('../assets/pin1.png')}
+                 style={{height: 80,width: 80, right:25}}
+                 source={require('../assets/Ava-Cap.png')}
                />
              </TouchableOpacity>
            </View>
@@ -417,7 +444,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   endPadding: {
-    paddingRight: width - CARD_WIDTH,
+    paddingRight: 260,
   },
   card: {
     padding: 10,
@@ -445,6 +472,8 @@ const styles = StyleSheet.create({
     fontSize: 12,
     marginTop: 5,
     fontWeight: "bold",
+    color:'white',
+    backgroundColor:'#56CCF2'
   },
   cardDescription: {
     fontSize: 12,
@@ -455,19 +484,18 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   marker: {
-    width: 8,
-    height: 8,
-    borderRadius: 4,
-    backgroundColor: "rgba(130,4,150, 0.9)",
+    width: 30,
+    height: 30,
+
   },
   ring: {
-    width: 24,
-    height: 24,
-    borderRadius: 12,
-    backgroundColor: "rgba(130,4,150, 0.3)",
+    width: 35,
+    height: 35,
+    borderRadius: 35,
+    backgroundColor: "transparent",
     position: "absolute",
     borderWidth: 1,
-    borderColor: "rgba(130,4,150, 0.5)",
+    borderColor: "red",
   },
 });
 
