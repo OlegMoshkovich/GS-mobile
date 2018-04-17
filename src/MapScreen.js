@@ -192,10 +192,10 @@ class MapScreen extends React.Component {
             </TouchableOpacity>
           ),
           headerLeft: (
-            <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
               <Image
                 style={{height: 40,width: 40,left:20}}
-                source={require('../assets/Calendar_icon.png')}
+                source={require('../assets/Chat-icon.png')}
               />
             </TouchableOpacity>
           )

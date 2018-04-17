@@ -91,35 +91,43 @@ class HomeScreen extends React.Component {
             source={require('./assets/Nav_Avatar_Face_Animations.png')}
           />
          </TouchableOpacity>
-
-
-
                    </View>
 
                    <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:30,marginLeft:20,height:10,top:600 , alignItems:'flex-start'}}>
-                       <TouchableOpacity style={{ margin: 5}} >
+                       <TouchableOpacity style={{ margin: 5}}  onPress={() => this.props.navigation.navigate('Home')}>
                        <Image
                          style={{height: 30,width: 30, right:0, top:0}}
                          source={require('./assets/Explore-icon.png')}
                        />
                        </TouchableOpacity>
 
-                       <TouchableOpacity style={{margin: 5}} >
+                       <TouchableOpacity style={{margin: 5 }}  onPress={() => this.props.navigation.navigate('Chat')}>
                        <Image
                          style={{height: 30,width: 30, right:0, top:0}}
-                         source={require('./assets/Community-icon.png')}
+                         source={require('./assets/Chat-icon.png')}
                        />
                        </TouchableOpacity>
-                       <TouchableOpacity style={{margin: 5 }} >
+
+                       <TouchableOpacity style={{margin: 5 }}  onPress={() => this.props.navigation.navigate('Map')}>
                        <Image
                          style={{height: 30,width: 30, right:0, top:0}}
                          source={require('./assets/Map-icon.png')}
                        />
                        </TouchableOpacity>
-                       <TouchableOpacity style={{margin: 5}} >
+
+                       <TouchableOpacity style={{margin: 5}} onPress={() => this.props.navigation.navigate('Community')} >
                        <Image
                          style={{height: 30,width: 30, right:0, top:0}}
-                         source={require('./assets/Chat-icon.png')}
+                         source={require('./assets/Community-icon.png')}
+                       />
+                       </TouchableOpacity>
+
+
+
+                       <TouchableOpacity style={{margin: 5}} onPress={() => this.props.navigation.navigate('Test')}>
+                       <Image
+                         style={{height: 30,width: 30, right:0, top:0}}
+                         source={require('./assets/Resume-icon.png')}
                        />
                        </TouchableOpacity>
                    </View>
@@ -127,7 +135,7 @@ class HomeScreen extends React.Component {
     );
   }
 }
-class TestScreen extends React.Component {
+class Resumecreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const params = navigation.state.params || {};
     return {
@@ -423,6 +431,43 @@ class CalendarScreen extends React.Component {
     );
   }
 }
+class ChatScreen extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    const params = navigation.state.params || {};
+    return {
+      headerRight: (
+        <TouchableOpacity onPress={() => navigation.navigate('Map')}>
+          <Image
+            style={{height: 40,width: 40, right:20}}
+            source={require('./assets/Map-icon.png')}
+          />
+        </TouchableOpacity>
+
+      ),
+      headerLeft: (
+        <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
+          <Image
+            style={{height: 40,width: 40,left:20}}
+            source={require('./assets/Calendar-icon.png')}
+          />
+        </TouchableOpacity>
+      )
+    };
+  };
+
+  render() {
+    return (
+
+      <LinearGradient
+         colors={['#56CCF2', '#56CCF2', 'white']}
+         style={{ height: height, width:width}}>
+
+
+      </LinearGradient>
+    );
+  }
+}
+
 
 const MainStack = StackNavigator(
   {
@@ -469,11 +514,11 @@ const MainStack = StackNavigator(
             },
           }),
     },
-  Test: {
-      screen: TestScreen,
+    Test: {
+      screen: Resumecreen,
       navigationOptions: ({ navigation }) => ({
             gesturesEnabled: true,
-            title: `#test`,
+            title: `#resume`,
             headerTintColor: 'white',
             headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
             headerTitleStyle: {
@@ -495,7 +540,7 @@ const MainStack = StackNavigator(
               },
             }),
       },
-      Calendar: {
+    Calendar: {
           screen: CalendarScreen,
           navigationOptions: ({ navigation }) => ({
                 gesturesEnabled: true,
@@ -508,9 +553,22 @@ const MainStack = StackNavigator(
                 },
               }),
         },
+      Chat: {
+            screen: ChatScreen,
+            navigationOptions: ({ navigation }) => ({
+                  gesturesEnabled: true,
+                  title: `#Chat`,
+                  headerTintColor: 'white',
+                  headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+                  headerTitleStyle: {
+                    fontWeight: 'bold',
+                    fontSize: 30
+                  },
+                }),
+          },
   },
   {
-    initialRouteName: 'Calendar',
+    initialRouteName: 'Home',
   }
 );
 const RootStack = StackNavigator(
@@ -541,8 +599,8 @@ export default class App extends React.Component {
 //     // Home: { screen: RootStack },
 //     explore: { screen: HomeScreen },
 //     community: { screen: CommunityScreen },
-//     // test: { screen: TestScreen },
-//     testScreen: {screen:Test},
+//     // test: { screen: Resumecreen },
+//     Resumecreen: {screen:Test},
 //
 //   },
 //   {
