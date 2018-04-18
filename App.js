@@ -94,12 +94,13 @@ class HomeScreen extends React.Component {
                    </View>
 
                    <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:30,marginLeft:20,height:10,top:600 , alignItems:'flex-start'}}>
-                       <TouchableOpacity style={{ margin: 5}}  onPress={() => this.props.navigation.navigate('Home')}>
+                       <TouchableOpacity style={{ margin: 5}}  onPress={() => this.props.navigation.navigate('Calendar')}>
                        <Image
                          style={{height: 30,width: 30, right:0, top:0}}
-                         source={require('./assets/Explore-icon.png')}
+                         source={require('./assets/Calendar-icon.png')}
                        />
                        </TouchableOpacity>
+
 
                        <TouchableOpacity style={{margin: 5 }}  onPress={() => this.props.navigation.navigate('Chat')}>
                        <Image
@@ -135,7 +136,7 @@ class HomeScreen extends React.Component {
     );
   }
 }
-class Resumecreen extends React.Component {
+class ResumeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const params = navigation.state.params || {};
     return {
@@ -149,10 +150,10 @@ class Resumecreen extends React.Component {
 
       ),
       headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Community')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('./assets/Explore-icon.png')}
+            source={require('./assets/Community-icon.png')}
           />
         </TouchableOpacity>
       )
@@ -162,6 +163,7 @@ class Resumecreen extends React.Component {
     return (
       <View >
         <Ball/>
+
       </View>
     );
   }
@@ -337,10 +339,10 @@ class CalendarScreen extends React.Component {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Map')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
           <Image
             style={{height: 40,width: 40, right:20}}
-            source={require('./assets/Map-icon.png')}
+            source={require('./assets/Chat-icon.png')}
           />
         </TouchableOpacity>
 
@@ -348,7 +350,7 @@ class CalendarScreen extends React.Component {
       headerLeft: (
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
-            style={{height: 0,width: 0,left:20}}
+            style={{height: 40,width: 40,left:20}}
             source={require('./assets/Explore-icon.png')}
           />
         </TouchableOpacity>
@@ -356,80 +358,86 @@ class CalendarScreen extends React.Component {
     };
   };
 
-  render() {
-    return (
+  constructor(props) {
+   super(props);
+   this.state = {
+     items: {}
+   };
+ }
 
-      <LinearGradient
-         colors={['#56CCF2', '#56CCF2', 'white']}
-         style={{ height: height, width:width}}>
-          <Calendar
-            // Specify style for calendar container element. Default = {}
-            style={{
-              borderWidth: 1,
-              top:50,
-              borderColor: 'transparent',
-              height: 350
-            }}
-            // Specify theme properties to override specific styles for calendar parts. Default = {}
-            theme={{
-              backgroundColor: 'transparent',
-              calendarBackground: 'transparent',
-              textSectionTitleColor: '#b6c1cd',
-              selectedDayBackgroundColor: 'lightgrey',
-              selectedDayTextColor: '#ffffff',
-              todayTextColor: 'orange',
-              dayTextColor: 'white',
-              textDisabledColor: '#d9e1e8',
-              dotColor: '#00adf5',
-              selectedDotColor: '#ffffff',
-              arrowColor: 'orange',
-              monthTextColor: 'white',
-              textMonthFontWeight: 'bold',
-              textDayFontSize: 16,
-              textMonthFontSize: 16,
-              textDayHeaderFontSize: 16
-            }}
-          />
-          <CalendarList
-            // Callback which gets executed when visible months change in scroll view. Default = undefined
-            onVisibleMonthsChange={(months) => {console.log('now these months are visible', months);}}
-            // Max amount of months allowed to scroll to the past. Default = 50
-            pastScrollRange={50}
-            // Max amount of months allowed to scroll to the future. Default = 50
-            futureScrollRange={50}
-            // Enable or disable scrolling of calendar list
-            scrollEnabled={true}
-            // Enable or disable vertical scroll indicator. Default = false
-            showScrollIndicator={true}
-            style={{
-              borderWidth: 1,
-              top:50,
-              borderColor: 'transparent',
-              height: 350
-            }}
-            // Specify theme properties to override specific styles for calendar parts. Default = {}
-            theme={{
-              backgroundColor: 'transparent',
-              calendarBackground: 'transparent',
-              textSectionTitleColor: '#b6c1cd',
-              selectedDayBackgroundColor: '#00adf5',
-              selectedDayTextColor: '#ffffff',
-              todayTextColor: 'orange',
-              dayTextColor: 'white',
-              textDisabledColor: '#d9e1e8',
-              dotColor: '#00adf5',
-              selectedDotColor: '#ffffff',
-              arrowColor: 'orange',
-              monthTextColor: 'white',
-              textMonthFontWeight: 'bold',
-              textDayFontSize: 16,
-              textMonthFontSize: 16,
-              textDayHeaderFontSize: 16
-            }}
-          />
-      </LinearGradient>
-    );
-  }
+ render() {
+   return (
+     <Agenda
+       items={this.state.items}
+       loadItemsForMonth={this.loadItems.bind(this)}
+       selected={'2017-04-18'}
+       renderItem={this.renderItem.bind(this)}
+       renderEmptyDate={this.renderEmptyDate.bind(this)}
+       rowHasChanged={this.rowHasChanged.bind(this)}
+       // markingType={'period'}
+       // markedDates={{
+       //    '2017-05-08': {textColor: '#666'},
+       //    '2017-05-09': {textColor: '#666'},
+       //    '2017-05-14': {startingDay: true, endingDay: true, color: 'blue'},
+       //    '2017-05-21': {startingDay: true, color: 'blue'},
+       //    '2017-05-22': {endingDay: true, color: 'gray'},
+       //    '2017-05-24': {startingDay: true, color: 'gray'},
+       //    '2017-05-25': {color: 'gray'},
+       //    '2017-05-26': {endingDay: true, color: 'gray'}}}
+        // monthFormat={'yyyy'}
+        // theme={{calendarBackground: 'red', agendaKnobColor: 'green'}}
+       //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
+     />
+   );
+ }
+
+ loadItems(day) {
+   setTimeout(() => {
+     for (let i = -15; i < 85; i++) {
+       const time = day.timestamp + i * 24 * 60 * 60 * 1000;
+       const strTime = this.timeToString(time);
+       if (!this.state.items[strTime]) {
+         this.state.items[strTime] = [];
+         const numItems = Math.floor(Math.random() * 5);
+         for (let j = 0; j < numItems; j++) {
+           this.state.items[strTime].push({
+             name: 'Item for ' + strTime,
+             height: Math.max(50, Math.floor(Math.random() * 150))
+           });
+         }
+       }
+     }
+     //console.log(this.state.items);
+     const newItems = {};
+     Object.keys(this.state.items).forEach(key => {newItems[key] = this.state.items[key];});
+     this.setState({
+       items: newItems
+     });
+   }, 1000);
+   // console.log(`Load Items for ${day.year}-${day.month}`);
+ }
+
+ renderItem(item) {
+   return (
+     <View style={[styles.item, {height: item.height}]}><Text>{item.name}</Text></View>
+   );
+ }
+
+ renderEmptyDate() {
+   return (
+     <View style={styles.emptyDate}><Text>This is empty date!</Text></View>
+   );
+ }
+
+ rowHasChanged(r1, r2) {
+   return r1.name !== r2.name;
+ }
+
+ timeToString(time) {
+   const date = new Date(time);
+   return date.toISOString().split('T')[0];
+ }
+
 }
 class ChatScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -445,10 +453,10 @@ class ChatScreen extends React.Component {
 
       ),
       headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('./assets/Calendar-icon.png')}
+            source={require('./assets/Explore-icon.png')}
           />
         </TouchableOpacity>
       )
@@ -515,7 +523,7 @@ const MainStack = StackNavigator(
           }),
     },
     Test: {
-      screen: Resumecreen,
+      screen: ResumeScreen,
       navigationOptions: ({ navigation }) => ({
             gesturesEnabled: true,
             title: `#resume`,
@@ -557,7 +565,7 @@ const MainStack = StackNavigator(
             screen: ChatScreen,
             navigationOptions: ({ navigation }) => ({
                   gesturesEnabled: true,
-                  title: `#Chat`,
+                  title: `#chat`,
                   headerTintColor: 'white',
                   headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
                   headerTitleStyle: {
@@ -568,7 +576,7 @@ const MainStack = StackNavigator(
           },
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Calendar',
   }
 );
 const RootStack = StackNavigator(
@@ -599,8 +607,8 @@ export default class App extends React.Component {
 //     // Home: { screen: RootStack },
 //     explore: { screen: HomeScreen },
 //     community: { screen: CommunityScreen },
-//     // test: { screen: Resumecreen },
-//     Resumecreen: {screen:Test},
+//     // test: { screen: ResumeScreen },
+//     ResumeScreen: {screen:Test},
 //
 //   },
 //   {
@@ -625,3 +633,19 @@ export default class App extends React.Component {
 //     swipeEnabled: false,
 //   }
 // );
+
+const styles = StyleSheet.create({
+  item: {
+    backgroundColor: 'transparent',
+    flex: 1,
+    borderRadius: 5,
+    padding: 10,
+    marginRight: 10,
+    marginTop: 17
+  },
+  emptyDate: {
+    height: 15,
+    flex:1,
+    paddingTop: 30
+  }
+});

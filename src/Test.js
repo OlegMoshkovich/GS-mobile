@@ -35,7 +35,9 @@ class Test extends React.Component {
   render() {
     return (
       <View >
-        <Ball/>
+
+          <Text style ={{color:"white",fontSize: 22,top:30,left:30,fontWeight:'bold', }}>Featured Stories</Text>
+
       </View>
     );
   }

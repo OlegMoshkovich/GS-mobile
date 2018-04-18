@@ -71,6 +71,7 @@ class Ball extends Component{
 
 
     </View>
+
     </LinearGradient>
 
     )
