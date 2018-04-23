@@ -1,6 +1,6 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { Animated,Platform,StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Button, ActivityIndicator} from 'react-native';
+import { Animated,Platform,StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Button, ActivityIndicator, Alert} from 'react-native';
 import Ball from './Ball.js';
 import {Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
@@ -202,7 +202,6 @@ class MapScreen extends React.Component {
         };
       };
 
-
   state = {
     location: {coords: { latitude: 40.750859, longitude: -73.983324}},
     markers: [
@@ -280,7 +279,8 @@ class MapScreen extends React.Component {
     // We should detect when scrolling has stopped then animate
     // We should just debounce the event listener here
     this.animation.addListener(({ value }) => {
-      let index = Math.floor(value / CARD_WIDTH + 0.3); // animate 30% away from landing on the next item
+
+      let index = Math.floor(value / CARD_WIDTH+3)  ; // animate 30% away from landing on the next item
       if (index >= this.state.markers.length) {
         index = this.state.markers.length - 1;
       }
@@ -289,6 +289,7 @@ class MapScreen extends React.Component {
       }
 
       clearTimeout(this.regionTimeout);
+
       this.regionTimeout = setTimeout(() => {
         if (this.index !== index) {
           this.index = index;
@@ -329,11 +330,13 @@ class MapScreen extends React.Component {
 
   render() {
     const interpolations = this.state.markers.map((marker, index) => {
+
       const inputRange = [
         (index - 1) * CARD_WIDTH,
         index * CARD_WIDTH,
         ((index + 1) * CARD_WIDTH),
       ];
+
       const scale = this.animation.interpolate({
         inputRange,
         outputRange: [1, 1.5, 1],
@@ -354,8 +357,8 @@ class MapScreen extends React.Component {
           initialRegion={this.state.region}
           style={styles.container}
           showsCompass={false}
-
         >
+
           {this.state.markers.map((marker, index) => {
             const scaleStyle = {
               transform: [
@@ -375,8 +378,6 @@ class MapScreen extends React.Component {
                     style={styles.marker}
                     source={marker.image}
                   />
-
-
                 </Animated.View>
               </MapView.Marker>
             );
@@ -392,7 +393,6 @@ class MapScreen extends React.Component {
               {
                 nativeEvent: {
                   contentOffset: {
-                    x: this.animation,
                   },
                 },
               },
@@ -402,6 +402,7 @@ class MapScreen extends React.Component {
           style={styles.scrollView}
           contentContainerStyle={styles.endPadding}
         >
+
           {this.state.markers.map((marker, index) => (
             <View style={styles.card} key={index}>
               <Image

@@ -8,7 +8,7 @@ class Ball extends Component{
 
   constructor(props){
 
-    const PATTERN = [2]
+    const PATTERN = [1,2,10]
     super(props);
     var width = Dimensions.get('window').width*.4
     var radius=60;
@@ -17,8 +17,8 @@ class Ball extends Component{
     const panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderMove: (event, gesture) => {
-        // Vibration.vibrate(PATTERN, true);
-        Vibration.cancel()
+        Vibration.vibrate();
+        // Vibration.cancel();
         position.setValue({x:gesture.dx+width+this.state.accelerometerData.x*100, y:gesture.dy+200+this.state.accelerometerData.y*100});
         radius = 60 + gesture.dx;
       },

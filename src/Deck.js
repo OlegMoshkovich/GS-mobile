@@ -26,7 +26,7 @@ class Deck extends Component{
             if (gesture.dx>SWIPE_THRESHOLD){
               this.forceSwipe('right');
             }else if(gesture.dx<-SWIPE_THRESHOLD){
-              // this.forceSwipe('left');
+                this.forceSwipe('left');
             }else{
               this.resetPosition();
             };
