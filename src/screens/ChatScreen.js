@@ -66,11 +66,11 @@ class ChatScreen extends React.Component {
             _id: 2,
             name: 'React Native',
             avatar: 'https://facebook.github.io/react/img/logo_og.png',
+            },
           },
-        },
-      ],
-    })
-  }
+        ],
+      })
+    }
 
 
   animate = () => {
@@ -177,13 +177,13 @@ class ChatScreen extends React.Component {
 
 
 
-    <GiftedChat
-          messages={this.state.messages}
-          onSend={messages => this.onSend(messages)}
-          user={{
-            _id: 1,
-          }}
-        />
+              <GiftedChat
+                    messages={this.state.messages}
+                    onSend={messages => this.onSend(messages)}
+                    user={{
+                      _id: 1,
+                    }}
+                  />
                 </View>
 
 
