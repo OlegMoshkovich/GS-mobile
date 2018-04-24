@@ -18,7 +18,7 @@ class CommunityScreen extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('Test')}>
           <Image
             style={{height: 40,width: 40, right:20}}
-            source={require('../assets/Resume-icon.png')}
+            source={require('../../assets/Resume-icon.png')}
           />
         </TouchableOpacity>
 
@@ -27,7 +27,7 @@ class CommunityScreen extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('../assets/Explore-icon.png')}
+            source={require('../../assets/Explore-icon.png')}
           />
         </TouchableOpacity>
       )
@@ -47,17 +47,17 @@ class CommunityScreen extends React.Component {
              <Image
                 style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                 source={require('../assets/Article_1.png')}
+                 source={require('../../assets/Article_1.png')}
               />
               <Image
                  style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                  resizeMode="cover"
-                  source={require('../assets/Article_1.png')}
+                  source={require('../../assets/Article_1.png')}
                />
                <Image
                   style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                   resizeMode="cover"
-                   source={require('../assets/Article_1.png')}
+                   source={require('../../assets/Article_1.png')}
                 />
 
              </ScrollView >
@@ -67,18 +67,18 @@ class CommunityScreen extends React.Component {
              <Image
                 style={{height: 213,width:161,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                source={require('../assets/Article_2.png')}
+                source={require('../../assets/Article_2.png')}
               />
 
               <Image
                  style={{height: 213,width:161,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                  resizeMode="cover"
-                 source={require('../assets/Article_2.png')}
+                 source={require('../../assets/Article_2.png')}
                />
                <Image
                   style={{height: 213,width:161,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                   resizeMode="cover"
-                  source={require('../assets/Article_2.png')}
+                  source={require('../../assets/Article_2.png')}
                 />
 
 

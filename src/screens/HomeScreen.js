@@ -1,7 +1,7 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
 import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
-import Deck from '../src/Deck';
+import Deck from '../Deck';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
@@ -23,7 +23,7 @@ class HomeScreen extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('Community')}>
           <Image
             style={{height: 40 ,width: 40, right:20}}
-            source={require('../assets/Community-icon.png')}
+            source={require('../../assets/Community-icon.png')}
           />
         </TouchableOpacity>
 
@@ -32,7 +32,7 @@ class HomeScreen extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('Map')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('../assets/Map-icon.png')}
+            source={require('../../assets/Map-icon.png')}
           />
         </TouchableOpacity>
       )
@@ -128,7 +128,7 @@ class HomeScreen extends React.Component {
                   onPress={this._onPressButton} onLongPress={this._onLongPressButton}>
               <Image
                 style={{height: 150,width: 100, right:0, top:120}}
-                source={require('../assets/Nav_Avatar_Face_Animations.png')}
+                source={require('../../assets/Nav_Avatar_Face_Animations.png')}
               />
              </TouchableOpacity>
         </View>

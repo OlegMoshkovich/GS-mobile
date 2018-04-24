@@ -18,7 +18,7 @@ class ChatScreen extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('Map')}>
           <Image
             style={{height: 40,width: 40, right:20}}
-            source={require('../assets/Map-icon.png')}
+            source={require('../../assets/Map-icon.png')}
           />
         </TouchableOpacity>
 
@@ -27,7 +27,7 @@ class ChatScreen extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('../assets/Calendar-icon.png')}
+            source={require('../../assets/Calendar-icon.png')}
           />
         </TouchableOpacity>
       )
@@ -105,7 +105,7 @@ class ChatScreen extends React.Component {
               <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Calendar')}>
               <Image
                 style={{height: 30,width: 30}}
-                source={require('../assets/Calendar-icon.png')}
+                source={require('../../assets/Calendar-icon.png')}
               />
               </TouchableOpacity>
 
@@ -113,21 +113,21 @@ class ChatScreen extends React.Component {
               <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Chat')}>
               <Image
                 style={{height: 30,width: 30}}
-                source={require('../assets/Chat-icon.png')}
+                source={require('../../assets/Chat-icon.png')}
               />
               </TouchableOpacity>
 
               <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
               <Image
                 style={{height: 30,width: 30}}
-                source={require('../assets/Map-icon.png')}
+                source={require('../../assets/Map-icon.png')}
               />
               </TouchableOpacity>
 
               <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')} >
               <Image
                 style={{height: 30,width: 30}}
-                source={require('../assets/Community-icon.png')}
+                source={require('../../assets/Community-icon.png')}
               />
               </TouchableOpacity>
 
@@ -136,7 +136,7 @@ class ChatScreen extends React.Component {
               <TouchableOpacity  style ={{margin:5}} onPress={() => this.props.navigation.navigate('Test')}>
               <Image
                 style={{height: 30,width: 30}}
-                source={require('../assets/Resume-icon.png')}
+                source={require('../../assets/Resume-icon.png')}
               />
               </TouchableOpacity>
 
@@ -152,7 +152,7 @@ class ChatScreen extends React.Component {
                   onPress={this.animate} onLongPress={this.animate}>
               <Image
                 style={{height:150,width:100}}
-                source={require('../assets/Nav_Avatar_Face_Animations.png')}
+                source={require('../../assets/Nav_Avatar_Face_Animations.png')}
               />
              </TouchableOpacity>
 

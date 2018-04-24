@@ -9,11 +9,11 @@ import Deck from './src/Deck';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 
-import HomeScreen from './screens/HomeScreen.js';
-import CommunityScreen from './screens/CommunityScreen.js';
-import ResumeScreen from './screens/ResumeScreen.js';
-import CalendarScreen from './screens/CalendarScreen.js';
-import ChatScreen from './screens/ChatScreen.js';
+import HomeScreen from './src/screens/HomeScreen.js';
+import CommunityScreen from './src/screens/CommunityScreen.js';
+import ResumeScreen from './src/screens/ResumeScreen.js';
+import CalendarScreen from './src/screens/CalendarScreen.js';
+import ChatScreen from './src/screens/ChatScreen.js';
 
 
 
