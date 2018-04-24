@@ -1,8 +1,8 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
 import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
-import Ball from '../src/Ball';
-import Test from '../src/Test';
+import Ball from '../Ball';
+import Test from '../Test';
 
 
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
@@ -20,7 +20,7 @@ class ResumeScreen extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
           <Image
             style={{height: 40,width: 40, right:20}}
-            source={require('../assets/Dashboard-icon.png')}
+            source={require('../../assets/Dashboard-icon.png')}
           />
         </TouchableOpacity>
 
@@ -29,7 +29,7 @@ class ResumeScreen extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('Community')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('../assets/Community-icon.png')}
+            source={require('../../assets/Community-icon.png')}
           />
         </TouchableOpacity>
       )

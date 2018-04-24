@@ -6,7 +6,12 @@ import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+
+
+import {GiftedChat } from 'react-native-gifted-chat';
+
 const {width, height} = Dimensions.get('window');
+
 
 class ChatScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -16,7 +21,7 @@ class ChatScreen extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('Map')}>
           <Image
             style={{height: 40,width: 40, right:20}}
-            source={require('../assets/Map-icon.png')}
+            source={require('../../assets/Map-icon.png')}
           />
         </TouchableOpacity>
 
@@ -25,7 +30,7 @@ class ChatScreen extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('../assets/Calendar-icon.png')}
+            source={require('../../assets/Calendar-icon.png')}
           />
         </TouchableOpacity>
       )
@@ -125,13 +130,27 @@ class ChatScreen extends React.Component {
                   </View>
               </Animated.View>
 
+              <View>
+
+
+
+    <GiftedChat
+          messages={this.state.messages}
+          onSend={messages => this.onSend(messages)}
+          user={{
+            _id: 1,
+          }}
+        />
+                </View>
+
+
 
              <TouchableOpacity
                   style={{position: 'absolute',flex: 1}}
                   onPress={this.animate} onLongPress={this.animate}>
               <Image
                 style={{height:150,width:100}}
-                source={require('../assets/Nav_Avatar_Face_Animations.png')}
+                source={require('../../assets/Nav_Avatar_Face_Animations.png')}
               />
              </TouchableOpacity>
 
