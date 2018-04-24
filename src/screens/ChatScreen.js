@@ -8,7 +8,12 @@ import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+
+
+import {GiftedChat } from 'react-native-gifted-chat';
+
 const {width, height} = Dimensions.get('window');
+
 
 class ChatScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -40,9 +45,31 @@ class ChatScreen extends React.Component {
       moveAnim    : new Animated.Value(1),
       activated    : true,
       valueInitial:0,
-      valueFinal:0
+      valueFinal:0,
+      messages: [],
 
     };
+  }
+
+
+   // starts with a default message
+   componentDidMount() {
+    //Analytics.record('aws-expo-demo-app-launched');
+
+    this.setState({
+      messages: [
+        {
+          _id: 1,
+          text: 'Developers! Developers! Developers!',
+          createdAt: new Date(),
+          user: {
+            _id: 2,
+            name: 'React Native',
+            avatar: 'https://facebook.github.io/react/img/logo_og.png',
+          },
+        },
+      ],
+    })
   }
 
 
@@ -145,6 +172,20 @@ class ChatScreen extends React.Component {
 
               </View>
               </Animated.View>
+
+              <View>
+
+
+
+    <GiftedChat
+          messages={this.state.messages}
+          onSend={messages => this.onSend(messages)}
+          user={{
+            _id: 1,
+          }}
+        />
+                </View>
+
 
 
              <TouchableOpacity
