@@ -2,16 +2,21 @@ console.disableYellowBox = true;
 
 
 import React from 'react';
-import Dimensions from 'Dimensions';
 import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
-import Ball from './src/Ball';
-import Test from './src/Test';
-import MapScreen from './src/MapScreen';
-import Community from './src/Community';
-import Deck from './src/Deck';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
-import { LinearGradient } from "expo";
 
+<<<<<<< HEAD
+import MapScreen from './screens/MapScreen';
+import HomeScreen from './screens/HomeScreen.js';
+import CommunityScreen from './screens/CommunityScreen.js';
+import ResumeScreen from './screens/ResumeScreen.js';
+import CalendarScreen from './screens/CalendarScreen.js';
+import ChatScreen from './screens/ChatScreen.js';
+import ModalScreen from './screens/ModalScreen.js';
+import ShopScreen from './screens/ShopScreen.js';
+import DashboardScreen from './screens/DashboardScreen.js';
+import PlaygroundScreen from './screens/PlaygroundScreen.js';
+=======
 import HomeScreen from './src/screens/HomeScreen.js';
 import CommunityScreen from './src/screens/CommunityScreen.js';
 import ResumeScreen from './src/screens/ResumeScreen.js';
@@ -106,6 +111,7 @@ class ModalScreen extends React.Component {
     );
   }
 }
+>>>>>>> 49933c0a938b9e8c57d8da667c098f4666a54ccd
 
 const MainStack = StackNavigator(
   {
@@ -152,7 +158,7 @@ const MainStack = StackNavigator(
             },
           }),
     },
-    Test: {
+    Resume: {
       screen: ResumeScreen,
       navigationOptions: ({ navigation }) => ({
             gesturesEnabled: true,
@@ -204,9 +210,48 @@ const MainStack = StackNavigator(
                   },
                 }),
           },
+      Shop: {
+          screen: ShopScreen,
+          navigationOptions: ({ navigation }) => ({
+                gesturesEnabled: true,
+                title: `#Shop`,
+                headerTintColor: 'white',
+                headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                  fontSize: 30
+                },
+              }),
+        },
+      Dashboard: {
+          screen: DashboardScreen,
+          navigationOptions: ({ navigation }) => ({
+                gesturesEnabled: true,
+                title: `#Dashboard`,
+                headerTintColor: 'white',
+                headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                  fontSize: 30
+                },
+              }),
+        },
+      Playground: {
+          screen: PlaygroundScreen,
+          navigationOptions: ({ navigation }) => ({
+                gesturesEnabled: true,
+                title: `#Playground`,
+                headerTintColor: 'white',
+                headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                  fontSize: 30
+                },
+              }),
+        },
   },
   {
-    initialRouteName: 'Chat',
+    initialRouteName: 'Playground',
   }
 );
 const RootStack = StackNavigator(
@@ -224,42 +269,8 @@ const RootStack = StackNavigator(
   }
 );
 
-
 export default class App extends React.Component {
   render() {
     return <RootStack />;
   }
 }
-
-// export default TabNavigator(
-//   {
-//     Map: {screen:MapScreen},
-//     // Home: { screen: RootStack },
-//     explore: { screen: HomeScreen },
-//     community: { screen: CommunityScreen },
-//     // test: { screen: ResumeScreen },
-//     ResumeScreen: {screen:Test},
-//
-//   },
-//   {
-//     navigationOptions: ({ navigation }) => ({
-//       tabBarIcon: ({ focused, tintColor }) => {
-//         const { routeName } = navigation.state;
-//
-//       },
-//     }),
-//
-//     tabBarComponent: TabBarBottom,
-//     tabBarPosition: 'bottom',
-//     tabBarOptions: {
-//       activeTintColor: 'tomato',
-//       inactiveTintColor: 'grey',
-//
-//       style: {
-//         backgroundColor: 'blue'
-//       },
-//     },
-//     animationEnabled: false,
-//     swipeEnabled: false,
-//   }
-// );

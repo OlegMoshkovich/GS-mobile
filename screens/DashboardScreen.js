@@ -6,31 +6,26 @@ import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
-
-
-import {GiftedChat } from 'react-native-gifted-chat';
-
 const {width, height} = Dimensions.get('window');
 
-
-class ChatScreen extends React.Component {
+class DashboardScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Map')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
             style={{height: 40,width: 40, right:20}}
-            source={require('../../assets/Map-icon.png')}
+            source={require('../assets/Explore-icon.png')}
           />
         </TouchableOpacity>
 
       ),
       headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Resume')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('../../assets/Calendar-icon.png')}
+            source={require('../assets/Resume-icon.png')}
           />
         </TouchableOpacity>
       )
@@ -46,32 +41,6 @@ class ChatScreen extends React.Component {
 
     };
   }
-<<<<<<< HEAD
-
-
-   // starts with a default message
-   componentDidMount() {
-    //Analytics.record('aws-expo-demo-app-launched');
-
-    this.setState({
-      messages: [
-        {
-          _id: 1,
-          text: 'Developers! Developers! Developers!',
-          createdAt: new Date(),
-          user: {
-            _id: 2,
-            name: 'React Native',
-            avatar: 'https://facebook.github.io/react/img/logo_og.png',
-            },
-          },
-        ],
-      })
-    }
-
-
-=======
->>>>>>> bba894a60e4867265cfbbe0dca8306655dce0df7
   animate = () => {
     Animated.timing(
       this.state.moveAnim,
@@ -100,10 +69,24 @@ class ChatScreen extends React.Component {
            height: height,
            width:width,
            flex: 1,
-           flexDirection: 'row',
-           justifyContent: 'flex-end',
-           alignItems: 'flex-end',
+
          }}>
+
+         <Image
+           style={{height: 290,width: 227, top:100, left:75}}
+
+           source={require('../assets/Dashboard-Avatar.png')}
+         />
+
+         <View
+            style={{
+              height: height,
+              width:width,
+              flex: 1,
+              flexDirection: 'row',
+              justifyContent: 'flex-end',
+              alignItems: 'flex-end',
+            }}>
 
              <Animated.View
                   style={{
@@ -154,21 +137,8 @@ class ChatScreen extends React.Component {
                       />
                       </TouchableOpacity>
                   </View>
+
               </Animated.View>
-
-              <View>
-
-
-
-              <GiftedChat
-                    messages={this.state.messages}
-                    onSend={messages => this.onSend(messages)}
-                    user={{
-                      _id: 1,
-                    }}
-                  />
-                </View>
-
 
 
              <TouchableOpacity
@@ -176,13 +146,13 @@ class ChatScreen extends React.Component {
                   onPress={this.animate} onLongPress={this.animate}>
               <Image
                 style={{height:150,width:100}}
-                source={require('../../assets/Nav_Avatar_Face_Animations.png')}
+                source={require('../assets/Nav_Avatar_Face_Animations.png')}
               />
              </TouchableOpacity>
-
+          </View>
       </LinearGradient>
     );
   }
 }
 
-export default ChatScreen;
+export default DashboardScreen;

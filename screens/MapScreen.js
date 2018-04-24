@@ -1,7 +1,7 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
 import { Animated,Platform,StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Button, ActivityIndicator, Alert} from 'react-native';
-import Ball from './Ball.js';
+
 import {Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient ,Constants, MapView, Location, Permissions } from 'expo';

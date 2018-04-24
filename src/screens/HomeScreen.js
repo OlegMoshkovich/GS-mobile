@@ -38,82 +38,69 @@ class HomeScreen extends React.Component {
       )
     };
   };
-  constructor(props) {
-    super(props);
-    this.state = {
-      moveAnim    : new Animated.Value(1),
-      activated    : true,
-      valueInitial: -300,
-      valueFinal:0
+    constructor(props) {
+      super(props);
+      this.state = {
+        moveAnim     : new Animated.Value(1),
+        activated    : true,
+        valueInitial : 0,
+        valueFinal   : 0
 
-    };
-  }
-  animate = () => {
-    Animated.timing(                  // Animate over time
-      this.state.moveAnim,           // The animated value to drive
-      {
-        toValue: 1,                   // Animate to opacity: 1 (opaque)
-        duration: 10000,              // Make it take a while
-      }
-    ).start();
-
-    console.log(this.state.moveAnim._value)
-    this.setState({
-     activated : !this.state.activated,
-     valueInitial: this.state.activated? 0 : -300,
-     valueFinal:this.state.activated? -300 : 0
+      };
     }
+    animate = () => {
+      Animated.timing(
+        this.state.moveAnim,
+        {
+          toValue: 1,
+          duration: 10000,
+        }
+      ).start();
 
-    )                 // Starts the animation
-  }
-
-  _onLongPressButton() {
-    Alert.alert(
+      this.setState({
+         activated : !this.state.activated,
+         valueInitial: this.state.activated? 0 : -150,
+         valueFinal:this.state.activated? -150 : 0
+        }
+      )
+    }
+    _onPressButton() {
+      Alert.alert(
       'Ava',
-      'How can I help? - Long Press',
+      'Short Press',
       [
         {text: 'OK', onPress: () => console.log('OK Pressed')},
       ],
       { cancelable: false }
-    )
-  }
-  _onPressButton() {
-    Alert.alert(
-    'Ava',
-    'Short Press',
-    [
-      {text: 'OK', onPress: () => console.log('OK Pressed')},
-    ],
-    { cancelable: false }
-    )
+      )
+      }
+    renderCard = (item) => {
+      return(
+        <Card
+          key = {item.id}
+          containerStyle ={{backgroundColor:"white",borderColor: "lightgrey",borderRadius: 7,height: 460,width:width-50,left:12}}>
+          <Text style ={{marginBottom:19,color:"black",fontSize: 10,fontWeight:'normal' }}>Source, duration </Text>
+          <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('MyModal', {
+                text: item.text,
+                title: item.title,
+                image_uri: item.uri,
+              });
+            }}>
+          <Text style ={{marginBottom:24,color:"black",fontSize: 22,fontWeight:'bold' ,textDecorationLine:'underline'}}>{item.title} </Text>
+          </TouchableOpacity>
+          <Text style ={{marginBottom:17,color:"black"}}>{item.text}</Text>
+
+            <Image
+               style={{height: 225}}
+               resizeMode="cover"
+               source={{ uri:item.uri }}
+             />
+
+        </Card>
+      )
     }
 
-  renderCard = (item) => {
-    return(
-      <Card
-        key = {item.id}
-        containerStyle ={{backgroundColor:"white",borderColor: "lightgrey",borderRadius: 7,height: 460,width:width-50,left:12}}>
-        <Text style ={{marginBottom:19,color:"black",fontSize: 10,fontWeight:'normal' }}>Source, duration </Text>
-        <TouchableOpacity
-        onPress={() => {this.props.navigation.navigate('MyModal', {
-              text: item.text,
-              title: item.title,
-              image_uri: item.uri,
-            });
-          }}>
-        <Text style ={{marginBottom:24,color:"black",fontSize: 22,fontWeight:'bold' ,textDecorationLine:'underline'}}>{item.title} </Text>
-        </TouchableOpacity>
-        <Text style ={{marginBottom:17,color:"black"}}>{item.text}</Text>
-
-          <Image
-             style={{height: 225}}
-             resizeMode="cover"
-             source={{ uri:item.uri }}
-           />
-
-      </Card>
-    )
-  }
   render() {
     return (
       <LinearGradient
@@ -124,6 +111,8 @@ class HomeScreen extends React.Component {
          renderCard = {this.renderCard}
          renderNoMoreCards = {this.renderNoMoreCards}/>
          <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:0,marginLeft:30,bottom:200,right:20, alignItems:'flex-end'}}>
+<<<<<<< HEAD:screens/HomeScreen.js
+=======
              <TouchableOpacity
                   onPress={this._onPressButton} onLongPress={this._onLongPressButton}>
               <Image
@@ -132,7 +121,72 @@ class HomeScreen extends React.Component {
               />
              </TouchableOpacity>
         </View>
+>>>>>>> 49933c0a938b9e8c57d8da667c098f4666a54ccd:src/screens/HomeScreen.js
 
+         <Animated.View
+              style={{
+              flex:1,
+              transform: [{
+                translateY: this.state.moveAnim.interpolate({
+                  inputRange: [0, 1],
+                  outputRange: [this.state.valueInitial, this.state.valueFinal]  // 0 : 150, 0.5 : 75, 1 : 0
+                }),
+              }],
+          }}>
+              <View style={{
+                left:5,
+                top:200,
+                flex: 1,
+                 flexDirection: 'row',
+                 justifyContent: 'flex-start',
+                 alignItems: 'flex-end',
+                }}>
+                  <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
+                  <Image
+                    style={{height: 30,width: 30}}
+                    source={require('../assets/Shop-icon.png')}
+                  />
+                  </TouchableOpacity>
+                  <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Calendar')}>
+                  <Image
+                    style={{height: 30,width: 30}}
+                    source={require('../assets/Calendar-icon.png')}
+                  />
+                  </TouchableOpacity>
+                  <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Chat')}>
+                  <Image
+                    style={{height: 30,width: 30}}
+                    source={require('../assets/Chat-icon.png')}
+                  />
+                  </TouchableOpacity>
+                  <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
+                  <Image
+                    style={{height: 30,width: 30}}
+                    source={require('../assets/Map-icon.png')}
+                  />
+                  </TouchableOpacity>
+                  <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')} >
+                  <Image
+                    style={{height: 30,width: 30}}
+                    source={require('../assets/Community-icon.png')}
+                  />
+                  </TouchableOpacity>
+                  <TouchableOpacity  style ={{margin:5}} onPress={() => this.props.navigation.navigate('Playground')}>
+                  <Image
+                    style={{height: 30,width: 30}}
+                    source={require('../assets/Journeys-icon.png')}
+                  />
+                  </TouchableOpacity>
+              </View>
+          </Animated.View>
+         <TouchableOpacity
+              onPress={this.animate}>
+            <Image
+              style={{height: 150,width: 100, right:0, top:120}}
+              source={require('../assets/Nav_Avatar_Face_Animations.png')}
+            />
+         </TouchableOpacity>
+        </View>
       </LinearGradient>
     );
   }

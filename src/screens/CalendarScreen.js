@@ -26,10 +26,10 @@ class CalendarScreen extends React.Component {
 
       ),
       headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Shop')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('../../assets/Explore-icon.png')}
+            source={require('../../assets/Shop-icon.png')}
           />
         </TouchableOpacity>
       )
