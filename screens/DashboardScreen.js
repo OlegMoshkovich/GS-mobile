@@ -8,24 +8,24 @@ import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 const {width, height} = Dimensions.get('window');
 
-class ChatScreen extends React.Component {
+class DashboardScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Map')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
             style={{height: 40,width: 40, right:20}}
-            source={require('../assets/Map-icon.png')}
+            source={require('../assets/Explore-icon.png')}
           />
         </TouchableOpacity>
 
       ),
       headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Resume')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('../assets/Calendar-icon.png')}
+            source={require('../assets/Resume-icon.png')}
           />
         </TouchableOpacity>
       )
@@ -69,10 +69,24 @@ class ChatScreen extends React.Component {
            height: height,
            width:width,
            flex: 1,
-           flexDirection: 'row',
-           justifyContent: 'flex-end',
-           alignItems: 'flex-end',
+
          }}>
+
+         <Image
+           style={{height: 290,width: 227, top:100, left:75}}
+
+           source={require('../assets/Dashboard-Avatar.png')}
+         />
+
+         <View
+            style={{
+              height: height,
+              width:width,
+              flex: 1,
+              flexDirection: 'row',
+              justifyContent: 'flex-end',
+              alignItems: 'flex-end',
+            }}>
 
              <Animated.View
                   style={{
@@ -123,6 +137,7 @@ class ChatScreen extends React.Component {
                       />
                       </TouchableOpacity>
                   </View>
+
               </Animated.View>
 
 
@@ -134,10 +149,10 @@ class ChatScreen extends React.Component {
                 source={require('../assets/Nav_Avatar_Face_Animations.png')}
               />
              </TouchableOpacity>
-
+          </View>
       </LinearGradient>
     );
   }
 }
 
-export default ChatScreen;
+export default DashboardScreen;

@@ -17,7 +17,7 @@ class ResumeScreen extends React.Component {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Dashboard')}>
           <Image
             style={{height: 40,width: 40, right:20}}
             source={require('../assets/Dashboard-icon.png')}

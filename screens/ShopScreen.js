@@ -10,15 +10,15 @@ import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 const {width, height} = Dimensions.get('window');
 
-class CommunityScreen extends React.Component {
+class ShopScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Resume')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
           <Image
             style={{height: 40,width: 40, right:20}}
-            source={require('../assets/Resume-icon.png')}
+            source={require('../assets/Calendar-icon.png')}
           />
         </TouchableOpacity>
 
@@ -41,44 +41,44 @@ class CommunityScreen extends React.Component {
         <LinearGradient
          colors={['#56CCF2', '#56CCF2', 'white']}
          style={{ height: height, width:width}}>
-         <Text style ={{color:"white",fontSize: 22,top:30,left:30,fontWeight:'bold', }}>Featured Stories</Text>
+         <Text style ={{color:"white",fontSize: 22,top:30,left:30,fontWeight:'bold', }}>Featured</Text>
          <ScrollView>
              <ScrollView horizontal= {true} style={{marginTop:40}}>
              <Image
-                style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                style={{height: 401,width:336,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                 source={require('../assets/Article_1.png')}
+                 source={require('../assets/Shop_Image.png')}
               />
               <Image
-                 style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                 style={{height: 401,width:336,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                  resizeMode="cover"
-                  source={require('../assets/Article_1.png')}
+                  source={require('../assets/Shop_Image.png')}
                />
                <Image
-                  style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                  style={{height: 401,width:336,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                   resizeMode="cover"
-                   source={require('../assets/Article_1.png')}
+                   source={require('../assets/Shop_Image.png')}
                 />
 
              </ScrollView >
-             <Text style ={{color:"white",fontSize: 22,left:30,fontWeight:'bold',marginBottom:10 }}>Friends Stories</Text>
+             <Text style ={{color:"white",fontSize: 22,left:30,fontWeight:'bold',marginBottom:10 }}>Whats New</Text>
 
              <ScrollView horizontal= {true} style={{marginBottom:200}} >
              <Image
-                style={{height: 213,width:161,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                source={require('../assets/Article_2.png')}
+                source={require('../assets/Shop_Image3.png')}
               />
 
               <Image
-                 style={{height: 213,width:161,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                 style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                  resizeMode="cover"
-                 source={require('../assets/Article_2.png')}
+                 source={require('../assets/Shop_Image3.png')}
                />
                <Image
-                  style={{height: 213,width:161,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                  style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                   resizeMode="cover"
-                  source={require('../assets/Article_2.png')}
+                  source={require('../assets/Shop_Image3.png')}
                 />
 
 
@@ -90,4 +90,4 @@ class CommunityScreen extends React.Component {
     );
   }
 }
-export default CommunityScreen;
+export default ShopScreen;

@@ -80,16 +80,11 @@ class Deck extends Component{
   };
   renderCards(){
     if (this.state.index >= this.props.data.length) {
-
-
     this.resetState();
-
     }
 
     return this.props.data.map((item,i) =>{
       if (i<this.state.index){return null;}
-
-
       if(i===this.state.index){
 
         return(
@@ -97,10 +92,8 @@ class Deck extends Component{
            key = {item.id}
            style = {[this.getCardStyle(),styles.cardStyle]}
            {...this.state.panResponder.panHandlers}>
-
           {this.props.renderCard(item)}
           </Animated.View>
-
         )
       }
 
@@ -109,20 +102,17 @@ class Deck extends Component{
            key= {item.id}
            style = {[styles.cardStyle,{left:-3*(i-this.state.index)}]}>
           { this.props.renderCard(item)}
-
-
            </Animated.View>
          );
     }).reverse();
   }
-  render() {
-    return (
-    <View>
-    {this.renderCards()}
-    </View>
-  )
 
-
+    render() {
+      return (
+      <View>
+      {this.renderCards()}
+      </View>
+    )
   }
 }
 
