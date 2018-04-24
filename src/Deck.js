@@ -118,7 +118,7 @@ class Deck extends Component{
   render() {
     return (
     <View>
-    {this.renderCards()}
+      {this.renderCards()}
     </View>
   )
 
@@ -130,9 +130,6 @@ const styles = {
   cardStyle: {
     position:'absolute',
     top:65,
-
-
-
   }
 };
 
