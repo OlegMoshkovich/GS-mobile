@@ -46,7 +46,6 @@ class ChatScreen extends React.Component {
 
     };
   }
-<<<<<<< HEAD
 
 
    // starts with a default message
@@ -70,8 +69,6 @@ class ChatScreen extends React.Component {
     }
 
 
-=======
->>>>>>> bba894a60e4867265cfbbe0dca8306655dce0df7
   animate = () => {
     Animated.timing(
       this.state.moveAnim,
@@ -126,31 +123,31 @@ class ChatScreen extends React.Component {
                       <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Calendar')}>
                       <Image
                         style={{height: 30,width: 30}}
-                        source={require('../assets/Calendar-icon.png')}
+                        source={require('../../assets/Calendar-icon.png')}
                       />
                       </TouchableOpacity>
                       <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Chat')}>
                       <Image
                         style={{height: 30,width: 30}}
-                        source={require('../assets/Chat-icon.png')}
+                        source={require('../../assets/Chat-icon.png')}
                       />
                       </TouchableOpacity>
                       <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
                       <Image
                         style={{height: 30,width: 30}}
-                        source={require('../assets/Map-icon.png')}
+                        source={require('../../assets/Map-icon.png')}
                       />
                       </TouchableOpacity>
                       <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')} >
                       <Image
                         style={{height: 30,width: 30}}
-                        source={require('../assets/Community-icon.png')}
+                        source={require('../../assets/Community-icon.png')}
                       />
                       </TouchableOpacity>
                       <TouchableOpacity  style ={{margin:5}} onPress={() => this.props.navigation.navigate('Test')}>
                       <Image
                         style={{height: 30,width: 30}}
-                        source={require('../assets/Resume-icon.png')}
+                        source={require('../../assets/Resume-icon.png')}
                       />
                       </TouchableOpacity>
                   </View>

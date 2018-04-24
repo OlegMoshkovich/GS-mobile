@@ -106,16 +106,6 @@ class Deck extends Component{
          );
     }).reverse();
   }
-<<<<<<< HEAD
-=======
-  render() {
-    return (
-    <View>
-      {this.renderCards()}
-    </View>
-  )
-
->>>>>>> 49933c0a938b9e8c57d8da667c098f4666a54ccd
 
     render() {
       return (
