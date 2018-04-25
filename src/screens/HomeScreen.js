@@ -125,7 +125,7 @@ class HomeScreen extends React.Component {
          renderNoMoreCards = {this.renderNoMoreCards}/>
          <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:0,marginLeft:30,bottom:200,right:20, alignItems:'flex-end'}}>
              <TouchableOpacity
-                  onPress={this._onPressButton} onLongPress={this._onLongPressButton}>
+                  onPress={() => this.props.navigation.navigate('Playground')} onLongPress={this._onLongPressButton}>
               <Image
                 style={{height: 150,width: 100, right:0, top:120}}
                 source={require('../../assets/Nav_Avatar_Face_Animations.png')}

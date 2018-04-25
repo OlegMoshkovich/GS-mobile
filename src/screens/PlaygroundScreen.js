@@ -39,25 +39,50 @@ class PlaygroundScreen extends React.Component{
     this.state = {
       moveAnim     : new Animated.Value(0),
       activated    : true,
+      fadeAnim : new Animated.Value(0),
+      blurRadius: 0
     };
+
+
+
+    
+
+
   };
 
 
 
   animate = () => {
-    console.log(this.state.activated),
-    console.log(hello);
-
-    const hello = 1;
+    console.log(this.state.activated);
 
 
-    Animated.timing(
-      this.state.moveAnim,
+
+    if (this.state.blurRadius == 10) {
+      this.setState({
+        blurRadius: 0
+      });
+
+    } else {
+      this.setState({
+        blurRadius: 10
+      });
+
+    
+    }
+
+
+    this.state.blurRadius == 10 ? 0: 10;
+    
+
+    
+    Animated.timing(                  // Animate over time
+      this.state.fadeAnim,            // The animated value to drive
       {
-        toValue: hello,
-        duration: 1000,
+        toValue: this.state.activated ? 1: 0,                   // Animate to opacity: 1 (opaque)
+        duration: 1000,              // Make it take a while
       }
-    ).start();
+    ).start();   
+
 
     this.setState({
        activated : !this.state.activated,
@@ -68,66 +93,164 @@ class PlaygroundScreen extends React.Component{
   }
 
   render() {
+
+    let { fadeAnim } = this.state;
+
     return (
 
-
+     
         <LinearGradient
            colors={['#56CCF2', '#56CCF2', 'white']}
            style={{
              height: height,
              width:width,
              flex: 1,
-           }}>
+             justifyContent: 'space-between',
+             flexDirection: 'column',
+             alignItems: 'center'
 
-           <Image
-             style={{height: 290,width: 227, top:100, left:75}}
-             source={require('../../assets/Dashboard-Avatar.png')}
+           
+            }} >
+
+
+
+            <Image
+               blurRadius={this.state.blurRadius}
+
+               style={{height: 227,width: 177}}
+              source={require('../../assets/Dashboard-Avatar.png')}
            />
 
 
             <Animated.View
                  style={{
-                 flex:1,
-                 transform: [{
-                   translateY: this.state.moveAnim.interpolate({
-                     inputRange: [0, 1],
-                     outputRange: [0, -800]  // 0 : 150, 0.5 : 75, 1 : 0
-                   }),
-                 }],
+                  position: 'absolute',
+                  top: 0,
+                  bottom: 0,
+                  left: 0,
+                  right: 0,
+
+             
+                 opacity: fadeAnim,      
+                
+
              }}>
-                <BlurView tint="light" intensity={80}  style={{
-                   top:500,
-                   height: height,
-                   width:width,
+                <BlurView tint="regular" intensity={100}  style={{
+                  flex: 1,
+                  position: 'absolute',
+
+
+                  width: width,
+                  height: height,
+                  
+
+                   
 
                  }}>
-                </BlurView>
-                <Image
-                  style={{height:93,width:270, bottom:200,left:20}}
+
+                 <Image
+
+                  style={{height:93,width:272, left: 20, 
+
+
+                    position: 'absolute',
+                    top: 20,
+
+                  
+                  
+                  
+                  
+                  }}
                   source={require('../../assets/Chat-bubble.png')}
+
                 />
+                
+                
+                
                 <Image
-                    style={{height:26,width:343, top:250,left:20}}
+                    style={{height:26,width:343, left:20,
+
+                      position: 'absolute',
+                      bottom: 100,
+                      zIndex: 10
+                      
+                    }}
                    source={require('../../assets/Speech-input.png')}
                  />
+    <TouchableOpacity
+                  style ={{
+                    
+                    
+                    position: 'absolute',
+                    bottom: 70,
+                    zIndex: 1,
+                    right: 0,
 
-              </Animated.View>
-
-              <TouchableOpacity
-                  style ={{left:250}}
+                  
+                  
+                
+                
+                
+                }}
                    onPress={this.animate} onLongPress={this.animate}>
                <Image
-                 style={{height:150,width:100}}
+                 style={{
+                   
+                  height:150,width:100,
+                  
+
+                  
+                
+                }}
                  source={require('../../assets/Nav_Avatar_Face_Animations.png')}
                />
 
               </TouchableOpacity>
 
+                </BlurView>
+                
 
-        </LinearGradient>
+              </Animated.View>
 
 
 
+                    <TouchableOpacity
+                  style ={
+                    
+                    
+                    
+                    {alignSelf: 'flex-end',
+                    position: 'absolute',
+                    bottom: 0,
+                    width: this.state.activated ? 100: 0,
+                    height: this.state.activated ? 150: 0,
+                    }
+                    
+
+
+
+
+}
+                   onPress={this.animate} onLongPress={this.animate}>
+               <Image
+                 style={{height:150,width:100,
+                
+                  
+                
+                }}
+                 source={require('../../assets/Nav_Avatar_Face_Animations.png')}
+               />
+
+              </TouchableOpacity>
+
+          
+
+
+             
+
+</LinearGradient>
+
+              
 
     );
   }
