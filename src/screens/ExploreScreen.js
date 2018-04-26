@@ -1,6 +1,6 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View,PanResponder,Vibration, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
 import Deck from '../Deck';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
@@ -15,7 +15,7 @@ const DATA = [
   { id: 5, title: 'Summertime Instagram catch', uri: 'https://s20843.pcdn.co/wp-content/uploads/2013/07/photo-38.jpg',text:'Close your eyes and imagine the spoils of travel: different cultures, breathtaking vistas, exotic foods. You might picture zooming down a zip line in the Amazon, tasting a classic New York hot dog, ' },
 ];
 
-class HomeScreen extends React.Component {
+class ExploreScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const params = navigation.state.params || {};
     return {
@@ -28,7 +28,6 @@ class HomeScreen extends React.Component {
         </TouchableOpacity>
 
       ),
-
       headerLeft: (
         <TouchableOpacity onPress={() => navigation.navigate('Map')}>
           <Image
@@ -39,60 +38,34 @@ class HomeScreen extends React.Component {
       )
     };
   };
-
   constructor(props) {
-    
     super(props);
-    
-    var position = new Animated.ValueXY({x:300, y:200});
-  
-   
-    const panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: () => true,
-      onPanResponderMove: (event, gesture) => {
-        Vibration.vibrate();
-        // Vibration.cancel();
-        position.setValue({x:gesture.dx+width+this.state.accelerometerData.x*100, y:gesture.dy+200+this.state.accelerometerData.y*100});
-        radius = 60 + gesture.dx;
-      },
-      onPanResponderRelease: () => {
-        Vibration.vibrate(PATTERN, true);
-        position.setValue({x:width, y:200});
-         Vibration.cancel()
-      }
-    });
     this.state = {
-      moveAnim     : new Animated.Value(0),
+      moveAnim    : new Animated.Value(1),
       activated    : true,
-      fadeAnim : new Animated.Value(0),
-      blurRadius: 0,
-      panResponder,
-      position
-    };
-  };
+      valueInitial: -300,
+      valueFinal:0
 
+    };
+  }
   animate = () => {
-    if (this.state.blurRadius == 10) {
-      this.setState({
-        blurRadius: 0
-      });
-    } else {
-      this.setState({
-        blurRadius: 10
-      });
+    Animated.timing(                  // Animate over time
+      this.state.moveAnim,           // The animated value to drive
+      {
+        toValue: 1,                   // Animate to opacity: 1 (opaque)
+        duration: 10000,              // Make it take a while
+      }
+    ).start();
+
+    console.log(this.state.moveAnim._value)
+    
+    this.setState({
+     activated : !this.state.activated,
+     valueInitial: this.state.activated? 0 : -300,
+     valueFinal:this.state.activated? -300 : 0
     }
-      
-    Animated.timing(                  
-        this.state.fadeAnim,            
-        {
-          toValue: this.state.activated ? 1: 0,                   
-          duration: 1000,             
-        }
-      ).start();   
-      this.setState({
-        activated : !this.state.activated,
-        }
-      )
+
+    )                 // Starts the animation
   }
 
   _onLongPressButton() {
@@ -116,84 +89,53 @@ class HomeScreen extends React.Component {
     )
     }
 
-  
+  renderCard = (item) => {
+    return(
+      <Card
+        key = {item.id}
+        containerStyle ={{backgroundColor:"white",borderColor: "lightgrey",borderRadius: 7,height: 460,width:width-50,left:12}}>
+        <Text style ={{marginBottom:19,color:"black",fontSize: 10,fontWeight:'normal' }}>Source, duration </Text>
+        <TouchableOpacity
+        onPress={() => {this.props.navigation.navigate('MyModal', {
+              text: item.text,
+              title: item.title,
+              image_uri: item.uri,
+            });
+          }}>
+        <Text style ={{marginBottom:24,color:"black",fontSize: 22,fontWeight:'bold' ,textDecorationLine:'underline'}}>{item.title} </Text>
+        </TouchableOpacity>
+        <Text style ={{marginBottom:17,color:"black"}}>{item.text}</Text>
+
+          <Image
+             style={{height: 225}}
+             resizeMode="cover"
+             source={{ uri:item.uri }}
+           />
+      </Card>
+    )
+  }
   render() {
-    let { fadeAnim } = this.state;
     return (
       <LinearGradient
        colors={['#56CCF2', '#56CCF2', 'white']}
-       style={{ height: height, width:width}}>   
-        <Image
-        blurRadius={this.state.blurRadius}
-        style={{height: height,width: width}}
-        source={require('../../assets/Home-Background.png')}
-        />
-       
-        <Animated.View
-            style={{
-            position: 'absolute',
-            top: 60,
-            bottom: 0,
-            left: 0,
-            right: 0,
-            opacity: fadeAnim,      
-          }}>
-      
-          <Image
-            style={{height:93,width:272, left: 20,
-            position: 'absolute',
-            top: 20,
-            }}
-            source={require('../../assets/Chat-bubble.png')}
-            />   
-            
-          <Image
-              style={{height:26,width:343, left:20,
-
-                position: 'absolute',
-                bottom: 35+100,
-                zIndex: 10
-              }}
-              source={require('../../assets/Speech-input.png')}
-            />
-
-          <TouchableOpacity
-            style ={{  
-              position: 'absolute',
-              bottom: 0+90,
-              zIndex: 1,
-              right: 0,
-            }}
-              onPress={this.animate} onLongPress={this.animate}>
-            <Image
-            style={{
-            height:150,width:100,
-            }}
-              source={require('../../assets/Nav_Avatar_Face_Animations.png')}
-            />
-          </TouchableOpacity>
-        </Animated.View>
-        <TouchableOpacity
-              style = {{
-              alignSelf: 'flex-end',
-              position: 'absolute',
-              bottom: 0+90,
-              width: this.state.activated ? 100: 0,
-              height: this.state.activated ? 150: 0,
-              }}
-              onPress={this._onPressButton} onLongPress={this.animate}>
+       style={{ height: height, width:width}}>
+         <Deck
+         data = {DATA}
+         renderCard = {this.renderCard}
+         renderNoMoreCards = {this.renderNoMoreCards}/>
+         <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:0,marginLeft:30,bottom:200,right:20, alignItems:'flex-end'}}>
+             <TouchableOpacity
+                  onPress={() => this.props.navigation.navigate('Playground')} onLongPress={this._onLongPressButton}>
               <Image
-                style={{height:150,width:100,}}
+                style={{height: 150,width: 100, right:0, top:120}}
                 source={require('../../assets/Nav_Avatar_Face_Animations.png')}
               />
-              </TouchableOpacity>
+             </TouchableOpacity>
+        </View>
 
-
-     
-     
       </LinearGradient>
     );
   }
 }
 
-export default HomeScreen;
+export default ExploreScreen;

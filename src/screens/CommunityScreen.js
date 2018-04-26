@@ -61,6 +61,9 @@ class CommunityScreen extends React.Component {
                 />
 
              </ScrollView >
+
+
+             
              <Text style ={{color:"white",fontSize: 22,left:30,fontWeight:'bold',marginBottom:10 }}>Friends Stories</Text>
 
              <ScrollView horizontal= {true} style={{marginBottom:200}} >

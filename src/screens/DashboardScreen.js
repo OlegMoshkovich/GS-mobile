@@ -75,7 +75,7 @@ class DashboardScreen extends React.Component {
          <Image
            style={{height: 290,width: 227, top:100, left:75}}
 
-           source={require('../../assets/Dashboard-Avatar.png')}
+           source={require('../../assets/Ava-Dashboard.png')}
          />
 
          <View
