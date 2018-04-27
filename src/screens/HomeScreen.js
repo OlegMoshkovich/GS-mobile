@@ -30,10 +30,10 @@ class HomeScreen extends React.Component {
       ),
 
       headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Map')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Explore')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('../../assets/Map-icon.png')}
+            source={require('../../assets/Explore-icon.png')}
           />
         </TouchableOpacity>
       )
@@ -41,12 +41,16 @@ class HomeScreen extends React.Component {
   };
 
   constructor(props) {
-    
     super(props);
-    
     var position = new Animated.ValueXY({x:300, y:200});
-  
-   
+    this.state = {
+      moveAnim     : new Animated.Value(0),
+      activated    : true,
+      fadeAnim : new Animated.Value(0),
+      blurRadius: 0,
+      panResponder,
+      position
+    };
     const panResponder = PanResponder.create({
       onStartShouldSetPanResponder: () => true,
       onPanResponderMove: (event, gesture) => {
@@ -61,14 +65,7 @@ class HomeScreen extends React.Component {
          Vibration.cancel()
       }
     });
-    this.state = {
-      moveAnim     : new Animated.Value(0),
-      activated    : true,
-      fadeAnim : new Animated.Value(0),
-      blurRadius: 0,
-      panResponder,
-      position
-    };
+
   };
 
   animate = () => {
@@ -86,7 +83,7 @@ class HomeScreen extends React.Component {
         this.state.fadeAnim,            
         {
           toValue: this.state.activated ? 1: 0,                   
-          duration: 1000,             
+          duration: 500,             
         }
       ).start();   
       this.setState({
@@ -121,12 +118,12 @@ class HomeScreen extends React.Component {
     let { fadeAnim } = this.state;
     return (
       <LinearGradient
-       colors={['#56CCF2', '#56CCF2', 'white']}
+       colors={['#CCDBE6', '#CCDBE6', '#CCDBE6']}
        style={{ height: height, width:width}}>   
         <Image
         blurRadius={this.state.blurRadius}
         style={{height: height,width: width}}
-        source={require('../../assets/Home-Background.png')}
+        source={require('../../assets/Home-Background-center.png')}
         />
        
         <Animated.View
@@ -139,13 +136,13 @@ class HomeScreen extends React.Component {
             opacity: fadeAnim,      
           }}>
       
-          <Image
+         {/* <Image
             style={{height:93,width:272, left: 20,
             position: 'absolute',
             top: 20,
             }}
             source={require('../../assets/Chat-bubble.png')}
-            />   
+          />  */ }
             
           <Image
               style={{height:26,width:343, left:20,
@@ -161,6 +158,7 @@ class HomeScreen extends React.Component {
             style ={{  
               position: 'absolute',
               bottom: 0+90,
+              
               zIndex: 1,
               right: 0,
             }}
@@ -168,22 +166,61 @@ class HomeScreen extends React.Component {
             <Image
             style={{
             height:150,width:100,
+            right:20,
             }}
-              source={require('../../assets/Nav_Avatar_Face_Animations.png')}
+              source={require('../../assets/Nav_Avatar_Face_Animations-wave.png')}
             />
           </TouchableOpacity>
         </Animated.View>
+        
+
+                  <View style={{
+                    flex:1,
+                    flexDirection: 'row',
+                    position: 'absolute',
+                    bottom: this.state.activated ? 127: 0,
+                    left:20
+                 
+                    }}>
+                      <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
+                      <Image
+                        style={{height: 35,width: 35}}
+                        source={require('../../assets/Explore-icon.png')}
+                      />
+                      </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
+                      <Image
+                       style={{height: 35,width: 35}}
+                        source={require('../../assets/Map-icon.png')}
+                      />
+                      </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
+                      <Image
+                        style={{height: 35,width: 35}}
+                        source={require('../../assets/Community-icon.png')}
+                      />
+                      </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
+                      <Image
+                       style={{height: 35,width: 35}}
+                        source={require('../../assets/Calendar-icon.png')}
+                      />
+                      </TouchableOpacity>
+                  </View>
+             
+
         <TouchableOpacity
               style = {{
               alignSelf: 'flex-end',
               position: 'absolute',
-              bottom: 0+90,
+              bottom: 0+40,
+              right: 20,
               width: this.state.activated ? 100: 0,
               height: this.state.activated ? 150: 0,
               }}
-              onPress={this._onPressButton} onLongPress={this.animate}>
+              onPress={this.animate} onLongPress={this.animate}>
               <Image
-                style={{height:150,width:100,}}
+                style={{height:100,width:100,}}
                 source={require('../../assets/Nav_Avatar_Face_Animations.png')}
               />
               </TouchableOpacity>

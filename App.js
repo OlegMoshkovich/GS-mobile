@@ -24,7 +24,7 @@ import ExploreScreen from './src/screens/ExploreScreen.js';
 
 const customAnimationFunc = () => ({
   screenInterpolator : sceneProps => {
-    return CardStackStyleInterpolator.forHorizontal(sceneProps);
+    return CardStackStyleInterpolator.forFade(sceneProps);
   },
 });
 

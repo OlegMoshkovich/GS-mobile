@@ -187,14 +187,14 @@ class MapScreen extends React.Component {
             <TouchableOpacity onPress={() => navigation.navigate('Home')}>
               <Image
                 style={{height: 40,width: 40, right:20}}
-                source={require('../../assets/Explore-icon.png')}
+                source={require('../../assets/Home-icon.png')}
               />
             </TouchableOpacity>
           ),
           headerLeft: (
             <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
               <Image
-                style={{height: 40,width: 40,left:20}}
+                style={{height: 40,width: 0,left:20}}
                 source={require('../../assets/Chat-icon.png')}
               />
             </TouchableOpacity>
