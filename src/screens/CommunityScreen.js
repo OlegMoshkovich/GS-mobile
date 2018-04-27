@@ -72,9 +72,34 @@ class CommunityScreen extends React.Component {
 
         <LinearGradient
          colors={['#56CCF2', '#56CCF2', 'white']}
-         style={{ height: height, width:width}}>
+         style={{ height: height, width:width,
+          flex: 1,}
+         }>
         
-         <ScrollView>
+        <View style ={{
+         top:15,
+         flex: 1,
+         flexDirection: 'row',
+         justifyContent: 'space-between'
+
+          }}>
+          <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#community</Text>
+          <TouchableOpacity style ={{margin:20}}  onPress={() => this.props.navigation.navigate('Home')}>
+              <Image
+                style={{height: 40,width: 40}}
+                source={require('../../assets/Home-icon.png')}
+              />
+          </TouchableOpacity>
+        </View>
+
+         <ScrollView
+         style ={{
+          top:80,
+          position:'absolute',
+          height: height,
+        
+ 
+           }}>
          <Text style ={{color:"white",fontSize: 22,top:30,left:30,fontWeight:'bold', }}>Featured Stories</Text>
              <ScrollView horizontal= {true} style={{marginTop:40}}>
              <Image
