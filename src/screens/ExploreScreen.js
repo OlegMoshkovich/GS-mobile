@@ -38,6 +38,7 @@ class ExploreScreen extends React.Component {
       )
     };
   };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -95,9 +96,10 @@ class ExploreScreen extends React.Component {
 
   renderCard = (item) => {
     return(
+
       <Card
         key = {item.id}
-        containerStyle ={{backgroundColor:"white",borderColor: "lightgrey",borderRadius: 7,height: 460,width:width-50,left:12}}>
+        containerStyle ={{position:'absolute',backgroundColor:"white",borderColor: "lightgrey",borderRadius: 7,height: 460,width:width-50,left:12}}>
         <Text style ={{marginBottom:19,color:"black",fontSize: 10,fontWeight:'normal' }}>Source, duration </Text>
         <TouchableOpacity
         onPress={() => {this.props.navigation.navigate('MyModal', {
@@ -125,17 +127,40 @@ class ExploreScreen extends React.Component {
        colors={['#56CCF2', '#56CCF2', 'white']}
        style={{ height: height, width:width}
        }>
+       <View style ={{
+         top:15,
+         flex: 1,
+         flexDirection: 'row',
+         justifyContent: 'space-between'
+
+          }}>
+          <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#explore</Text>
+          <TouchableOpacity style ={{margin:20}}  onPress={() => this.props.navigation.navigate('Home')}>
+              <Image
+                style={{height: 40,width: 40}}
+                source={require('../../assets/Home-icon.png')}
+              />
+          </TouchableOpacity>
+        </View>
+        
+        <View
+        style={{
+          position:'absolute',
+          top:20
+        }}>
          <Deck
+        
          data = {DATA}
          renderCard = {this.renderCard}
          renderNoMoreCards = {this.renderNoMoreCards}/>
+          </View>
 
 
                   <View style={{
                     flex:1,
                     flexDirection: 'row',
                     position: 'absolute',
-                    bottom: this.state.activated ? 127: 0,
+                    bottom: this.state.activated ? -50: 30,
                     left:20
                  
                     }}>
@@ -163,12 +188,18 @@ class ExploreScreen extends React.Component {
                         source={require('../../assets/Calendar-icon.png')}
                       />
                       </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
+                      <Image
+                       style={{height: 35,width: 35}}
+                        source={require('../../assets/Shop-icon.png')}
+                      />
+                      </TouchableOpacity>
                   </View>
         <TouchableOpacity
               style = {{
               alignSelf: 'flex-end',
               position: 'absolute',
-              bottom: 0+40,
+              bottom: -50,
               right: 20,
               width: this.state.activated ? 100: 100,
               height: this.state.activated ? 150: 150,

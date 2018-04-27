@@ -33,7 +33,39 @@ class CommunityScreen extends React.Component {
       )
     };
   };
-
+  constructor(props) {
+    super(props);
+    this.state = {
+      moveAnim     : new Animated.Value(0),
+      activated    : true,
+      fadeAnim : new Animated.Value(0),
+      blurRadius: 0,
+    };
+    
+  }
+  animate = () => {
+    if (this.state.blurRadius == 10) {
+      this.setState({
+        blurRadius: 0
+      });
+    } else {
+      this.setState({
+        blurRadius: 10
+      });
+    }
+      
+    Animated.timing(                  
+        this.state.fadeAnim,            
+        {
+          toValue: this.state.activated ? 1: 0,                   
+          duration: 500,             
+        }
+      ).start();   
+      this.setState({
+        activated : !this.state.activated,
+        }
+      )
+  }
 
   render() {
     return (
@@ -89,6 +121,60 @@ class CommunityScreen extends React.Component {
              </ScrollView >
 
          </ScrollView>
+         <View style={{
+                    flex:1,
+                    flexDirection: 'row',
+                    position: 'absolute',
+                    bottom: this.state.activated ? -50: 30,
+                    left:20
+                 
+                    }}>
+                      <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
+                      <Image
+                        style={{height: 35,width: 35}}
+                        source={require('../../assets/Explore-icon.png')}
+                      />
+                      </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
+                      <Image
+                       style={{height: 35,width: 35}}
+                        source={require('../../assets/Map-icon.png')}
+                      />
+                      </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
+                      <Image
+                        style={{height: 35,width: 35}}
+                        source={require('../../assets/Community-icon.png')}
+                      />
+                      </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
+                      <Image
+                       style={{height: 35,width: 35}}
+                        source={require('../../assets/Calendar-icon.png')}
+                      />
+                      </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
+                      <Image
+                       style={{height: 35,width: 35}}
+                        source={require('../../assets/Shop-icon.png')}
+                      />
+                      </TouchableOpacity>
+                  </View>
+        <TouchableOpacity
+              style = {{
+              alignSelf: 'flex-end',
+              position: 'absolute',
+              bottom: -50,
+              right: 20,
+              width: this.state.activated ? 100: 100,
+              height: this.state.activated ? 150: 150,
+              }}
+              onPress={this.animate} onLongPress={this.animate}>
+              <Image
+                style={{height:100,width:100,}}
+                source={require('../../assets/Nav_Avatar_Face_Animations.png')}
+              />
+              </TouchableOpacity>
 
       </LinearGradient>
     );

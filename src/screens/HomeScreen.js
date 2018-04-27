@@ -18,6 +18,7 @@ const DATA = [
 class HomeScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const params = navigation.state.params || {};
+    console.log('parameters:' + params)
     return {
       headerRight: (
         <TouchableOpacity onPress={() => navigation.navigate('Explore')}>
@@ -114,6 +115,9 @@ class HomeScreen extends React.Component {
     }
 
   
+  
+  
+  
   render() {
     let { fadeAnim } = this.state;
     return (
@@ -148,7 +152,7 @@ class HomeScreen extends React.Component {
               style={{height:26,width:343, left:20,
 
                 position: 'absolute',
-                bottom: 35+100,
+                bottom: 35+80,
                 zIndex: 10
               }}
               source={require('../../assets/Speech-input.png')}
@@ -157,7 +161,7 @@ class HomeScreen extends React.Component {
           <TouchableOpacity
             style ={{  
               position: 'absolute',
-              bottom: 0+90,
+              bottom: 0+65,
               
               zIndex: 1,
               right: 0,
@@ -173,53 +177,56 @@ class HomeScreen extends React.Component {
           </TouchableOpacity>
         </Animated.View>
         
-
-                  <View style={{
-                    flex:1,
-                    flexDirection: 'row',
-                    position: 'absolute',
-                    bottom: this.state.activated ? 127: 0,
-                    left:20
-                 
-                    }}>
-                      <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
-                      <Image
-                        style={{height: 35,width: 35}}
-                        source={require('../../assets/Explore-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
-                      <Image
-                       style={{height: 35,width: 35}}
-                        source={require('../../assets/Map-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
-                      <Image
-                        style={{height: 35,width: 35}}
-                        source={require('../../assets/Community-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
-                      <Image
-                       style={{height: 35,width: 35}}
-                        source={require('../../assets/Calendar-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
-                      <Image
-                       style={{height: 35,width: 35}}
-                        source={require('../../assets/Shop-icon.png')}
-                      />
-                      </TouchableOpacity>
-                  </View>
+        <View style={{
+          flex:1,
+          flexDirection: 'row',
+          position: 'absolute',
+          bottom: this.state.activated ? 30: 0,
+          left:20
+        
+          }}>
+            <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate({
+                routeName: 'Explore',
+                params: {
+                    transition: 'myCustomTransition'
+                }
+            })}>
+            <Image
+              style={{height: 35,width: 35}}
+              source={require('../../assets/Explore-icon.png')}
+            />
+            </TouchableOpacity>
+            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
+            <Image
+              style={{height: 35,width: 35}}
+              source={require('../../assets/Map-icon.png')}
+            />
+            </TouchableOpacity>
+            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
+            <Image
+              style={{height: 35,width: 35}}
+              source={require('../../assets/Community-icon.png')}
+            />
+            </TouchableOpacity>
+            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
+            <Image
+              style={{height: 35,width: 35}}
+              source={require('../../assets/Calendar-icon.png')}
+            />
+            </TouchableOpacity>
+            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
+            <Image
+              style={{height: 35,width: 35}}
+              source={require('../../assets/Shop-icon.png')}
+            />
+            </TouchableOpacity>
+        </View>
              
-
         <TouchableOpacity
               style = {{
               alignSelf: 'flex-end',
               position: 'absolute',
-              bottom: 0+40,
+              bottom: -50,
               right: 20,
               width: this.state.activated ? 100: 0,
               height: this.state.activated ? 150: 0,
@@ -230,10 +237,6 @@ class HomeScreen extends React.Component {
                 source={require('../../assets/Nav_Avatar_Face_Animations.png')}
               />
               </TouchableOpacity>
-
-
-     
-     
       </LinearGradient>
     );
   }
