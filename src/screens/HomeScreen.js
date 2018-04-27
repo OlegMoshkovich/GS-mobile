@@ -20,20 +20,20 @@ class HomeScreen extends React.Component {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Community')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Explore')}>
           <Image
             style={{height: 40 ,width: 40, right:20}}
-            source={require('../../assets/Community-icon.png')}
+            source={require('../../assets/Explore-icon.png')}
           />
         </TouchableOpacity>
 
       ),
 
       headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Explore')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Community')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('../../assets/Explore-icon.png')}
+            source={require('../../assets/Community-icon.png')}
           />
         </TouchableOpacity>
       )

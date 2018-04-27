@@ -15,10 +15,10 @@ class CommunityScreen extends React.Component {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Resume')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
             style={{height: 40,width: 40, right:20}}
-            source={require('../../assets/Resume-icon.png')}
+            source={require('../../assets/Home-icon.png')}
           />
         </TouchableOpacity>
 
@@ -26,8 +26,8 @@ class CommunityScreen extends React.Component {
       headerLeft: (
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
-            style={{height: 40,width: 40,left:20}}
-            source={require('../../assets/Explore-icon.png')}
+            style={{height: 40,width: 0,left:20}}
+            source={require('../../assets/Home-icon.png')}
           />
         </TouchableOpacity>
       )

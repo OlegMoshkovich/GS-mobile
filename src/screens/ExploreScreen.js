@@ -20,19 +20,19 @@ class ExploreScreen extends React.Component {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Community')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
-            style={{height: 40 ,width: 40, right:20}}
-            source={require('../../assets/Community-icon.png')}
+            style={{height: 40 ,width: 0, right:20}}
+            source={require('../../assets/Home-icon.png')}
           />
         </TouchableOpacity>
 
       ),
       headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Map')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
             style={{height: 40,width: 40,left:20}}
-            source={require('../../assets/Map-icon.png')}
+            source={require('../../assets/Home-icon.png')}
           />
         </TouchableOpacity>
       )
