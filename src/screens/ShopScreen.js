@@ -15,10 +15,10 @@ class ShopScreen extends React.Component {
     const params = navigation.state.params || {};
     return {
       headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Calendar')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
             style={{height: 40,width: 40, right:20}}
-            source={require('../../assets/Calendar-icon.png')}
+            source={require('../../assets/Home-icon.png')}
           />
         </TouchableOpacity>
 
@@ -26,7 +26,7 @@ class ShopScreen extends React.Component {
       headerLeft: (
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
-            style={{height: 40,width: 40,left:20}}
+            style={{height: 40,width: 0,left:20}}
             source={require('../../assets/Explore-icon.png')}
           />
         </TouchableOpacity>

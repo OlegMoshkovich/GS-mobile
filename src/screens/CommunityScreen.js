@@ -41,8 +41,9 @@ class CommunityScreen extends React.Component {
         <LinearGradient
          colors={['#56CCF2', '#56CCF2', 'white']}
          style={{ height: height, width:width}}>
-         <Text style ={{color:"white",fontSize: 22,top:30,left:30,fontWeight:'bold', }}>Featured Stories</Text>
+        
          <ScrollView>
+         <Text style ={{color:"white",fontSize: 22,top:30,left:30,fontWeight:'bold', }}>Featured Stories</Text>
              <ScrollView horizontal= {true} style={{marginTop:40}}>
              <Image
                 style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}

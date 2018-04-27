@@ -206,6 +206,12 @@ class HomeScreen extends React.Component {
                         source={require('../../assets/Calendar-icon.png')}
                       />
                       </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
+                      <Image
+                       style={{height: 35,width: 35}}
+                        source={require('../../assets/Shop-icon.png')}
+                      />
+                      </TouchableOpacity>
                   </View>
              
 

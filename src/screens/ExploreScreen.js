@@ -41,31 +41,35 @@ class ExploreScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      moveAnim    : new Animated.Value(1),
+      moveAnim     : new Animated.Value(0),
       activated    : true,
-      valueInitial: -300,
-      valueFinal:0
-
+      fadeAnim : new Animated.Value(0),
+      blurRadius: 0,
     };
+    
   }
   animate = () => {
-    Animated.timing(                  // Animate over time
-      this.state.moveAnim,           // The animated value to drive
-      {
-        toValue: 1,                   // Animate to opacity: 1 (opaque)
-        duration: 10000,              // Make it take a while
-      }
-    ).start();
-
-    console.log(this.state.moveAnim._value)
-    
-    this.setState({
-     activated : !this.state.activated,
-     valueInitial: this.state.activated? 0 : -300,
-     valueFinal:this.state.activated? -300 : 0
+    if (this.state.blurRadius == 10) {
+      this.setState({
+        blurRadius: 0
+      });
+    } else {
+      this.setState({
+        blurRadius: 10
+      });
     }
-
-    )                 // Starts the animation
+      
+    Animated.timing(                  
+        this.state.fadeAnim,            
+        {
+          toValue: this.state.activated ? 1: 0,                   
+          duration: 500,             
+        }
+      ).start();   
+      this.setState({
+        activated : !this.state.activated,
+        }
+      )
   }
 
   _onLongPressButton() {
@@ -117,21 +121,64 @@ class ExploreScreen extends React.Component {
   render() {
     return (
       <LinearGradient
+      
        colors={['#56CCF2', '#56CCF2', 'white']}
-       style={{ height: height, width:width}}>
+       style={{ height: height, width:width}
+       }>
          <Deck
          data = {DATA}
          renderCard = {this.renderCard}
          renderNoMoreCards = {this.renderNoMoreCards}/>
-         <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:0,marginLeft:30,bottom:200,right:20, alignItems:'flex-end'}}>
-             <TouchableOpacity
-                  onPress={() => this.props.navigation.navigate('Playground')} onLongPress={this._onLongPressButton}>
+
+
+                  <View style={{
+                    flex:1,
+                    flexDirection: 'row',
+                    position: 'absolute',
+                    bottom: this.state.activated ? 127: 0,
+                    left:20
+                 
+                    }}>
+                      <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
+                      <Image
+                        style={{height: 35,width: 35}}
+                        source={require('../../assets/Explore-icon.png')}
+                      />
+                      </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
+                      <Image
+                       style={{height: 35,width: 35}}
+                        source={require('../../assets/Map-icon.png')}
+                      />
+                      </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
+                      <Image
+                        style={{height: 35,width: 35}}
+                        source={require('../../assets/Community-icon.png')}
+                      />
+                      </TouchableOpacity>
+                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
+                      <Image
+                       style={{height: 35,width: 35}}
+                        source={require('../../assets/Calendar-icon.png')}
+                      />
+                      </TouchableOpacity>
+                  </View>
+        <TouchableOpacity
+              style = {{
+              alignSelf: 'flex-end',
+              position: 'absolute',
+              bottom: 0+40,
+              right: 20,
+              width: this.state.activated ? 100: 100,
+              height: this.state.activated ? 150: 150,
+              }}
+              onPress={this.animate} onLongPress={this.animate}>
               <Image
-                style={{height: 150,width: 100, right:0, top:120}}
+                style={{height:100,width:100,}}
                 source={require('../../assets/Nav_Avatar_Face_Animations.png')}
               />
-             </TouchableOpacity>
-        </View>
+              </TouchableOpacity>
 
       </LinearGradient>
     );
