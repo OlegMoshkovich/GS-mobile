@@ -351,7 +351,31 @@ class MapScreen extends React.Component {
     });
 
     return (
+
+      <LinearGradient
+      colors={['#56CCF2', '#f5d340', 'white']}
+
+      style={{ height: height, width:width}}>
+     
+     
+     <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15,top:20,}}>where</Text>
+     
+     <TouchableOpacity style ={{position:'absolute',margin:20, top:20,right:0}}  
+            onPress={() => this.props.navigation.navigate({
+              routeName: 'Home',
+                  params: {
+                      transition: 'left'
+                  }
+                }
+            )}>
+            <Image
+              style={{height: 40,width: 40}}
+              source={require('../../assets/Map-icon.png')}
+            />
+          </TouchableOpacity>
+     
       <View style={styles.container}>
+       
         <MapView
           ref={map => this.map = map}
           initialRegion={this.state.region}
@@ -429,6 +453,7 @@ class MapScreen extends React.Component {
              </TouchableOpacity>
            </View>
       </View>
+      </LinearGradient>
     );
   }
 }
@@ -436,6 +461,7 @@ class MapScreen extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    top:17
   },
   scrollView: {
     position: "absolute",

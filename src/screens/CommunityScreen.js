@@ -4,10 +4,6 @@ import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,Scro
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
-import { Ionicons } from '@expo/vector-icons';
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
-
-
 const {width, height} = Dimensions.get('window');
 
 class CommunityScreen extends React.Component {
@@ -27,12 +23,13 @@ class CommunityScreen extends React.Component {
         <TouchableOpacity onPress={() => navigation.navigate('Home')}>
           <Image
             style={{height: 40,width: 0,left:20}}
-            source={require('../../assets/Home-icon.png')}
+            source={require('../../assets/Explore-icon.png')}
           />
         </TouchableOpacity>
       )
     };
   };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -69,132 +66,118 @@ class CommunityScreen extends React.Component {
 
   render() {
     return (
-
         <LinearGradient
-         colors={['#CCDBE6', '#CCDBE6', '#CCDBE6']}
-         style={{ height: height, width:width,
-          flex: 1,}
-         }>
-  
+         colors={['#b98031', '#f5d340', 'white']}
+
+         style={{ height: height, width:width}}>
+        
         <View style ={{
-         top:30,
+         top:20,
          flex: 1,
          flexDirection: 'row',
-         justifyContent: 'space-between',
-    
-         zIndex: 1,
-
+         justifyContent: 'space-between'
           }}>
-          <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#community</Text>
-          <TouchableOpacity style ={{margin:20}}  onPress={() => this.props.navigation.navigate('Home')}>
-              <Image
-                style={{height: 40,width: 40}}
-                source={require('../../assets/Home-icon.png')}
-              />
+
+          <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#community</Text>    
+          <TouchableOpacity style ={{margin:20}}  
+            onPress={() => this.props.navigation.navigate({
+              routeName: 'Home',
+                  params: {
+                      transition: 'left'
+                  }
+                }
+            )}>
+            <Image
+              style={{height: 40,width: 40}}
+              source={require('../../assets/Community-icon.png')}
+            />
           </TouchableOpacity>
         </View>
-
-      {/*<Image
-          blurRadius={this.state.blurRadius}
-          style={{
-          height: height,
-          width: width}}
-          source={require('../../assets/Home-Background.png')}
-        />
-          */}
-         <ScrollView
+         
+        <ScrollView
          style ={{
           top:100,
           position:'absolute',
           height: height,
-        
- 
            }}>
-         <Text style ={{color:"white",fontSize: 22,top:30,left:30,fontWeight:'bold', }}>Featured Stories</Text>
-             <ScrollView horizontal= {true} style={{marginTop:40}}>
-             <Image
+            <Text style ={{color:"white",fontSize: 22,top:20,left:30,fontWeight:'bold', }}>Featured</Text>
+            <ScrollView horizontal= {true} style={{marginTop:40}}>
+              <Image
                 style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                 source={require('../../assets/Article_1.png')}
+                  source={require('../../assets/Article_1.png')}
               />
               <Image
-                 style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
-                 resizeMode="cover"
+                style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                resizeMode="cover"
+                source={require('../../assets/Article_1.png')}
+              />
+              <Image
+                style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                resizeMode="cover"
                   source={require('../../assets/Article_1.png')}
-               />
-               <Image
-                  style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
-                  resizeMode="cover"
-                   source={require('../../assets/Article_1.png')}
-                />
+              />
 
-             </ScrollView >
-
-
-             
-             <Text style ={{color:"white",fontSize: 22,left:30,fontWeight:'bold',marginBottom:10 }}>Friends Stories</Text>
-
-             <ScrollView horizontal= {true} style={{marginBottom:200}} >
-             <Image
-                style={{height: 213,width:161,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+            </ScrollView >
+            <Text style ={{color:"white",fontSize: 22,left:30,fontWeight:'bold',marginBottom:10 }}>Whats New</Text>
+            <ScrollView horizontal= {true} style={{marginBottom:200}} >
+              <Image
+                style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
                 source={require('../../assets/Article_2.png')}
               />
-
               <Image
-                 style={{height: 213,width:161,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
-                 resizeMode="cover"
-                 source={require('../../assets/Article_2.png')}
-               />
-               <Image
-                  style={{height: 213,width:161,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
-                  resizeMode="cover"
-                  source={require('../../assets/Article_2.png')}
-                />
+                style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                resizeMode="cover"
+                source={require('../../assets/Article_2.png')}
+              />
+              <Image
+                style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                resizeMode="cover"
+                source={require('../../assets/Article_2.png')}
+              />
+            </ScrollView >
+        </ScrollView>
 
-
-             </ScrollView >
-
-         </ScrollView>
          <View style={{
-                    flex:1,
-                    flexDirection: 'row',
-                    position: 'absolute',
-                    bottom: this.state.activated ? -50: 30,
-                    left:20
-                 
-                    }}>
-                      <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
-                      <Image
-                        style={{height: 35,width: 35}}
-                        source={require('../../assets/Explore-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
-                      <Image
-                       style={{height: 35,width: 35}}
-                        source={require('../../assets/Map-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
-                      <Image
-                        style={{height: 35,width: 35}}
-                        source={require('../../assets/Community-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
-                      <Image
-                       style={{height: 35,width: 35}}
-                        source={require('../../assets/Calendar-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
-                      <Image
-                       style={{height: 35,width: 35}}
-                        source={require('../../assets/Shop-icon.png')}
-                      />
-                      </TouchableOpacity>
-                  </View>
+            flex:1,
+            flexDirection: 'row',
+            position: 'absolute',
+            bottom: this.state.activated ? -50: 30,
+            left:20
+            }}>
+              <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
+              <Image
+                style={{height: 35,width: 35}}
+                source={require('../../assets/Explore-icon.png')}
+              />
+              </TouchableOpacity>
+              <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
+              <Image
+                style={{height: 35,width: 35}}
+                source={require('../../assets/Map-icon.png')}
+              />
+              </TouchableOpacity>
+              <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
+              <Image
+                style={{height: 35,width: 35}}
+                source={require('../../assets/Community-icon.png')}
+              />
+              </TouchableOpacity>
+              <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
+              <Image
+                style={{height: 35,width: 35}}
+                source={require('../../assets/Calendar-icon.png')}
+              />
+              </TouchableOpacity>
+              <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
+              <Image
+                style={{height: 35,width: 35}}
+                source={require('../../assets/Shop-icon.png')}
+              />
+              </TouchableOpacity>
+           </View>
+
         <TouchableOpacity
               style = {{
               alignSelf: 'flex-end',
@@ -209,10 +192,11 @@ class CommunityScreen extends React.Component {
                 style={{height:100,width:100,}}
                 source={require('../../assets/Nav_Avatar_Face_Animations.png')}
               />
-              </TouchableOpacity>
+        </TouchableOpacity>
 
       </LinearGradient>
     );
   }
 }
+
 export default CommunityScreen;

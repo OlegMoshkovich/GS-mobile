@@ -16,28 +16,6 @@ const DATA = [
 ];
 
 class ExploreScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    const params = navigation.state.params || {};
-    return {
-      headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Image
-            style={{height: 40 ,width: 0, right:20}}
-            source={require('../../assets/Home-icon.png')}
-          />
-        </TouchableOpacity>
-
-      ),
-      headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Image
-            style={{height: 40,width: 40,left:20}}
-            source={require('../../assets/Home-icon.png')}
-          />
-        </TouchableOpacity>
-      )
-    };
-  };
 
   constructor(props) {
     super(props);
@@ -49,6 +27,7 @@ class ExploreScreen extends React.Component {
     };
     
   }
+
   animate = () => {
     if (this.state.blurRadius == 10) {
       this.setState({
@@ -71,17 +50,6 @@ class ExploreScreen extends React.Component {
         activated : !this.state.activated,
         }
       )
-  }
-
-  _onLongPressButton() {
-    Alert.alert(
-      'Ava',
-      'How can I help? - Long Press',
-      [
-        {text: 'OK', onPress: () => console.log('OK Pressed')},
-      ],
-      { cancelable: false }
-    )
   }
   _onPressButton() {
     Alert.alert(
@@ -111,64 +79,44 @@ class ExploreScreen extends React.Component {
         <Text style ={{marginBottom:24,color:"black",fontSize: 22,fontWeight:'bold' ,textDecorationLine:'underline'}}>{item.title} </Text>
         </TouchableOpacity>
         <Text style ={{marginBottom:17,color:"black"}}>{item.text}</Text>
-
           <Image
              style={{height: 225}}
              resizeMode="cover"
              source={{ uri:item.uri }}
            />
       </Card>
+
     )
   }
+
   render() {
     return (
       <LinearGradient
-      
-       colors={['#56CCF2', '#56CCF2', 'white']}
+       colors={['#4fb6de', '#94D7E0', 'white']}
        style={{ height: height, width:width}
        }>
-     
 
-
-         {/*             <Image
-          blurRadius={this.state.blurRadius}
-          style={{
-          height: height,
-          width: width}}
-          source={require('../../assets/Home-Background.png')}
-          />*/}
-     
-       <View style ={{
-         top:30,
+   
+   <View style ={{
+         top:20,
          flex: 1,
          flexDirection: 'row',
          justifyContent: 'space-between'
-
           }}>
-        {/* <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#explore</Text>
-          <TouchableOpacity style ={{margin:20}}  onPress={() => this.props.navigation.navigate('Home')}>
-              <Image
-                style={{height: 40,width: 40}}
-                source={require('../../assets/Home-icon.png')}
-              />
-        </TouchableOpacity>*/}
-          <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#explore</Text>
-          <TouchableOpacity style ={{margin:20}}  
-          onPress={() => this.props.navigation.navigate({
-            routeName: 'Home',
-                params: {
-                    transition: 'left'
+            <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#explore</Text>
+            <TouchableOpacity style ={{margin:20}}  
+            onPress={() => this.props.navigation.navigate({
+              routeName: 'Home',
+                  params: {
+                      transition: 'left'
+                  }
                 }
-              }
-          )}>
-
-          
-
-              <Image
-                style={{height: 40,width: 40}}
-                source={require('../../assets/Home-icon.png')}
-              />
-        </TouchableOpacity>
+            )}>
+            <Image
+              style={{height: 40,width: 40}}
+              source={require('../../assets/Explore-icon.png')}
+            />
+          </TouchableOpacity>
         </View>
         
         <View
@@ -176,13 +124,18 @@ class ExploreScreen extends React.Component {
           position:'absolute',
           top:60
         }}>
-         <Deck
-        
+         <Deck        
          data = {DATA}
          renderCard = {this.renderCard}
          renderNoMoreCards = {this.renderNoMoreCards}/>
-          </View>
+          
+         </View>
 
+         <Deck        
+         data = {DATA}
+         renderCard = {this.renderCard}
+         renderNoMoreCards = {this.renderNoMoreCards}/>
+          
 
                   <View style={{
                     flex:1,
@@ -223,6 +176,7 @@ class ExploreScreen extends React.Component {
                       />
                       </TouchableOpacity>
                   </View>
+
         <TouchableOpacity
               style = {{
               alignSelf: 'flex-end',
@@ -237,7 +191,7 @@ class ExploreScreen extends React.Component {
                 style={{height:100,width:100,}}
                 source={require('../../assets/Nav_Avatar_Face_Animations.png')}
               />
-              </TouchableOpacity>
+        </TouchableOpacity>
 
       </LinearGradient>
     );

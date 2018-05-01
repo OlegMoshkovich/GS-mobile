@@ -45,6 +45,27 @@ class CalendarScreen extends React.Component {
 
  render() {
    return (
+    <LinearGradient
+    colors={['#b98031', '#f5d340', 'white']}
+
+    style={{ height: height, width:width}}>
+   
+   <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15, marginBottom:50,top:20}}>when</Text>
+
+   <TouchableOpacity style ={{position:'absolute',margin:20, top:20,right:0}}  
+            onPress={() => this.props.navigation.navigate({
+              routeName: 'Home',
+                  params: {
+                      transition: 'left'
+                  }
+                }
+            )}>
+            <Image
+              style={{height: 40,width: 40}}
+              source={require('../../assets/Calendar-icon.png')}
+            />
+          </TouchableOpacity>
+
      <Agenda
        items={this.state.items}
        loadItemsForMonth={this.loadItems.bind(this)}
@@ -66,6 +87,8 @@ class CalendarScreen extends React.Component {
          theme={{calendarBackground: 'white', agendaKnobColor: 'darkgrey',selectedDayBackgroundColor: '#56CCF2', todayTextColor: 'red',  agendaTodayColor: 'red',}}
        //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
      />
+
+      </LinearGradient>
    );
  }
 

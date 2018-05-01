@@ -128,12 +128,12 @@ class HomeScreen extends React.Component {
   render() {
     let { fadeAnim } = this.state;
     return (
+
       <LinearGradient
        colors={['#CCDBE6', '#CCDBE6', '#CCDBE6']}
        style={{ height: height, width:width}}>   
 
         <Image
-   
           style={{
           height: this.state.environmentSwitch ? height: 0,
           width: width}}
@@ -237,7 +237,7 @@ class HomeScreen extends React.Component {
               {
                 routeName: 'Explore',
                 params: {
-                    transition: 'right'
+                    transition: 'left'
                 }
             }
             )}>
@@ -283,8 +283,8 @@ class HomeScreen extends React.Component {
               style = {{
               alignSelf: 'flex-end',
               position: 'absolute',
-              bottom: this.state.activated ? 35: -35,
-              right: this.state.environmentSwitch ? -200:35,
+              bottom: this.state.activated ? 35: -60,
+              right: this.state.environmentSwitch ? -35:35,
 
               }}
               onPress={this.animate} onLongPress={this.animate}>
@@ -293,22 +293,6 @@ class HomeScreen extends React.Component {
                 source={require('../../assets/Home-icon.png')}
               />
               </TouchableOpacity>
-
-       {/* <TouchableOpacity
-              style = {{
-              alignSelf: 'flex-end',
-              position: 'absolute',
-              bottom: -50,
-              right: 20,
-              width: this.state.activated ? 100: 0,
-              height: this.state.activated ? 150: 0,
-              }}
-              onPress={this.animate} onLongPress={this.animate}>
-              <Image
-                style={{height:100,width:100,}}
-                source={require('../../assets/Nav_Avatar_Face_Animations.png')}
-              />
-            </TouchableOpacity>*/}
 
       </LinearGradient>
     );
