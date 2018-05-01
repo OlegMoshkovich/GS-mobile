@@ -7,6 +7,7 @@ import {Card, Button,Icon} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 const {width, height} = Dimensions.get('window');
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 const uri = 'https://s3.amazonaws.com/exp-icon-assets/ExpoEmptyManifest_192.png';
 
@@ -40,7 +41,7 @@ class PlaygroundScreen extends React.Component{
       moveAnim     : new Animated.Value(0),
       activated    : true,
       fadeAnim : new Animated.Value(0),
-      blurRadius: 0
+      blurRadius: 0,
     };
   };
 
@@ -68,9 +69,14 @@ class PlaygroundScreen extends React.Component{
       )
   }
 
+
   render() {
 
     let { fadeAnim } = this.state;
+    const config = {
+      velocityThreshold: 0.3,
+      directionalOffsetThreshold: 80
+    };
 
     return (
 
@@ -85,6 +91,7 @@ class PlaygroundScreen extends React.Component{
              flexDirection: 'column',
              alignItems: 'center'
             }} >
+
             <Image
                blurRadius={this.state.blurRadius}
                style={{height: 227,width: 177}}
@@ -154,7 +161,7 @@ class PlaygroundScreen extends React.Component{
                  source={require('../../assets/Nav_Avatar_Face_Animations.png')}
                />
               </TouchableOpacity>
-</LinearGradient>
+        </LinearGradient>
 
               
 

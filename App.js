@@ -21,74 +21,43 @@ const {width, height} = Dimensions.get('window');
 
 //custom transition using Navigator Options
 const customAnimationFunc = () => ({
+  ransitionSpec: {
+		duration: 10,
+		timing: Animated.timing,
+	},
   screenInterpolator : sceneProps => {
-    console.log('sceneProps'+sceneProps)
+    const {position, scene} = sceneProps;
+    const {index, route} = scene;       
+    const params = route.params || {}; // <- That's new
+    
+    const transition = params.transition || 'default'; // <- That's new
+    console.log('parameters'+transition)
+    return {
+      right: CardStackStyleInterpolator.forHorizontalRight(sceneProps),
+      left: CardStackStyleInterpolator.forHorizontalLeft(sceneProps),
 
-    return CardStackStyleInterpolator.forHorizontal(sceneProps);
+      default: CardStackStyleInterpolator.forFade(sceneProps),
+      }[transition];
+    return 
   },
 });
 
-//not using
+
 let MyTransition = (index, position) => {
-  console.log('index -- ' + index)
- 
+  const inputRange = [index - 1, index-0.2, index];
   
-  const inputRange = [index - 1, index, index + 1];
-
   const opacity = position.interpolate({
       inputRange,
-      outputRange: [.3, 1, .2],
+      outputRange: [0, 1, 1],
   });
-  const scaleX = position.interpolate({
+
+  const scaleY = position.interpolate({
       inputRange,
       outputRange: ([0.8, 1, 1]),
   });
 
-  const translateX = position.interpolate({
-    inputRange,
-    outputRange: [width* -0.3, 0, width ]
-  
-  });
-  const translateY = 0;
-
   return {
-      opacity,
-      transform: [{ translateX }, { translateY }]
-  };
-};
-let MyCustomTransition = (index, position) => {
-  console.log('index -- ' + index)
- 
-  
-  const inputRange = [index - 1, index, index + 1];
-
-  const opacity = position.interpolate({
-      inputRange,
-      outputRange: [.3, 1, .2],
-  });
-  const scaleX = position.interpolate({
-      inputRange,
-      outputRange: ([0.8, 1, 1]),
-  });
-
-  const translateXright = position.interpolate({
-    inputRange,
-    outputRange: [width, 0, width* -0.3 ]
-  });
-
-  const translateXleft = position.interpolate({
-    inputRange,
-    outputRange: [width* -0.3 , 0, width]
-  });
-  const translateY = 0;
-  const translateX = translateXright;
-
-
-  return {
-      opacity,
-      transform:[
-              {translateX},{translateY}
-          ]
+      opacity
   };
 };
 
@@ -102,163 +71,177 @@ const TransitionConfiguration = () => {
           const {index, route} = scene;      
           const params = route.params || {}; // <- That's new
           const transition = params.transition || 'default'; // <- That's new
-          // return MyCustomTransition(index, position);
-          return {
-            myCustomTransition: MyCustomTransition(index, position),
-            default: MyTransition(index, position),
-        }[transition];
+          return MyTransition(index, position);
+       
       }
   }
 };
 
-const MainStack = StackNavigator(
-  { //Screens
-      Home: {
-        screen: HomeScreen,
-        navigationOptions: ({ navigation }) => ({
-          header: null,
-          title: ``,
-          headerTintColor: 'white',
-          headerStyle: { backgroundColor: '#CCDBE6', borderWidth: 0, borderBottomColor: 'transparent',height:50 },
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 35
-               },
-            }),       
-      },
-      Explore: {
-        screen: ExploreScreen,
-        navigationOptions: ({ navigation }) => ({
-              header: null,
-              title: `#explore`,
-              headerTintColor: 'white',
-              headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent',height:50 },
-              headerTitleStyle: {
-                fontWeight: 'bold',
-                fontSize: 35
-              },
-            }),
+// const MainStack = StackNavigator(
+//   { //Screens
+//       Home: {
+//         screen: HomeScreen,
+//         navigationOptions: ({ navigation }) => ({
+//           header: null,
+//           title: ``,
+//           headerTintColor: 'white',
+//           headerStyle: { backgroundColor: '#CCDBE6', borderWidth: 0, borderBottomColor: 'transparent',height:50 },
+//           headerTitleStyle: {
+//             fontWeight: 'bold',
+//             fontSize: 35
+//                },
+//             }),       
+//       },
+//       Explore: {
+//         screen: ExploreScreen,
+//         navigationOptions: ({ navigation }) => ({
+//               header: null,
+//               title: `#explore`,
+//               headerTintColor: 'white',
+//               headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent',height:50 },
+//               headerTitleStyle: {
+//                 fontWeight: 'bold',
+//                 fontSize: 35
+//               },
+//             }),
             
-      },
-      Map: {
-        screen: MapScreen,
-        navigationOptions: ({ navigation }) => ({
+//       },
+//       Map: {
+//         screen: MapScreen,
+//         navigationOptions: ({ navigation }) => ({
 
-              title: `#map`,
-              headerTintColor: 'white',
-              headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-              headerTitleStyle: {
-                fontWeight: 'bold',
-                fontSize: 30
-              },
-            }),
-      },
-      Resume: {
-        screen: ResumeScreen,
-        navigationOptions: ({ navigation }) => ({
+//               title: `#map`,
+//               headerTintColor: 'white',
+//               headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+//               headerTitleStyle: {
+//                 fontWeight: 'bold',
+//                 fontSize: 30
+//               },
+//             }),
+//       },
+//       Resume: {
+//         screen: ResumeScreen,
+//         navigationOptions: ({ navigation }) => ({
 
-              title: `#resume`,
-              headerTintColor: 'white',
-              headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-              headerTitleStyle: {
-                fontWeight: 'bold',
-                fontSize: 40
-              },
-            }),
-      },
-      Community: {
-          screen: CommunityScreen,
-          navigationOptions: ({ navigation }) => ({
-                header: null,
-                title: `#community`,
-                headerTintColor: 'white',
-                headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                  fontSize: 30
-                },
-              }),
-      },
-      Calendar: {
-          screen: CalendarScreen,
-          navigationOptions: ({ navigation }) => ({
+//               title: `#resume`,
+//               headerTintColor: 'white',
+//               headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+//               headerTitleStyle: {
+//                 fontWeight: 'bold',
+//                 fontSize: 40
+//               },
+//             }),
+//       },
+//       Community: {
+//           screen: CommunityScreen,
+//           navigationOptions: ({ navigation }) => ({
+//                 header: null,
+//                 title: `#community`,
+//                 headerTintColor: 'white',
+//                 headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+//                 headerTitleStyle: {
+//                   fontWeight: 'bold',
+//                   fontSize: 30
+//                 },
+//               }),
+//       },
+//       Calendar: {
+//           screen: CalendarScreen,
+//           navigationOptions: ({ navigation }) => ({
               
-                title: `#calendar`,
-                headerTintColor: 'white',
-                headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                  fontSize: 30
-                },
-              }),
-      },
-      Chat: {
-              screen: ChatScreen,
-              navigationOptions: ({ navigation }) => ({
+//                 title: `#calendar`,
+//                 headerTintColor: 'white',
+//                 headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+//                 headerTitleStyle: {
+//                   fontWeight: 'bold',
+//                   fontSize: 30
+//                 },
+//               }),
+//       },
+//       Chat: {
+//               screen: ChatScreen,
+//               navigationOptions: ({ navigation }) => ({
               
-                    title: `#chat`,
-                    headerTintColor: 'white',
-                    headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                    headerTitleStyle: {
-                      fontWeight: 'bold',
-                      fontSize: 30
-                    },
-                  }),
-      },
-      Shop: {
-            screen: ShopScreen,
-            navigationOptions: ({ navigation }) => ({
+//                     title: `#chat`,
+//                     headerTintColor: 'white',
+//                     headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+//                     headerTitleStyle: {
+//                       fontWeight: 'bold',
+//                       fontSize: 30
+//                     },
+//                   }),
+//       },
+//       Shop: {
+//             screen: ShopScreen,
+//             navigationOptions: ({ navigation }) => ({
          
-                  title: `#Shop`,
-                  headerTintColor: 'white',
-                  headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                  headerTitleStyle: {
-                    fontWeight: 'bold',
-                    fontSize: 30
-                  },
-                }),
-      },
-      Dashboard: {
-            screen: DashboardScreen,
-            navigationOptions: ({ navigation }) => ({
+//                   title: `#Shop`,
+//                   headerTintColor: 'white',
+//                   headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+//                   headerTitleStyle: {
+//                     fontWeight: 'bold',
+//                     fontSize: 30
+//                   },
+//                 }),
+//       },
+//       Dashboard: {
+//             screen: DashboardScreen,
+//             navigationOptions: ({ navigation }) => ({
                 
-                  title: `#Dashboard`,
-                  headerTintColor: 'white',
-                  headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                  headerTitleStyle: {
-                    fontWeight: 'bold',
-                    fontSize: 30
-                  },
-                }),
-      },
-      Playground: {
-          screen: PlaygroundScreen,
-          navigationOptions: ({ navigation }) => ({
-           
-                gesturesDirection: 'inverted',
-                title: `#Playground`,
-                headerTintColor: 'white',
-                headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                  fontSize: 30
-                },
-              }),
-      },
-  },
-  {
-    transitionConfig: TransitionConfiguration,
-  },  
-  {
-    initialRouteName: 'Home',
+//                   title: `#Dashboard`,
+//                   headerTintColor: 'white',
+//                   headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+//                   headerTitleStyle: {
+//                     fontWeight: 'bold',
+//                     fontSize: 30
+//                   },
+//                 }),
+//       },
+//       Playground: {
+//           screen: PlaygroundScreen,
+//           navigationOptions: ({ navigation }) => ({
+//                 title: `#Playground`,
+//                 headerTintColor: 'white',
+//                 headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+//                 headerTitleStyle: {
+//                   fontWeight: 'bold',
+//                   fontSize: 30
+//                 },
+//               }),
+//       },
+//   },
+//   {
+//     transitionConfig: customAnimationFunc,
+
+//   },
+//   {
+//     initialRouteName: 'Home',
     
-  },
+//   },
+ 
     
+// );
+
+
+const TabStack =  TabNavigator({
+  Calendar: { screen: CalendarScreen },
+  Map: { screen: MapScreen },
+  Community: { screen: CommunityScreen },
+  Home: { screen: HomeScreen },
+  Explore: { screen: ExploreScreen },
+  Shop:{screen: ShopScreen}  
+},{swipeEnabled:true,
+  initialRouteName:'Home',
+  navigationOptions: {
+    tabBarVisible: false
+   },
+},
 );
+
 const RootStack = StackNavigator(
   {
     Main: {
-      screen: MainStack,
+      screen: TabStack,
     },
     MyModal: {
       screen: ModalScreen,
@@ -269,6 +252,8 @@ const RootStack = StackNavigator(
     headerMode: 'none',
   }
 );
+
+
 
 export default class App extends React.Component {
   render() {

@@ -41,8 +41,45 @@ class ShopScreen extends React.Component {
         <LinearGradient
          colors={['#56CCF2', '#56CCF2', 'white']}
          style={{ height: height, width:width}}>
+                <View style ={{
+         top:30,
+         flex: 1,
+         flexDirection: 'row',
+         justifyContent: 'space-between'
+
+          }}>
+        {/* <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#explore</Text>
+          <TouchableOpacity style ={{margin:20}}  onPress={() => this.props.navigation.navigate('Home')}>
+              <Image
+                style={{height: 40,width: 40}}
+                source={require('../../assets/Home-icon.png')}
+              />
+        </TouchableOpacity>*/}
+          <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#shop</Text>
+          <TouchableOpacity style ={{margin:20}}  
+          onPress={() => this.props.navigation.navigate({
+            routeName: 'Home',
+                params: {
+                    transition: 'left'
+                }
+              }
+          )}>
+
+              <Image
+                style={{height: 40,width: 40}}
+                source={require('../../assets/Home-icon.png')}
+              />
+        </TouchableOpacity>
+        </View>
          
-         <ScrollView>
+        <ScrollView
+         style ={{
+          top:100,
+          position:'absolute',
+          height: height,
+        
+ 
+           }}>
          <Text style ={{color:"white",fontSize: 22,top:30,left:30,fontWeight:'bold', }}>Featured</Text>
              <ScrollView horizontal= {true} style={{marginTop:40}}>
              <Image

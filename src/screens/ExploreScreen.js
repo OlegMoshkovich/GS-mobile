@@ -127,26 +127,54 @@ class ExploreScreen extends React.Component {
        colors={['#56CCF2', '#56CCF2', 'white']}
        style={{ height: height, width:width}
        }>
+     
+
+
+         {/*             <Image
+          blurRadius={this.state.blurRadius}
+          style={{
+          height: height,
+          width: width}}
+          source={require('../../assets/Home-Background.png')}
+          />*/}
+     
        <View style ={{
-         top:15,
+         top:30,
          flex: 1,
          flexDirection: 'row',
          justifyContent: 'space-between'
 
           }}>
-          <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#explore</Text>
+        {/* <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#explore</Text>
           <TouchableOpacity style ={{margin:20}}  onPress={() => this.props.navigation.navigate('Home')}>
               <Image
                 style={{height: 40,width: 40}}
                 source={require('../../assets/Home-icon.png')}
               />
-          </TouchableOpacity>
+        </TouchableOpacity>*/}
+          <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#explore</Text>
+          <TouchableOpacity style ={{margin:20}}  
+          onPress={() => this.props.navigation.navigate({
+            routeName: 'Home',
+                params: {
+                    transition: 'left'
+                }
+              }
+          )}>
+
+          
+
+              <Image
+                style={{height: 40,width: 40}}
+                source={require('../../assets/Home-icon.png')}
+              />
+        </TouchableOpacity>
         </View>
         
         <View
         style={{
           position:'absolute',
-          top:20
+          top:60
         }}>
          <Deck
         

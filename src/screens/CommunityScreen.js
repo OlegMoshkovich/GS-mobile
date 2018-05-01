@@ -71,16 +71,18 @@ class CommunityScreen extends React.Component {
     return (
 
         <LinearGradient
-         colors={['#56CCF2', '#56CCF2', 'white']}
+         colors={['#CCDBE6', '#CCDBE6', '#CCDBE6']}
          style={{ height: height, width:width,
           flex: 1,}
          }>
-        
+  
         <View style ={{
-         top:15,
+         top:30,
          flex: 1,
          flexDirection: 'row',
-         justifyContent: 'space-between'
+         justifyContent: 'space-between',
+    
+         zIndex: 1,
 
           }}>
           <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#community</Text>
@@ -92,9 +94,17 @@ class CommunityScreen extends React.Component {
           </TouchableOpacity>
         </View>
 
+      {/*<Image
+          blurRadius={this.state.blurRadius}
+          style={{
+          height: height,
+          width: width}}
+          source={require('../../assets/Home-Background.png')}
+        />
+          */}
          <ScrollView
          style ={{
-          top:80,
+          top:100,
           position:'absolute',
           height: height,
         
