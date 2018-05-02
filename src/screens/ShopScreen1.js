@@ -6,7 +6,7 @@ import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 
-class CommunityScreen extends React.Component {
+class ShopScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
     const params = navigation.state.params || {};
     return {
@@ -29,7 +29,6 @@ class CommunityScreen extends React.Component {
       )
     };
   };
-
   constructor(props) {
     super(props);
     this.state = {
@@ -40,8 +39,6 @@ class CommunityScreen extends React.Component {
     };
 
   }
-
-
   animate = () => {
     if (this.state.blurRadius == 10) {
       this.setState({
@@ -57,7 +54,7 @@ class CommunityScreen extends React.Component {
         this.state.fadeAnim,
         {
           toValue: this.state.activated ? 1: 0,
-          duration: 1000,
+          duration: 500,
         }
       ).start();
       this.setState({
@@ -69,8 +66,7 @@ class CommunityScreen extends React.Component {
   render() {
     return (
         <LinearGradient
-         colors={['#b98031', '#f5d340', 'white']}
-
+         colors={['#6EB365', '#49945C', 'white']}
          style={{ height: height, width:width}}>
 
         <View style ={{
@@ -80,18 +76,12 @@ class CommunityScreen extends React.Component {
          justifyContent: 'space-between'
           }}>
 
-          <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#community</Text>
+          <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#shop</Text>
           <TouchableOpacity style ={{margin:20}}
-            onPress={() => this.props.navigation.navigate({
-              routeName: 'Home',
-                  params: {
-                      transition: 'left'
-                  }
-                }
-            )}>
+            >
             <Image
               style={{height: 40,width: 40}}
-              source={require('../../assets/Community-icon.png')}
+              source={require('../../assets/Shop-icon.png')}
             />
           </TouchableOpacity>
         </View>
@@ -105,19 +95,19 @@ class CommunityScreen extends React.Component {
             <Text style ={{color:"white",fontSize: 22,top:20,left:30,fontWeight:'bold', }}>Featured</Text>
             <ScrollView horizontal= {true} style={{marginTop:40}}>
               <Image
-                style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                style={{height: 401,width:336,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                  source={require('../../assets/Article_1.png')}
+                  source={require('../../assets/Shop_Image.png')}
               />
               <Image
-                style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                style={{height: 401,width:336,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                source={require('../../assets/Article_1.png')}
+                source={require('../../assets/Shop_Image.png')}
               />
               <Image
-                style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                style={{height: 401,width:336,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                  source={require('../../assets/Article_1.png')}
+                  source={require('../../assets/Shop_Image.png')}
               />
 
             </ScrollView >
@@ -126,21 +116,20 @@ class CommunityScreen extends React.Component {
               <Image
                 style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                source={require('../../assets/Article_2.png')}
+                source={require('../../assets/Shop_Image3.png')}
               />
               <Image
                 style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                source={require('../../assets/Article_2.png')}
+                source={require('../../assets/Shop_Image3.png')}
               />
               <Image
                 style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                source={require('../../assets/Article_2.png')}
+                source={require('../../assets/Shop_Image3.png')}
               />
             </ScrollView >
         </ScrollView>
-
         <View style={{ //Navigational Menu
           flex:1,
           flexDirection: 'row',
@@ -196,9 +185,10 @@ class CommunityScreen extends React.Component {
                 source={require('../../assets/Nav_Avatar_Face_Animations.png')}
               />
         </TouchableOpacity>
+
       </LinearGradient>
     );
   }
 }
 
-export default CommunityScreen;
+export default ShopScreen;

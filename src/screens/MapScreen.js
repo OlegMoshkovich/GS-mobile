@@ -353,7 +353,7 @@ class MapScreen extends React.Component {
     return (
 
       <LinearGradient
-      colors={['#56CCF2', '#f5d340', 'white']}
+      colors={['#56CCF2', 'white', 'white']}
 
       style={{ height: height, width:width}}>
      

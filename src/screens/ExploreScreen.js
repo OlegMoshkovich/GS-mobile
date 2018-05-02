@@ -25,7 +25,7 @@ class ExploreScreen extends React.Component {
       fadeAnim : new Animated.Value(0),
       blurRadius: 0,
     };
-    
+
   }
 
   animate = () => {
@@ -38,14 +38,14 @@ class ExploreScreen extends React.Component {
         blurRadius: 10
       });
     }
-      
-    Animated.timing(                  
-        this.state.fadeAnim,            
+
+    Animated.timing(
+        this.state.fadeAnim,
         {
-          toValue: this.state.activated ? 1: 0,                   
-          duration: 500,             
+          toValue: this.state.activated ? 1: 0,
+          duration: 500,
         }
-      ).start();   
+      ).start();
       this.setState({
         activated : !this.state.activated,
         }
@@ -96,15 +96,15 @@ class ExploreScreen extends React.Component {
        style={{ height: height, width:width}
        }>
 
-   
-   <View style ={{
+
+        <View style ={{
          top:20,
          flex: 1,
          flexDirection: 'row',
          justifyContent: 'space-between'
           }}>
             <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#explore</Text>
-            <TouchableOpacity style ={{margin:20}}  
+            <TouchableOpacity style ={{margin:20}}
             onPress={() => this.props.navigation.navigate({
               routeName: 'Home',
                   params: {
@@ -118,70 +118,68 @@ class ExploreScreen extends React.Component {
             />
           </TouchableOpacity>
         </View>
-        
-        <View
-        style={{
-          position:'absolute',
-          top:60
-        }}>
-         <Deck        
-         data = {DATA}
-         renderCard = {this.renderCard}
-         renderNoMoreCards = {this.renderNoMoreCards}/>
-          
-         </View>
 
-         <Deck        
-         data = {DATA}
-         renderCard = {this.renderCard}
-         renderNoMoreCards = {this.renderNoMoreCards}/>
-          
+        <View //E
+          style={{
+            position:'absolute',
+            top:30
+          }}>
 
-                  <View style={{
-                    flex:1,
-                    flexDirection: 'row',
-                    position: 'absolute',
-                    bottom: this.state.activated ? -50: 30,
-                    left:20
-                 
-                    }}>
-                      <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
-                      <Image
-                        style={{height: 35,width: 35}}
-                        source={require('../../assets/Explore-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
-                      <Image
-                       style={{height: 35,width: 35}}
-                        source={require('../../assets/Map-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
-                      <Image
-                        style={{height: 35,width: 35}}
-                        source={require('../../assets/Community-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
-                      <Image
-                       style={{height: 35,width: 35}}
-                        source={require('../../assets/Calendar-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
-                      <Image
-                       style={{height: 35,width: 35}}
-                        source={require('../../assets/Shop-icon.png')}
-                      />
-                      </TouchableOpacity>
-                  </View>
+          <Deck
+          data = {DATA}
+          renderCard = {this.renderCard}
+          renderNoMoreCards = {this.renderNoMoreCards}/>
 
-        <TouchableOpacity
+        </View>
+
+
+
+
+        <View style={{ //Navigational Menu
+          flex:1,
+          flexDirection: 'row',
+          position: 'absolute',
+          bottom: this.state.activated ? -50: 30,
+          left:20
+
+          }}>
+            <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
+            <Image
+              style={{height: 35,width: 35}}
+              source={require('../../assets/Explore-icon.png')}
+            />
+            </TouchableOpacity>
+            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
+            <Image
+              style={{height: 35,width: 35}}
+              source={require('../../assets/Map-icon.png')}
+            />
+            </TouchableOpacity>
+            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
+            <Image
+              style={{height: 35,width: 35}}
+              source={require('../../assets/Community-icon.png')}
+            />
+            </TouchableOpacity>
+            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
+            <Image
+              style={{height: 35,width: 35}}
+              source={require('../../assets/Calendar-icon.png')}
+            />
+            </TouchableOpacity>
+            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
+            <Image
+              style={{height: 35,width: 35}}
+              source={require('../../assets/Shop-icon.png')}
+            />
+            </TouchableOpacity>
+        </View>
+
+        <TouchableOpacity //Ava
               style = {{
               alignSelf: 'flex-end',
               position: 'absolute',
-              bottom: -50,
+              bottom: this.state.activated ? -100:-50,
               right: 20,
               width: this.state.activated ? 100: 100,
               height: this.state.activated ? 150: 150,
