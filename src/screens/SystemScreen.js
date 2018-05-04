@@ -10,6 +10,7 @@ import Swiper from 'react-native-swiper';
 import ShopScreen from './ShopScreen1.js';
 
 
+
 class SystemScreen extends React.Component {
   constructor(props) {
     super(props);

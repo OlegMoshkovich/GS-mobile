@@ -17,14 +17,13 @@ class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    var position = new Animated.ValueXY({x:300, y:200});
+    
     this.state = {
       moveAnim     : new Animated.Value(0),
       activated    : true,
       environmentSwitch: false,
       fadeAnim : new Animated.Value(0),
       blurRadius: 0,
-      position
     };
   };
 
@@ -78,7 +77,6 @@ class HomeScreen extends React.Component {
         { cancelable: false }
       )
     }
-
     viewStyle() {
       return {
         flex: 1,
@@ -102,179 +100,142 @@ class HomeScreen extends React.Component {
       index={1}>
 
       <View style={this.viewStyle()}>
+
       <SystemScreen />
       </View>
 
       <View style={this.viewStyle()}>
-          <LinearGradient
-           colors={['#CCDBE6', '#CCDBE6', '#CCDBE6']}
-           style={{ height: height, width:width}}>
+      <LinearGradient
+       colors={['#CCDBE6', '#CCDBE6', '#CCDBE6']}
+       style={{ height: height, width:width}}>
 
-            <Image
-              style={{
-              height: this.state.environmentSwitch ? height: 0,
-              width: width}}
-              source={require('../../assets/Ava-Game.gif')}
+        <Image
+          style={{
+          height: this.state.environmentSwitch ? height: 0,
+          width: width}}
+          source={require('../../assets/Ava-Game.gif')}
+        />
+
+        <Image
+          blurRadius={this.state.blurRadius}
+          style={{
+          height: this.state.environmentSwitch ? 0: height,
+          width: width}}
+          source={require('../../assets/Home_Background.png')}
+        />
+
+
+
+
+        <Animated.View
+            style={{
+            position: 'absolute',
+            top: 60,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            opacity: fadeAnim,
+          }}>
+
+      <Image
+            style={{height:93,width:272, left: 20,
+            position: 'absolute',
+            top: 20,
+            }}
+            source={require('../../assets/Chat-bubble.png')}
+          />
+
+          <Image
+              style={{height:26,width:343, left:20,
+                position: 'absolute',
+                bottom: 35,
+                zIndex: 10
+              }}
+              source={require('../../assets/Speech-input.png')}
             />
 
-            <Image
-              blurRadius={this.state.blurRadius}
-              style={{
-              height: this.state.environmentSwitch ? 0: height,
-              width: width}}
-              source={require('../../assets/Home-Background.png')}
-            />
-            <TouchableOpacity
-                style ={{
-                  position: 'absolute',
-                  bottom: this.state.environmentSwitch ? height-180:400,
-                  left: this.state.environmentSwitch ? width-100:60,
-                  zIndex: 1,
-                  right: 0,
-                }}
-                  onPress={this.environmentSwitch} >
-                    <Image
-                    style={{
-                    height: this.state.environmentSwitch ? 120:180,
-                    width: this.state.environmentSwitch ? 80:120,
-                    left: this.state.activated? 0:300
-                    }}
-                      source={require('../../assets/Ava-Dashboard.png')}
-                    />
-              </TouchableOpacity>
-
-              <Image
-                    style={{
-                    width:486/3,
-                    position: 'absolute',
-                      bottom: 550,
-                      zIndex: 1,
-                      right: this.state.activated? 45:-200,
-                      height: this.state.environmentSwitch ? 0:189/3,
-                    }}
-                source={require('../../assets/Bubble-Welcome.png')}
-                />
-
-            <Animated.View
-                style={{
-                position: 'absolute',
-                top: 60,
-                bottom: 0,
-                left: 0,
-                right: 0,
-                opacity: fadeAnim,
-              }}>
-
-             {/* <Image
-                style={{height:93,width:272, left: 20,
-                position: 'absolute',
-                top: 20,
-                }}
-                source={require('../../assets/Chat-bubble.png')}
-              />  */ }
-
-              <Image
-                  style={{height:26,width:343, left:20,
-                    position: 'absolute',
-                    bottom: 35,
-                    zIndex: 10
-                  }}
-                  source={require('../../assets/Speech-input.png')}
-                />
-
-              <TouchableOpacity
-                style ={{
-                  position: 'absolute',
-                  bottom: 0,
-                  zIndex: 1,
-                  right: 0,
-                }}
-                  onPress={this.animate} onLongPress={this.animate}>
-
-                <Image
-                style={{
-                height:150,
-                width:100,
-                right:20,
-                }}
-                  source={require('../../assets/Nav_Avatar_Face_Animations-wave.png')}
-                />
-              </TouchableOpacity>
-            </Animated.View>
-
-            <View style={{
-              flex:1,
-              flexDirection: 'row',
+          <TouchableOpacity
+            style ={{
               position: 'absolute',
-              bottom: this.state.activated ? 30: -50,
-              left:this.state.environmentSwitch ? -300:20,
+              bottom: 0,
+              zIndex: 1,
+              right: 0,
+            }}
+              onPress={this.animate} onLongPress={this.animate}>
 
-              }}>
-                <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate(
-                  {
-                    routeName: 'Explore',
-                    params: {
-                        transition: 'left'
-                    }
-                }
-                )}>
-                <Image
-                  style={{height: 35,width: 35}}
-                  source={require('../../assets/Explore-icon.png')}
-                />
-                </TouchableOpacity>
-                <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
-                <Image
-                  style={{height: 35,width: 35}}
-                  source={require('../../assets/Map-icon.png')}
-                />
-                </TouchableOpacity>
-                <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate(
-                         {
-                          routeName: 'Community',
-                          params: {
-                              transition: 'left'
-                          }
-                      }
-                )}>
-                <Image
-                  style={{height: 35,width: 35}}
-                  source={require('../../assets/Community-icon.png')}
-                />
-                </TouchableOpacity>
-                <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
-                <Image
-                  style={{height: 35,width: 35}}
-                  source={require('../../assets/Calendar-icon.png')}
-                />
-                </TouchableOpacity>
-                <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
-                <Image
-                  style={{height: 35,width: 35}}
-                  source={require('../../assets/Shop-icon.png')}
-                />
-                </TouchableOpacity>
-            </View>
+            <Image
+            style={{
+            height:150,
+            width:100,
+            right:20,
+            }}
+              source={require('../../assets/Nav_Avatar_Face_Animations-wave.png')}
+            />
+          </TouchableOpacity>
+        </Animated.View>
 
-            <TouchableOpacity
-                  style = {{
-                  alignSelf: 'flex-end',
-                  position: 'absolute',
-                  bottom: this.state.activated ? 35: -60,
-                  right: this.state.environmentSwitch ? -35:35,
+        <View style={{
+          flex:1,
+          flexDirection: 'row',
+          justifyContent: 'space-around',
 
-                  }}
-                  onPress={this.animate} onLongPress={this.animate}>
-                  <Image
-                    style={{height:40,width:40,}}
-                    source={require('../../assets/Home-icon.png')}
-                  />
-                  </TouchableOpacity>
+          bottom: this.state.activated ? 80: -50,
+          bottom: this.state.activated ? 80: -50
 
-          </LinearGradient>
-          </View>
+
+          }}>
+          <TouchableOpacity  onPress={() => this.props.navigation.navigate('Map')}>
+            <Image
+              style={{height: 50,width: this.state.environmentSwitch ? 0: 50}}
+              source={require('../../assets/icons/Home_Icon_Communication.png')}
+            />
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
+            <Image
+              style={{height: 50,width: this.state.environmentSwitch ? 0: 50}}
+              source={require('../../assets/icons/Home_Icon_Community.png')}
+            />
+            </TouchableOpacity>
+
+            <TouchableOpacity   onPress={this.environmentSwitch}>
+            <Image
+              style={{height: 50,width: 50}}
+              source={require('../../assets/icons/Home_Icon_System.png')}
+            />
+            </TouchableOpacity>
+
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Explore')} >
+            <Image
+              style={{height: 50,width: this.state.environmentSwitch ? 0: 50}}
+              source={require('../../assets/icons/Home_Icon_Explore.png')}
+            />
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Dashboard')} >
+            <Image
+              style={{height: 50,width: this.state.environmentSwitch ? 0: 50}}
+              source={require('../../assets/icons/Home_Icon_Dashboard.png')}
+            />
+            </TouchableOpacity>
+        </View>
+
+        <TouchableOpacity
+            style = {{
+            alignSelf: 'flex-end',
+            position: 'absolute',
+            bottom: this.state.activated ? 330: -60,
+            right: this.state.environmentSwitch ? -35:180,
+
+            }}
+            onPress={this.animate} onLongPress={this.animate}>
+            <Image
+              style={{height:15,width:15,}}
+              source={require('../../assets/Ava_Switch.png')}
+            />
+        </TouchableOpacity>
+
+      </LinearGradient>
+      </View>
       <View style={this.viewStyle()}>
-
       <ShopScreen/>
       </View>
     </Swiper>

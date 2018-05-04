@@ -24,19 +24,19 @@ const customAnimationFunc = () => ({
 		duration: 10,
 		timing: Animated.timing,
   },
-  
+
   screenInterpolator : sceneProps => {
     const {position, scene} = sceneProps;
-    const {index, route} = scene;       
+    const {index, route} = scene;
     const params = route.params || {};
-    const transition = params.transition || 'default'; 
+    const transition = params.transition || 'default';
     console.log('parameters'+transition)
     return {
       right: CardStackStyleInterpolator.forHorizontalRight(sceneProps),
       left: CardStackStyleInterpolator.forHorizontalLeft(sceneProps),
       default: CardStackStyleInterpolator.forFade(sceneProps),
       }[transition];
-    return 
+    return
   },
 });
 const MainStack = StackNavigator(
@@ -52,7 +52,7 @@ const MainStack = StackNavigator(
             fontWeight: 'bold',
             fontSize: 35
                },
-            }),       
+            }),
       },
       Explore: {
         screen: ExploreScreen,
@@ -65,7 +65,7 @@ const MainStack = StackNavigator(
                 fontWeight: 'bold',
                 fontSize: 35
               },
-            }),   
+            }),
       },
       Map: {
         screen: MapScreen,
@@ -118,7 +118,7 @@ const MainStack = StackNavigator(
       },
       Chat: {
               screen: ChatScreen,
-              navigationOptions: ({ navigation }) => ({    
+              navigationOptions: ({ navigation }) => ({
                     title: `#chat`,
                     headerTintColor: 'white',
                     headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
@@ -173,19 +173,22 @@ const MainStack = StackNavigator(
   },
 );
 const TabStack =  TabNavigator({
- 
   Calendar: { screen: CalendarScreen },
   Map: { screen: MapScreen },
   Community: { screen: CommunityScreen },
   Home: { screen: HomeScreen },
   Explore: { screen: ExploreScreen },
+  Dashboard: { screen: DashboardScreen },
+  Playground: { screen: PlaygroundScreen },
+
   },
   {swipeEnabled:true,
-  initialRouteName:'Home',
+  initialRouteName:'Dashboard',
   navigationOptions: {
     tabBarVisible: false
    },
 });
+
 const RootStack = StackNavigator(
   {
     Main: {

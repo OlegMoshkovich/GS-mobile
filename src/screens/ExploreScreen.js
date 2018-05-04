@@ -6,6 +6,7 @@ import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
+import { DraggableBox } from '../TestComponents/draggable';
 
 const DATA = [
   { id: 1, title: 'Oyster-tecture', uri: 'https://99percentinvisible.org/app/uploads/2017/10/new-york-estuary.jpg' , text:'Standing on the sidewalk in Manhattan’s financial district in the shadows of glass skyscrapers, it is easy to forget how close you are to the water. But just a few blocks away, there are docks, and sea gulls, and ferry boats ready to take you island hopping.'},
@@ -22,8 +23,8 @@ class ExploreScreen extends React.Component {
     this.state = {
       moveAnim     : new Animated.Value(0),
       activated    : true,
-      fadeAnim : new Animated.Value(0),
-      blurRadius: 0,
+      fadeAnim     : new Animated.Value(0),
+      blurRadius   : 0,
     };
 
   }
@@ -129,7 +130,14 @@ class ExploreScreen extends React.Component {
           data = {DATA}
           renderCard = {this.renderCard}
           renderNoMoreCards = {this.renderNoMoreCards}/>
+          <ScrollView
+            waitFor={['image_pinch', 'image_rotation', 'image_tilt']}
+            style={styles.scrollView}>
 
+
+
+
+          </ScrollView>
         </View>
 
 
@@ -195,5 +203,12 @@ class ExploreScreen extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  scrollView: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+  }
+});
 
 export default ExploreScreen;

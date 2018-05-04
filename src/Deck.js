@@ -4,24 +4,24 @@ import { Constants, Accelerometer } from 'expo';
 import { withNavigation } from 'react-navigation'
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const SWIPE_THRESHOLD = .001*SCREEN_WIDTH;
-const SWIPE_OUT_DURATION = 100;
+const SWIPE_THRESHOLD = .20*SCREEN_WIDTH;
+const SWIPE_OUT_DURATION = 300;
 
 class Deck extends Component{
-  
+
   static defaultProps ={
     onSwipeRight:()=>{},
     onSwipeLeft:()=>{}
-  }
+  };
 
   constructor(props){
     super(props);
     const position = new Animated.ValueXY({x:0, y:0});
-  
+
     const panResponder = PanResponder.create({
         onStartShouldSetPanResponder: () => true,
         onPanResponderMove: (event, gesture) => {
-          if (gesture.dx<0){
+          if (gesture.dx!=0){
           position.setValue({x:gesture.dx, y:0})} },
         onPanResponderRelease: (event,gesture) => {
             if (gesture.dx>SWIPE_THRESHOLD){
@@ -36,19 +36,19 @@ class Deck extends Component{
     });
 
     this.state= {panResponder, position, index:0};
-    
+
 
   };
 
   componentWillUpdate(){
     // UIManager.setLayoutAnimationEnabledExperimental && UIManager.setLayoutAnimationEnabledExperimental(true);
   LayoutAnimation.linear();
-  
+
   };
 
 
   forceSwipe(direction){
- 
+
     const x = direction === 'right ' ? SCREEN_WIDTH-10 : -SCREEN_WIDTH+10;
 
     Animated.timing(this.state.position,{
@@ -58,7 +58,7 @@ class Deck extends Component{
   }
 
   onSwipeComplete(direction){
- 
+
     const { onSwipeLeft,onSwipeRight,data } = this.props;
     const item = data[this.state.index];
     direction =='right' ? onSwipeRight(item) : onSwipeLeft(item)

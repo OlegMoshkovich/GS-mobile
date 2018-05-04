@@ -1,122 +1,128 @@
-import React from 'react';
-import { BlurView,LinearGradient  } from 'expo';
-import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated, StatusBar } from 'react-native';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
-import {Card, Button,Icon} from 'react-native-elements';
-import { Ionicons } from '@expo/vector-icons';
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
-const {width, height} = Dimensions.get('window');
-import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-import Swiper from 'react-native-swiper';
 
-const uri = 'https://s3.amazonaws.com/exp-icon-assets/ExpoEmptyManifest_192.png';
+import React, { Component } from 'react';
+import { Alert, StyleSheet, View, PanResponder } from 'react-native';
 
-class PlaygroundScreen extends React.Component{
-  static navigationOptions = ({ navigation }) => {
-    const params = navigation.state.params || {};
-    return {
-      headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Resume')}>
-          <Image
-            style={{height: 40,width: 40, right:20}}
-            source={require('../../assets/Resume-icon.png')}
-          />
-        </TouchableOpacity>
+import { ScrollView } from 'react-native-gesture-handler';
 
-      ),
-      headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Image
-            style={{height: 40,width: 40,left:20}}
-            source={require('../../assets/Explore-icon.png')}
-          />
-        </TouchableOpacity>
-      )
+import { DraggableBox } from '../TestComponents/draggable';
+import { LoremIpsum } from '../TestComponents/common';
+
+var CIRCLE_SIZE = 80;
+
+// A clone of: https://github.com/facebook/react-native/blob/master/RNTester/js/PanResponderExample.js
+class PanResponderExample extends Component {
+  _panResponder = {};
+  _previousLeft = 0;
+  _previousTop = 0;
+  _circleStyles = {};
+
+  componentWillMount() {
+    this._panResponder = PanResponder.create({
+      onStartShouldSetPanResponder: this._handleStartShouldSetPanResponder,
+      onMoveShouldSetPanResponder: this._handleMoveShouldSetPanResponder,
+      onPanResponderGrant: this._handlePanResponderGrant,
+      onPanResponderMove: this._handlePanResponderMove,
+      onPanResponderRelease: this._handlePanResponderEnd,
+      onPanResponderTerminate: this._handlePanResponderEnd,
+    });
+    this._previousLeft = 20;
+    this._previousTop = 84;
+    this._circleStyles = {
+      style: {
+        left: this._previousLeft,
+        top: this._previousTop,
+        backgroundColor: 'green',
+      },
     };
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      moveAnim     : new Animated.Value(0),
-      activated    : true,
-      fadeAnim : new Animated.Value(0),
-      blurRadius: 0,
-    };
-  };
-
-  animate = () => {
-    if (this.state.blurRadius == 10) {
-      this.setState({
-        blurRadius: 0
-      });
-    } else {
-      this.setState({
-        blurRadius: 10
-      });
-    }
-      
-    Animated.timing(                  
-        this.state.fadeAnim,            
-        {
-          toValue: this.state.activated ? 1: 0,                   
-          duration: 1000,             
-        }
-      ).start();   
-      this.setState({
-        activated : !this.state.activated,
-        }
-      )
   }
-  viewStyle() {
-    return {
-      flex: 1,
-      backgroundColor: 'white',
-      justifyContent: 'center',
-      alignItems: 'center',
-    }
+
+  componentDidMount() {
+    this._updateNativeStyles();
   }
 
   render() {
-
-    let { fadeAnim } = this.state;
-    const config = {
-      velocityThreshold: 0.3,
-      directionalOffsetThreshold: 80
-    };
-
-
     return (
+      <View
+        ref={circle => {
+          this.circle = circle;
+        }}
+        style={styles.circle}
+        {...this._panResponder.panHandlers}
+      />
+    );
+  }
 
-     
+  _highlight = () => {
+    this._circleStyles.style.backgroundColor = 'blue';
+    this._updateNativeStyles();
+  };
 
-      <Image
-          blurRadius={this.state.blurRadius}
-          style={{
-          height: this.state.environmentSwitch ? 0: height,
-          width: width}}
-          source={require('../../assets/Home-Background.png')}
-        />
-      
+  _unHighlight = () => {
+    this._circleStyles.style.backgroundColor = 'green';
+    this._updateNativeStyles();
+  };
 
-      
-              
+  _updateNativeStyles = () => {
+    this.circle && this.circle.setNativeProps(this._circleStyles);
+  };
 
+  _handleStartShouldSetPanResponder = (e, gestureState) => {
+    // Should we become active when the user presses down on the circle?
+    return true;
+  };
+
+  _handleMoveShouldSetPanResponder = (e, gestureState) => {
+    // Should we become active when the user moves a touch over the circle?
+    return true;
+  };
+
+  _handlePanResponderGrant = (e, gestureState) => {
+    this._highlight();
+  };
+
+  _handlePanResponderMove = (e, gestureState) => {
+    this._circleStyles.style.left = this._previousLeft + gestureState.dx;
+    this._circleStyles.style.top = this._previousTop + gestureState.dy;
+    this._updateNativeStyles();
+  };
+
+  _handlePanResponderEnd = (e, gestureState) => {
+    this._unHighlight();
+    this._previousLeft += gestureState.dx;
+    this._previousTop += gestureState.dy;
+  };
+}
+
+
+class PlaygroundScreen extends React.Component{
+
+  _onClick = () => {
+    Alert.alert("I'm so touched");
+  };
+  render() {
+    return (
+      <ScrollView
+        waitFor={['dragbox', 'image_pinch', 'image_rotation', 'image_tilt']}
+        style={styles.scrollView}>
+
+        <PanResponderExample />
+        <DraggableBox />
+
+      </ScrollView>
     );
   }
 }
 
 
-
-var styles = StyleSheet.create({
-  container: {
-    flex: 1
-  },
-  view: {
+const styles = StyleSheet.create({
+  scrollView: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  }
-})
+    backgroundColor: '#F5FCFF',
+  },
+
+});
+
+
+
+
 export default PlaygroundScreen;

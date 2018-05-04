@@ -9,38 +9,17 @@ import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 const {width, height} = Dimensions.get('window');
 
 class DashboardScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    const params = navigation.state.params || {};
-    return {
-      headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Image
-            style={{height: 40,width: 40, right:20}}
-            source={require('../../assets/Explore-icon.png')}
-          />
-        </TouchableOpacity>
 
-      ),
-      headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Resume')}>
-          <Image
-            style={{height: 40,width: 40,left:20}}
-            source={require('../../assets/Resume-icon.png')}
-          />
-        </TouchableOpacity>
-      )
-    };
-    };
   constructor(props) {
     super(props);
     this.state = {
-      moveAnim     : new Animated.Value(1),
+      moveAnim     : new Animated.Value(0),
       activated    : true,
-      valueInitial : 0,
-      valueFinal   : 0
-
+      environmentSwitch: false,
+      fadeAnim : new Animated.Value(0),
+      blurRadius: 0,
     };
-  }
+  };
   animate = () => {
     Animated.timing(
       this.state.moveAnim,
@@ -68,88 +47,181 @@ class DashboardScreen extends React.Component {
          style={{
            height: height,
            width:width,
-           flex: 1,
-
          }}>
 
+         <View style ={{
+          top:20,
+          flex: 1,
+          flexDirection: 'row',
+          justifyContent: 'space-between'
+           }}>
+             <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#dashboard</Text>
+             <TouchableOpacity style ={{margin:20}}
+             onPress={() => this.props.navigation.navigate({
+               routeName: 'Home',
+                   params: {
+                       transition: 'left'
+                   }
+                 }
+             )}>
+             <Image
+               style={{height: 40,width: 40}}
+               source={require('../../assets/Dashboard-icon.png')}
+             />
+           </TouchableOpacity>
+         </View>
+
          <Image
-           style={{height: 290,width: 227, top:100, left:75}}
+           style={{height: 290/1.2,width: 227/1.2,alignSelf:'center', bottom:20}}
 
            source={require('../../assets/Ava-Dashboard.png')}
          />
 
-         <View
-            style={{
-              height: height,
-              width:width,
-              flex: 1,
-              flexDirection: 'row',
-              justifyContent: 'flex-end',
-              alignItems: 'flex-end',
-            }}>
-
-             <Animated.View
-                  style={{
-                  flex:1,
-                  transform: [{
-                    translateY: this.state.moveAnim.interpolate({
-                      inputRange: [0, 1],
-                      outputRange: [this.state.valueInitial, this.state.valueFinal]  // 0 : 150, 0.5 : 75, 1 : 0
-                    }),
-                  }],
-              }}>
-                  <View style={{
-                    left:20,
-                    top:100,
-                    flex: 1,
-                     flexDirection: 'row',
-                     justifyContent: 'flex-start',
-                     alignItems: 'flex-end',
-                    }}>
-                      <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Calendar')}>
-                      <Image
-                        style={{height: 30,width: 30}}
-                        source={require('../../assets/Calendar-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Chat')}>
-                      <Image
-                        style={{height: 30,width: 30}}
-                        source={require('../../assets/Chat-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
-                      <Image
-                        style={{height: 30,width: 30}}
-                        source={require('../../assets/Map-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')} >
-                      <Image
-                        style={{height: 30,width: 30}}
-                        source={require('../../assets/Community-icon.png')}
-                      />
-                      </TouchableOpacity>
-                      <TouchableOpacity  style ={{margin:5}} onPress={() => this.props.navigation.navigate('Test')}>
-                      <Image
-                        style={{height: 30,width: 30}}
-                        source={require('../../assets/Resume-icon.png')}
-                      />
-                      </TouchableOpacity>
-                  </View>
-
-              </Animated.View>
 
 
-             <TouchableOpacity
-                  style={{position: 'absolute',flex: 1}}
-                  onPress={this.animate} onLongPress={this.animate}>
-              <Image
-                style={{height:150,width:100}}
-                source={require('../../assets/Nav_Avatar_Face_Animations.png')}
-              />
+
+
+         <View style={{
+           flex:1,
+           flexDirection: 'row',
+           justifyContent: 'space-around',
+           top:10
+           }}>
+           <TouchableOpacity  >
+
+             </TouchableOpacity >
+           <TouchableOpacity  >
+
+             </TouchableOpacity >
+           <TouchableOpacity  >
+             <Image
+               style={{height: 40,width: 40}}
+               source={require('../../assets/icons/Dashboard_Icon_Badges.png')}
+             />
+             </TouchableOpacity >
+             <TouchableOpacity >
+             <Image
+               style={{height: 40,width: 40}}
+                 source={require('../../assets/icons/Dashboard_Icon_Journeys.png')}
+             />
              </TouchableOpacity>
-          </View>
+
+             <TouchableOpacity  >
+             <Image
+               style={{height: 40,width: 40}}
+                 source={require('../../assets/icons/Dashboard_Icon_Awards.png')}
+             />
+             </TouchableOpacity>
+             <TouchableOpacity  >
+
+               </TouchableOpacity >
+               <TouchableOpacity  >
+
+                 </TouchableOpacity >
+         </View>
+         <Image
+           style={{height: 8,width: 270,alignSelf:'center',bottom:60}}
+
+           source={require('../../assets/Dashboard_ProgressBar.png')}
+         />
+
+
+            <View style={{
+              flex:1,
+              flexDirection: 'row',
+              justifyContent: 'space-around',
+              bottom:30,
+              }}>
+
+              <TouchableOpacity  >
+                <Image
+                  style={{height: 75,width: this.state.environmentSwitch ? 0: 75}}
+                  source={require('../../assets/icons/Badges/Icon_Badge_1.png')}
+                />
+                </TouchableOpacity>
+                <TouchableOpacity  >
+                <Image
+                  style={{height: 75,width: this.state.environmentSwitch ? 0: 75}}
+                    source={require('../../assets/icons/Badges/Icon_Badge_2.png')}
+                />
+                </TouchableOpacity>
+
+                <TouchableOpacity  >
+                <Image
+                  style={{height: 75,width: 75}}
+                    source={require('../../assets/icons/Badges/Icon_Badge_3.png')}
+                />
+                </TouchableOpacity>
+
+                <TouchableOpacity   >
+                <Image
+                  style={{height: 75,width: this.state.environmentSwitch ? 0: 75}}
+                  source={require('../../assets/icons/Badges/Icon_Badge_4.png')}
+                />
+                </TouchableOpacity>
+
+                </View>
+
+                <View style={{ //Navigational Menu
+                  flex:1,
+                  flexDirection: 'row',
+                  position: 'absolute',
+                  bottom: this.state.activated ? -50: 30,
+                  left:20
+
+                  }}>
+                    <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
+                    <Image
+                      style={{height: 35,width: 35}}
+                      source={require('../../assets/Explore-icon.png')}
+                    />
+                    </TouchableOpacity>
+                    <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
+                    <Image
+                      style={{height: 35,width: 35}}
+                      source={require('../../assets/Map-icon.png')}
+                    />
+                    </TouchableOpacity>
+                    <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
+                    <Image
+                      style={{height: 35,width: 35}}
+                      source={require('../../assets/Community-icon.png')}
+                    />
+                    </TouchableOpacity>
+                    <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
+                    <Image
+                      style={{height: 35,width: 35}}
+                      source={require('../../assets/Calendar-icon.png')}
+                    />
+                    </TouchableOpacity>
+                    <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
+                    <Image
+                      style={{height: 35,width: 35}}
+                      source={require('../../assets/Shop-icon.png')}
+                    />
+                    </TouchableOpacity>
+                </View>
+
+                <TouchableOpacity //Ava
+                      style = {{
+                      alignSelf: 'flex-end',
+                      position: 'absolute',
+                      bottom: this.state.activated ? -100:-50,
+                      right: 20,
+                      width: this.state.activated ? 100: 100,
+                      height: this.state.activated ? 150: 150,
+                      }}
+                      onPress={this.animate} onLongPress={this.animate}>
+                      <Image
+                        style={{height:100,width:100,}}
+                        source={require('../../assets/Nav_Avatar_Face_Animations.png')}
+                      />
+                </TouchableOpacity>
+
+
+
+
+
       </LinearGradient>
     );
   }
