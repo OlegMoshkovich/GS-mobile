@@ -173,17 +173,16 @@ const MainStack = StackNavigator(
   },
 );
 const TabStack =  TabNavigator({
-  Calendar: { screen: CalendarScreen },
+
   Map: { screen: MapScreen },
   Community: { screen: CommunityScreen },
   Home: { screen: HomeScreen },
   Explore: { screen: ExploreScreen },
   Dashboard: { screen: DashboardScreen },
   Playground: { screen: PlaygroundScreen },
-
   },
   {swipeEnabled:true,
-  initialRouteName:'Dashboard',
+  initialRouteName:'Map',
   navigationOptions: {
     tabBarVisible: false
    },

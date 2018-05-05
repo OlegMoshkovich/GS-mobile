@@ -5,7 +5,10 @@ import { Animated,Platform,StyleSheet, Text, View, TouchableOpacity,Image, Touch
 import {Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient ,Constants, MapView, Location, Permissions } from 'expo';
-import { Ionicons } from '@expo/vector-icons'
+
+import Swiper from 'react-native-swiper';
+import CalendarScreen from './CalendarScreen.js';
+import ChatScreen from './ChatScreen.js';
 const RandomNumber = Math.floor(Math.random() * 100) + 1
 const {width, height} = Dimensions.get('window');
 const mapStyle = [
@@ -179,30 +182,13 @@ const CARD_HEIGHT = height / 4;
 const CARD_WIDTH = CARD_HEIGHT - 50;
 
 class MapScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-  const params = navigation.state.params || {};
 
-  return {
-          headerRight: (
-            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-              <Image
-                style={{height: 40,width: 40, right:20}}
-                source={require('../../assets/Home-icon.png')}
-              />
-            </TouchableOpacity>
-          ),
-          headerLeft: (
-            <TouchableOpacity onPress={() => navigation.navigate('Chat')}>
-              <Image
-                style={{height: 40,width: 0,left:20}}
-                source={require('../../assets/Chat-icon.png')}
-              />
-            </TouchableOpacity>
-          )
-        };
-      };
 
   state = {
+    moveAnim     : new Animated.Value(0),
+    activated    : true,
+    fadeAnim     : new Animated.Value(0),
+    blurRadius   : 0,
     location: {coords: { latitude: 40.750859, longitude: -73.983324}},
     markers: [
       {
@@ -270,7 +256,29 @@ class MapScreen extends React.Component {
       longitudeDelta: 0.1,
     },
   };
+  animate = () => {
+    if (this.state.blurRadius == 10) {
+      this.setState({
+        blurRadius: 0
+      });
+    } else {
+      this.setState({
+        blurRadius: 10
+      });
+    }
 
+    Animated.timing(
+        this.state.fadeAnim,
+        {
+          toValue: this.state.activated ? 1: 0,
+          duration: 500,
+        }
+      ).start();
+      this.setState({
+        activated : !this.state.activated,
+        }
+      )
+  }
   componentWillMount() {
     this.index = 0;
     this.animation = new Animated.Value(0);
@@ -327,6 +335,15 @@ class MapScreen extends React.Component {
     console.log(region);
     this.setState({region});
   }
+  viewStyle() {
+    return {
+      flex: 1,
+      backgroundColor: 'white',
+      justifyContent: 'center',
+      alignItems: 'center',
+    }
+  }
+
 
   render() {
     const interpolations = this.state.markers.map((marker, index) => {
@@ -351,16 +368,27 @@ class MapScreen extends React.Component {
     });
 
     return (
+      <Swiper
+      horizontal={false}
+      loop={false}
+      showsPagination={false}
+      index={1}>
 
+
+      <View style={this.viewStyle()}>
+
+      <ChatScreen />
+      </View>
+      <View style={this.viewStyle()}>
       <LinearGradient
-      colors={['#56CCF2', 'white', 'white']}
+       colors={['#b98031', 'white', 'white']}
 
       style={{ height: height, width:width}}>
-     
-     
+
+
      <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15,top:20,}}>where</Text>
-     
-     <TouchableOpacity style ={{position:'absolute',margin:20, top:20,right:0}}  
+
+     <TouchableOpacity style ={{position:'absolute',margin:20, top:20,right:0}}
             onPress={() => this.props.navigation.navigate({
               routeName: 'Home',
                   params: {
@@ -373,9 +401,9 @@ class MapScreen extends React.Component {
               source={require('../../assets/Map-icon.png')}
             />
           </TouchableOpacity>
-     
+
       <View style={styles.container}>
-       
+
         <MapView
           ref={map => this.map = map}
           initialRegion={this.state.region}
@@ -407,6 +435,8 @@ class MapScreen extends React.Component {
             );
           })}
         </MapView>
+
+
         <Animated.ScrollView
           horizontal
           scrollEventThrottle={1}
@@ -444,16 +474,82 @@ class MapScreen extends React.Component {
           ))}
         </Animated.ScrollView>
 
-        <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:30,marginLeft:30,height:10, alignItems:'flex-start'}}>
+      {/*  <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:30,marginLeft:30,height:10, alignItems:'flex-start'}}>
                <TouchableOpacity onPress={this._onPressButton} >
                <Image
                  style={{height: 80,width: 80, right:25}}
                  source={require('../../assets/Ava-Cap.png')}
                />
              </TouchableOpacity>
-           </View>
+           </View>*/}
       </View>
+
+      <View style={{ //Navigational Menu
+        flex:1,
+        flexDirection: 'row',
+        position: 'absolute',
+        bottom: this.state.activated ? -50: 30,
+        left:20
+
+        }}>
+          <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
+          <Image
+            style={{height: 35,width: 35}}
+            source={require('../../assets/Explore-icon.png')}
+          />
+          </TouchableOpacity>
+          <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
+          <Image
+            style={{height: 35,width: 35}}
+            source={require('../../assets/Map-icon.png')}
+          />
+          </TouchableOpacity>
+          <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
+          <Image
+            style={{height: 35,width: 35}}
+            source={require('../../assets/Community-icon.png')}
+          />
+          </TouchableOpacity>
+          <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
+          <Image
+            style={{height: 35,width: 35}}
+            source={require('../../assets/Calendar-icon.png')}
+          />
+          </TouchableOpacity>
+          <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
+          <Image
+            style={{height: 35,width: 35}}
+            source={require('../../assets/Shop-icon.png')}
+          />
+          </TouchableOpacity>
+      </View>
+
+      <TouchableOpacity //Ava
+            style = {{
+            alignSelf: 'flex-end',
+            position: 'absolute',
+            bottom: this.state.activated ? -100:-50,
+            right: 20,
+            width: this.state.activated ? 100: 100,
+            height: this.state.activated ? 150: 150,
+            }}
+            onPress={this.animate} onLongPress={this.animate}>
+            <Image
+              style={{height:100,width:100,}}
+              source={require('../../assets/Nav_Avatar_Face_Animations.png')}
+            />
+      </TouchableOpacity>
+
+
       </LinearGradient>
+
+
+      </View>
+      <View style={this.viewStyle()}>
+
+      <CalendarScreen />
+      </View>
+    </Swiper>
     );
   }
 }
@@ -463,9 +559,14 @@ const styles = StyleSheet.create({
     flex: 1,
     top:17
   },
+  view: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
   scrollView: {
     position: "absolute",
-    bottom: 30,
+    top:30,
     left: 0,
     right: 0,
     paddingVertical: 10,
@@ -525,5 +626,7 @@ const styles = StyleSheet.create({
     borderColor: "red",
   },
 });
+
+
 
 export default MapScreen;

@@ -73,8 +73,7 @@ class DashboardScreen extends React.Component {
 
          <Image
            style={{height: 290/1.2,width: 227/1.2,alignSelf:'center', bottom:20}}
-
-           source={require('../../assets/Ava-Dashboard.png')}
+           source={require('../../assets/Ava-Dashboard1.png')}
          />
 
 
@@ -85,7 +84,7 @@ class DashboardScreen extends React.Component {
            flex:1,
            flexDirection: 'row',
            justifyContent: 'space-around',
-           top:10
+           top:5
            }}>
            <TouchableOpacity  >
 
@@ -95,20 +94,20 @@ class DashboardScreen extends React.Component {
              </TouchableOpacity >
            <TouchableOpacity  >
              <Image
-               style={{height: 40,width: 40}}
+               style={{height: 41,width: 40}}
                source={require('../../assets/icons/Dashboard_Icon_Badges.png')}
              />
              </TouchableOpacity >
              <TouchableOpacity >
              <Image
-               style={{height: 40,width: 40}}
+               style={{height: 41,width: 40}}
                  source={require('../../assets/icons/Dashboard_Icon_Journeys.png')}
              />
              </TouchableOpacity>
 
              <TouchableOpacity  >
              <Image
-               style={{height: 40,width: 40}}
+               style={{height: 41,width: 40}}
                  source={require('../../assets/icons/Dashboard_Icon_Awards.png')}
              />
              </TouchableOpacity>

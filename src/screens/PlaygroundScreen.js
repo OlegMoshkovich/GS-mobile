@@ -1,9 +1,7 @@
 
 import React, { Component } from 'react';
 import { Alert, StyleSheet, View, PanResponder } from 'react-native';
-
 import { ScrollView } from 'react-native-gesture-handler';
-
 import { DraggableBox } from '../TestComponents/draggable';
 import { LoremIpsum } from '../TestComponents/common';
 

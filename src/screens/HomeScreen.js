@@ -17,7 +17,7 @@ class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    
+
     this.state = {
       moveAnim     : new Animated.Value(0),
       activated    : true,
@@ -109,6 +109,7 @@ class HomeScreen extends React.Component {
        colors={['#CCDBE6', '#CCDBE6', '#CCDBE6']}
        style={{ height: height, width:width}}>
 
+
         <Image
           style={{
           height: this.state.environmentSwitch ? height: 0,
@@ -116,13 +117,15 @@ class HomeScreen extends React.Component {
           source={require('../../assets/Ava-Game.gif')}
         />
 
-        <Image
-          blurRadius={this.state.blurRadius}
-          style={{
-          height: this.state.environmentSwitch ? 0: height,
-          width: width}}
-          source={require('../../assets/Home_Background.png')}
-        />
+
+            <Image
+              blurRadius={this.state.blurRadius}
+              style={{
+              height: this.state.environmentSwitch ? 0: height,
+              width: width}}
+              source={require('../../assets/Home_Background1.png')}
+            />
+
 
 
 
@@ -200,7 +203,7 @@ class HomeScreen extends React.Component {
             <TouchableOpacity   onPress={this.environmentSwitch}>
             <Image
               style={{height: 50,width: 50}}
-              source={require('../../assets/icons/Home_Icon_System.png')}
+              source={require('../../assets/Home-icon.png')}
             />
             </TouchableOpacity>
 
@@ -222,16 +225,21 @@ class HomeScreen extends React.Component {
             style = {{
             alignSelf: 'flex-end',
             position: 'absolute',
-            bottom: this.state.activated ? 330: -60,
-            right: this.state.environmentSwitch ? -35:180,
+            bottom: 420,
+            right: this.state.activated? 0:-200,
 
             }}
             onPress={this.animate} onLongPress={this.animate}>
-            <Image
-              style={{height:15,width:15,}}
-              source={require('../../assets/Ava_Switch.png')}
-            />
+        <Image
+              style={{
+              width:144,
+                height: this.state.environmentSwitch ? 0:155,
+              }}
+          source={require('../../assets/Home_Bubble_Welcome1.png')}
+          />
         </TouchableOpacity>
+
+
 
       </LinearGradient>
       </View>

@@ -105,22 +105,23 @@ class CommunityScreen extends React.Component {
             <Text style ={{color:"white",fontSize: 22,top:20,left:30,fontWeight:'bold', }}>Featured</Text>
             <ScrollView horizontal= {true} style={{marginTop:40}}>
               <Image
-                style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                style={{height: 428/1.3,width:291/1.3,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
                   source={require('../../assets/Article_1.png')}
               />
               <Image
-                style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                style={{height: 428/1.3,width:291/1.3,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
                 source={require('../../assets/Article_1.png')}
               />
               <Image
-                style={{height: 428,width:291,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
+                style={{height: 428/1.3,width:291/1.3,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
                   source={require('../../assets/Article_1.png')}
               />
 
             </ScrollView >
+            
             <Text style ={{color:"white",fontSize: 22,left:30,fontWeight:'bold',marginBottom:10 }}>Whats New</Text>
             <ScrollView horizontal= {true} style={{marginBottom:200}} >
               <Image

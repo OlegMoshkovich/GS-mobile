@@ -84,14 +84,7 @@ class CalendarScreen extends React.Component {
 
    <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15, marginBottom:50,top:20}}>when</Text>
 
-   <TouchableOpacity style ={{position:'absolute',margin:20, top:20,right:0}}
-            onPress={() => this.props.navigation.navigate({
-              routeName: 'Home',
-                  params: {
-                      transition: 'left'
-                  }
-                }
-            )}>
+   <TouchableOpacity style ={{position:'absolute',margin:20, top:20,right:0}}>
             <Image
               style={{height: 40,width: 40}}
               source={require('../../assets/Calendar-icon.png')}
