@@ -178,8 +178,8 @@ const TabStack =  TabNavigator({
   Community: { screen: CommunityScreen },
   Home: { screen: HomeScreen },
   Explore: { screen: ExploreScreen },
-  Dashboard: { screen: DashboardScreen },
-  Playground: { screen: PlaygroundScreen },
+  Dashboard: { screen: DashboardScreen }
+
   },
   {swipeEnabled:true,
   initialRouteName:'Map',

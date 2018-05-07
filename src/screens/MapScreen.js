@@ -1,14 +1,15 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
 import { Animated,Platform,StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Button, ActivityIndicator, Alert} from 'react-native';
-
 import {Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient ,Constants, MapView, Location, Permissions } from 'expo';
-
 import Swiper from 'react-native-swiper';
 import CalendarScreen from './CalendarScreen.js';
 import ChatScreen from './ChatScreen.js';
+import PlaygroundScreen from './PlaygroundScreen.js';
+
+
 const RandomNumber = Math.floor(Math.random() * 100) + 1
 const {width, height} = Dimensions.get('window');
 const mapStyle = [
@@ -178,11 +179,10 @@ const Images = [
   { uri: "https://i.imgur.com/Ka8kNST.jpg" }
 ]
 
-const CARD_HEIGHT = height / 4;
-const CARD_WIDTH = CARD_HEIGHT - 50;
+const CARD_HEIGHT = height / 4.5;
+const CARD_WIDTH = CARD_HEIGHT - 42;
 
 class MapScreen extends React.Component {
-
 
   state = {
     moveAnim     : new Animated.Value(0),
@@ -249,11 +249,12 @@ class MapScreen extends React.Component {
       },
 
     ],
+
     region: {
-      latitude: 40.74,
-      longitude: -74,
-      latitudeDelta: 0.1,
-      longitudeDelta: 0.1,
+      latitude: 40.742,
+      longitude: -74.01,
+      latitudeDelta: 0.15,
+      longitudeDelta: 0.15,
     },
   };
   animate = () => {
@@ -338,9 +339,7 @@ class MapScreen extends React.Component {
   viewStyle() {
     return {
       flex: 1,
-      backgroundColor: 'white',
-      justifyContent: 'center',
-      alignItems: 'center',
+
     }
   }
 
@@ -359,11 +358,13 @@ class MapScreen extends React.Component {
         outputRange: [1, 1.5, 1],
         extrapolate: "clamp",
       });
+
       const opacity = this.animation.interpolate({
         inputRange,
         outputRange: [0.35, 1, 0.35],
         extrapolate: "clamp",
       });
+
       return { scale, opacity };
     });
 
@@ -375,42 +376,20 @@ class MapScreen extends React.Component {
       index={1}>
 
 
-      <View style={this.viewStyle()}>
 
-      <ChatScreen />
-      </View>
+
       <View style={this.viewStyle()}>
       <LinearGradient
        colors={['#b98031', 'white', 'white']}
-
-      style={{ height: height, width:width}}>
-
-
-     <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15,top:20,}}>where</Text>
-
-     <TouchableOpacity style ={{position:'absolute',margin:20, top:20,right:0}}
-            onPress={() => this.props.navigation.navigate({
-              routeName: 'Home',
-                  params: {
-                      transition: 'left'
-                  }
-                }
-            )}>
-            <Image
-              style={{height: 40,width: 40}}
-              source={require('../../assets/Map-icon.png')}
-            />
-          </TouchableOpacity>
-
+       style={{ height: height, width:width}}>
+      <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15,top:20,}}>where</Text>
       <View style={styles.container}>
-
-        <MapView
-          ref={map => this.map = map}
-          initialRegion={this.state.region}
-          style={styles.container}
-          showsCompass={false}
-        >
-
+      <MapView
+        ref={map => this.map = map}
+        initialRegion={this.state.region}
+        style={styles.container}
+        showsCompass={false}
+      >
           {this.state.markers.map((marker, index) => {
             const scaleStyle = {
               transform: [
@@ -433,9 +412,8 @@ class MapScreen extends React.Component {
                 </Animated.View>
               </MapView.Marker>
             );
-          })}
+            })}
         </MapView>
-
 
         <Animated.ScrollView
           horizontal
@@ -447,6 +425,7 @@ class MapScreen extends React.Component {
               {
                 nativeEvent: {
                   contentOffset: {
+                    x: this.animation,
                   },
                 },
               },
@@ -454,10 +433,10 @@ class MapScreen extends React.Component {
             { useNativeDriver: true }
           )}
           style={styles.scrollView}
-          contentContainerStyle={styles.endPadding}
-        >
 
+        >
           {this.state.markers.map((marker, index) => (
+
             <View style={styles.card} key={index}>
               <Image
                 source={marker.image}
@@ -472,16 +451,9 @@ class MapScreen extends React.Component {
               </View>
             </View>
           ))}
+
         </Animated.ScrollView>
 
-      {/*  <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:30,marginLeft:30,height:10, alignItems:'flex-start'}}>
-               <TouchableOpacity onPress={this._onPressButton} >
-               <Image
-                 style={{height: 80,width: 80, right:25}}
-                 source={require('../../assets/Ava-Cap.png')}
-               />
-             </TouchableOpacity>
-           </View>*/}
       </View>
 
       <View style={{ //Navigational Menu
@@ -539,14 +511,14 @@ class MapScreen extends React.Component {
               source={require('../../assets/Nav_Avatar_Face_Animations.png')}
             />
       </TouchableOpacity>
-
-
       </LinearGradient>
-
-
       </View>
-      <View style={this.viewStyle()}>
 
+      <View style={this.viewStyle()}>
+      <ChatScreen />
+      </View>
+
+      <View style={this.viewStyle()}>
       <CalendarScreen />
       </View>
     </Swiper>
@@ -572,10 +544,10 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   endPadding: {
-    paddingRight: 260,
+
   },
   card: {
-    padding: 10,
+    padding: 0,
     elevation: 2,
     backgroundColor: "transparent",
     marginHorizontal: 10,

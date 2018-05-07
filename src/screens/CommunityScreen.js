@@ -107,37 +107,37 @@ class CommunityScreen extends React.Component {
               <Image
                 style={{height: 428/1.3,width:291/1.3,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                  source={require('../../assets/Article_1.png')}
+                  source={require('../../assets/Article_1.1.png')}
               />
               <Image
                 style={{height: 428/1.3,width:291/1.3,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                source={require('../../assets/Article_1.png')}
+                source={require('../../assets/Article_1.2.png')}
               />
               <Image
                 style={{height: 428/1.3,width:291/1.3,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                  source={require('../../assets/Article_1.png')}
+                  source={require('../../assets/Article_1.3.png')}
               />
 
             </ScrollView >
-            
+
             <Text style ={{color:"white",fontSize: 22,left:30,fontWeight:'bold',marginBottom:10 }}>Whats New</Text>
             <ScrollView horizontal= {true} style={{marginBottom:200}} >
               <Image
                 style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                source={require('../../assets/Article_2.png')}
+                source={require('../../assets/Article_2.1.png')}
               />
               <Image
                 style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                source={require('../../assets/Article_2.png')}
+                source={require('../../assets/Article_2.2.png')}
               />
               <Image
                 style={{height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
                 resizeMode="cover"
-                source={require('../../assets/Article_2.png')}
+                source={require('../../assets/Article_2.3.png')}
               />
             </ScrollView >
         </ScrollView>

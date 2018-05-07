@@ -1,12 +1,18 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,Toggle, Alert, Animated} from 'react-native';
 import Deck from '../Deck';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
-import { DraggableBox } from '../TestComponents/draggable';
+import { USE_NATIVE_DRIVER } from '../TestComponents/config';
+
+import {
+  PanGestureHandler,
+  ScrollView,
+  State,
+} from 'react-native-gesture-handler';
 
 const DATA = [
   { id: 1, title: 'Oyster-tecture', uri: 'https://99percentinvisible.org/app/uploads/2017/10/new-york-estuary.jpg' , text:'Standing on the sidewalk in Manhattan’s financial district in the shadows of glass skyscrapers, it is easy to forget how close you are to the water. But just a few blocks away, there are docks, and sea gulls, and ferry boats ready to take you island hopping.'},

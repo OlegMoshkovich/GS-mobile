@@ -103,7 +103,7 @@ class PlaygroundScreen extends React.Component{
         waitFor={['dragbox', 'image_pinch', 'image_rotation', 'image_tilt']}
         style={styles.scrollView}>
 
-        <PanResponderExample />
+
         <DraggableBox />
 
       </ScrollView>
