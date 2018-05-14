@@ -182,7 +182,7 @@ const TabStack =  TabNavigator({
 
   },
   {swipeEnabled:true,
-  initialRouteName:'Map',
+  initialRouteName:'Home',
   navigationOptions: {
     tabBarVisible: false
    },
