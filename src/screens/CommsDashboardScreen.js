@@ -99,8 +99,6 @@ class DashboardScreen extends React.Component {
   render() {
 
     return (
-
-
       <LinearGradient
          colors={['#b98031', '#b98031','#b98031', 'white']}
          style={{
@@ -146,20 +144,21 @@ class DashboardScreen extends React.Component {
 
 
            <TouchableOpacity
-           style={{
+             style={{
              flex:1,
              top:height/5+12,
              left:width/5+12,
              position:'absolute'
              }}
              >
-             <Image
-               style={{height: 41,width: 40}}
-               source={require('../../assets/Events-icon.png')}
-             />
-             </TouchableOpacity >
+                 <Image
+                   style={{height: 41,width: 40}}
+                   source={require('../../assets/Events-icon.png')}
+                 />
+           </TouchableOpacity >
+
              <TouchableOpacity
-             style={{
+               style={{
                flex:1,
                top:height/5+12,
                right:width/5+12,
@@ -172,14 +171,14 @@ class DashboardScreen extends React.Component {
                      }
                    }
                )}>
-             <Image
-               style={{height: 41,width: 40}}
-                 source={require('../../assets/Chat-icon.png')}
-             />
+               <Image
+                 style={{height: 41,width: 40}}
+                   source={require('../../assets/Chat-icon.png')}
+               />
              </TouchableOpacity>
 
              <TouchableOpacity
-             style={{
+              style={{
                flex:1,
                top:(height/2.5)+12,
                right:width/5+12,
@@ -192,14 +191,14 @@ class DashboardScreen extends React.Component {
                      }
                    }
                )}>
-             <Image
-               style={{height: 41,width: 40}}
-                 source={require('../../assets/Map-icon.png')}
-             />
+               <Image
+                 style={{height: 41,width: 40}}
+                   source={require('../../assets/Map-icon.png')}
+               />
             </TouchableOpacity >
 
             <TouchableOpacity
-            style={{
+              style={{
               flex:1,
               top:(height/2.5)+12,
               left:width/5+12,
@@ -212,13 +211,52 @@ class DashboardScreen extends React.Component {
                     }
                   }
               )}>
-            <Image
-              style={{height: 41,width: 40}}
-                source={require('../../assets/Calendar-icon.png')}
-            />
+              <Image
+                style={{height: 41,width: 40}}
+                  source={require('../../assets/Calendar-icon.png')}
+              />
            </TouchableOpacity >
 
 
+           <TouchableOpacity
+             style={{
+             flex:1,
+             bottom:200,
+             left:10,
+             position:'absolute'
+             }}
+             onPress={() => this.props.navigation.navigate({
+               routeName: 'CommunicationChat',
+                   params: {
+                       transition: 'default'
+                   }
+                 }
+             )}>
+             <Image
+               style={{height: 41,width: 40}}
+                 source={require('../../assets/Chat-icon.png')}
+             />
+           </TouchableOpacity>
+
+           <TouchableOpacity
+             style={{
+             flex:1,
+             bottom:70,
+             left:10,
+             position:'absolute'
+             }}
+             onPress={() => this.props.navigation.navigate({
+               routeName: 'CommunicationCalendar',
+                   params: {
+                       transition: 'default'
+                   }
+                 }
+             )}>
+             <Image
+               style={{height: 41,width: 40}}
+                 source={require('../../assets/Events-icon.png')}
+             />
+           </TouchableOpacity>
 
            <Animated.ScrollView
                horizontal
@@ -311,14 +349,14 @@ const styles = StyleSheet.create({
   scrollViewChats: {
     position: "absolute",
     bottom:140,
-    left: 50,
+    left: 60,
     right: 0,
     paddingVertical: 10,
   },
   scrollViewEvents: {
     position: "absolute",
     bottom:10,
-    left: 50,
+    left: 60,
     right: 0,
     paddingVertical: 10,
   },
