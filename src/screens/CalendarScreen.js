@@ -66,7 +66,7 @@ class CalendarScreen extends React.Component {
 
         <TouchableOpacity style ={{margin:5,position:'absolute', top:42, right:90}}
           onPress={() => this.props.navigation.navigate({
-            routeName: 'CommunicationChat',
+            routeName: 'CommunicationDashboard',
                 params: {
                     transition: 'default'
                 }
@@ -74,7 +74,7 @@ class CalendarScreen extends React.Component {
           )}>
           <Image
             style={{height: 30,width: 30}}
-            source={require('../../assets/Chat-icon.png')}
+            source={require('../../assets/Dashboard-icon.png')}
           />
         </TouchableOpacity>
 

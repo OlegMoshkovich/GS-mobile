@@ -188,6 +188,7 @@ class MapScreen extends React.Component {
     fadeAnim     : new Animated.Value(0),
     blurRadius   : 0,
     location: {coords: { latitude: 40.750859, longitude: -73.983324}},
+
     markers: [
       {
         coordinate: {
@@ -372,9 +373,11 @@ class MapScreen extends React.Component {
 
     <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15,top:20, marginBottom:40}}>where</Text>
 
+
+
     <TouchableOpacity style ={{margin:5,position:'absolute', top:42, right:90}}
         onPress={() => this.props.navigation.navigate({
-          routeName: 'CommunicationChat',
+          routeName: 'CommunicationDashboard',
               params: {
                   transition: 'default'
               }
@@ -382,13 +385,13 @@ class MapScreen extends React.Component {
         )}>
         <Image
           style={{height: 30,width: 30}}
-          source={require('../../assets/Chat-icon.png')}
+          source={require('../../assets/Dashboard-icon.png')}
         />
     </TouchableOpacity>
 
     <TouchableOpacity  style ={{margin:5,position:'absolute',  top:42, right:50}}
       onPress={() => this.props.navigation.navigate({
-        routeName: 'CommunicationMap',
+        routeName: 'CommunicationChat',
             params: {
                 transition: 'default'
             }
@@ -396,7 +399,7 @@ class MapScreen extends React.Component {
       )}>
       <Image
         style={{height: 30,width: 30}}
-        source={require('../../assets/Map-icon.png')}
+        source={require('../../assets/Chat-icon.png')}
       />
     </TouchableOpacity>
 
