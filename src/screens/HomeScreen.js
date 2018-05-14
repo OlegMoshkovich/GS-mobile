@@ -37,15 +37,15 @@ class HomeScreen extends React.Component {
       this.state.fadeAnim,
         { toValue: this.state.activated ? 1: 0, duration: 500, }
       ).start();
-      
+
     this.setState({activated : !this.state.activated});
   }
-  
+
   environmentSwitch = () => {
     console.log('environment'+ this.state.environmentSwitch)
       this.setState({environmentSwitch : !this.state.environmentSwitch});
   }
-  
+
   _onLongPressButton() {
     Alert.alert(
       'Ava', 'How can I help? - Long Press',
@@ -53,7 +53,7 @@ class HomeScreen extends React.Component {
       { cancelable: false }
     )
   }
-  
+
   _onPressButton() {
       Alert.alert(
       'Ava','Short Press',
@@ -69,22 +69,22 @@ class HomeScreen extends React.Component {
         bottom: this.state.activated ? 80: -50,
         bottom: this.state.activated ? 80: -50
         }]}>
-        
+
         <TouchableOpacity  onPress={() => this.props.navigation.navigate('Map')}>
-          <Image style={[s.menuBottomIcon, 
+          <Image style={[s.menuBottomIcon,
             {width: this.state.environmentSwitch ? 0: 50}]}
             source={require('../../assets/icons/Home_Icon_Communication.png')}
           />
         </TouchableOpacity>
-      
+
         <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
-          <Image style={[s.menuBottomIcon, 
+          <Image style={[s.menuBottomIcon,
           {width: this.state.environmentSwitch ? 0: 50}]}
           source={require('../../assets/icons/Home_Icon_Community.png')}
           />
         </TouchableOpacity>
-        
-        <TouchableOpacity 
+
+        <TouchableOpacity
           onPress={this.environmentSwitch}>
           <Image style={s.menuBottomIcon}
             source={require('../../assets/Home-icon.png')}
@@ -92,14 +92,14 @@ class HomeScreen extends React.Component {
         </TouchableOpacity>
 
         <TouchableOpacity  onPress={() => this.props.navigation.navigate('Explore')} >
-          <Image style={[s.menuBottomIcon, 
+          <Image style={[s.menuBottomIcon,
             {width: this.state.environmentSwitch ? 0: 50}]}
             source={require('../../assets/icons/Home_Icon_Explore.png')}
           />
         </TouchableOpacity>
-      
+
         <TouchableOpacity  onPress={() => this.props.navigation.navigate('Dashboard')} >
-          <Image style={[s.menuBottomIcon, 
+          <Image style={[s.menuBottomIcon,
           {width: this.state.environmentSwitch ? 0: 50}]}
             source={require('../../assets/icons/Home_Icon_Dashboard.png')}
           />
@@ -111,7 +111,7 @@ class HomeScreen extends React.Component {
 
   renderChat() {
     return(
-      <TouchableOpacity style = {[s.homeChatText, 
+      <TouchableOpacity style = {[s.homeChatText,
         {right: this.state.activated? 0:-200}]}
         onPress={this.animate} onLongPress={this.animate}>
         <Image style={[s.homeChatTextImage, {
@@ -152,7 +152,7 @@ class HomeScreen extends React.Component {
         loop={false}
         showsPagination={false}
         index={1}>
-        
+
         <View style={s.viewStyle}>
           <SystemScreen />
         </View>
@@ -175,28 +175,28 @@ class HomeScreen extends React.Component {
               source={require('../../assets/Home_Background1.png')}
             />
             {/* hidden ava in bottom  */
-            
-            
+
+
             this.renderAva(fadeAnim)
-            
+
             }
-            
-          
+
+
             {
               /* bottom menu */
               this.renderMenu()
 
             }
-            
-        
+
+
             {/* stand in chat text */
-            
+
               this.renderChat()
-            }      
-            
+            }
+
           </LinearGradient>
         </View>
-        
+
         <View style={s.viewStyle}>
           <ShopScreen/>
         </View>

@@ -1,103 +1,76 @@
 
 import React, { Component } from 'react';
-import { Alert, StyleSheet, View, PanResponder } from 'react-native';
+import { Alert, StyleSheet, View, PanResponder, Animated,TouchableWithoutFeedback } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { DraggableBox } from '../TestComponents/draggable';
 import { LoremIpsum } from '../TestComponents/common';
+import { CardTest } from '../components/CardTest';
 
 var CIRCLE_SIZE = 80;
 
 // A clone of: https://github.com/facebook/react-native/blob/master/RNTester/js/PanResponderExample.js
-class PanResponderExample extends Component {
-  _panResponder = {};
-  _previousLeft = 0;
-  _previousTop = 0;
-  _circleStyles = {};
-
-  componentWillMount() {
-    this._panResponder = PanResponder.create({
-      onStartShouldSetPanResponder: this._handleStartShouldSetPanResponder,
-      onMoveShouldSetPanResponder: this._handleMoveShouldSetPanResponder,
-      onPanResponderGrant: this._handlePanResponderGrant,
-      onPanResponderMove: this._handlePanResponderMove,
-      onPanResponderRelease: this._handlePanResponderEnd,
-      onPanResponderTerminate: this._handlePanResponderEnd,
-    });
-    this._previousLeft = 20;
-    this._previousTop = 84;
-    this._circleStyles = {
-      style: {
-        left: this._previousLeft,
-        top: this._previousTop,
-        backgroundColor: 'green',
-      },
-    };
-  }
-
-  componentDidMount() {
-    this._updateNativeStyles();
-  }
-
-  render() {
-    return (
-      <View
-        ref={circle => {
-          this.circle = circle;
-        }}
-        style={styles.circle}
-        {...this._panResponder.panHandlers}
-      />
-    );
-  }
-
-  _highlight = () => {
-    this._circleStyles.style.backgroundColor = 'blue';
-    this._updateNativeStyles();
-  };
-
-  _unHighlight = () => {
-    this._circleStyles.style.backgroundColor = 'green';
-    this._updateNativeStyles();
-  };
-
-  _updateNativeStyles = () => {
-    this.circle && this.circle.setNativeProps(this._circleStyles);
-  };
-
-  _handleStartShouldSetPanResponder = (e, gestureState) => {
-    // Should we become active when the user presses down on the circle?
-    return true;
-  };
-
-  _handleMoveShouldSetPanResponder = (e, gestureState) => {
-    // Should we become active when the user moves a touch over the circle?
-    return true;
-  };
-
-  _handlePanResponderGrant = (e, gestureState) => {
-    this._highlight();
-  };
-
-  _handlePanResponderMove = (e, gestureState) => {
-    this._circleStyles.style.left = this._previousLeft + gestureState.dx;
-    this._circleStyles.style.top = this._previousTop + gestureState.dy;
-    this._updateNativeStyles();
-  };
-
-  _handlePanResponderEnd = (e, gestureState) => {
-    this._unHighlight();
-    this._previousLeft += gestureState.dx;
-    this._previousTop += gestureState.dy;
-  };
-}
 
 
 class PlaygroundScreen extends React.Component{
 
-  _onClick = () => {
-    Alert.alert("I'm so touched");
-  };
+
+  constructor(props) {
+     super(props);
+     this.state = {
+       animation: new Animated.Value(1)
+
+     };
+   }
+
+   startAnimation = () =>{
+     Animated.timing(this.state.animation, {
+       toValue:2,
+       duration:1000
+     }).start(()=>{
+      this.state.animation.setValue(1)
+     });
+
+   }
+
+
+
   render() {
+    const boxInterpolation =
+    this.state.animation.interpolate({
+      inputRange:[1,2],
+      outputRange:["lightgrey","red"]
+    });
+
+    const boxlocation =
+    this.state.animation.interpolate({
+      inputRange:[1,2],
+      outputRange:[100,300]
+    });
+
+    const rotateInterpolate =
+    this.state.animation.interpolate({
+      inputRange:[1,360],
+      outputRange:['0deg','360deg']
+    });
+
+    const boxAnimatedStyle = {
+      backgroundColor:boxInterpolation
+    }
+
+    const animatedStyles = {
+      transform:[
+        {
+        translateY:boxlocation,
+      },
+      {
+        scale:this.state.animation
+      },
+      {
+        rotate:rotateInterpolate
+      }
+      ]
+    };
+
     return (
       <ScrollView
         waitFor={['dragbox', 'image_pinch', 'image_rotation', 'image_tilt']}
@@ -105,7 +78,12 @@ class PlaygroundScreen extends React.Component{
 
 
         <DraggableBox />
-
+        <CardTest />
+        <View style={styles.container}>
+          <TouchableWithoutFeedback onPress = {this.startAnimation} >
+          <Animated.View style={[styles.box,animatedStyles,boxAnimatedStyle]} />
+          </TouchableWithoutFeedback>
+        </View>
       </ScrollView>
     );
   }
@@ -117,7 +95,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#F5FCFF',
   },
-
+  container:{
+    flex:1,
+    alignItems:"center",
+    justifyContent:"center"
+  },
+  box:{
+    width:150,
+    height:150,
+    backgroundColor:'tomato'
+  }
 });
 
 

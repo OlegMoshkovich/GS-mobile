@@ -27,7 +27,6 @@ const Images = [
   { uri: "https://i.imgur.com/UDrH0wm.jpg" },
   { uri: "https://i.imgur.com/Ka8kNST.jpg" }
 ]
-
 const CARD_HEIGHT = height / 4.5;
 const CARD_WIDTH = CARD_HEIGHT - 42;
 
@@ -106,8 +105,8 @@ class MapScreen extends React.Component {
     console.log("Button is pressed")
     this.setState({
     region: { latitude: 	this.state.location.coords.latitude, longitude: 	this.state.location.coords.longitude, latitudeDelta: 0.0222, longitudeDelta: 0.0221 }
-  })
-  }
+    })
+    }
   onRegionChangeComplete = (region) => {
     console.log(region);
     this.setState({region});
@@ -168,8 +167,6 @@ class MapScreen extends React.Component {
           <Image style={s.avaImage} source={require('../../assets/Nav_Avatar_Face_Animations.png')} />
       </TouchableOpacity>);
   }
-
-
   render() {
     const interpolations = this.state.markers.map((marker, index) => {
 

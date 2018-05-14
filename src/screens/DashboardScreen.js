@@ -56,6 +56,10 @@ class DashboardScreen extends React.Component {
           justifyContent: 'space-between'
            }}>
              <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#dashboard</Text>
+             <Image
+               style={{height:72/4, width:90/4, top:40,right:15 }}
+               source={require('../../assets/Tap_here_icon.png')}
+             />
              <TouchableOpacity style ={{margin:20}}
              onPress={() => this.props.navigation.navigate({
                routeName: 'Home',
@@ -68,7 +72,9 @@ class DashboardScreen extends React.Component {
                style={{height: 40,width: 40}}
                source={require('../../assets/Dashboard-icon.png')}
              />
+
            </TouchableOpacity>
+
          </View>
 
          <Image
