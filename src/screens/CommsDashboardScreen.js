@@ -7,7 +7,7 @@ import {Card, Button,Icon} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 const {width, height} = Dimensions.get('window');
-const CARD_HEIGHT = height / 6;
+const CARD_HEIGHT =120;
 const CARD_WIDTH = CARD_HEIGHT - 34;
 
 class DashboardScreen extends React.Component {
@@ -33,9 +33,15 @@ class DashboardScreen extends React.Component {
           image: require('../../assets/Avatar_3.png'),
         },
         {
-          title: "Chloe Miller",
+          title: "Nicole Clark",
           description: "",
-          image: require('../../assets/Avatar_4.png'),
+          image: require('../../assets/Avatar_1.png'),
+        },
+
+        {
+          title: "Emma Brownstein",
+          description: "",
+          image: require('../../assets/Avatar_3.png'),
         },
         {
           title: "Nicole Clark",
@@ -49,10 +55,18 @@ class DashboardScreen extends React.Component {
           image: require('../../assets/Avatar_3.png'),
         },
         {
-          title: "Chloe Miller",
+          title: "Nicole Clark",
           description: "",
-          image: require('../../assets/Avatar_4.png'),
+          image: require('../../assets/Avatar_1.png'),
         },
+
+        {
+          title: "Emma Brownstein",
+          description: "",
+          image: require('../../assets/Avatar_3.png'),
+        }
+
+
 
       ],
       gsEvents: [
@@ -67,6 +81,41 @@ class DashboardScreen extends React.Component {
           description: "",
           image: require('../../assets/Event2.png'),
         },
+        {
+          title: "Troop Award",
+          description: "",
+          image: require('../../assets/Event1.png'),
+        },
+
+        {
+          title: "GSNY Event",
+          description: "",
+          image: require('../../assets/Event2.png'),
+        },
+        {
+          title: "Troop Award",
+          description: "",
+          image: require('../../assets/Event1.png'),
+        },
+
+        {
+          title: "GSNY Event",
+          description: "",
+          image: require('../../assets/Event2.png'),
+        },
+
+        {
+          title: "Troop Award",
+          description: "",
+          image: require('../../assets/Event1.png'),
+        },
+
+        {
+          title: "GSNY Event",
+          description: "",
+          image: require('../../assets/Event2.png'),
+        },
+
 
 
       ],
@@ -100,12 +149,20 @@ class DashboardScreen extends React.Component {
 
     return (
       <LinearGradient
-         colors={['#b98031', '#b98031','#b98031', 'white']}
+            colors={['lightgrey', 'grey', 'white']}
          style={{
            height: height,
            width:width,
          }}>
-
+         <View
+           style={{
+             top:370,
+             width:width-60,
+             left:30,
+             borderBottomColor: 'lightgrey',
+             borderBottomWidth: .4,
+           }}
+         />
          <View style ={{
           top:20,
           flex: 1,
@@ -132,22 +189,21 @@ class DashboardScreen extends React.Component {
 
          <Image
            style={{
-             height: 290/1.2,
-             width: 250/1.2,
+             height: 290/1.4,
+             width: 250/1.4,
              alignSelf:'center',
              position:'absolute',
-             top: height/5
+             top: 120
 
            }}
            source={require('../../assets/Ava-Dashboard-Comms.png')}
          />
 
-
            <TouchableOpacity
              style={{
              flex:1,
-             top:height/5+12,
-             left:width/5+12,
+             top:130,
+             left:100,
              position:'absolute'
              }}
              >
@@ -157,31 +213,31 @@ class DashboardScreen extends React.Component {
                  />
            </TouchableOpacity >
 
-             <TouchableOpacity
-               style={{
-               flex:1,
-               top:height/5+12,
-               right:width/5+12,
-               position:'absolute'
-               }}
-               onPress={() => this.props.navigation.navigate({
-                 routeName: 'CommunicationChat',
-                     params: {
-                         transition: 'default'
-                     }
+           <TouchableOpacity
+             style={{
+             flex:1,
+             top:130,
+             right:100,
+             position:'absolute'
+             }}
+             onPress={() => this.props.navigation.navigate({
+               routeName: 'CommunicationChat',
+                   params: {
+                       transition: 'default'
                    }
-               )}>
-               <Image
-                 style={{height: 41,width: 40}}
-                   source={require('../../assets/Chat-icon.png')}
-               />
-             </TouchableOpacity>
+                 }
+             )}>
+             <Image
+               style={{height: 41,width: 40}}
+                 source={require('../../assets/Chat-icon.png')}
+             />
+           </TouchableOpacity>
 
-             <TouchableOpacity
+            <TouchableOpacity
               style={{
                flex:1,
-               top:(height/2.5)+12,
-               right:width/5+12,
+               top:250,
+               right:100,
                position:'absolute'
                }}
                onPress={() => this.props.navigation.navigate({
@@ -192,7 +248,7 @@ class DashboardScreen extends React.Component {
                    }
                )}>
                <Image
-                 style={{height: 41,width: 40}}
+                 style={{height: 40,width: 40}}
                    source={require('../../assets/Map-icon.png')}
                />
             </TouchableOpacity >
@@ -200,8 +256,8 @@ class DashboardScreen extends React.Component {
             <TouchableOpacity
               style={{
               flex:1,
-              top:(height/2.5)+12,
-              left:width/5+12,
+              top:250,
+              left:100,
               position:'absolute'
               }}
               onPress={() => this.props.navigation.navigate({
@@ -212,16 +268,15 @@ class DashboardScreen extends React.Component {
                   }
               )}>
               <Image
-                style={{height: 41,width: 40}}
+                style={{height: 40,width: 40}}
                   source={require('../../assets/Calendar-icon.png')}
               />
-           </TouchableOpacity >
-
+            </TouchableOpacity >
 
            <TouchableOpacity
              style={{
              flex:1,
-             bottom:200,
+             top:435,
              left:10,
              position:'absolute'
              }}
@@ -241,7 +296,7 @@ class DashboardScreen extends React.Component {
            <TouchableOpacity
              style={{
              flex:1,
-             bottom:70,
+             top:555,
              left:10,
              position:'absolute'
              }}
@@ -348,14 +403,14 @@ const styles = StyleSheet.create({
   },
   scrollViewChats: {
     position: "absolute",
-    bottom:140,
+    top:400,
     left: 60,
     right: 0,
     paddingVertical: 10,
   },
   scrollViewEvents: {
     position: "absolute",
-    bottom:10,
+    top:520,
     left: 60,
     right: 0,
     paddingVertical: 10,

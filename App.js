@@ -119,7 +119,7 @@ const TabStack =  TabNavigator({
   },
 
   {swipeEnabled:true,
-  initialRouteName:'Communication',
+  initialRouteName:'Home',
   navigationOptions: {
     tabBarVisible: false
    },
