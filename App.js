@@ -117,8 +117,13 @@ const TabStack =  TabNavigator({
   Dashboard: { screen: DashboardScreen },
   Playground: { screen: PlaygroundScreen }
   },
+<<<<<<< HEAD
   {swipeEnabled: true,
   initialRouteName:'Playground',
+=======
+  {swipeEnabled:true,
+  initialRouteName:'Home',
+>>>>>>> 1f1c614b000a5cd95e1f983b4cac8f6bdd3e5373
   navigationOptions: {
     tabBarVisible: false
    },
