@@ -111,6 +111,10 @@ class ExploreScreen extends React.Component {
          justifyContent: 'space-between'
           }}>
             <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#explore</Text>
+            <Image
+              style={{height:72/4, width:90/4, top:40,right:45 }}
+              source={require('../../assets/Tap_here_icon.png')}
+            />
             <TouchableOpacity style ={{margin:20}}
             onPress={() => this.props.navigation.navigate({
               routeName: 'Home',
@@ -123,8 +127,12 @@ class ExploreScreen extends React.Component {
               style={{height: 40,width: 40}}
               source={require('../../assets/Explore-icon.png')}
             />
+
           </TouchableOpacity>
+
+
         </View>
+
 
         <View //E
           style={{
@@ -139,10 +147,6 @@ class ExploreScreen extends React.Component {
           <ScrollView
             waitFor={['image_pinch', 'image_rotation', 'image_tilt']}
             style={styles.scrollView}>
-
-
-
-
           </ScrollView>
         </View>
 

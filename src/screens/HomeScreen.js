@@ -17,7 +17,6 @@ class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
-
     this.state = {
       moveAnim     : new Animated.Value(0),
       activated    : true,
@@ -187,7 +186,7 @@ class HomeScreen extends React.Component {
 
 
           }}>
-          <TouchableOpacity  onPress={() => this.props.navigation.navigate('Map')}>
+          <TouchableOpacity  onPress={() => this.props.navigation.navigate('CommunicationChat')}>
             <Image
               style={{height: 50,width: this.state.environmentSwitch ? 0: 50}}
               source={require('../../assets/icons/Home_Icon_Communication.png')}

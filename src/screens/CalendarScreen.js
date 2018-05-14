@@ -13,28 +13,7 @@ const {width, height} = Dimensions.get('window');
 
 
 class CalendarScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    const params = navigation.state.params || {};
-    return {
-      headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Image
-            style={{height: 40,width: 40, right:20}}
-            source={require('../../assets/Home-icon.png')}
-          />
-        </TouchableOpacity>
 
-      ),
-      headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Shop')}>
-          <Image
-            style={{height: 0,width: 40,left:20}}
-            source={require('../../assets/Shop-icon.png')}
-          />
-        </TouchableOpacity>
-      )
-    };
-  };
 
   constructor(props) {
    super(props);
@@ -82,14 +61,50 @@ class CalendarScreen extends React.Component {
 
     style={{ height: height, width:width}}>
 
-   <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15, marginBottom:50,top:20}}>when</Text>
 
-   <TouchableOpacity style ={{position:'absolute',margin:20, top:20,right:0}}>
-            <Image
-              style={{height: 40,width: 40}}
-              source={require('../../assets/Calendar-icon.png')}
-            />
-          </TouchableOpacity>
+        <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15,top:20, marginBottom:40}}>when</Text>
+
+        <TouchableOpacity style ={{margin:5,position:'absolute', top:42, right:90}}
+          onPress={() => this.props.navigation.navigate({
+            routeName: 'CommunicationChat',
+                params: {
+                    transition: 'default'
+                }
+              }
+          )}>
+          <Image
+            style={{height: 30,width: 30}}
+            source={require('../../assets/Chat-icon.png')}
+          />
+        </TouchableOpacity>
+
+        <TouchableOpacity  style ={{margin:5,position:'absolute',  top:42, right:50}}
+        onPress={() => this.props.navigation.navigate({
+          routeName: 'CommunicationMap',
+              params: {
+                  transition: 'default'
+              }
+            }
+        )}>
+        <Image
+          style={{height: 30,width: 30}}
+          source={require('../../assets/Map-icon.png')}
+        />
+        </TouchableOpacity>
+
+        <TouchableOpacity  style ={{margin:5,position:'absolute',  top:42, right:10}}
+        onPress={() => this.props.navigation.navigate({
+          routeName: 'CommunicationCalendar',
+              params: {
+                  transition: 'default'
+              }
+            }
+        )}>
+        <Image
+          style={{height: 30,width: 30}}
+          source={require('../../assets/Calendar-icon.png')}
+        />
+      </TouchableOpacity>
 
      <Agenda
        items={this.state.items}

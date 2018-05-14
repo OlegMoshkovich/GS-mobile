@@ -80,7 +80,7 @@ class Deck extends Component{
     const { position } = this.state;
     const rotate = position.x.interpolate({
       inputRange:[-SCREEN_WIDTH*8,0,SCREEN_WIDTH*8],
-      outputRange:['-20deg','0deg','20deg']
+      outputRange:['0deg','0deg','0deg']
     })
     return {
       ...position.getLayout(),
