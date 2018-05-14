@@ -202,7 +202,7 @@ class MapScreen extends React.Component {
             adding what oleg just added in 
             d2df50e84f94c49d610791c6a4e800c7d37e2bdb
             
-            -- sort of breaks things
+            -- sort of breaks things with the way the map comes in -- TODO resolve this tomorrow
 
 
 
