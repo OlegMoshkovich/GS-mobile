@@ -1,6 +1,6 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { Animated,Platform,StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Button, ActivityIndicator, Alert} from 'react-native';
+import { Platform,StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Button, ActivityIndicator, Alert} from 'react-native';
 import {Marker, PROVIDER_GOOGLE } from 'react-native-maps'
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient ,Constants, MapView, Location, Permissions } from 'expo';
@@ -39,27 +39,12 @@ const CARD_WIDTH = CARD_HEIGHT - 42;
 class MapScreen extends React.Component {
 
   state = {
-    moveAnim     : new Animated.Value(0),
     activated    : true,
-    fadeAnim     : new Animated.Value(0),
-    blurRadius   : 0,
     location: mapLocation,
     markers: mapMarkers,
     region: mapRegion,
   };
-  animate = () => {
-    if (this.state.blurRadius == 10) {
-      this.setState({ blurRadius: 0 });
-    } else {
-      this.setState({ blurRadius: 10 });
-    }
-
-    Animated.timing(
-        this.state.fadeAnim,
-        { toValue: this.state.activated ? 1: 0, duration: 500, }
-      ).start();
-      this.setState({activated : !this.state.activated});
-  }
+ 
   componentWillMount() {
     this.index = 0;
     this.animation = new Animated.Value(0);
@@ -143,36 +128,6 @@ class MapScreen extends React.Component {
     );
   }
 
-  renderNavigation() {
-    return(
-      <View style={[s.mapNavMenu, {bottom: this.state.activated ? -50: 30}]}>
-        <TouchableOpacity style ={s.mapNavButton}  onPress={() => this.props.navigation.navigate('Explore')}>
-          <Image style={s.mapNavImage} source={require('../../assets/Explore-icon.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity style ={s.mapNavButton} onPress={() => this.props.navigation.navigate('Map')}>
-          <Image style={s.mapNavImage} source={require('../../assets/Map-icon.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity style ={s.mapNavButton} onPress={() => this.props.navigation.navigate('Community')}>
-          <Image style={s.mapNavImage} source={require('../../assets/Community-icon.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity style ={s.mapNavButton} onPress={() => this.props.navigation.navigate('Calendar')} >
-          <Image style={s.mapNavImage} source={require('../../assets/Calendar-icon.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity style ={s.mapNavButton} onPress={() => this.props.navigation.navigate('Shop')} >
-          <Image style={s.mapNavImage} source={require('../../assets/Shop-icon.png')} />
-        </TouchableOpacity>
-      </View>
-    );
-  }
-
-  renderAva() {
-    return(
-      <TouchableOpacity style = {[s.avaBottom,
-        { bottom: this.state.activated ? -100:-50, width: this.state.activated ? 100: 100, height: this.state.activated ? 150: 150}]}
-        onPress={this.animate} onLongPress={this.animate}>
-          <Image style={s.avaImage} source={require('../../assets/Nav_Avatar_Face_Animations.png')} />
-      </TouchableOpacity>);
-  }
   render() {
     const interpolations = this.state.markers.map((marker, index) => {
 

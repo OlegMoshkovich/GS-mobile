@@ -1,6 +1,6 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { Modal, StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
+import { Modal, StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert} from 'react-native';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
@@ -20,40 +20,13 @@ class CommunityScreen extends React.Component {
     super(props);
     this.state = {
       modalVisible: false,
-      moveAnim     : new Animated.Value(0),
       activated    : true,
-      fadeAnim : new Animated.Value(0),
-      blurRadius: 0,
     };
   }
 
 
   setModalVisible(visible) {
      this.setState({modalVisible: visible});
-  }
-
-  animate = () => {
-    if (this.state.blurRadius == 10) {
-      this.setState({
-        blurRadius: 0
-      });
-    } else {
-      this.setState({
-        blurRadius: 10
-      });
-    }
-
-    Animated.timing(
-        this.state.fadeAnim,
-        {
-          toValue: this.state.activated ? 1: 0,
-          duration: 1000,
-        }
-      ).start();
-      this.setState({
-        activated : !this.state.activated,
-        }
-      )
   }
 
   renderNewStoriesSection() {

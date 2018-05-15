@@ -1,6 +1,6 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,Toggle, Alert, Animated} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,Toggle, Alert} from 'react-native';
 import Deck from '../Deck';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
@@ -30,25 +30,9 @@ class ExploreScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      moveAnim     : new Animated.Value(0),
       activated    : true,
-      fadeAnim     : new Animated.Value(0),
-      blurRadius   : 0,
     };
 
-  }
-
-  animate = () => {
-    if (this.state.blurRadius == 10) {
-      this.setState({ blurRadius: 0 });
-    } else {
-      this.setState({ blurRadius: 10 });
-    }
-    Animated.timing(
-      this.state.fadeAnim, {
-        toValue: this.state.activated ? 1: 0, duration: 500, }
-      ).start();
-      this.setState({ activated : !this.state.activated});
   }
   
   

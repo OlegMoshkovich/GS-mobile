@@ -1,6 +1,6 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert} from 'react-native';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
@@ -17,29 +17,11 @@ class DashboardScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      moveAnim     : new Animated.Value(0),
       activated    : true,
       environmentSwitch: false,
-      fadeAnim : new Animated.Value(0),
-      blurRadius: 0,
     };
   };
-  animate = () => {
-    Animated.timing(
-      this.state.moveAnim,
-      {
-        toValue: 1,
-        duration: 10000,
-      }
-    ).start();
-
-    this.setState({
-       activated : !this.state.activated,
-       valueInitial: this.state.activated? 0 : -150,
-       valueFinal:this.state.activated? -150 : 0
-      }
-    )
-  }
+  
   renderDashboardMenu() {
       
     // TODO make global: also that tap icon does not suggest swiping

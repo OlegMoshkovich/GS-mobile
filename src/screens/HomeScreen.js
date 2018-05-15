@@ -174,7 +174,17 @@ class HomeScreen extends React.Component {
                 width: width}}
               source={require('../../assets/Home_Background1.png')}
             />
-            {/* hidden ava in bottom  */
+
+
+
+            {/* hidden ava in bottom  
+            
+            
+            NOT using the AvaBottomMenu component here because this logic
+            is slightly different -- to refactor
+            
+            
+            */
 
 
             this.renderAva(fadeAnim)
