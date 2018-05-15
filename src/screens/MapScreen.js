@@ -184,11 +184,7 @@ class MapScreen extends React.Component {
     });
 
     return (
-      <Swiper
-      horizontal={false}
-      loop={false}
-      showsPagination={false}
-      index={1}>
+ 
         <View style={s.viewStyle}>
           <LinearGradient
             colors={['#b98031', 'white', 'white']}
@@ -284,6 +280,7 @@ class MapScreen extends React.Component {
             }
           </LinearGradient>
         </View>
+<<<<<<< HEAD
       <View style={s.viewStyle}>
 
       </View>
@@ -291,6 +288,10 @@ class MapScreen extends React.Component {
         <CalendarScreen />
       </View>
     </Swiper>
+=======
+      
+      
+>>>>>>> e58b8202782e357c3d822c85467625c015991b24
     );
   }
 }
