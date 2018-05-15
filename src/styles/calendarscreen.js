@@ -93,7 +93,10 @@ var styles = StyleSheet.create({
            right: 20,
     },
 
-    
+    avaImage: {
+        width: 100, height: 100,
+    }
+
 
 
 
