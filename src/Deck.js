@@ -4,7 +4,7 @@ import { Constants, Accelerometer } from 'expo';
 import { withNavigation } from 'react-navigation'
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
-const SWIPE_THRESHOLD = .20*SCREEN_WIDTH;
+const SWIPE_THRESHOLD = .05*SCREEN_WIDTH;
 const SWIPE_OUT_DURATION = 300;
 
 class Deck extends Component{
@@ -13,7 +13,6 @@ class Deck extends Component{
     onSwipeRight:()=>{},
     onSwipeLeft:()=>{}
   };
-
   constructor(props){
     super(props);
     const position = new Animated.ValueXY({x:0, y:0});
@@ -26,18 +25,16 @@ class Deck extends Component{
         onPanResponderRelease: (event,gesture) => {
             if (gesture.dx>SWIPE_THRESHOLD){
               this.forceSwipe('right');
-            }else if(gesture.dx<-SWIPE_THRESHOLD){
+              console.log( " I am swiping right")
+            }else if(gesture.dx<SWIPE_THRESHOLD){
                 this.forceSwipe('left');
+                console.log( " I am swiping left")
             }else{
               this.resetPosition();
             };
-
         }
     });
-
     this.state= {panResponder, position, index:0};
-
-
   };
 
   componentWillUpdate(){
@@ -48,8 +45,9 @@ class Deck extends Component{
 
 
   forceSwipe(direction){
-
-    const x = direction === 'right ' ? SCREEN_WIDTH-10 : -SCREEN_WIDTH+10;
+    console.log('direction:'+ direction)
+    const x = direction === 'right' ? SCREEN_WIDTH : -SCREEN_WIDTH;
+    console.log('x:' + x)
 
     Animated.timing(this.state.position,{
       toValue: { x:x, y:0 },
@@ -61,7 +59,7 @@ class Deck extends Component{
 
     const { onSwipeLeft,onSwipeRight,data } = this.props;
     const item = data[this.state.index];
-    direction =='right' ? onSwipeRight(item) : onSwipeLeft(item)
+    direction =='left' ? onSwipeRight(item) : onSwipeLeft(item)
     this.state.position.setValue({x:0,y:0});
     this.setState({index: this.state.index+1});
   }
@@ -78,6 +76,7 @@ class Deck extends Component{
 
   getCardStyle(){
     const { position } = this.state;
+
     const rotate = position.x.interpolate({
       inputRange:[-SCREEN_WIDTH*8,0,SCREEN_WIDTH*8],
       outputRange:['0deg','0deg','0deg']
