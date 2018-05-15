@@ -12,6 +12,7 @@ import s from '../styles/communityscreen.js';
 // data
 import stories from '../../data/stories/stories.js';
 
+import AvaBottomMenu from '../components/AvaBottomMenu.js';
 
 
 class CommunityScreen extends React.Component {
@@ -308,17 +309,8 @@ class CommunityScreen extends React.Component {
         this.renderStories()
       }
 
-      {/* render nav menu */
-        this.renderNavMenu()
-      
-      }
-       
-        
-          {/* render ava */
+           <AvaBottomMenu navigation={this.props.navigation}/> 
 
-            this.renderAva()
-          
-          }
       </LinearGradient>
     );
   }

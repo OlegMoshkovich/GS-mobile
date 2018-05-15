@@ -63,7 +63,7 @@ class AvaBottomMenu extends Component {
                             source={assetPaths.bottomMenu.communityIcon} />
                     </TouchableOpacity>
                     <TouchableOpacity style ={s.navButton} 
-                        onPress={() => this.props.navigation.navigate('Calendar')} >
+                        onPress={() => this.props.navigation.navigate('CommunicationCalendar')} >
                         <Image style={s.navImage}
                             source={assetPaths.bottomMenu.calendarIcon} />
                     </TouchableOpacity>
