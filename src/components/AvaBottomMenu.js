@@ -7,9 +7,7 @@ import s from '../styles/avabottommenu';
 // asset path locations
 import assetPaths from '../assetPaths.js'
 
-
 class AvaBottomMenu extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
@@ -34,7 +32,6 @@ class AvaBottomMenu extends Component {
 
     render() {
         return (
-
             <View>
                 <TouchableOpacity style = {[s.avaMenu,
                     {
@@ -50,24 +47,28 @@ class AvaBottomMenu extends Component {
                 </TouchableOpacity>
                 <View style={[s.navMenu, 
                     { bottom: this.state.activated ? -50: 30}]}>
-                    <TouchableOpacity style ={s.navButton}  onPress={() => this.props.navigation.navigate('Explore')}>
+                    <TouchableOpacity style ={s.navButton} 
+                        onPress={() => this.props.navigation.navigate('Explore')}>
                         <Image style={s.navImage}
                             source={assetPaths.bottomMenu.exploreIcon} />
                     </TouchableOpacity>
-                    <TouchableOpacity style ={s.navButton} onPress={() => 
-                        this.props.navigation.navigate('CommunicationMap')}>
+                    <TouchableOpacity style ={s.navButton} 
+                        onPress={() => this.props.navigation.navigate('CommunicationMap')}>
                         <Image style={s.navImage}
                             source={assetPaths.bottomMenu.mapIcon} />
                     </TouchableOpacity>
-                    <TouchableOpacity style ={s.navButton} onPress={() => this.props.navigation.navigate('Community')}>
+                    <TouchableOpacity style ={s.navButton} 
+                        onPress={() => this.props.navigation.navigate('Community')}>
                         <Image style={s.navImage}
                             source={assetPaths.bottomMenu.communityIcon} />
                     </TouchableOpacity>
-                    <TouchableOpacity style ={s.navButton} onPress={() => this.props.navigation.navigate('Calendar')} >
+                    <TouchableOpacity style ={s.navButton} 
+                        onPress={() => this.props.navigation.navigate('Calendar')} >
                         <Image style={s.navImage}
                             source={assetPaths.bottomMenu.calendarIcon} />
                     </TouchableOpacity>
-                    <TouchableOpacity style ={s.navButton} onPress={() => this.props.navigation.navigate('Shop')} >
+                    <TouchableOpacity style ={s.navButton} 
+                        onPress={() => this.props.navigation.navigate('Shop')} >
                         <Image style={s.navImage}
                             source={assetPaths.bottomMenu.shopIcon}
                         />
@@ -76,8 +77,6 @@ class AvaBottomMenu extends Component {
             </View>
         );
     }
-
 }
-
 
 export default AvaBottomMenu;
