@@ -72,8 +72,8 @@ class AvaBottomMenu extends Component {
          </TouchableOpacity>
          <TouchableOpacity style ={s.navButton} onPress={() => {
              console.log("clicking on map");
-             
-             this.props.navigation.navigate('Map')}}>
+
+             this.props.navigation.navigate('CommunicationMap')}}>
          <Image
            style={s.navImage}
            source={require('../../assets/Map-icon.png')}
