@@ -194,6 +194,62 @@ class MapScreen extends React.Component {
             colors={['#b98031', 'white', 'white']}
             style={{ height: height, width:width}}>
             <Text style ={s.menuText}>where</Text>
+
+
+{/* 
+
+
+            adding what oleg just added in 
+            d2df50e84f94c49d610791c6a4e800c7d37e2bdb
+            
+            -- sort of breaks things with the way the map comes in -- TODO resolve this tomorrow
+
+
+
+
+*/}
+             <TouchableOpacity style ={{margin:5,position:'absolute', top:42, right:90}}
+        onPress={() => this.props.navigation.navigate({
+          routeName: 'CommunicationDashboard',
+              params: {
+                  transition: 'default'
+              }
+            }
+        )}>
+        <Image
+          style={{height: 30,width: 30}}
+          source={require('../../assets/Dashboard-icon.png')}
+        />
+    </TouchableOpacity>
+
+    <TouchableOpacity  style ={{margin:5,position:'absolute',  top:42, right:50}}
+      onPress={() => this.props.navigation.navigate({
+        routeName: 'CommunicationChat',
+            params: {
+                transition: 'default'
+            }
+          }
+      )}>
+      <Image
+        style={{height: 30,width: 30}}
+        source={require('../../assets/Chat-icon.png')}
+      />
+    </TouchableOpacity>
+
+    <TouchableOpacity  style ={{margin:5,position:'absolute',  top:42, right:10}}
+      onPress={() => this.props.navigation.navigate({
+        routeName: 'CommunicationCalendar',
+            params: {
+                transition: 'default'
+            }
+          }
+        )}>
+        <Image
+          style={{height: 30,width: 30}}
+          source={require('../../assets/Calendar-icon.png')}
+        />
+    </TouchableOpacity>
+
               <View style={s.container}>
               { /* render map */
                 this.renderMapView(interpolations)
@@ -229,7 +285,7 @@ class MapScreen extends React.Component {
           </LinearGradient>
         </View>
       <View style={s.viewStyle}>
-        <ChatScreen />
+        
       </View>
       <View style={s.viewStyle}>
         <CalendarScreen />
