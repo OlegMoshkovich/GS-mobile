@@ -8,6 +8,11 @@ import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 import { USE_NATIVE_DRIVER } from '../TestComponents/config';
 
+
+import AvaBottomMenu from '../components/AvaBottomMenu.js';
+
+
+
 import {
   PanGestureHandler,
   ScrollView,
@@ -151,63 +156,8 @@ class ExploreScreen extends React.Component {
         </View>
 
 
+      <AvaBottomMenu navigation={this.props.navigation}/> 
 
-
-        <View style={{ //Navigational Menu
-          flex:1,
-          flexDirection: 'row',
-          position: 'absolute',
-          bottom: this.state.activated ? -50: 30,
-          left:20
-
-          }}>
-            <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
-            <Image
-              style={{height: 35,width: 35}}
-              source={require('../../assets/Explore-icon.png')}
-            />
-            </TouchableOpacity>
-            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
-            <Image
-              style={{height: 35,width: 35}}
-              source={require('../../assets/Map-icon.png')}
-            />
-            </TouchableOpacity>
-            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
-            <Image
-              style={{height: 35,width: 35}}
-              source={require('../../assets/Community-icon.png')}
-            />
-            </TouchableOpacity>
-            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
-            <Image
-              style={{height: 35,width: 35}}
-              source={require('../../assets/Calendar-icon.png')}
-            />
-            </TouchableOpacity>
-            <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
-            <Image
-              style={{height: 35,width: 35}}
-              source={require('../../assets/Shop-icon.png')}
-            />
-            </TouchableOpacity>
-        </View>
-
-        <TouchableOpacity //Ava
-              style = {{
-              alignSelf: 'flex-end',
-              position: 'absolute',
-              bottom: this.state.activated ? -100:-50,
-              right: 20,
-              width: this.state.activated ? 100: 100,
-              height: this.state.activated ? 150: 150,
-              }}
-              onPress={this.animate} onLongPress={this.animate}>
-              <Image
-                style={{height:100,width:100,}}
-                source={require('../../assets/Nav_Avatar_Face_Animations.png')}
-              />
-        </TouchableOpacity>
 
       </LinearGradient>
     );

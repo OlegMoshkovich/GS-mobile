@@ -8,6 +8,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 const {width, height} = Dimensions.get('window');
 
+import AvaBottomMenu from '../components/AvaBottomMenu.js';
+
+
+
 class DashboardScreen extends React.Component {
 
   constructor(props) {
@@ -264,10 +268,7 @@ class DashboardScreen extends React.Component {
 
             {this.renderBadges()}
 
-               {this.renderNavMenu()}
-
-
-            {this.renderAva()}
+             <AvaBottomMenu navigation={this.props.navigation}/> 
 
 
 
