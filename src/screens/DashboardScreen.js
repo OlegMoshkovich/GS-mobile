@@ -10,7 +10,7 @@ const {width, height} = Dimensions.get('window');
 
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 
-
+import s from '../styles/dashboardscreen.js';
 
 class DashboardScreen extends React.Component {
 

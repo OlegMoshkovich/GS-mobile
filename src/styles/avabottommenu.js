@@ -34,6 +34,33 @@ var styles = StyleSheet.create({
         width: 100, height: 100,
     },
 
+    // revised ava menu with new blue gradient
+    avaImage: {
+        height:354/3,
+        width:285/3,
+    },
+
+    gradientStyle: {
+        height: 87,
+            zIndex: 0,
+            position:'absolute',
+    },
+
+    navStyle: {
+        
+            flex:1,
+            zIndex: 2,
+            flexDirection: 'row',
+            justifyContent: 'space-around',
+    },
+
+
+    navIconImage: {
+        height: 40,
+        width: 40,
+    },
+
+
 
 
 });
