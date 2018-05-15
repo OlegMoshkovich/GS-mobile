@@ -58,7 +58,7 @@ class MapScreen extends React.Component {
     this.index = 0;
     this.animation = new Animated.Value(0);
   }
-  
+
   componentDidMount() {
     // We should detect when scrolling has stopped then animate
     // We should just debounce the event listener here
@@ -111,7 +111,7 @@ class MapScreen extends React.Component {
     console.log(region);
     this.setState({region});
   }
-  
+
 
   renderMapView(interpolations) {
     return(
@@ -123,7 +123,7 @@ class MapScreen extends React.Component {
         >{this.state.markers.map((marker, index) => {
           const scaleStyle = {transform: [{scale: interpolations[index].scale}]};
           const opacityStyle = {opacity: interpolations[index].opacity};
-              
+
           return (
             <MapView.Marker key={index} coordinate={marker.coordinate}>
               <Animated.View style={[s.markerWrap, opacityStyle]}>
@@ -196,12 +196,12 @@ class MapScreen extends React.Component {
             <Text style ={s.menuText}>where</Text>
 
 
-{/* 
+{/*
 
 
-            adding what oleg just added in 
+            adding what oleg just added in
             d2df50e84f94c49d610791c6a4e800c7d37e2bdb
-            
+
             -- sort of breaks things with the way the map comes in -- TODO resolve this tomorrow
 
 
@@ -285,7 +285,7 @@ class MapScreen extends React.Component {
           </LinearGradient>
         </View>
       <View style={s.viewStyle}>
-        
+
       </View>
       <View style={s.viewStyle}>
         <CalendarScreen />
