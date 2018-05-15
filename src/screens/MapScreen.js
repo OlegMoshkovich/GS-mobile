@@ -9,6 +9,10 @@ import CalendarScreen from './CalendarScreen.js';
 import ChatScreen from './ChatScreen.js';
 import PlaygroundScreen from './PlaygroundScreen.js';
 
+
+import AvaBottomMenu from '../components/AvaBottomMenu.js';
+
+
 // global styles
 import s from '../styles/mapscreen';
 
@@ -243,12 +247,10 @@ class MapScreen extends React.Component {
                 ))}
               </Animated.ScrollView>
             </View>
-            { /* menu */
-              this.renderNavigation()
-            }
-            { /* ava */
-              this.renderAva()
-            }
+            
+            <AvaBottomMenu navigation={this.props.navigation}/> 
+
+
           </LinearGradient>
         </View>
     );
