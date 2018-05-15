@@ -151,14 +151,17 @@ class CalendarScreen extends React.Component {
           theme={{calendarBackground: 'white', agendaKnobColor: 'darkgrey',selectedDayBackgroundColor: '#56CCF2', todayTextColor: 'red',  agendaTodayColor: 'red',}}
           //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
         />
-        {/* nav menu */
-          this.renderNavMenu()
-        }
+       
 
         { /* ava */
           this.renderAva()
         
         }
+
+         {/* nav menu */
+          this.renderNavMenu()
+        }
+        
       </LinearGradient>
    );
  }
