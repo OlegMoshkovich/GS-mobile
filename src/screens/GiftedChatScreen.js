@@ -9,32 +9,8 @@ import {
 import {GiftedChat, Actions, Bubble, SystemMessage} from 'react-native-gifted-chat';
 import CustomActions from '../components/CustomActions';
 import CustomView from '../components/CustomView';
-import CollapseView from "react-native-collapse-view";
-
 
 export default class Example extends React.Component {
-
-  _renderView1 = (collapse) => {
-    return(
-      <View style={styles.view}>
-      <Image
-        style={{height: 77,width: 357}}
-        source={require('../../assets/Chat_ConvoComponent0.png')}
-      />
-      </View>
-    )
-  }
-  _renderCollapseView1 = (collapse) => {
-    return(
-      <View style={styles.collapseView}>
-      <Image
-        style={{height: 303,width: 375,right:10}}
-        source={require('../../assets/Chat_Session.png')}
-      />
-      </View>
-    )
-  }
-  
   constructor(props) {
     super(props);
     this.state = {

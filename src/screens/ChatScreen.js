@@ -100,7 +100,6 @@ class ChatScreen extends React.Component {
     )
   }
 
-
   _renderView3 = (collapse) => {
     return(
       <View style={styles.view}>
