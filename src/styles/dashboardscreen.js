@@ -52,6 +52,8 @@ var styles = StyleSheet.create({
 
     avaProfile: {height: 290/1.2,width: 227/1.2,alignSelf:'center', bottom:20},
 
+    progressBar: {height: 8,width: 270,alignSelf:'center',bottom:60},
+
     
 
 
