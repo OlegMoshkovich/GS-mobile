@@ -70,7 +70,7 @@ class HomeScreen extends React.Component {
         bottom: this.state.activated ? 80: -50
         }]}>
 
-        <TouchableOpacity  onPress={() => this.props.navigation.navigate('Map')}>
+        <TouchableOpacity  onPress={() => this.props.navigation.navigate('CommunicationDashboard')}>
           <Image style={[s.menuBottomIcon,
             {width: this.state.environmentSwitch ? 0: 50}]}
             source={require('../../assets/icons/Home_Icon_Communication.png')}

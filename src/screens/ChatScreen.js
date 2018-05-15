@@ -227,6 +227,19 @@ class ChatScreen extends React.Component {
              flexDirection: 'row',
              justifyContent: 'flex-end'
               }}>
+              <TouchableOpacity style ={{margin:5}}
+                onPress={() => this.props.navigation.navigate({
+                  routeName: 'CommunicationGifterdChat',
+                      params: {
+                          transition: 'default'
+                      }
+                    }
+                )}>
+                <Image
+                  style={{height: 30,width: 30}}
+                  source={require('../../assets/Chat-icon.png')}
+                />
+              </TouchableOpacity>
                <TouchableOpacity style ={{margin:5}}
                  onPress={() => this.props.navigation.navigate({
                    routeName: 'CommunicationDashboard',

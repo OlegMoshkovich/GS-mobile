@@ -34,7 +34,7 @@ export default class Example extends React.Component {
       </View>
     )
   }
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -227,11 +227,7 @@ export default class Example extends React.Component {
 
   render() {
     return (
-      <View>
-      <CollapseView
-        renderView={this._renderView1}
-        renderCollapseView={this._renderCollapseView1}
-      />
+
 
 
       <GiftedChat
@@ -252,7 +248,7 @@ export default class Example extends React.Component {
         renderFooter={this.renderFooter}
       />
 
-      </View>
+
     );
   }
 }
