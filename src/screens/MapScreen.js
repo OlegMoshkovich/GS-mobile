@@ -280,18 +280,6 @@ class MapScreen extends React.Component {
             }
           </LinearGradient>
         </View>
-<<<<<<< HEAD
-      <View style={s.viewStyle}>
-
-      </View>
-      <View style={s.viewStyle}>
-        <CalendarScreen />
-      </View>
-    </Swiper>
-=======
-      
-      
->>>>>>> e58b8202782e357c3d822c85467625c015991b24
     );
   }
 }
