@@ -22,7 +22,6 @@ class CalendarScreen extends React.Component {
     super(props);
     this.state = {
       items: {},
-      
       blurRadius: 0,
     };
   }
@@ -84,7 +83,7 @@ class CalendarScreen extends React.Component {
         />
        
 
-      <AvaBottomMenu /> 
+      <AvaBottomMenu navigation={this.props.navigation}/> 
 
        
 

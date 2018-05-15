@@ -1,5 +1,8 @@
 import React, {Component} from 'react';
 import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
+import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+
+
 
 import s from '../styles/calendarscreen.js';
 
@@ -15,6 +18,8 @@ class AvaBottomMenu extends Component {
             fadeAnim : new Animated.Value(0),
 
         };
+
+      
 
     }
 
@@ -65,7 +70,10 @@ class AvaBottomMenu extends Component {
            source={require('../../assets/Explore-icon.png')}
          />
          </TouchableOpacity>
-         <TouchableOpacity style ={s.navButton} onPress={() => this.props.navigation.navigate('Map')}>
+         <TouchableOpacity style ={s.navButton} onPress={() => {
+             console.log("clicking on map");
+             
+             this.props.navigation.navigate('Map')}}>
          <Image
            style={s.navImage}
            source={require('../../assets/Map-icon.png')}
