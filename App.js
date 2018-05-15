@@ -16,6 +16,7 @@ import ShopScreen from './src/screens/ShopScreen.js';
 import DashboardScreen from './src/screens/DashboardScreen.js';
 import PlaygroundScreen from './src/screens/PlaygroundScreen.js';
 import ExploreScreen from './src/screens/ExploreScreen.js';
+import GiftedChatScreen from './src/screens/GiftedChatScreen.js';
 import Dimensions from 'Dimensions';
 const {width, height} = Dimensions.get('window');
 
@@ -73,6 +74,9 @@ const CommunicationStack = StackNavigator(
                       fontSize: 30
                     },
                   }),
+      },
+      CommunicationGifterdChat: {
+              screen: GiftedChatScreen,
       },
       CommunicationMap: {
         screen: MapScreen,
