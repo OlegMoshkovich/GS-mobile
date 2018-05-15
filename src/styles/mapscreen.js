@@ -1,6 +1,8 @@
 'use strict'
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import {
+    StyleSheet
+} from 'react-native';
 
 var styles = StyleSheet.create({
     container: {
@@ -130,6 +132,32 @@ var styles = StyleSheet.create({
     },
 
 
+    // comms menu at the top
+    commsDashboardIcon: {
+        margin: 5,
+        position: 'absolute',
+        top: 42,
+        right: 90
+    },
+
+    commsChatIcon: {
+        margin: 5,
+        position: 'absolute',
+        top: 42,
+        right: 50
+    },
+
+    commsCalendarIcon: {
+        margin: 5,
+        position: 'absolute',
+        top: 42,
+        right: 10
+    },
+
+    commsMenuIconImage: {
+        height: 30,
+        width: 30
+    }
 
 
 });

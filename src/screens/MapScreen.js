@@ -14,6 +14,8 @@ import s from '../styles/mapscreen';
 
 // map specific data
 import mapStyle from '../styles/map/mapstyle.js';
+
+
 import mapMarkers from '../../data/map/markers.js';
 import mapRegion from '../../data/map/region.js';
 import mapLocation from '../../data/map/location.js';
@@ -190,92 +192,61 @@ class MapScreen extends React.Component {
             colors={['#b98031', 'white', 'white']}
             style={{ height: height, width:width}}>
             <Text style ={s.menuText}>where</Text>
+            
+            {/* comms menu - cant abstract into function because JSX is not a single container */}
+            
+            <TouchableOpacity style ={s.commsDashboardIcon}
+              onPress={() => this.props.navigation.navigate({
+              routeName: 'CommunicationDashboard', params: { transition: 'default' }}
+            )}>
+              <Image style={s.commsMenuIconImage} 
+                source={require('../../assets/Dashboard-icon.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity  style ={s.commsChatIcon}
+              onPress={() => this.props.navigation.navigate({
+              routeName: 'CommunicationChat', params: { transition: 'default' }}
+            )}>
+              <Image style={s.commsMenuIconImage} 
+                source={require('../../assets/Chat-icon.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity  style ={s.commsCalendarIcon}
+              onPress={() => this.props.navigation.navigate({
+              routeName: 'CommunicationCalendar', params: { transition: 'default' }}
+            )}>
+              <Image style={s.commsMenuIconImage} 
+                source={require('../../assets/Calendar-icon.png')} />
+            </TouchableOpacity>
 
-
-{/*
-
-
-            adding what oleg just added in
-            d2df50e84f94c49d610791c6a4e800c7d37e2bdb
-
-            -- sort of breaks things with the way the map comes in -- TODO resolve this tomorrow
-
-
-
-
-*/}
-             <TouchableOpacity style ={{margin:5,position:'absolute', top:42, right:90}}
-        onPress={() => this.props.navigation.navigate({
-          routeName: 'CommunicationDashboard',
-              params: {
-                  transition: 'default'
-              }
-            }
-        )}>
-        <Image
-          style={{height: 30,width: 30}}
-          source={require('../../assets/Dashboard-icon.png')}
-        />
-    </TouchableOpacity>
-
-    <TouchableOpacity  style ={{margin:5,position:'absolute',  top:42, right:50}}
-      onPress={() => this.props.navigation.navigate({
-        routeName: 'CommunicationChat',
-            params: {
-                transition: 'default'
-            }
-          }
-      )}>
-      <Image
-        style={{height: 30,width: 30}}
-        source={require('../../assets/Chat-icon.png')}
-      />
-    </TouchableOpacity>
-
-    <TouchableOpacity  style ={{margin:5,position:'absolute',  top:42, right:10}}
-      onPress={() => this.props.navigation.navigate({
-        routeName: 'CommunicationCalendar',
-            params: {
-                transition: 'default'
-            }
-          }
-        )}>
-        <Image
-          style={{height: 30,width: 30}}
-          source={require('../../assets/Calendar-icon.png')}
-        />
-    </TouchableOpacity>
-
-              <View style={s.container}>
+            <View style={s.container}>
               { /* render map */
                 this.renderMapView(interpolations)
               }
-                <Animated.ScrollView
-                  horizontal
-                  scrollEventThrottle={1}
-                  showsHorizontalScrollIndicator={false}
-                  snapToInterval={CARD_WIDTH-30}
-                  onScroll={Animated.event([
-                    {nativeEvent: {contentOffset: {x: this.animation}}}
-                    ], { useNativeDriver: true }
-                  )}
-                  style={s.scrollView}>{this.state.markers.map((marker, index) => (
-                  <View style={[s.card, {shadowOffset: { x: 2, y: -2 },
-                    height: CARD_HEIGHT/1.5,
-                    width: CARD_WIDTH/1.5,}]} key={index}>
-                    <Image source={marker.image} style={s.cardImage} resizeMode="cover" />
-                    <View style={s.textContent}>
-                      <Text numberOfLines={1} style={s.cardtitle}>{marker.title}</Text>
-                      <Text numberOfLines={1} style={s.cardDescription}>{marker.description}</Text>
-                    </View>
+              <Animated.ScrollView
+                horizontal
+                scrollEventThrottle={1}
+                showsHorizontalScrollIndicator={false}
+                snapToInterval={CARD_WIDTH-30}
+                onScroll={Animated.event([
+                  {nativeEvent: {contentOffset: {x: this.animation}}}
+                  ], { useNativeDriver: true }
+                )}
+                style={s.scrollView}>{this.state.markers.map((marker, index) => (
+                <View style={[s.card, {shadowOffset: { x: 2, y: -2 },
+                  height: CARD_HEIGHT/1.5,
+                  width: CARD_WIDTH/1.5,}]} key={index}>
+                  <Image source={marker.image} style={s.cardImage} resizeMode="cover" />
+                  <View style={s.textContent}>
+                    <Text numberOfLines={1} style={s.cardtitle}>{marker.title}</Text>
+                    <Text numberOfLines={1} style={s.cardDescription}>{marker.description}</Text>
                   </View>
-                  ))}
-                </Animated.ScrollView>
-              </View>
-            {/* menu */
+                </View>
+                ))}
+              </Animated.ScrollView>
+            </View>
+            { /* menu */
               this.renderNavigation()
             }
-            {/* ava */
+            { /* ava */
               this.renderAva()
             }
           </LinearGradient>
