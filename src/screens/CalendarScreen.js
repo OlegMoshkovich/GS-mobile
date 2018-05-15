@@ -1,187 +1,164 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
 import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
-
-
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
-
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+
+
+// global styles
+import s from '../styles/calendarscreen';
 
 const {width, height} = Dimensions.get('window');
 
 
 class CalendarScreen extends React.Component {
-
-
   constructor(props) {
-   super(props);
-   this.state = {
-     items: {},
-     moveAnim     : new Animated.Value(0),
-     activated    : true,
-     fadeAnim : new Animated.Value(0),
-     blurRadius: 0,
+    super(props);
+    this.state = {
+      items: {},
+      moveAnim     : new Animated.Value(0),
+      activated    : true,
+      fadeAnim : new Animated.Value(0),
+      blurRadius: 0,
+    };
+  }
 
-   };
- }
-
-
-
-
- animate = () => {
+  animate = () => {
    if (this.state.blurRadius == 10) {
-     this.setState({
-       blurRadius: 0
-     });
+     this.setState({ blurRadius: 0 });
    } else {
-     this.setState({
-       blurRadius: 10
-     });
+     this.setState({ blurRadius: 10 });
    }
 
    Animated.timing(
        this.state.fadeAnim,
-       {
-         toValue: this.state.activated ? 1: 0,
-         duration: 1000,
-       }
+       { toValue: this.state.activated ? 1: 0, duration: 1000, }
      ).start();
-     this.setState({
-       activated : !this.state.activated,
-       }
-     )
- }
+     this.setState({activated : !this.state.activated});
+  }
 
- render() {
-   return (
-    <LinearGradient
-    colors={['#b98031', '#f5d340', 'white']}
-
-    style={{ height: height, width:width}}>
-
-
-        <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15,top:20, marginBottom:40}}>when</Text>
-
-        <TouchableOpacity style ={{margin:5,position:'absolute', top:42, right:90}}
-          onPress={() => this.props.navigation.navigate({
-            routeName: 'CommunicationDashboard',
-                params: {
-                    transition: 'default'
-                }
-              }
-          )}>
-          <Image
-            style={{height: 30,width: 30}}
-            source={require('../../assets/Dashboard-icon.png')}
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity  style ={{margin:5,position:'absolute',  top:42, right:50}}
-        onPress={() => this.props.navigation.navigate({
-          routeName: 'CommunicationMap',
-              params: {
-                  transition: 'default'
-              }
-            }
-        )}>
-        <Image
-          style={{height: 30,width: 30}}
-          source={require('../../assets/Map-icon.png')}
-        />
-        </TouchableOpacity>
-
-        <TouchableOpacity  style ={{margin:5,position:'absolute',  top:42, right:10}}
-        onPress={() => this.props.navigation.navigate({
-          routeName: 'CommunicationChat',
-              params: {
-                  transition: 'default'
-              }
-            }
-        )}>
-        <Image
-          style={{height: 30,width: 30}}
-          source={require('../../assets/Chat-icon.png')}
-        />
-      </TouchableOpacity>
-
-     <Agenda
-       items={this.state.items}
-       loadItemsForMonth={this.loadItems.bind(this)}
-       selected={'2018-04-18'}
-       renderItem={this.renderItem.bind(this)}
-       renderEmptyDate={this.renderEmptyDate.bind(this)}
-       rowHasChanged={this.rowHasChanged.bind(this)}
-       // markingType={'period'}
-       // markedDates={{
-       //    '2017-05-08': {textColor: '#666'},
-       //    '2017-05-09': {textColor: '#666'},
-       //    '2017-05-14': {startingDay: true, endingDay: true, color: 'blue'},
-       //    '2017-05-21': {startingDay: true, color: 'blue'},
-       //    '2017-05-22': {endingDay: true, color: 'gray'},
-       //    '2017-05-24': {startingDay: true, color: 'gray'},
-       //    '2017-05-25': {color: 'gray'},
-       //    '2017-05-26': {endingDay: true, color: 'gray'}}}
-        // monthFormat={'yyyy'}
-         theme={{calendarBackground: 'white', agendaKnobColor: 'darkgrey',selectedDayBackgroundColor: '#56CCF2', todayTextColor: 'red',  agendaTodayColor: 'red',}}
-       //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
-     />
-     <View style={{ //Navigational Menu
-       flex:1,
-       flexDirection: 'row',
-       position: 'absolute',
-       bottom: this.state.activated ? -50: 30,
-       left:20
-
-       }}>
-         <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
+  renderNavMenu() {
+    return(
+      <View style={[s.navMenu, { bottom: this.state.activated ? -50: 30}]}>
+         <TouchableOpacity style ={s.navButton}  onPress={() => this.props.navigation.navigate('Explore')}>
          <Image
            style={{height: 35,width: 35}}
            source={require('../../assets/Explore-icon.png')}
          />
          </TouchableOpacity>
-         <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Map')}>
+         <TouchableOpacity style ={s.navButton} onPress={() => this.props.navigation.navigate('Map')}>
          <Image
-           style={{height: 35,width: 35}}
+           style={s.navImage}
            source={require('../../assets/Map-icon.png')}
          />
          </TouchableOpacity>
-         <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Community')}>
+         <TouchableOpacity style ={s.navButton} onPress={() => this.props.navigation.navigate('Community')}>
          <Image
-           style={{height: 35,width: 35}}
+           style={s.navImage}
            source={require('../../assets/Community-icon.png')}
          />
          </TouchableOpacity>
-         <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Calendar')} >
+         <TouchableOpacity style ={s.navButton} onPress={() => this.props.navigation.navigate('Calendar')} >
          <Image
-           style={{height: 35,width: 35}}
+           style={s.navImage}
            source={require('../../assets/Calendar-icon.png')}
          />
          </TouchableOpacity>
-         <TouchableOpacity style ={{margin:5}} onPress={() => this.props.navigation.navigate('Shop')} >
+         <TouchableOpacity style ={s.navButton} onPress={() => this.props.navigation.navigate('Shop')} >
          <Image
-           style={{height: 35,width: 35}}
+           style={s.navImage}
            source={require('../../assets/Shop-icon.png')}
          />
          </TouchableOpacity>
      </View>
+    );
+  }
 
-     <TouchableOpacity //Ava
-           style = {{
-           alignSelf: 'flex-end',
-           position: 'absolute',
-           bottom: this.state.activated ? -100:-50,
-           right: 20,
-           width: this.state.activated ? 100: 100,
-           height: this.state.activated ? 150: 150,
-           }}
+  renderAva() {
+    return(
+      <TouchableOpacity //Ava
+           style = {[
+
+            s.avaMenu,
+           
+           {
+            bottom: this.state.activated ? -100:-50,
+            width: this.state.activated ? 100: 100,
+            height: this.state.activated ? 150: 150,
+           }]}
            onPress={this.animate} onLongPress={this.animate}>
            <Image
-             style={{height:100,width:100,}}
+             style={s.avaImage}
              source={require('../../assets/Nav_Avatar_Face_Animations.png')}
            />
      </TouchableOpacity>
+
+    );
+  }
+
+  render() {
+    return (
+      <LinearGradient
+        colors={['#b98031', '#f5d340', 'white']}
+        style={{ height: height, width:width}}>
+
+        <Text style ={s.menuText}>when</Text>
+
+        {/* comms menu -- TODO abstract to component - need enclosing JSX */}
+        <TouchableOpacity style ={s.commsDashboardIcon}
+          onPress={() => this.props.navigation.navigate({
+          routeName: 'CommunicationDashboard', params: { transition: 'default' }}
+          )}>
+          <Image style={s.commsMenuIconImage} 
+            source={require('../../assets/Dashboard-icon.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity  style ={s.commsChatIcon}
+          onPress={() => this.props.navigation.navigate({
+          routeName: 'CommunicationChat', params: { transition: 'default' }}
+          )}>
+          <Image style={s.commsMenuIconImage} 
+            source={require('../../assets/Chat-icon.png')} />
+        </TouchableOpacity>
+        <TouchableOpacity  style ={s.commsCalendarIcon}
+          onPress={() => this.props.navigation.navigate({
+          routeName: 'CommunicationCalendar', params: { transition: 'default' }}
+        )}>
+          <Image style={s.commsMenuIconImage} 
+            source={require('../../assets/Calendar-icon.png')} />
+        </TouchableOpacity>
+
+
+        <Agenda
+          items={this.state.items}
+          loadItemsForMonth={this.loadItems.bind(this)}
+          selected={'2018-04-18'}
+          renderItem={this.renderItem.bind(this)}
+          renderEmptyDate={this.renderEmptyDate.bind(this)}
+          rowHasChanged={this.rowHasChanged.bind(this)}
+          // markingType={'period'}
+          // markedDates={{
+          //    '2017-05-08': {textColor: '#666'},
+          //    '2017-05-09': {textColor: '#666'},
+          //    '2017-05-14': {startingDay: true, endingDay: true, color: 'blue'},
+          //    '2017-05-21': {startingDay: true, color: 'blue'},
+          //    '2017-05-22': {endingDay: true, color: 'gray'},
+          //    '2017-05-24': {startingDay: true, color: 'gray'},
+          //    '2017-05-25': {color: 'gray'},
+          //    '2017-05-26': {endingDay: true, color: 'gray'}}}
+          // monthFormat={'yyyy'}
+          theme={{calendarBackground: 'white', agendaKnobColor: 'darkgrey',selectedDayBackgroundColor: '#56CCF2', todayTextColor: 'red',  agendaTodayColor: 'red',}}
+          //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
+        />
+        {/* nav menu */
+          this.renderNavMenu()
+        }
+
+        { /* ava */
+          this.renderAva()
+        
+        }
       </LinearGradient>
    );
  }
@@ -215,13 +192,13 @@ class CalendarScreen extends React.Component {
 
  renderItem(item) {
    return (
-     <View style={[styles.item, {height: item.height}]}><Text>{item.name}</Text></View>
+     <View style={[s.item, {height: item.height}]}><Text>{item.name}</Text></View>
    );
  }
 
  renderEmptyDate() {
    return (
-     <View style={styles.emptyDate}><Text>Nothing yet.</Text></View>
+     <View style={s.emptyDate}><Text>Nothing yet.</Text></View>
    );
  }
 
@@ -234,38 +211,5 @@ class CalendarScreen extends React.Component {
    return date.toISOString().split('T')[0];
  }
 }
-
-
-const styles = StyleSheet.create({
-  item: {
-    backgroundColor: 'transparent',
-    flex: 1,
-    borderRadius: 5,
-    padding: 10,
-    marginRight: 10,
-    marginTop: 17
-  },
-  emptyDate: {
-    height: 15,
-    flex:1,
-    paddingTop: 30
-  },
-  container: {
-    overflow: 'hidden',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    position: 'absolute',
-    alignItems: 'center',
-    justifyContent:'center'
-  },
-  // This pushes the view out of the viewport, but why the negative bottom?
-  hiddenContainer: {
-    top: window.height,
-    bottom: -window.height
-  }
-
-});
 
 export default CalendarScreen;
