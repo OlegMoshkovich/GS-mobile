@@ -31,7 +31,7 @@ var styles = StyleSheet.create({
         height: 40, 
         width: 40
     },
-    
+
 
 
     menuTapIconImage: {
@@ -79,7 +79,10 @@ var styles = StyleSheet.create({
         height: 225
     },
 
-
+ scrollView: {
+    flex: 1,
+    backgroundColor: '#F5FCFF',
+  }
 
 
 
