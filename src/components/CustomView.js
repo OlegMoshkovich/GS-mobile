@@ -13,6 +13,7 @@ export default class CustomView extends React.Component {
   render() {
     if (this.props.currentMessage.location) {
       return (
+
         <TouchableOpacity style={[styles.container, this.props.containerStyle]} onPress={() => {
           const url = Platform.select({
             ios: `http://maps.apple.com/?ll=${this.props.currentMessage.location.latitude},${this.props.currentMessage.location.longitude}`,
@@ -26,6 +27,7 @@ export default class CustomView extends React.Component {
             console.error('An error occurred', err);
           });
         }}>
+        
           <MapView
             style={[styles.mapView, this.props.mapViewStyle]}
             region={{

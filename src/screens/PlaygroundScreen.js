@@ -105,7 +105,7 @@ export default class Example extends React.Component {
       if ((messages[0].image || messages[0].location) || !this._isAlright) {
         this.setState((previousState) => {
           return {
-            typingText: 'React Native is typing'
+            typingText: 'typing'
           };
         });
       }
@@ -121,7 +121,7 @@ export default class Example extends React.Component {
           } else {
             if (!this._isAlright) {
               this._isAlright = true;
-              this.onReceive('Alright');
+              this.onReceive('I am still a work in progress');
             }
           }
         }
@@ -236,7 +236,6 @@ export default class Example extends React.Component {
         loadEarlier={this.state.loadEarlier}
         onLoadEarlier={this.onLoadEarlier}
         isLoadingEarlier={this.state.isLoadingEarlier}
-
         user={{
           _id: 1, // sent messages should have same user._id
         }}
