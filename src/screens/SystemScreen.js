@@ -7,7 +7,7 @@ import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
-import ShopScreen from './ShopScreen1.js';
+import ShopScreen from './ShopScreen.js';
 
 
 
