@@ -16,7 +16,10 @@ const SWIPE_THRESHOLD = .05*SCREEN_WIDTH;
 const SWIPE_OUT_DURATION = 300;
 
 class SystemScreen extends React.Component {
+  
   static navigationOptions = {
+
+        gesturesEnabled: false,
 }
 
   constructor(props) {
@@ -103,17 +106,25 @@ class SystemScreen extends React.Component {
 
   render() {
     const config = {
+<<<<<<< HEAD
     velocityThreshold: 0.3,
     directionalOffsetThreshold: 5
   };
+=======
+  velocityThreshold: 0.01,
+  directionalOffsetThreshold: 800
+};
+>>>>>>> 97207b42faa739b55e40e1fdc08d3780abfd7e0a
 
     // need to refactor the icons into a flexbox grid
     // noticed that the icons dont all line up properly with their text...
 
     let { fadeAnim } = this.state;
     return (
+      
+      
       <GestureRecognizer
-        onSwipe={(direction, state) => this.onSwipe(direction, state)}
+        onSwipe={() => {return null}}
         onSwipeUp={(state) => this.onSwipeUp(state)}
         onSwipeDown={(state) => this.onSwipeDown(state)}
         onSwipeLeft={(state) => this.onSwipeLeft(state)}

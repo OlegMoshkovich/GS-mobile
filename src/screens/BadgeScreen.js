@@ -20,8 +20,8 @@ class BadgeScreen extends React.Component {
   render() {
     return (
         <View>
+          <Image style={{width: width, height: height}} source={assetPaths.staticScreens.badgeScreen} />
             <TopMenu menuTitle="#endyellow" iconPath={assetPaths.topMenu.exploreIcon} />
-            <View><Text>badges</Text></View>
             <AvaBottomMenu navigation={this.props.navigation}/> 
         </View>
 

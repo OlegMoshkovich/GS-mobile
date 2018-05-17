@@ -25,11 +25,19 @@ class HomeScreen extends React.Component {
   constructor(props) {
     super(props);
 
+
+
     this.state = {
       activated    : true,
       environmentSwitch: false,
       blurRadius: 0,
     };
+
+
+    console.log("homescreen loaded");
+    console.log(this.props);
+    
+
   };
 
 
@@ -54,52 +62,6 @@ class HomeScreen extends React.Component {
       )
     }
 
-  renderMenu() {
-    return (
-      <View style={[s.menuBottom, {
-        // todo - should refactor this, removing all magic numbers
-        bottom: this.state.activated ? 80: -50,
-        bottom: this.state.activated ? 80: -50
-        }]}>
-
-        <TouchableOpacity  onPress={() => this.props.navigation.navigate('CommunicationDashboard')}>
-          <Image style={[s.menuBottomIcon,
-            {width: this.state.environmentSwitch ? 0: 50}]}
-            source={require('../../assets/icons/Home_Icon_Communication.png')}
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
-          <Image style={[s.menuBottomIcon,
-          {width: this.state.environmentSwitch ? 0: 50}]}
-          source={require('../../assets/icons/Home_Icon_Community.png')}
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={this.environmentSwitch}>
-          <Image style={s.menuBottomIcon}
-            source={require('../../assets/Home-icon.png')}
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity  onPress={() => this.props.navigation.navigate('Explore')} >
-          <Image style={[s.menuBottomIcon,
-            {width: this.state.environmentSwitch ? 0: 50}]}
-            source={require('../../assets/icons/Home_Icon_Explore.png')}
-          />
-        </TouchableOpacity>
-
-        <TouchableOpacity  onPress={() => this.props.navigation.navigate('Dashboard')} >
-          <Image style={[s.menuBottomIcon,
-          {width: this.state.environmentSwitch ? 0: 50}]}
-            source={require('../../assets/icons/Home_Icon_Dashboard.png')}
-          />
-        </TouchableOpacity>
-      </View>
-
-    );
-  }
 
   renderChat() {
     return(
@@ -116,27 +78,12 @@ class HomeScreen extends React.Component {
     );
   }
 
-  renderAva(fadeAnim) {
-    return(
-      <Animated.View
-              style={[s.avaBottomView, {opacity: fadeAnim},]}>
-              <Image style={s.avaBottomViewChatBubble}
-                source={require('../../assets/Chat-bubble.png')}
-              />
-              <Image style={s.avaBottomViewTextInput}
-                source={require('../../assets/Speech-input.png')}
-              />
-              <TouchableOpacity style ={s.avaBottomViewButton}
-              onPress={this.animate} onLongPress={this.animate}>
-                <Image style={s.avaBottomViewAvaWaving}
-                  source={require('../../assets/Nav_Avatar_Face_Animations-wave.png')}
-                />
-              </TouchableOpacity>
-            </Animated.View>
-    );
-  }
+  
 
   render() {
+
+
+
     let { fadeAnim } = this.state;
     return (
       <Swiper
