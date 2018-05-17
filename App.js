@@ -154,10 +154,47 @@ const TabStack =  TabNavigator({
    },
 });
 
+/*
+let MyTransition = (index, position) => {
+  const inputRange = [index - 1, index, index + 1];
+  const opacity = position.interpolate({
+      inputRange,
+      outputRange: [.8, 1, 1],
+  });
+
+  const scaleY = position.interpolate({
+      inputRange,
+      outputRange: ([0.8, 1, 1]),
+  });
+
+  return {
+      opacity,
+      transform: [
+          {scaleY}
+      ]
+  };
+};
 
 
-//https://stackoverflow.com/questions/43974979/react-native-react-navigation-transitions/43981835#43981835
 
+let TransitionConfiguration = () => {
+  return {
+      // Define scene interpolation, eq. custom transition
+      screenInterpolator: (sceneProps) => {
+
+          const {position, scene} = sceneProps;
+          const {index} = scene;
+
+          return {
+           // myCustomTransition: MyCustomTransition(index, position),
+            default: MyTransition(index, position),
+        }[transition];
+
+
+        }
+  }
+};
+*/
 
 const RootStack = StackNavigator(
   {
@@ -173,14 +210,12 @@ const RootStack = StackNavigator(
     ShopModal: {
       screen: ShopScreen
     }
-
-
   },
   
   
   {
 
-    transitionConfig: TransitionConfiguration,
+   //transitionConfig: TransitionConfiguration,
     mode: 'modal',
     headerMode: 'none',
   }
