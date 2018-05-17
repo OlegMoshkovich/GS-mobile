@@ -8,14 +8,11 @@ import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
 import ShopScreen from './ShopScreen';
-
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-
 import s from '../styles/systemscreen';
 
 class SystemScreen extends React.Component {
   static navigationOptions = {
-
 }
 
   constructor(props) {
@@ -35,12 +32,7 @@ class SystemScreen extends React.Component {
   return this.state.panResponderEnabled;
 }
 
-disableResponder = () => {
-  console.log('in the disable')
-  this.setState({
-    panResponderEnabled: false
-  });
-}
+
 
 
 
