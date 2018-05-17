@@ -7,10 +7,29 @@ import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
-import ShopScreen from './ShopScreen';
+
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+
+
 import SystemScreen from './SystemScreen';
-
-
+import MapScreen from './MapScreen';
+import CommunityScreen from './CommunityScreen.js';
+import ResumeScreen from './ResumeScreen.js';
+import CalendarScreen from './CalendarScreen.js';
+import ChatScreen from './ChatScreen.js';
+import CommsDashboardScreen from './CommsDashboardScreen.js'
+import ModalScreen from './ModalScreen.js';
+import ShopScreen from './ShopScreen';
+import DashboardScreen from './DashboardScreen.js';
+import PlaygroundScreen from './PlaygroundScreen.js';
+import ExploreScreen from './ExploreScreen.js';
+import GiftedChatScreen from './GiftedChatScreen.js';
+import AvaEndYellow from './AvaEndYellow';
+import EventScreen from './EventScreen';
+import BadgeScreen from './BadgeScreen';
+import JourneyScreen from './JourneyScreen';
+import AwardScreen from './AwardScreen';
+import AvaEndBlue from './AvaEndBlue';
 
 
 // refactor progress towards global styles
@@ -20,25 +39,50 @@ import AvaBottomMenuHomescreen from '../components/AvaBottomMenuHomescreen';
 
 
 
+
+const config = {
+  velocityThreshold: 0.5,
+  directionalOffsetThreshold: 100
+};
 class HomeScreen extends React.Component {
 
   constructor(props) {
     super(props);
 
-
-
     this.state = {
-      activated    : true,
-      environmentSwitch: false,
-      blurRadius: 0,
+      myText: 'I\'m ready to get swiped!',
+      gestureName: 'none',
+      backgroundColor: '#fff',
+      navigation: this.props.navigation,
+
     };
 
 
     console.log("homescreen loaded");
-    console.log(this.props);
-    
+    console.log(this.state);
+
 
   };
+
+
+ 
+  onSwipe(gestureName, gestureState) {
+    const {SWIPE_UP, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT} = swipeDirections;
+    
+    switch (gestureName) {
+      case SWIPE_UP:
+        
+        this.props.navigation.navigate('ShopModal');
+
+        break;
+      case SWIPE_DOWN:
+        this.props.navigation.navigate('ShopModal');
+        
+        break;
+      
+    }
+  }
+ 
 
 
   environmentSwitch = () => {
@@ -78,6 +122,9 @@ class HomeScreen extends React.Component {
     );
   }
 
+
+
+
   
 
   render() {
@@ -86,20 +133,21 @@ class HomeScreen extends React.Component {
 
     let { fadeAnim } = this.state;
     return (
-      <Swiper
-        horizontal={false}
-        loop={false}
-        showsPagination={false}
-        index={1}>
-
-        <View style={s.viewStyle}    >
-          <SystemScreen />
-        </View>
-
+     
+      <GestureRecognizer
+        onSwipe={(direction, state) => this.onSwipe(direction, state)}
+        config={config}
+        style={{
+          flex: 1,
+          backgroundColor: this.state.backgroundColor
+        }}
+        >
         <View style={s.viewStyle}>
           <LinearGradient
             colors={[s.gradientColorStart, s.gradientColorStart, s.gradientColorStart]}
             style={{ height: height, width: width}}>
+            
+
             <Image
               style={{
                 height: this.state.environmentSwitch ? height: 0,
@@ -126,11 +174,7 @@ class HomeScreen extends React.Component {
 
           </LinearGradient>
         </View>
-
-        <View style={s.viewStyle}>
-          <ShopScreen/>
-        </View>
-    </Swiper>
+</GestureRecognizer>
     );
   }
 }

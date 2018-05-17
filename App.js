@@ -27,11 +27,8 @@ import AvaEndBlue from './src/screens/AvaEndBlue';
 
 
 import Dimensions from 'Dimensions';
+import SystemScreen from './src/screens/SystemScreen';
 const {width, height} = Dimensions.get('window');
-
-
-let swiping = true;
-
 
 let MyTransition = (index, position) => {
 
@@ -62,6 +59,7 @@ let TransitionConfiguration = () => {
         }
     }
 };
+
 const CommunicationStack = StackNavigator(
   { //Screens
     CommunicationDashboard: {
@@ -127,6 +125,10 @@ const CommunicationStack = StackNavigator(
 
     );
 
+
+
+
+
 const TabStack =  TabNavigator({
   AvaYellow: { screen: AvaEndYellow },
   Map: {screen: MapScreen},
@@ -135,7 +137,7 @@ const TabStack =  TabNavigator({
   Chat: { screen: ChatScreen},
   Connect: { screen: CommsDashboardScreen},
   Community: { screen: CommunityScreen },
-  Home: { screen: props => <HomeScreen {...props} /> },
+  Home: { screen: HomeScreen},
   Explore: { screen: ExploreScreen },
   Dashboard: { screen: DashboardScreen },
   Badges: { screen: BadgeScreen},
@@ -145,19 +147,14 @@ const TabStack =  TabNavigator({
   },
 
   {
-    
-    swipeEnabled:swiping,
-    initialRouteName:'Home',
-    
-    
-    navigationOptions: {
-      tabBarVisible: false,
-      gesturesEnabled: false
-    },
-
-
-
+    swipeEnabled:true,
+  initialRouteName:'Home',
+  navigationOptions: {
+    tabBarVisible: false
+   },
 });
+
+
 const RootStack = StackNavigator(
   {
     Main: {
@@ -166,12 +163,22 @@ const RootStack = StackNavigator(
     MyModal: {
       screen: ModalScreen,
     },
+    SystemModal: {
+      screen: SystemScreen,
+    },
+    ShopModal: {
+      screen: ShopScreen
+    }
+
+
   },
   {
     mode: 'modal',
     headerMode: 'none',
   }
 );
+
+
 export default class App extends React.Component {
   render() {
     return <RootStack />;
