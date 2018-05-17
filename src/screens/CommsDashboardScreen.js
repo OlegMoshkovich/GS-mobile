@@ -10,6 +10,13 @@ const {width, height} = Dimensions.get('window');
 const CARD_HEIGHT =120;
 const CARD_WIDTH = CARD_HEIGHT - 34;
 
+
+import AvaBottomMenu from '../components/AvaBottomMenu';
+import TopMenu from '../components/TopMenu';
+import assetPaths from '../assetPaths';
+
+
+
 class DashboardScreen extends React.Component {
 
   constructor(props) {
@@ -163,29 +170,10 @@ class DashboardScreen extends React.Component {
              borderBottomWidth: .4,
            }}
          />
-         <View style ={{
-          top:20,
-          flex: 1,
-          flexDirection: 'row',
-          justifyContent: 'space-between'
-           }}>
-             <Text style ={{color:"white",fontSize: 40,fontFamily: 'Helvetica', fontWeight:'bold', margin:15}}>#comms</Text>
+        
+        <TopMenu menuTitle="#comms" iconPath={assetPaths.topMenu.connectIcon} />
 
-             <TouchableOpacity style ={{margin:20}}
-             onPress={() => this.props.navigation.navigate({
-               routeName: '',
-                   params: {
-                       transition: 'left'
-                   }
-                 }
-             )}>
-             <Image
-               style={{height: 40,width: 40}}
-               source={require('../../assets/Dashboard-icon.png')}
-             />
 
-           </TouchableOpacity>
-         </View>
 
          <Image
            style={{

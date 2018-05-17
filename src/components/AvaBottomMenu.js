@@ -117,7 +117,7 @@ class AvaBottomMenu extends Component {
                 bottom: this.state.activated ? navMenu_active: navMenu_inactive,
                 }]}>
                 <TouchableOpacity  onPress={() => this.props.navigation.navigate('Map')}>
-                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.chatIcon} />
+                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIcon} />
                 </TouchableOpacity>
                 <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
                     <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIcon} />

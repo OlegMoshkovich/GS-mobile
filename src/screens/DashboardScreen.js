@@ -9,6 +9,8 @@ import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 const {width, height} = Dimensions.get('window');
 
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
+import TopMenu from '../components/TopMenu';
+import assetPaths from '../assetPaths';
 
 import s from '../styles/dashboardscreen.js';
 
@@ -108,8 +110,10 @@ class DashboardScreen extends React.Component {
       <LinearGradient
         colors={['#56CCF2', '#56CCF2', 'white']}
         style={{ height: height, width:width }}>
-      
-        { this.renderDashboardMenu() }
+
+        <TopMenu menuTitle="#dashboard" iconPath={assetPaths.topMenu.exploreIcon} />
+
+        
 
         <Image style={s.avaProfile} 
           source={require('../../assets/Ava-Dashboard1.png')} />
