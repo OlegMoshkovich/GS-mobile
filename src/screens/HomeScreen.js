@@ -10,8 +10,15 @@ import Swiper from 'react-native-swiper';
 import ShopScreen from './ShopScreen.js';
 import SystemScreen from './SystemScreen.js';
 
+
+
+
 // refactor progress towards global styles
 import s from '../styles/homescreen';
+
+import AvaBottomMenuHomescreen from '../components/AvaBottomMenuHomescreen';
+
+
 
 class HomeScreen extends React.Component {
 
@@ -19,27 +26,12 @@ class HomeScreen extends React.Component {
     super(props);
 
     this.state = {
-      moveAnim     : new Animated.Value(0),
       activated    : true,
       environmentSwitch: false,
-      fadeAnim : new Animated.Value(0),
       blurRadius: 0,
     };
   };
 
-  animate = () => {
-    if (this.state.blurRadius == 10) {
-      this.setState({ blurRadius: 0 });
-    } else {
-      this.setState({ blurRadius: 10 });
-    }
-    Animated.timing(
-      this.state.fadeAnim,
-        { toValue: this.state.activated ? 1: 0, duration: 500, }
-      ).start();
-
-    this.setState({activated : !this.state.activated});
-  }
 
   environmentSwitch = () => {
     console.log('environment'+ this.state.environmentSwitch)
@@ -177,26 +169,7 @@ class HomeScreen extends React.Component {
 
 
 
-            {/* hidden ava in bottom  
-            
-            
-            NOT using the AvaBottomMenu component here because this logic
-            is slightly different -- to refactor
-            
-            
-            */
-
-
-            this.renderAva(fadeAnim)
-
-            }
-
-
-            {
-              /* bottom menu */
-              this.renderMenu()
-
-            }
+            <AvaBottomMenuHomescreen navigation={this.props.navigation}/> 
 
 
             {/* stand in chat text */
