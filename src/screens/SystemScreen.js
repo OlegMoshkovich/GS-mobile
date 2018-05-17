@@ -11,6 +11,10 @@ import ShopScreen from './ShopScreen';
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import s from '../styles/systemscreen';
 
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SWIPE_THRESHOLD = .05*SCREEN_WIDTH;
+const SWIPE_OUT_DURATION = 300;
+
 class SystemScreen extends React.Component {
   
   static navigationOptions = {
@@ -20,7 +24,6 @@ class SystemScreen extends React.Component {
 
   constructor(props) {
     super(props);
-    var position = new Animated.ValueXY({x:300, y:200});
     this.state = {
       panResponderEnabled: true,
       moveAnim     : new Animated.Value(0),
@@ -29,16 +32,7 @@ class SystemScreen extends React.Component {
       fadeAnim     : new Animated.Value(0),
       blurRadius: 0,
     };
-
   };
-  handlePanResponderStart = () => {
-  return this.state.panResponderEnabled;
-}
-
-
-
-
-
 
   animate = () => {
     if (this.state.blurRadius == 10) {
@@ -71,21 +65,7 @@ class SystemScreen extends React.Component {
       }
     }
 
-    componentWillMount() {
-    this._panResponder = PanResponder.create({
-      onMoveShouldSetResponderCapture: () => false,
-      onMoveShouldSetPanResponderCapture: () => true,
 
-      onPanResponderGrant: (e, gestureState) => {
-      },
-
-      onPanResponderMove: Animated.event([
-      ]),
-
-      onPanResponderRelease: (e, {vx, vy}) => {
-      }
-    });
-  }
 
     onSwipeUp(gestureState) {
      this.setState({myText: 'You swiped up!'});
@@ -126,9 +106,15 @@ class SystemScreen extends React.Component {
 
   render() {
     const config = {
+<<<<<<< HEAD
+    velocityThreshold: 0.3,
+    directionalOffsetThreshold: 5
+  };
+=======
   velocityThreshold: 0.01,
   directionalOffsetThreshold: 800
 };
+>>>>>>> 97207b42faa739b55e40e1fdc08d3780abfd7e0a
 
     // need to refactor the icons into a flexbox grid
     // noticed that the icons dont all line up properly with their text...
