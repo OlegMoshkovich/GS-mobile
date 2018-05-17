@@ -51,54 +51,9 @@ class AvaBottomMenu extends Component {
         return (
             <View>
               
-              {/* old ava menu with small icons 
-              }
-                <TouchableOpacity style = {[s.avaMenu,
-                    {
-                        bottom: this.state.activated ? -100:-50,
-                        width: this.state.activated ? 100: 100,
-                        height: this.state.activated ? 150: 150,
-                    }]}
-                    onPress={this.animate} onLongPress={this.animate}>
-                    <Image
-                        style={s.avaImage}
-                        source={assetPaths.bottomMenu.avaFace}
-                    />
-                </TouchableOpacity>
-                <View style={[s.navMenu, 
-                    { bottom: this.state.activated ? -50: 30}]}>
-                    <TouchableOpacity style ={s.navButton} 
-                        onPress={() => this.props.navigation.navigate('Explore')}>
-                        <Image style={s.navImage}
-                            source={assetPaths.bottomMenu.exploreIcon} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style ={s.navButton} 
-                        onPress={() => this.props.navigation.navigate('CommunicationMap')}>
-                        <Image style={s.navImage}
-                            source={assetPaths.bottomMenu.mapIcon} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style ={s.navButton} 
-                        onPress={() => this.props.navigation.navigate('Community')}>
-                        <Image style={s.navImage}
-                            source={assetPaths.bottomMenu.communityIcon} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style ={s.navButton} 
-                        onPress={() => this.props.navigation.navigate('CommunicationCalendar')} >
-                        <Image style={s.navImage}
-                            source={assetPaths.bottomMenu.calendarIcon} />
-                    </TouchableOpacity>
-                    <TouchableOpacity style ={s.navButton} 
-                        onPress={() => this.props.navigation.navigate('Shop')} >
-                        <Image style={s.navImage}
-                            source={assetPaths.bottomMenu.shopIcon}
-                        />
-                    </TouchableOpacity>
-                </View>
-
-                */}
+             
 
 
-            {/* must keep this inline style or else things look messed up */}
             <TouchableOpacity
                 style = {{
                 alignSelf: 'flex-end', position: 'absolute', right: 20, zIndex: 1,

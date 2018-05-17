@@ -20,9 +20,12 @@ class JourneyScreen extends React.Component {
   render() {
     return (
         <View>
+          <Image style={{width: width, height: height}} source={assetPaths.staticScreens.journeyScreen} />
             <TopMenu menuTitle="#endyellow" iconPath={assetPaths.topMenu.exploreIcon} />
-            <View><Text>journey</Text></View>
+            
             <AvaBottomMenu navigation={this.props.navigation}/> 
+
+
         </View>
 
       

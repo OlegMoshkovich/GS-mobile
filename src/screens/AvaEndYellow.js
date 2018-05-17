@@ -20,8 +20,8 @@ class AvaEndYellow extends React.Component {
   render() {
     return (
         <View>
+            <Image style={{width: width, height: height}} source={assetPaths.staticScreens.avaEndYellow} />
             <TopMenu menuTitle="#endyellow" iconPath={assetPaths.topMenu.exploreIcon} />
-            <View><Text>Ava end yellow</Text></View>
             <AvaBottomMenu navigation={this.props.navigation}/> 
         </View>
 

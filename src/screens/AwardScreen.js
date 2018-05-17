@@ -20,8 +20,8 @@ class AwardScreen extends React.Component {
   render() {
     return (
         <View>
+            <Image style={{width: width, height: height}} source={assetPaths.staticScreens.awardScreen} />
             <TopMenu menuTitle="#endyellow" iconPath={assetPaths.topMenu.exploreIcon} />
-            <View><Text>awards</Text></View>
             <AvaBottomMenu navigation={this.props.navigation}/> 
         </View>
 
