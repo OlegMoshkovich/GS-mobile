@@ -119,7 +119,7 @@ const TabStack =  TabNavigator({
   Home: { screen: HomeScreen },
   Explore: { screen: ExploreScreen },
   Dashboard: { screen: DashboardScreen },
-  Playground: { screen: PlaygroundScreen }
+
   },
 
   {swipeEnabled:true,

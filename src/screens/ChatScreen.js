@@ -58,6 +58,7 @@ class ChatScreen extends React.Component {
       }
     )
   }
+
   _renderView1 = (collapse) => {
     return(
       <View style={styles.view}>
@@ -299,7 +300,6 @@ class ChatScreen extends React.Component {
              />
        </TouchableOpacity>
 
-
        <Image
          style={{height: 87,
                  width: width,
@@ -351,9 +351,6 @@ class ChatScreen extends React.Component {
            />
            </TouchableOpacity>
        </View>
-
-
-
 
       </LinearGradient>
     );
