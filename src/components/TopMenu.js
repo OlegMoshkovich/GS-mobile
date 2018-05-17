@@ -31,10 +31,6 @@ class TopMenu extends Component {
         return (
             <View style ={s.container}>
             <Text style ={s.menuText}>{this.props.menuTitle}</Text>
-            <Image
-              style={s.menuTapIconImage}
-              source={assetPaths.topMenu.tapHereIcon}
-            />
             <TouchableOpacity style ={s.menuNavButton}
               onPress={this.updateData}>
               <Image style={s.menuNavButtonImage}

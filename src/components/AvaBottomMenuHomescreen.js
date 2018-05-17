@@ -73,7 +73,7 @@ class AvaBottomMenuHomescreen extends Component {
                 bottom: this.state.activated ? navMenu_active: navMenu_inactive,
                 }]}>
                 <TouchableOpacity  onPress={() => this.props.navigation.navigate('Map')}>
-                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.homeScreen.chatIcon} />
+                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.homeScreen.connectIcon} />
                 </TouchableOpacity>
                 <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
                     <Image style={s.navIconImage} source={assetPaths.bottomMenu.homeScreen.communityIcon} />
