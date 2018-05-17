@@ -155,6 +155,10 @@ const TabStack =  TabNavigator({
 });
 
 
+
+//https://stackoverflow.com/questions/43974979/react-native-react-navigation-transitions/43981835#43981835
+
+
 const RootStack = StackNavigator(
   {
     Main: {
@@ -172,10 +176,17 @@ const RootStack = StackNavigator(
 
 
   },
+  
+  
   {
+
+    transitionConfig: TransitionConfiguration,
     mode: 'modal',
     headerMode: 'none',
   }
+
+
+
 );
 
 
