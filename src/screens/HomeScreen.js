@@ -7,11 +7,18 @@ import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
-import ShopScreen from './ShopScreen.js';
-import SystemScreen from './SystemScreen.js';
+import ShopScreen from './ShopScreen';
+import SystemScreen from './SystemScreen';
+
+
+
 
 // refactor progress towards global styles
 import s from '../styles/homescreen';
+
+import AvaBottomMenuHomescreen from '../components/AvaBottomMenuHomescreen';
+
+
 
 class HomeScreen extends React.Component {
 
@@ -19,27 +26,12 @@ class HomeScreen extends React.Component {
     super(props);
 
     this.state = {
-      moveAnim     : new Animated.Value(0),
       activated    : true,
       environmentSwitch: false,
-      fadeAnim : new Animated.Value(0),
       blurRadius: 0,
     };
   };
 
-  animate = () => {
-    if (this.state.blurRadius == 10) {
-      this.setState({ blurRadius: 0 });
-    } else {
-      this.setState({ blurRadius: 10 });
-    }
-    Animated.timing(
-      this.state.fadeAnim,
-        { toValue: this.state.activated ? 1: 0, duration: 500, }
-      ).start();
-
-    this.setState({activated : !this.state.activated});
-  }
 
   environmentSwitch = () => {
     console.log('environment'+ this.state.environmentSwitch)
@@ -177,6 +169,7 @@ class HomeScreen extends React.Component {
 
 
 
+<<<<<<< HEAD
             {/* hidden ava in bottom
 
 
@@ -197,6 +190,9 @@ class HomeScreen extends React.Component {
               this.renderMenu()
 
             }
+=======
+            <AvaBottomMenuHomescreen navigation={this.props.navigation}/> 
+>>>>>>> ed29d78a88198289da9ab29980a1f0401f4d0abf
 
 
             {/* stand in chat text */

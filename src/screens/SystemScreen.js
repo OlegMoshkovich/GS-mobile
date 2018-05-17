@@ -15,6 +15,9 @@ import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
 
 
+import s from '../styles/systemscreen';
+
+
 class SystemScreen extends React.Component {
   static navigationOptions = {
 
