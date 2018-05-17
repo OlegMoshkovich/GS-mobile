@@ -9,9 +9,9 @@ const {width, height} = Dimensions.get('window');
 import { USE_NATIVE_DRIVER } from '../TestComponents/config';
 
 
-import AvaBottomMenu from '../components/AvaBottomMenu.js';
-
-
+import AvaBottomMenu from '../components/AvaBottomMenu';
+import TopMenu from '../components/TopMenu';
+import assetPaths from '../assetPaths';
 
 
 
@@ -65,20 +65,7 @@ class ExploreScreen extends React.Component {
       <LinearGradient colors={['#4fb6de', '#94D7E0', 'white']}
         style={{ height: height, width:width} }>
         
-        <View style ={s.container}>
-            <Text style ={s.menuText}>#explore</Text>
-            <Image
-              style={s.menuTapIconImage}
-              source={require('../../assets/Tap_here_icon.png')}
-            />
-            <TouchableOpacity style ={s.menuNavButton}
-              onPress={() => this.props.navigation.navigate({
-                routeName: 'Home', params: { transition: 'left' }}
-              )}>
-              <Image style={s.menuNavButtonImage}
-                source={require('../../assets/Explore-icon.png')} />
-            </TouchableOpacity>
-        </View>
+        <TopMenu menuTitle="#explore" iconPath={assetPaths.topMenu.exploreIcon} />
         
         <View style={{ position:'absolute', top:30 }}>
           <Deck

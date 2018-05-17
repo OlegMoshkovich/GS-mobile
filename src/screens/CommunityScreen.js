@@ -6,6 +6,9 @@ import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 
+
+
+
 // styles
 import s from '../styles/communityscreen.js';
 
@@ -13,6 +16,11 @@ import s from '../styles/communityscreen.js';
 import stories from '../../data/stories/stories.js';
 
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
+import TopMenu from '../components/TopMenu';
+import assetPaths from '../assetPaths';
+
+
+
 
 
 class CommunityScreen extends React.Component {
@@ -187,25 +195,7 @@ class CommunityScreen extends React.Component {
          </Modal>
 
                
-
-
-        <View style ={s.communityView}>
-
-          <Text style ={s.menuText}>#community</Text>
-          <Image
-            style={s.tapIcon}
-            source={require('../../assets/Tap_here_icon.png')}
-          />
-
-          <TouchableOpacity style ={{margin:20}}
-            onPress={() => this.props.navigation.navigate({ routeName: 'Home' }
-          )}>
-            <Image 
-              style={s.communityIconImage} source={require('../../assets/Community-icon.png')}
-            />
-          </TouchableOpacity>
-        </View>
-
+          <TopMenu menuTitle="#share" iconPath={assetPaths.topMenu.shareIcon} />
        {/* render featured stories */
        
         this.renderStories()
