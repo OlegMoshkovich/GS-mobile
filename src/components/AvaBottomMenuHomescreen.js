@@ -7,7 +7,7 @@ const {width, height} = Dimensions.get('window');
 import s from '../styles/avabottommenuhomescreen';
 
 // asset path locations
-import assetPaths from '../assetPaths.js'
+import assetPaths from '../assetPaths'
 
 // ava bottom menu specific configuration
 const animationDuration = 1000;
