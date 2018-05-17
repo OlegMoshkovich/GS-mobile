@@ -72,11 +72,27 @@ class HomeScreen extends React.Component {
     switch (gestureName) {
       case SWIPE_UP:
         
-        this.props.navigation.navigate('SystemModal');
+        this.props.navigation.navigate({
+          
+           routeName: 'SystemModal',
+           params: {
+             transition: 'systemTransition'
+           } 
+        
+        
+        });
 
         break;
       case SWIPE_DOWN:
-        this.props.navigation.navigate('ShopModal');
+        this.props.navigation.navigate({
+
+          routeName: 'ShopModal',
+          params: {
+            transition: 'shopTransition'
+          } 
+        }
+        
+        );
         
         break;
       

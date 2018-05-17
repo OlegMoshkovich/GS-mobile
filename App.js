@@ -47,6 +47,8 @@ let MyTransition = (index, position) => {
         opacity
     };
 };
+
+/*
 let TransitionConfiguration = () => {
 
     return {
@@ -125,6 +127,7 @@ const CommunicationStack = StackNavigator(
 
     );
 
+*/
 
 
 
@@ -154,47 +157,110 @@ const TabStack =  TabNavigator({
    },
 });
 
+
+
+const transitionConfig = () => {
+
+
+  return {
+
+      transitionSpec: {
+        duration: 1000,
+        //easing: Easing.out(Easing.poly(4)),
+        timing: Animated.timing,
+        useNativeDriver: true
+
+
+      },
+
+
+      screenInterpolator: sceneProps => {
+
+        const {layout, position, scene} = sceneProps;
+
+
+        const params = scene.route.params || {}
+
+
+        
+        //const transition = params.transition;
+
+
+
+
+        const thisSceneIndex = scene.index
+
+        console.log("thisSceneIndex", scene.index);
+
+        const width = layout.initWidth
+
+        let yVariable = height;
+
+
+        if (params.hasOwnProperty("transition")) {
+          if (params.transition == 'systemTransition') {
+            yVariable *= -1;
+
+          }
+        }
+
+
+
+        let translateY = position.interpolate({
+
+              inputRange: [thisSceneIndex-1,thisSceneIndex],
+
+
+
+
+              outputRange: [ yVariable, 0],
+    
+            }) 
+          
+          
 /*
-let MyTransition = (index, position) => {
-  const inputRange = [index - 1, index, index + 1];
-  const opacity = position.interpolate({
-      inputRange,
-      outputRange: [.8, 1, 1],
-  });
+        console.log("translateY", translateY);
+        console.log("params", params);
 
-  const scaleY = position.interpolate({
-      inputRange,
-      outputRange: ([0.8, 1, 1]),
-  });
+        if (params.hasOwnProperty('transition')) {
+          if (params.transition == 'shopTransition') {
+            translateY = position.interpolate({
 
-  return {
-      opacity,
-      transform: [
-          {scaleY}
-      ]
-  };
-};
-
-
-
-let TransitionConfiguration = () => {
-  return {
-      // Define scene interpolation, eq. custom transition
-      screenInterpolator: (sceneProps) => {
-
-          const {position, scene} = sceneProps;
-          const {index} = scene;
-
-          return {
-           // myCustomTransition: MyCustomTransition(index, position),
-            default: MyTransition(index, position),
-        }[transition];
-
+              inputRange: [0,1],
+              outputRange: [0, height],
+    
+            })
+          }
 
         }
+
+
+        */
+
+
+
+        
+
+
+        return {
+
+
+
+
+          transform: [ {translateY}]
+        }
+
+
+
+      }
+
+
   }
-};
-*/
+
+
+}
+  
+
 
 const RootStack = StackNavigator(
   {
@@ -215,7 +281,7 @@ const RootStack = StackNavigator(
   
   {
 
-   //transitionConfig: TransitionConfiguration,
+    transitionConfig,
     mode: 'modal',
     headerMode: 'none',
   }
