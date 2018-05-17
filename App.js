@@ -29,6 +29,10 @@ import AvaEndBlue from './src/screens/AvaEndBlue';
 import Dimensions from 'Dimensions';
 const {width, height} = Dimensions.get('window');
 
+
+let swiping = true;
+
+
 let MyTransition = (index, position) => {
 
     const inputRange = [index - 1, index, index + 1];
@@ -131,7 +135,7 @@ const TabStack =  TabNavigator({
   Chat: { screen: ChatScreen},
   Connect: { screen: CommsDashboardScreen},
   Community: { screen: CommunityScreen },
-  Home: { screen: HomeScreen },
+  Home: { screen: props => <HomeScreen {...props} /> },
   Explore: { screen: ExploreScreen },
   Dashboard: { screen: DashboardScreen },
   Badges: { screen: BadgeScreen},
@@ -140,11 +144,19 @@ const TabStack =  TabNavigator({
   AvaBlue: { screen: AvaEndBlue }
   },
 
-  {swipeEnabled:true,
-  initialRouteName:'Home',
-  navigationOptions: {
-    tabBarVisible: false
-   },
+  {
+    
+    swipeEnabled:swiping,
+    initialRouteName:'Home',
+    
+    
+    navigationOptions: {
+      tabBarVisible: false,
+      gesturesEnabled: false
+    },
+
+
+
 });
 const RootStack = StackNavigator(
   {

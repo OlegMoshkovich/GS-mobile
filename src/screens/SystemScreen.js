@@ -12,7 +12,10 @@ import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import s from '../styles/systemscreen';
 
 class SystemScreen extends React.Component {
+  
   static navigationOptions = {
+
+        gesturesEnabled: false,
 }
 
   constructor(props) {
@@ -123,8 +126,8 @@ class SystemScreen extends React.Component {
 
   render() {
     const config = {
-  velocityThreshold: 0.3,
-  directionalOffsetThreshold: 80
+  velocityThreshold: 0.01,
+  directionalOffsetThreshold: 800
 };
 
     // need to refactor the icons into a flexbox grid
@@ -132,8 +135,10 @@ class SystemScreen extends React.Component {
 
     let { fadeAnim } = this.state;
     return (
+      
+      
       <GestureRecognizer
-        onSwipe={(direction, state) => this.onSwipe(direction, state)}
+        onSwipe={() => {return null}}
         onSwipeUp={(state) => this.onSwipeUp(state)}
         onSwipeDown={(state) => this.onSwipeDown(state)}
         onSwipeLeft={(state) => this.onSwipeLeft(state)}
