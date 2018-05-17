@@ -8,37 +8,41 @@ import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
 import ShopScreen from './ShopScreen.js';
-
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
-
-
-
-
 import s from '../styles/systemscreen';
-
 
 class SystemScreen extends React.Component {
   static navigationOptions = {
 
 }
 
-
   constructor(props) {
     super(props);
     var position = new Animated.ValueXY({x:300, y:200});
     this.state = {
+      panResponderEnabled: true,
       moveAnim     : new Animated.Value(0),
       activated    : true,
       environmentSwitch: false,
-      fadeAnim : new Animated.Value(0),
+      fadeAnim     : new Animated.Value(0),
       blurRadius: 0,
-      myText: 'I\'m ready to get swiped!',
-      gestureName: 'none',
-      backgroundColor: 'transparent'
     };
 
   };
+  handlePanResponderStart = () => {
+  return this.state.panResponderEnabled;
+}
+
+disableResponder = () => {
+  console.log('in the disable')
+  this.setState({
+    panResponderEnabled: false
+  });
+}
+
+
+
 
   animate = () => {
     if (this.state.blurRadius == 10) {
