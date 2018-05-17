@@ -153,7 +153,7 @@ class HomeScreen extends React.Component {
         showsPagination={false}
         index={1}>
 
-        <View style={s.viewStyle}>
+        <View style={s.viewStyle}    >
           <SystemScreen />
         </View>
 
@@ -177,13 +177,13 @@ class HomeScreen extends React.Component {
 
 
 
-            {/* hidden ava in bottom  
-            
-            
+            {/* hidden ava in bottom
+
+
             NOT using the AvaBottomMenu component here because this logic
             is slightly different -- to refactor
-            
-            
+
+
             */
 
 

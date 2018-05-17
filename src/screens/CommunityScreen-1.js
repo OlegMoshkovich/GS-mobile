@@ -41,7 +41,7 @@ class CommunityScreen extends React.Component {
       fadeAnim : new Animated.Value(0),
       blurRadius: 0,
     };
-    
+
   }
   animate = () => {
     if (this.state.blurRadius == 10) {
@@ -53,14 +53,14 @@ class CommunityScreen extends React.Component {
         blurRadius: 10
       });
     }
-      
-    Animated.timing(                  
-        this.state.fadeAnim,            
+
+    Animated.timing(
+        this.state.fadeAnim,
         {
-          toValue: this.state.activated ? 1: 0,                   
-          duration: 500,             
+          toValue: this.state.activated ? 1: 0,
+          duration: 500,
         }
-      ).start();   
+      ).start();
       this.setState({
         activated : !this.state.activated,
         }
@@ -75,13 +75,13 @@ class CommunityScreen extends React.Component {
          style={{ height: height, width:width,
           flex: 1}
          }>
-  
+
         <View style ={{
          top:30,
          flex: 1,
          flexDirection: 'row',
          justifyContent: 'space-between',
-    
+
          zIndex: 1,
 
           }}>
@@ -100,8 +100,8 @@ class CommunityScreen extends React.Component {
           top:100,
           position:'absolute',
           height: height,
-        
- 
+
+
            }}>
          <Text style ={{color:"white",fontSize: 22,top:30,left:30,fontWeight:'bold', }}>Featured Stories</Text>
              <ScrollView horizontal= {true} style={{marginTop:40}}>
@@ -124,7 +124,7 @@ class CommunityScreen extends React.Component {
              </ScrollView >
 
 
-             
+
              <Text style ={{color:"white",fontSize: 22,left:30,fontWeight:'bold',marginBottom:10 }}>Friends Stories</Text>
 
              <ScrollView horizontal= {true} style={{marginBottom:200}} >
@@ -155,7 +155,7 @@ class CommunityScreen extends React.Component {
                     position: 'absolute',
                     bottom: this.state.activated ? -50: 30,
                     left:20
-                 
+
                     }}>
                       <TouchableOpacity style ={{margin:5}}  onPress={() => this.props.navigation.navigate('Explore')}>
                       <Image
