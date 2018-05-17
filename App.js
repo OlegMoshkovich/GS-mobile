@@ -17,6 +17,15 @@ import DashboardScreen from './src/screens/DashboardScreen.js';
 import PlaygroundScreen from './src/screens/PlaygroundScreen.js';
 import ExploreScreen from './src/screens/ExploreScreen.js';
 import GiftedChatScreen from './src/screens/GiftedChatScreen.js';
+import AvaEndYellow from './src/screens/AvaEndYellow';
+import EventScreen from './src/screens/EventScreen';
+import BadgeScreen from './src/screens/BadgeScreen';
+import JourneyScreen from './src/screens/JourneyScreen';
+import AwardScreen from './src/screens/AwardScreen';
+import AvaEndBlue from './src/screens/AvaEndBlue';
+
+
+
 import Dimensions from 'Dimensions';
 const {width, height} = Dimensions.get('window');
 
@@ -113,13 +122,22 @@ const CommunicationStack = StackNavigator(
       },
 
     );
+
 const TabStack =  TabNavigator({
-  Communication:{screen: CommunicationStack},
+  AvaYellow: { screen: AvaEndYellow },
+  Map: {screen: MapScreen},
+  Calendar: { screen: CalendarScreen},
+  Events: { screen: EventScreen},
+  Chat: { screen: ChatScreen},
+  Connect: { screen: CommsDashboardScreen},
   Community: { screen: CommunityScreen },
   Home: { screen: HomeScreen },
   Explore: { screen: ExploreScreen },
   Dashboard: { screen: DashboardScreen },
-
+  Badges: { screen: BadgeScreen},
+  Journey: { screen: JourneyScreen},
+  Award: {screen: AwardScreen},
+  AvaBlue: { screen: AvaEndBlue }
   },
 
   {swipeEnabled:true,
