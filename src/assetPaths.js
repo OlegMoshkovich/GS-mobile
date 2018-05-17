@@ -49,13 +49,14 @@ paths.bottomMenu.homeScreen = {
 
 paths.topMenu = {
 
+    
+        connectIcon:    require('../assets/topMenu/NAV_connect-top.png'),
+        dashboardIcon:  require('../assets/topMenu/NAV_dash-top.png'),
+        exploreIcon:    require('../assets/topMenu/NAV_explore-top.png'),
+        shareIcon:      require('../assets/topMenu/NAV_share-top.png'),
+        tapHereIcon:    require('../assets/topMenu/Tap_here_icon.png')
 
-    connectIcon:    require('../assets/topMenu/NAV_connect-top.png'),
-    dashboardIcon:  require('../assets/topMenu/NAV_dash-top.png'),
-    exploreIcon:    require('../assets/topMenu/NAV_explore-top.png'),
-    shareIcon:      require('../assets/topMenu/NAV_share-top.png'),
-    tapHereIcon:    require('../assets/topMenu/Tap_here_icon.png')
-
+    
 
 
 

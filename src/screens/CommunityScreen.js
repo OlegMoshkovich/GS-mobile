@@ -196,6 +196,8 @@ class CommunityScreen extends React.Component {
 
                
           <TopMenu menuTitle="#share" iconPath={assetPaths.topMenu.shareIcon} />
+
+          
        {/* render featured stories */
        
         this.renderStories()

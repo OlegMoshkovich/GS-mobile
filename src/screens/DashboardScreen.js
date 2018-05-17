@@ -111,7 +111,7 @@ class DashboardScreen extends React.Component {
         colors={['#56CCF2', '#56CCF2', 'white']}
         style={{ height: height, width:width }}>
 
-        <TopMenu menuTitle="#dashboard" iconPath={assetPaths.topMenu.exploreIcon} />
+        <TopMenu menuTitle="#dashboard" iconPath={assetPaths.topMenu.dashboardIcon} />
 
         
 
