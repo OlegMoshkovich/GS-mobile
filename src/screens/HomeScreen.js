@@ -169,30 +169,7 @@ class HomeScreen extends React.Component {
 
 
 
-<<<<<<< HEAD
-            {/* hidden ava in bottom
-
-
-            NOT using the AvaBottomMenu component here because this logic
-            is slightly different -- to refactor
-
-
-            */
-
-
-            this.renderAva(fadeAnim)
-
-            }
-
-
-            {
-              /* bottom menu */
-              this.renderMenu()
-
-            }
-=======
-            <AvaBottomMenuHomescreen navigation={this.props.navigation}/> 
->>>>>>> ed29d78a88198289da9ab29980a1f0401f4d0abf
+            <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
 
 
             {/* stand in chat text */
