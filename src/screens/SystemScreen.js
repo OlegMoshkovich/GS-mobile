@@ -8,7 +8,6 @@ import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
 import ShopScreen from './ShopScreen';
-import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import s from '../styles/systemscreen';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -17,15 +16,9 @@ const SWIPE_OUT_DURATION = 300;
 
 class SystemScreen extends React.Component {
   
-  static navigationOptions = {
-
-        gesturesEnabled: false,
-}
-
   constructor(props) {
     super(props);
     this.state = {
-      panResponderEnabled: true,
       moveAnim     : new Animated.Value(0),
       activated    : true,
       environmentSwitch: false,
@@ -67,54 +60,9 @@ class SystemScreen extends React.Component {
 
 
 
-    onSwipeUp(gestureState) {
-     this.setState({myText: 'You swiped up!'});
-   }
-
-   onSwipeDown(gestureState) {
-     this.setState({myText: 'You swiped down!'});
-   }
-
-   onSwipeLeft(gestureState) {
-     this.setState({myText: 'You swiped left!'});
-     console.log("swiping left")
-   }
-
-   onSwipeRight(gestureState) {
-     this.setState({myText: 'You swiped right!'});
-     console.log("swiping right")
-   }
-
-   onSwipe(gestureName, gestureState) {
-  const {SWIPE_UP, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT} = swipeDirections;
-  this.setState({gestureName: gestureName});
-  switch (gestureName) {
-    case SWIPE_UP:
-      this.setState({backgroundColor: 'red'});
-      break;
-    case SWIPE_DOWN:
-      this.setState({backgroundColor: 'green'});
-      break;
-    case SWIPE_LEFT:
-      this.setState({backgroundColor: 'blue'});
-      break;
-    case SWIPE_RIGHT:
-      this.setState({backgroundColor: 'yellow'});
-      break;
-  }
-}
 
   render() {
-    const config = {
-<<<<<<< HEAD
-    velocityThreshold: 0.3,
-    directionalOffsetThreshold: 5
-  };
-=======
-  velocityThreshold: 0.01,
-  directionalOffsetThreshold: 800
-};
->>>>>>> 97207b42faa739b55e40e1fdc08d3780abfd7e0a
+  
 
     // need to refactor the icons into a flexbox grid
     // noticed that the icons dont all line up properly with their text...
@@ -123,17 +71,6 @@ class SystemScreen extends React.Component {
     return (
       
       
-      <GestureRecognizer
-        onSwipe={() => {return null}}
-        onSwipeUp={(state) => this.onSwipeUp(state)}
-        onSwipeDown={(state) => this.onSwipeDown(state)}
-        onSwipeLeft={(state) => this.onSwipeLeft(state)}
-        onSwipeRight={(state) => this.onSwipeRight(state)}
-        config={config}
-        style={{
-          flex: 1,
-        }}
-        >
       <LinearGradient
        colors={['#394A74', '#AD95AB', '#394A74']}
        style={{ height: height, width:width}}>
@@ -162,7 +99,6 @@ class SystemScreen extends React.Component {
           source={require('../../assets/System-Menu.png')} />
       </TouchableOpacity>
     </LinearGradient>
-          </GestureRecognizer>
     );
   }
 }
