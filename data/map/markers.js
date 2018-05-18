@@ -12,8 +12,8 @@ let markers = [
 
     {
       coordinate: {
-        latitude: 37.7945215, 
-        longitude: -122.4726465,
+        latitude: 37.5945215, 
+        longitude: -122.4626465,
       },
       title: "Emma Brownstein",
       description: "",
