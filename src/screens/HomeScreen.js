@@ -42,7 +42,7 @@ import AvaBottomMenuHomescreen from '../components/AvaBottomMenuHomescreen';
 
 const config = {
   velocityThreshold: 0.5,
-  directionalOffsetThreshold: 100
+  directionalOffsetThreshold: 50
 };
 class HomeScreen extends React.Component {
 

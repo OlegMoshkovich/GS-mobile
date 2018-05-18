@@ -264,18 +264,26 @@ const transitionConfig = () => {
 
 const RootStack = StackNavigator(
   {
+
+
     Main: {
       screen: TabStack,
     },
-    MyModal: {
-      screen: ModalScreen,
-    },
+
     SystemModal: {
       screen: SystemScreen,
     },
+
+
     ShopModal: {
       screen: ShopScreen
-    }
+    },
+    
+    
+    MyModal: {
+      screen: ModalScreen,
+    },
+    
   },
   
   
