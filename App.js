@@ -277,7 +277,6 @@ chat font: trefoil slab light
 
     const TabStack =  TabNavigator({
       AvaYellow: { screen: AvaEndYellow },
-      Map: {screen: MapScreen},
       Calendar: { screen: CalendarScreen},
       Events: { screen: EventScreen},
       Chat: { screen: ChatScreen},
