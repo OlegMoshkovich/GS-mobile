@@ -24,6 +24,8 @@ import JourneyScreen from './src/screens/JourneyScreen';
 import AwardScreen from './src/screens/AwardScreen';
 import AvaEndBlue from './src/screens/AvaEndBlue';
 
+// adding fonts
+import { Font } from 'expo';
 
 
 import Dimensions from 'Dimensions';
@@ -246,6 +248,28 @@ class App extends React.Component {
 
     }
   }
+
+  componentDidMount() {
+
+    /*
+
+
+    topMenu font is: trefoil sans black
+otherwise for section titles (new articles, featured stories, whats new in shop): trefoil sans semibold
+explore section article font: trefoil sans light
+chat font: trefoil slab light
+
+
+*/
+    Font.loadAsync({
+      'trefoil-sans-black': require('./assets/fonts/TrefoilSans-Black.otf'),
+      'trefoil-sans-semibold': require('./assets/fonts/TrefoilSans-SemiBold.otf'),
+      'trefoil-sans-light':  require('./assets/fonts/TrefoilSans-Light.otf'),
+      
+
+    });
+  }
+
 
   render() {
 
