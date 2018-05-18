@@ -62,7 +62,7 @@ class ExploreScreen extends React.Component {
 
   render() {
     return (
-      <LinearGradient colors={['#4fb6de', '#94D7E0', 'white']}
+      <LinearGradient colors={['#56CCF2', '#56CCF2', 'white']}
         style={{ height: height, width:width} }>
         
         <TopMenu menuTitle="#explore" iconPath={assetPaths.topMenu.exploreIcon} />

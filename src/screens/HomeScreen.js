@@ -70,7 +70,7 @@ class HomeScreen extends React.Component {
     const {SWIPE_UP, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT} = swipeDirections;
     
     switch (gestureName) {
-      case SWIPE_UP:
+      case SWIPE_DOWN:
         
         this.props.navigation.navigate({
           
@@ -83,7 +83,7 @@ class HomeScreen extends React.Component {
         });
 
         break;
-      case SWIPE_DOWN:
+      case SWIPE_UP:
         this.props.navigation.navigate({
 
           routeName: 'ShopModal',

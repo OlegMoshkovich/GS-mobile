@@ -165,7 +165,7 @@ const transitionConfig = () => {
   return {
 
       transitionSpec: {
-        duration: 1000,
+        duration: 200,
         //easing: Easing.out(Easing.poly(4)),
         timing: Animated.timing,
         useNativeDriver: true
