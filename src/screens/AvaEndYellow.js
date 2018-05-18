@@ -18,15 +18,24 @@ class AvaEndYellow extends React.Component {
 
 
   render() {
+
+
     return (
-        <View>
-            <Image style={{width: width, height: height}} source={assetPaths.staticScreens.avaEndYellow} />
-            <TopMenu menuTitle="#endyellow" iconPath={assetPaths.topMenu.exploreIcon} />
-            <AvaBottomMenu navigation={this.props.navigation}/> 
-        </View>
+      <LinearGradient
+        colors={['#b98031', '#f5d340', 'white']}
+
+
+        style={{ height: height, width:width, justifyContent: 'center', alignItems: 'center', }}>
+
+
+        <Image  style={{}} source={assetPaths.staticScreens.avaEndYellow} />
+        
+        
 
       
-    );
+      </LinearGradient>);
+
+
   }
 }
 

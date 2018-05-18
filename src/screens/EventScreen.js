@@ -19,15 +19,21 @@ class EventScreen extends React.Component {
 
   render() {
     return (
-        <View>
-            <Image style={{width: width, height: height}} source={assetPaths.staticScreens.eventScreen} />
-            <TopMenu menuTitle="#endyellow" iconPath={assetPaths.topMenu.exploreIcon} />
-            
-            <AvaBottomMenu navigation={this.props.navigation}/> 
+      <LinearGradient
+      colors={['#b98031', '#f5d340', 'white']}
+      style={{ height: height, width:width }}>
+
+        <TopMenu menuTitle="events" iconPath={assetPaths.topMenu.dashboardIcon} />
+
+        <View style={{flex: 1, alignItems: 'center'}}>
+          <Text>to be implemented</Text>
         </View>
 
-      
-    );
+        
+        
+
+        <AvaBottomMenu navigation={this.props.navigation}/> 
+      </LinearGradient>);
   }
 }
 
