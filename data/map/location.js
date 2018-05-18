@@ -1,3 +1,2 @@
-let loc = {coords: { latitude: 40.750859, longitude: -73.983324}};
-
+let loc = {coords: { latitude: 37.7935215, longitude: -122.4626465}};
 export default loc;
