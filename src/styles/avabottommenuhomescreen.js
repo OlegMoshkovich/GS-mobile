@@ -29,17 +29,12 @@ var styles = StyleSheet.create({
         position: 'absolute',
         right: 20,
     },
+// revised ava 
+avaImage: {
+    height: 150,
+    width: 100,
+},
 
-    avaImage: {
-        width: 100,
-        height: 100,
-    },
-
-    // revised ava menu with new blue gradient
-    avaImage: {
-        height: 354 / 3,
-        width: 285 / 3,
-    },
 
     gradientStyle: {
         height: 87,

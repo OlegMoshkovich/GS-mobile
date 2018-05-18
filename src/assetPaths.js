@@ -48,20 +48,20 @@ paths.bottomMenu = {
 
 paths.bottomMenu.homeScreen = {
 
-    avaFace:        require('../assets/bottomMenu/ava/Ava_Cap.png'),
+    avaFace:        require('../assets/bottomMenu/ava/Ava_Default.png'),
 
     calendarIcon:   require('../assets/bottomMenu/icons/Calendar-icon.png'),
     chatIcon:       require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
-    communityIcon:  require('../assets/bottomMenu/icons/NAV_share-home.png'),
-    connectIcon:    require('../assets/bottomMenu/icons/NAV_connect-home.png'),
-    dashboardIcon:  require('../assets/bottomMenu/icons/NAV_dash-home.png'),
-    exploreIcon:    require('../assets/bottomMenu/icons/NAV_explore-home.png'),
-    homeIcon:       require('../assets/bottomMenu/icons/NAV_home-home.png'),
+    communityIcon:  require('../assets/bottomMenu/icons/home-share.png'),
+    connectIcon:    require('../assets/bottomMenu/icons/home-connect.png'),
+    dashboardIcon:  require('../assets/bottomMenu/icons/home-dash.png'),
+    exploreIcon:    require('../assets/bottomMenu/icons/home-explore.png'),
+    homeIcon:       require('../assets/bottomMenu/icons/home-game.png'),
     mapIcon:        require('../assets/bottomMenu/icons/Map-icon.png'),
     shopIcon:       require('../assets/bottomMenu/icons/Shop-icon.png'),
 
     
-    darkGradient:   require('../assets/bottomMenu/Nav_Bottom_Dark.png')
+    darkGradient:   require('../assets/bottomMenu/Nav_Bottom_Revised.png')
 
 };
 

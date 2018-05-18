@@ -16,11 +16,15 @@ const maxBlurRadius = 10;
 
 // problem is that activated true false is reversed...
 
-const avaLocationBottom_inactive = -32;
-const avaLocationBottom_active = -100;
+const avaLocationBottom_inactive = -35;
+const avaLocationBottom_active = -112;
 const avaHeight = 150;
-const gradientBottom_active = -100;
+
+
+const gradientBottom_active = -200;
 const gradientBottom_inactive = 0;
+
+
 const navMenu_active = -200;
 const navMenu_inactive = 50;
 
@@ -57,7 +61,7 @@ class AvaBottomMenuHomescreen extends Component {
 
             <TouchableOpacity
                 style = {{
-                alignSelf: 'flex-end', position: 'absolute', right: 20, zIndex: 1,
+                alignSelf: 'flex-end', position: 'absolute', right: 5, zIndex: 1,
                 bottom: this.state.activated ? avaLocationBottom_active : avaLocationBottom_inactive,
                 height: avaHeight,
                 }}
