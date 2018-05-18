@@ -30,7 +30,7 @@ var styles = StyleSheet.create({
         right: 20,
     },
 
-    // revised ava menu with new blue gradient
+    // revised ava 
     avaImage: {
         height: 150,
         width: 100,
