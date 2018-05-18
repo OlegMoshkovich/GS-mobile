@@ -10,6 +10,7 @@ var styles = StyleSheet.create({
         flex: 1,
         top: -200,
         
+
     },
 
     viewStyle: {
