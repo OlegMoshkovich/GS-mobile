@@ -11,7 +11,7 @@ import ResumeScreen from './src/screens/ResumeScreen.js';
 import CalendarScreen from './src/screens/CalendarScreen.js';
 import ChatScreen from './src/screens/ChatScreen.js';
 import CommsDashboardScreen from './src/screens/CommsDashboardScreen.js'
-import ModalScreen from './src/screens/ModalScreen.js';
+import ArticleModalScreen from './src/screens/ArticleModalScreen';
 import ShopScreen from './src/screens/ShopScreen.js';
 import DashboardScreen from './src/screens/DashboardScreen.js';
 import PlaygroundScreen from './src/screens/PlaygroundScreen.js';
@@ -323,8 +323,8 @@ chat font: trefoil slab light
           screen: ShopScreen
         },
         
-        MyModal: {
-          screen: ModalScreen,
+        ArticleModal: {
+          screen: ArticleModalScreen,
         },
         
       },

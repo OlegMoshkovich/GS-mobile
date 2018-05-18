@@ -18,7 +18,7 @@ import ResumeScreen from './ResumeScreen.js';
 import CalendarScreen from './CalendarScreen.js';
 import ChatScreen from './ChatScreen.js';
 import CommsDashboardScreen from './CommsDashboardScreen.js'
-import ModalScreen from './ModalScreen.js';
+import ArticleModalScreen from './ArticleModalScreen';
 import ShopScreen from './ShopScreen';
 import DashboardScreen from './DashboardScreen.js';
 import PlaygroundScreen from './PlaygroundScreen.js';

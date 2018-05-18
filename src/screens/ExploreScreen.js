@@ -49,7 +49,7 @@ class ExploreScreen extends React.Component {
         width:width-50}]}>
         <Text style ={s.cardSource}>Source, duration </Text>
         <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('MyModal', {
+          onPress={() => {this.props.navigation.navigate('ArticleModal', {
           text: item.text, title: item.title, image_uri: item.uri}); }}>
           <Text style ={s.articleTitle}>{item.title} </Text>
         </TouchableOpacity>

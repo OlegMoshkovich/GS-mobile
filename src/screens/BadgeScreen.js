@@ -10,6 +10,7 @@ const {width, height} = Dimensions.get('window');
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
 import assetPaths from '../assetPaths';
+import s from '../styles/badgescreen';
 
 class BadgeScreen extends React.Component {
  constructor(props) {
@@ -19,14 +20,21 @@ class BadgeScreen extends React.Component {
 
   render() {
     return (
-        <View>
-          <Image style={{width: width, height: height}} source={assetPaths.staticScreens.badgeScreen} />
-            <TopMenu menuTitle="#endyellow" iconPath={assetPaths.topMenu.exploreIcon} />
-            <AvaBottomMenu navigation={this.props.navigation}/> 
+      <LinearGradient
+        colors={['#56CCF2', '#56CCF2', 'white']}
+        style={{ height: height, width:width }}>
+
+        <TopMenu menuTitle="badges" iconPath={assetPaths.topMenu.dashboardIcon} />
+
+        <View style={{flex: 1, alignItems: 'center'}}>
+          <Text>pending redesign</Text>
         </View>
 
-      
-    );
+        
+        
+
+        <AvaBottomMenu navigation={this.props.navigation}/> 
+      </LinearGradient>);
   }
 }
 
