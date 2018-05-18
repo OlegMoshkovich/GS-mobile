@@ -218,14 +218,23 @@ class HomeScreen extends React.Component {
               source={require('../../assets/Home_Background1.png')}
             />
 
+
+                
+
             <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
 
 
-          {/* 
+{/*
+          
+          
             <Animated.View style={animatedStyle}>
               <AwardScreen /> 
             </Animated.View>
-          */}
+          
+   
+*/}
+
+
 
             
             </View>

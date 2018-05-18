@@ -10,7 +10,8 @@ let paths = {};
 // bottom menu with ava and icons
 paths.bottomMenu = {
 
-    avaFace:        require('../assets/bottomMenu/ava/Ava_Cap.png'),
+    // ...
+    avaFace:        require('../assets/bottomMenu/ava/Ava_Default.png'),
 
     calendarIcon:   require('../assets/bottomMenu/icons/Calendar-icon.png'),
     chatIcon:       require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
@@ -24,11 +25,24 @@ paths.bottomMenu = {
 
 
     tabBackground:  require('../assets/bottomMenu/bottomTab.png'),
+
+
+
+    
+    darkGradient:   require('../assets/bottomMenu/Nav_Bottom_Revised.png'),
+
+
+    contextIcons: {
+        addCalendar: require('../assets/bottomMenu/icons/context-addCalendarEntry.png'),
+        addChat: require('../assets/bottomMenu/icons/context-addChat.png'),
+        addStory: require('../assets/bottomMenu/icons/context-postStory.png'),
+        seeFriends: require('../assets/bottomMenu/icons/context-seeFriends.png')
+    }
+    // contextual icons above ava head
     
 
 
-    
-    darkGradient:   require('../assets/bottomMenu/Nav_Bottom_Dark.png')
+
 
 };
 

@@ -78,7 +78,7 @@ class ExploreScreen extends React.Component {
         </View>
         
         
-        <AvaBottomMenu navigation={this.props.navigation}/> 
+        <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
 
         
       </LinearGradient>);
