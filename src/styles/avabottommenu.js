@@ -74,9 +74,15 @@ var styles = StyleSheet.create({
         fontFamily: 'trefoil-sans-regular',
         position: 'absolute', top: 15, left: 14, zIndex: 2,
         fontSize: 12,
-    } 
+    },
 
 
+
+    // context icon
+    contextIcon: {
+        width: 50, height: 50, position: 'absolute',
+        right: 25, top: -45, zIndex: 12
+    }
 
 
 });

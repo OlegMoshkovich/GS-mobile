@@ -203,7 +203,7 @@ class CommunityScreen extends React.Component {
         this.renderStories()
       }
 
-           <AvaBottomMenu navigation={this.props.navigation}/> 
+           <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
 
       </LinearGradient>
     );

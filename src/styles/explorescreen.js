@@ -31,11 +31,10 @@ var styles = StyleSheet.create({
 
 
     cardContainer: {
-
         backgroundColor: "white",
         borderColor: "lightgrey",
         borderRadius: 7,
-        height: 500,
+        height: 460,
         left: 12
     },
 

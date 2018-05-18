@@ -83,7 +83,7 @@ class CalendarScreen extends React.Component {
         />
        
 
-      <AvaBottomMenu navigation={this.props.navigation}/> 
+      <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
 
        
 

@@ -109,44 +109,39 @@ tabAnimation = () => {
 
 
     renderContextIcon() {
+        console.log('redner context icon based on route name in ', this.props.navigation);
 
         // render contextual icon based on route
         switch (this.props.navigation.state.routeName) {
             case 'Community':
                 return(
-                
-                
-                
-                /* <Image 
-                    style={{
-
-
-                        width: 50, height: 50,
-
-                    alignSelf: 'flex-end', position: 'absolute', right: 20, zIndex: 1,
-                    bottom: 20,
-                    
-                    
-
-                    }
-
-
-                    }
-                    source={assetPaths.bottomMenu.contextIcons.addStory}
-                    />
-                
-                    */
-
-
-
-
-                   <Image style={[s.avaImage, {position: 'absolute', top: -10, zIndex: 12}]}
-                   source={assetPaths.bottomMenu.avaFace} />
-
-
-
-                
+                    <TouchableOpacity>
+                        <Image style={[s.contextIcon]}
+                            source={assetPaths.bottomMenu.contextIcons.addStory} />
+                    </TouchableOpacity>
                 );
+            case 'Calendar':
+                return(
+                    <TouchableOpacity>
+                        <Image style={[s.contextIcon]}
+                            source={assetPaths.bottomMenu.contextIcons.addCalendar} />
+                    </TouchableOpacity>
+                );
+            case 'Chat':
+                return(
+                    <TouchableOpacity>
+                        <Image style={[s.contextIcon]}
+                            source={assetPaths.bottomMenu.contextIcons.addChat} />
+                    </TouchableOpacity>
+                );
+            case 'Events':
+                return(
+                    <TouchableOpacity>
+                        <Image style={[s.contextIcon]}
+                            source={assetPaths.bottomMenu.contextIcons.seeFriends} />
+                    </TouchableOpacity>
+                );
+
 
 
 
