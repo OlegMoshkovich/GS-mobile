@@ -265,8 +265,7 @@ chat font: trefoil slab light
       'trefoil-sans-black': require('./assets/fonts/TrefoilSans-Black.otf'),
       'trefoil-sans-semibold': require('./assets/fonts/TrefoilSans-SemiBold.otf'),
       'trefoil-sans-light':  require('./assets/fonts/TrefoilSans-Light.otf'),
-      
-
+      'trefoil-sans-regular': require('./assets/fonts/TrefoilSans-Regular.otf'),
     });
   }
 

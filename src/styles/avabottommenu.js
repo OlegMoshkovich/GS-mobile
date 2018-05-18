@@ -61,6 +61,24 @@ var styles = StyleSheet.create({
         width: 40,
     },
 
+ 
+    // the tab that appears sometimes
+    tabButton: {
+        alignSelf: 'flex-start', position: 'absolute', left: 15, zIndex: 1,
+        bottom: -4,
+        
+    },
+    // background image
+    tabImage: {
+        width: 101,
+        height: 47,
+    },
+
+    // text on top
+    tabText: {
+        fontFamily: 'trefoil-sans-regular',position: 'absolute', top: 15, left: 18, zIndex: 2
+    } 
+
 
 
 

@@ -22,6 +22,11 @@ paths.bottomMenu = {
     mapIcon:        require('../assets/bottomMenu/icons/Map-icon.png'),
     shopIcon:       require('../assets/bottomMenu/icons/Shop-icon.png'),
 
+
+    tabBackground:  require('../assets/bottomMenu/bottomTab.png'),
+    
+
+
     
     darkGradient:   require('../assets/bottomMenu/Nav_Bottom_Dark.png')
 

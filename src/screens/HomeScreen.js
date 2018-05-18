@@ -221,7 +221,6 @@ class HomeScreen extends React.Component {
             <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
 
 
-
           {/* 
             <Animated.View style={animatedStyle}>
               <AwardScreen /> 
