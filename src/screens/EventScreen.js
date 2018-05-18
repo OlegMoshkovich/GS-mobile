@@ -193,7 +193,7 @@ class EventScreen extends React.Component {
               </Animated.ScrollView>
             </View>
             
-            <AvaBottomMenu showTab={true} tabTitle={"All Events"} navigation={this.props.navigation}/> 
+            <AvaBottomMenu showTab={true} tabTitle={"All Events"} tabLeft={19} navigation={this.props.navigation}/> 
 
 
           </LinearGradient>

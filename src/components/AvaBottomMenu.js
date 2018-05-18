@@ -127,7 +127,7 @@ tabAnimation = () => {
                     onPress={this.tabAnimation}>
                     <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
                         source={assetPaths.bottomMenu.tabBackground} />
-                    <Text style={[s.tabText, {opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
+                    <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
                         
                 </TouchableOpacity>
     

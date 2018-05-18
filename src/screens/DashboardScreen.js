@@ -125,7 +125,7 @@ class DashboardScreen extends React.Component {
         
         {this.renderBadges()}
 
-        <AvaBottomMenu navigation={this.props.navigation}/> 
+        <AvaBottomMenu showTab={true} tabTitle={"Leaderboard"} tabLeft={15} navigation={this.props.navigation}/> 
       </LinearGradient>);
   }
 }

@@ -76,7 +76,9 @@ var styles = StyleSheet.create({
 
     // text on top
     tabText: {
-        fontFamily: 'trefoil-sans-regular',position: 'absolute', top: 15, left: 18, zIndex: 2
+        fontFamily: 'trefoil-sans-regular',
+        position: 'absolute', top: 15, left: 14, zIndex: 2,
+        fontSize: 12,
     } 
 
 
