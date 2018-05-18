@@ -6,11 +6,14 @@ import {
 
 var styles = StyleSheet.create({
 
+
+
     container: {
         top:20,
         flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        
          },
 
 

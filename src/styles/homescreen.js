@@ -16,8 +16,8 @@ var styles = StyleSheet.create({
     viewStyle: {
         flex: 1,
         backgroundColor: 'white',
-        justifyContent: 'center',
-        alignItems: 'center',
+        
+        
     },
     // likely need to abstract this further, most screens will have 
     // 3 colors so maybe gradientStart, gradientMid, gradientEnd ?

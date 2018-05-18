@@ -132,31 +132,6 @@ const CommunicationStack = StackNavigator(
 
 
 
-const TabStack =  TabNavigator({
-  AvaYellow: { screen: AvaEndYellow },
-  Map: {screen: MapScreen},
-  Calendar: { screen: CalendarScreen},
-  Events: { screen: EventScreen},
-  Chat: { screen: ChatScreen},
-  Connect: { screen: CommsDashboardScreen},
-  Community: { screen: CommunityScreen },
-  Home: { screen: HomeScreen},
-  Explore: { screen: ExploreScreen },
-  Dashboard: { screen: DashboardScreen },
-  Badges: { screen: BadgeScreen},
-  Journey: { screen: JourneyScreen},
-  Award: {screen: AwardScreen},
-  AvaBlue: { screen: AvaEndBlue }
-  },
-
-  {
-    swipeEnabled:true,
-  initialRouteName:'Home',
-  navigationOptions: {
-    tabBarVisible: false
-   },
-});
-
 
 
 const transitionConfig = () => {
@@ -199,7 +174,7 @@ const transitionConfig = () => {
 
         if (params.hasOwnProperty("transition")) {
           if (params.transition == 'systemTransition') {
-            yVariable *= -1;
+           // yVariable *= -1;
 
           }
         }
@@ -261,46 +236,114 @@ const transitionConfig = () => {
 }
   
 
+class App extends React.Component {
 
-const RootStack = StackNavigator(
-  {
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      swiping: true,
 
-    Main: {
-      screen: TabStack,
-    },
-
-    SystemModal: {
-      screen: SystemScreen,
-    },
-
-
-    ShopModal: {
-      screen: ShopScreen
-    },
-    
-    
-    MyModal: {
-      screen: ModalScreen,
-    },
-    
-  },
-  
-  
-  {
-
-    transitionConfig,
-    mode: 'modal',
-    headerMode: 'none',
+    }
   }
 
-
-
-);
-
-
-export default class App extends React.Component {
   render() {
-    return <RootStack />;
+
+
+
+
+    const TabStack =  TabNavigator({
+      AvaYellow: { screen: AvaEndYellow },
+      Map: {screen: MapScreen},
+      Calendar: { screen: CalendarScreen},
+      Events: { screen: EventScreen},
+      Chat: { screen: ChatScreen},
+      Connect: { screen: CommsDashboardScreen},
+      Community: { screen: CommunityScreen },
+      Home: { screen: HomeScreen},
+      Explore: { screen: ExploreScreen },
+      Dashboard: { screen: DashboardScreen },
+      Badges: { screen: BadgeScreen},
+      Journey: { screen: JourneyScreen},
+      Award: {screen: AwardScreen},
+      AvaBlue: { screen: AvaEndBlue }
+      },
+    
+      {
+        swipeEnabled:this.state.swiping,
+
+        initialRouteName:'Home',
+        
+        navigationOptions: {
+          tabBarVisible: false
+        },
+    });
+
+
+    
+    
+    const RootStack = StackNavigator(
+      {
+    
+    
+        Main: {
+          screen: TabStack,
+        },
+    
+        SystemModal: {
+          screen: SystemScreen,
+        },
+    
+    
+        ShopModal: {
+          screen: ShopScreen
+        },
+        
+        MyModal: {
+          screen: ModalScreen,
+        },
+        
+      },
+      
+      
+      {
+    
+        transitionConfig,
+        mode: 'modal',
+        headerMode: 'none',
+      }
+    
+    
+    
+    );
+
+    
+
+    TabStack.navigationOptions = ({ navigation }) => {
+      let { routeName } = navigation.state.routes[navigation.state.index];
+      if (routeName === 'Explore') {
+        console.log("explore route");
+    /*    this.setState({
+          swiping: false,
+        })
+*/
+        
+      }
+   }
+
+
+
+    return (
+      
+
+
+
+        <RootStack />
+  
+  
+    );
   }
 }
+
+
+export default App;

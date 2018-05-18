@@ -73,7 +73,7 @@ class SystemScreen extends React.Component {
       
       <LinearGradient
        colors={['#394A74', '#AD95AB', '#394A74']}
-       style={{ height: height, width:width}}>
+       style={[{ height: height, width:width}]}>
 
       <View style ={s.container}>
         <Text style ={s.menuText}>my profile</Text>

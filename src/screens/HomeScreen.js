@@ -44,6 +44,8 @@ const config = {
   velocityThreshold: 0.5,
   directionalOffsetThreshold: 50
 };
+
+
 class HomeScreen extends React.Component {
 
   constructor(props) {
@@ -54,6 +56,7 @@ class HomeScreen extends React.Component {
       gestureName: 'none',
       backgroundColor: '#fff',
       navigation: this.props.navigation,
+      awardTop: new Animated.Value(0),
 
     };
 
@@ -62,15 +65,22 @@ class HomeScreen extends React.Component {
     console.log(this.state);
 
 
-  };
+  }
 
+  animate = () => {
+    Animated.timing( this.state.awardTop, { toValue: -height, duration: 300, }
+    ).start();
+
+    //this.setState({activated : !this.state.activated});
+}
 
  
   onSwipe(gestureName, gestureState) {
     const {SWIPE_UP, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT} = swipeDirections;
     
     switch (gestureName) {
-      case SWIPE_DOWN:
+      case SWIPE_UP:
+        
         
         this.props.navigation.navigate({
           
@@ -82,8 +92,20 @@ class HomeScreen extends React.Component {
         
         });
 
+        
+
         break;
-      case SWIPE_UP:
+      case SWIPE_DOWN:
+        
+
+        //  this.animate();
+
+         // console.log(this.state);
+
+
+
+        //
+      
         this.props.navigation.navigate({
 
           routeName: 'ShopModal',
@@ -93,12 +115,14 @@ class HomeScreen extends React.Component {
         }
         
         );
-        
+  
         break;
       
     }
   }
  
+
+
 
 
   environmentSwitch = () => {
@@ -139,6 +163,17 @@ class HomeScreen extends React.Component {
   }
 
 
+  systemScreenStyle() {
+
+      return {
+        height: height,
+        width: width,
+        backgroundColor: 'transparent',
+
+      }
+
+  }
+
 
 
   
@@ -147,10 +182,23 @@ class HomeScreen extends React.Component {
 
 
 
-    let { fadeAnim } = this.state;
+    //let { fadeAnim } = this.state;
+
+
+
+    const animatedStyle = {
+
+      transform: [
+        {translateY: this.state.awardTop}
+      ]
+    }
+
     return (
      
-      <GestureRecognizer
+      
+         <View>
+            
+          <GestureRecognizer
         onSwipe={(direction, state) => this.onSwipe(direction, state)}
         config={config}
         style={{
@@ -158,39 +206,36 @@ class HomeScreen extends React.Component {
           backgroundColor: this.state.backgroundColor
         }}
         >
-        <View style={s.viewStyle}>
-          <LinearGradient
-            colors={[s.gradientColorStart, s.gradientColorStart, s.gradientColorStart]}
-            style={{ height: height, width: width}}>
-            
 
-            <Image
-              style={{
-                height: this.state.environmentSwitch ? height: 0,
-                width: width}}
-                source={require('../../assets/Ava-Game.gif')}
-            />
+        <View style={[s.viewStyle, { height: height, width: width}]}>
+            
+            
             <Image
               blurRadius={this.state.blurRadius}
               style={{
                 height: this.state.environmentSwitch ? 0: height,
-                width: width}}
+                width: width, opacity: 1}}
               source={require('../../assets/Home_Background1.png')}
             />
-
-
 
             <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
 
 
-            {/* stand in chat text */
 
-              this.renderChat()
-            }
+          {/* 
+            <Animated.View style={animatedStyle}>
+              <AwardScreen /> 
+            </Animated.View>
+          */}
 
-          </LinearGradient>
-        </View>
+            
+            </View>
+            
 </GestureRecognizer>
+        
+       
+          </View>
+
     );
   }
 }
