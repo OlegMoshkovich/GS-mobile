@@ -15,12 +15,16 @@ const initialBlurRadius = 0;
 const maxBlurRadius = 10;
 
 // problem is that activated true false is reversed...
-
-const avaLocationBottom_inactive = -32;
-const avaLocationBottom_active = -100;
+const avaLocationBottom_inactive = -35;
+const avaLocationBottom_active = -112;
 const avaHeight = 150;
-const gradientBottom_active = -100;
+
+
+
+const gradientBottom_active = -200;
 const gradientBottom_inactive = 0;
+
+
 const navMenu_active = -200;
 const navMenu_inactive = 50;
 
@@ -103,23 +107,94 @@ tabAnimation = () => {
 
     }
 
+
+    renderContextIcon() {
+
+        // render contextual icon based on route
+        switch (this.props.navigation.state.routeName) {
+            case 'Community':
+                return(
+                
+                
+                
+                /* <Image 
+                    style={{
+
+
+                        width: 50, height: 50,
+
+                    alignSelf: 'flex-end', position: 'absolute', right: 20, zIndex: 1,
+                    bottom: 20,
+                    
+                    
+
+                    }
+
+
+                    }
+                    source={assetPaths.bottomMenu.contextIcons.addStory}
+                    />
+                
+                    */
+
+
+
+
+                   <Image style={[s.avaImage, {position: 'absolute', top: -10, zIndex: 12}]}
+                   source={assetPaths.bottomMenu.avaFace} />
+
+
+
+                
+                );
+
+
+
+            default:
+                // nothing
+                return;
+
+            
+
+        }
+        
+        
+
+    }
+
     render() {
 
-        if (this.props.showTab) {
+        
             return (
+               
                 <View>
                   
                 <TouchableOpacity
                     style = {{
-                    alignSelf: 'flex-end', position: 'absolute', right: 20, zIndex: 1,
+                    alignSelf: 'flex-end', position: 'absolute', right: 5, zIndex: 1,
                     bottom: this.state.activated ? avaLocationBottom_active : avaLocationBottom_inactive,
                     height: avaHeight,
                     }}
                     onPress={this.animate} onLongPress={this.animate}>
+
+                    { this.props.contextIcon ? this.renderContextIcon() : null }
+
+
                     <Image style={s.avaImage}
                         source={assetPaths.bottomMenu.avaFace} />
+
+                    
+
+
                 </TouchableOpacity>
+
+                {
+                    
+                    // show the little tab here in some cases
+
+                    this.props.showTab ? 
                 
+            
                 <TouchableOpacity
                     style = {[s.tabButton, {
                     height: tabHeight, opacity: this.state.tabOpacity,
@@ -129,49 +204,9 @@ tabAnimation = () => {
                         source={assetPaths.bottomMenu.tabBackground} />
                     <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
                         
-                </TouchableOpacity>
-    
-    
-                <Image
-                    style={[s.gradientStyle, { width: width,
-                        bottom: this.state.activated ? gradientBottom_active: gradientBottom_inactive}]}
-                    source={assetPaths.bottomMenu.darkGradient} />
-                <View style={[s.navStyle, {
-                    bottom: this.state.activated ? navMenu_active: navMenu_inactive,
-                    }]}>
-                    <TouchableOpacity  onPress={() => this.props.navigation.navigate('Map')}>
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIcon} />
-                    </TouchableOpacity>
-                    <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIcon} />
-                    </TouchableOpacity>
-                    <TouchableOpacity  onPress={() => this.props.navigation.navigate('Home')}>
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.homeIcon} />
-                    </TouchableOpacity>
-                    <TouchableOpacity  onPress={() => this.props.navigation.navigate('Explore')} >
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIcon} />
-                    </TouchableOpacity>
-                    <TouchableOpacity  onPress={() => this.props.navigation.navigate('Dashboard')} >
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIcon} />
-                    </TouchableOpacity>
-                </View>
-            </View>
-            );
-        } else {
-            // no tab
-            return (
-                <View>
-                  
-                <TouchableOpacity
-                    style = {{
-                    alignSelf: 'flex-end', position: 'absolute', right: 20, zIndex: 1,
-                    bottom: this.state.activated ? avaLocationBottom_active : avaLocationBottom_inactive,
-                    height: avaHeight,
-                    }}
-                    onPress={this.animate} onLongPress={this.animate}>
-                    <Image style={s.avaImage}
-                        source={assetPaths.bottomMenu.avaFace} />
-                </TouchableOpacity>
+                </TouchableOpacity> : 
+                null
+                }
               
                 <Image
                     style={[s.gradientStyle, { width: width,
@@ -203,6 +238,6 @@ tabAnimation = () => {
 
         
     }
-}
+
 
 export default AvaBottomMenu;
