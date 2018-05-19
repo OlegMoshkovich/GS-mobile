@@ -210,7 +210,7 @@ tabAnimation = () => {
                 <View style={[s.navStyle, {
                     bottom: this.state.activated ? navMenu_active: navMenu_inactive,
                     }]}>
-                    <TouchableOpacity  onPress={() => this.props.navigation.navigate('Map')}>
+                    <TouchableOpacity  onPress={() => this.props.navigation.navigate('Connect')}>
                         <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIcon} />
                     </TouchableOpacity>
                     <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
