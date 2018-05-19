@@ -34,7 +34,7 @@ class ExploreScreen extends React.Component {
     };
 
   }
-  
+
   
   _onPressButton() {
     Alert.alert( 'Ava', 'Short Press',
