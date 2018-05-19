@@ -31,7 +31,7 @@ class CalendarScreen extends React.Component {
   render() {
     return (
       <LinearGradient
-        colors={['#b98031', '#f5d340', 'white']}
+      colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
 
         <Text style ={s.menuText}>when</Text>

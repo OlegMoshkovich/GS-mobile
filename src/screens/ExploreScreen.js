@@ -35,7 +35,7 @@ class ExploreScreen extends React.Component {
 
   }
 
-  
+
   _onPressButton() {
     Alert.alert( 'Ava', 'Short Press',
     [{text: 'OK', onPress: () => console.log('OK Pressed')}],
@@ -62,7 +62,7 @@ class ExploreScreen extends React.Component {
 
   render() {
     return (
-      <LinearGradient colors={['#56CCF2', '#56CCF2', 'white']}
+      <LinearGradient colors={['#00C5F0', '#50EAFF']}
         style={{ height: height, width:width} }>
         
         <TopMenu menuTitle="#explore" iconPath={assetPaths.topMenu.exploreIcon} />

@@ -165,7 +165,7 @@ class EventScreen extends React.Component {
  
         
           <LinearGradient
-            colors={['#b98031', '#f5d340', 'white']}
+          colors={['#F9C025', '#FFDB2B']}
             style={{ height: height, width:width}}>
             <TopMenu menuTitle="what" iconPath={assetPaths.topMenu.connectIcon} />
             

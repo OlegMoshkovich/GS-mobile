@@ -20,7 +20,7 @@ class AvaEndBlue extends React.Component {
   render() {
     return (
       <LinearGradient
-        colors={['#56CCF2', '#56CCF2', 'white']}
+      colors={['#00C5F0', '#50EAFF']}
         style={{ height: height, width:width, justifyContent: 'center' }}>
 
 

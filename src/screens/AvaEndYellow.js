@@ -22,7 +22,7 @@ class AvaEndYellow extends React.Component {
 
     return (
       <LinearGradient
-        colors={['#b98031', '#f5d340', 'white']}
+      colors={['#F9C025', '#FFDB2B']}
 
 
         style={{ height: height, width:width, justifyContent: 'center', alignItems: 'center', }}>

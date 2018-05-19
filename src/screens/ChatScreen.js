@@ -170,7 +170,7 @@ class ChatScreen extends React.Component {
   render() {
     return (
       <LinearGradient
-       colors={['#b98031', '#b98031','#b98031', 'white']}
+      colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
 
                     <TopMenu menuTitle="who" iconPath={assetPaths.topMenu.connectIcon} />

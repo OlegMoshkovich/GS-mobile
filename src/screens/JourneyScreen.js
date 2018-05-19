@@ -23,7 +23,7 @@ class JourneyScreen extends React.Component {
   render() {
     return (
       <LinearGradient
-        colors={['#56CCF2', '#56CCF2', 'white']}
+      colors={['#00C5F0', '#50EAFF']}
         style={{ height: height, width:width }}>
 
         <TopMenu menuTitle="journeys" iconPath={assetPaths.topMenu.dashboardIcon} />

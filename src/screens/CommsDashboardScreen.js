@@ -156,7 +156,7 @@ class DashboardScreen extends React.Component {
 
     return (
       <LinearGradient
-            colors={['lightgrey', 'grey', 'white']}
+      colors={['#F9C025', '#FFDB2B']}
          style={{
            height: height,
            width:width,
