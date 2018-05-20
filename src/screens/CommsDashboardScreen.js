@@ -171,7 +171,7 @@ class DashboardScreen extends React.Component {
            }}
          />
         
-        <TopMenu menuTitle="#comms" iconPath={assetPaths.topMenu.connectIcon} />
+        <TopMenu menuTitle="connect" iconPath={assetPaths.topMenu.connectIcon} />
 
 
 
