@@ -34,8 +34,8 @@ class ExploreScreen extends React.Component {
     };
 
   }
-  
-  
+
+
   _onPressButton() {
     Alert.alert( 'Ava', 'Short Press',
     [{text: 'OK', onPress: () => console.log('OK Pressed')}],
@@ -49,7 +49,7 @@ class ExploreScreen extends React.Component {
         width:width-50}]}>
         <Text style ={s.cardSource}>Source, duration </Text>
         <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('MyModal', {
+          onPress={() => {this.props.navigation.navigate('ArticleModal', {
           text: item.text, title: item.title, image_uri: item.uri}); }}>
           <Text style ={s.articleTitle}>{item.title} </Text>
         </TouchableOpacity>
@@ -62,7 +62,7 @@ class ExploreScreen extends React.Component {
 
   render() {
     return (
-      <LinearGradient colors={['#56CCF2', '#56CCF2', 'white']}
+      <LinearGradient colors={['#00C5F0', '#50EAFF']}
         style={{ height: height, width:width} }>
         
         <TopMenu menuTitle="#explore" iconPath={assetPaths.topMenu.exploreIcon} />
@@ -76,8 +76,11 @@ class ExploreScreen extends React.Component {
             style={s.scrollView}>
           </ScrollView>
         </View>
+        
+        
+        <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
 
-        <AvaBottomMenu navigation={this.props.navigation}/> 
+        
       </LinearGradient>);
   }
 }

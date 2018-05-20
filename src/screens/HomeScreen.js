@@ -18,7 +18,7 @@ import ResumeScreen from './ResumeScreen.js';
 import CalendarScreen from './CalendarScreen.js';
 import ChatScreen from './ChatScreen.js';
 import CommsDashboardScreen from './CommsDashboardScreen.js'
-import ModalScreen from './ModalScreen.js';
+import ArticleModalScreen from './ArticleModalScreen';
 import ShopScreen from './ShopScreen';
 import DashboardScreen from './DashboardScreen.js';
 import PlaygroundScreen from './PlaygroundScreen.js';
@@ -218,15 +218,23 @@ class HomeScreen extends React.Component {
               source={require('../../assets/Home_Background1.png')}
             />
 
+
+                
+
             <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
 
 
-
-          {/* 
+{/*
+          
+          
             <Animated.View style={animatedStyle}>
               <AwardScreen /> 
             </Animated.View>
-          */}
+          
+   
+*/}
+
+
 
             
             </View>

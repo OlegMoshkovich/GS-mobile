@@ -18,9 +18,10 @@ var styles = StyleSheet.create({
     menuText: {
         color: "white",
         fontSize: 40,
-        fontFamily: 'Helvetica',
-        fontWeight: 'bold',
-        margin: 15
+        fontFamily: 'trefoil-sans-black',
+        margin: 15,
+        opacity: 0.8,
+        
     },
 
     menuNavButton: {

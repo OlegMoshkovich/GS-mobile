@@ -15,18 +15,6 @@ var styles = StyleSheet.create({
     },
 
 
-    menuText: {
-        color: "white",
-        fontSize: 40,
-        fontFamily: 'Helvetica',
-        fontWeight: 'bold',
-        margin: 15
-    },
-
-    menuNavButton: {
-        margin: 20,
-    },
-
     menuNavButtonImage: {
         height: 40, 
         width: 40
@@ -43,7 +31,6 @@ var styles = StyleSheet.create({
 
 
     cardContainer: {
-
         backgroundColor: "white",
         borderColor: "lightgrey",
         borderRadius: 7,
@@ -58,7 +45,8 @@ var styles = StyleSheet.create({
         marginBottom: 19,
         color: "black",
         fontSize: 10,
-        fontWeight: 'normal'
+        fontWeight: 'normal',
+        fontFamily: 'trefoil-sans-light'
     },
 
 
@@ -67,12 +55,14 @@ var styles = StyleSheet.create({
         color: "black",
         fontSize: 22,
         fontWeight: 'bold',
-        textDecorationLine: 'underline'
+        textDecorationLine: 'underline',
+        fontFamily: 'trefoil-sans-semibold',
     },
 
     articleText: {
         marginBottom: 17,
-        color: "black"
+        color: "black",
+        fontFamily: 'trefoil-sans-light'
     },
 
     articleCover: {

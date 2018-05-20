@@ -108,7 +108,7 @@ class DashboardScreen extends React.Component {
   render() {
     return (
       <LinearGradient
-        colors={['#56CCF2', '#56CCF2', 'white']}
+      colors={['#00C5F0', '#50EAFF']}
         style={{ height: height, width:width }}>
 
         <TopMenu menuTitle="#dashboard" iconPath={assetPaths.topMenu.dashboardIcon} />
@@ -125,7 +125,7 @@ class DashboardScreen extends React.Component {
         
         {this.renderBadges()}
 
-        <AvaBottomMenu navigation={this.props.navigation}/> 
+        <AvaBottomMenu showTab={true} tabTitle={"Leaderboard"} tabLeft={15} navigation={this.props.navigation}/> 
       </LinearGradient>);
   }
 }

@@ -152,7 +152,7 @@ class CommunityScreen extends React.Component {
   render() {
     return (
         <LinearGradient
-         colors={['#b98031', '#f5d340', 'white']}
+        colors={['#F9C025', '#FFDB2B']}
          style={{ height: height, width:width}}>
      
         {/* this feels wrong ... clicking on michelle o story results in a badly styled modal 
@@ -168,7 +168,7 @@ class CommunityScreen extends React.Component {
 
 
            <LinearGradient
-            colors={['#b98031', '#f5d340', 'white']}
+            colors={['#F9C025', '#FFDB2B']}
             style={{ height: height, width:width}}>
 
              <View style={{ top:200}}>
@@ -203,7 +203,7 @@ class CommunityScreen extends React.Component {
         this.renderStories()
       }
 
-           <AvaBottomMenu navigation={this.props.navigation}/> 
+           <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
 
       </LinearGradient>
     );
