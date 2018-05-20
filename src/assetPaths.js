@@ -1,6 +1,6 @@
 /*
 
-organizing asset paths here 
+organizing asset paths here
 
 */
 
@@ -22,7 +22,8 @@ paths.bottomMenu = {
     mapIcon:        require('../assets/bottomMenu/icons/Map-icon.png'),
     shopIcon:       require('../assets/bottomMenu/icons/Shop-icon.png'),
 
-    
+
+
     darkGradient:   require('../assets/bottomMenu/Nav_Bottom_Dark.png')
 
 };
@@ -41,7 +42,7 @@ paths.bottomMenu.homeScreen = {
     mapIcon:        require('../assets/bottomMenu/icons/Map-icon.png'),
     shopIcon:       require('../assets/bottomMenu/icons/Shop-icon.png'),
 
-    
+
     darkGradient:   require('../assets/bottomMenu/Nav_Bottom_Dark.png')
 
 };
@@ -49,14 +50,14 @@ paths.bottomMenu.homeScreen = {
 
 paths.topMenu = {
 
-    
+
         connectIcon:    require('../assets/topMenu/NAV_connect-top.png'),
         dashboardIcon:  require('../assets/topMenu/NAV_dash-top.png'),
         exploreIcon:    require('../assets/topMenu/NAV_explore-top.png'),
         shareIcon:      require('../assets/topMenu/NAV_share-top.png'),
         tapHereIcon:    require('../assets/topMenu/Tap_here_icon.png')
 
-    
+
 
 
 
