@@ -59,7 +59,10 @@ var styles = StyleSheet.create({
 
     // the tab that appears sometimes
     tabButton: {
-        alignSelf: 'flex-start', position: 'absolute', left: 15, zIndex: 1,
+        alignSelf: 'flex-start',
+        position: 'absolute',
+        left: 15,
+        zIndex: 1,
         bottom: -4,
 
     },
@@ -84,8 +87,12 @@ var styles = StyleSheet.create({
 
     // context icon
     contextIcon: {
-        width: 50, height: 50, position: 'absolute',
-        right: 25, top: -45, zIndex: 12
+        width: 50,
+        height: 50,
+        position: 'absolute',
+        right: 25,
+        top: -45,
+        zIndex: 12
     }
 
 
