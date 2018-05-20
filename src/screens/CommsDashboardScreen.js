@@ -13,6 +13,8 @@ const CARD_WIDTH = CARD_HEIGHT - 29;
 
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
+import NavMenu from '../components/NavMenu';
+
 import assetPaths from '../assetPaths';
 
 
@@ -130,7 +132,8 @@ class DashboardScreen extends React.Component {
            width:width,
          }}>
 
-        <TopMenu menuTitle="#comms" iconPath={assetPaths.topMenu.connectIcon} />
+        <TopMenu menuTitle="connect" iconPath={assetPaths.topMenu.connectIcon} />
+        <NavMenu highlighted={3} />
 
 
         <View

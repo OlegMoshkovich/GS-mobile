@@ -10,6 +10,7 @@ const {width, height} = Dimensions.get('window');
 
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
+import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
 
 import s from '../styles/dashboardscreen.js';
@@ -112,6 +113,7 @@ class DashboardScreen extends React.Component {
         style={{ height: height, width:width }}>
 
         <TopMenu menuTitle="dash" iconPath={assetPaths.topMenu.dashboardIcon} />
+        <NavMenu highlighted={1} />
 
         
 

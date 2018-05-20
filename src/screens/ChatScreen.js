@@ -7,12 +7,15 @@ import {Card, Button,Icon} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import CollapseView from "react-native-collapse-view";
-import TopMenu from '../components/TopMenu';
+
 import assetPaths from '../assetPaths';
 
 
 import {GiftedChat } from 'react-native-gifted-chat';
 import AvaBottomMenu from '../components/AvaBottomMenu';
+import TopMenu from '../components/TopMenu';
+import NavMenu from '../components/NavMenu';
+
 const {width, height} = Dimensions.get('window');
 
 class ChatScreen extends React.Component {
@@ -173,7 +176,8 @@ class ChatScreen extends React.Component {
       colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
 
-                    <TopMenu menuTitle="who" iconPath={assetPaths.topMenu.connectIcon} />
+        <TopMenu menuTitle="who" iconPath={assetPaths.topMenu.connectIcon} />
+        <NavMenu highlighted={2} />
 
 
 

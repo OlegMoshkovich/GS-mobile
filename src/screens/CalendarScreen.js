@@ -8,6 +8,7 @@ import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 
 import TopMenu from '../components/TopMenu';
+import NavMenu from '../components/NavMenu';
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import assetPaths from '../assetPaths';
 
@@ -35,7 +36,7 @@ class CalendarScreen extends React.Component {
       colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
         <TopMenu menuTitle="when" iconPath={assetPaths.topMenu.connectIcon} />
-        
+        <NavMenu highlighted={0} />
         <Agenda
           items={this.state.items}
           loadItemsForMonth={this.loadItems.bind(this)}

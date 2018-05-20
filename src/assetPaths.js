@@ -160,6 +160,13 @@ paths.stories = {
 }
 
 
+    paths.navMenu = {
+
+        dotOn: require('../assets/navMenu/navDot_on.png'),
+        dotOff: require('../assets/navMenu/navDot_off.png')
+
+    };
+
 
 
 export default paths;

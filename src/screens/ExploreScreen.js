@@ -11,6 +11,7 @@ import { USE_NATIVE_DRIVER } from '../TestComponents/config';
 
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
+import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
 
 
@@ -66,7 +67,7 @@ class ExploreScreen extends React.Component {
         style={{ height: height, width:width} }>
         
         <TopMenu menuTitle="explore" iconPath={assetPaths.topMenu.exploreIcon} />
-        
+        <NavMenu highlighted={0} />
         <View style={{ position:'absolute', top:30 }}>
           <Deck
             data = {articles}

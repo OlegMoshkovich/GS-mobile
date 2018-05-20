@@ -11,6 +11,7 @@ const {width, height} = Dimensions.get('window');
 
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
+import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
 import s from '../styles/awardscreen';
 
@@ -26,6 +27,7 @@ class AwardScreen extends React.Component {
         style={{ height: height, width:width }}>
 
         <TopMenu menuTitle="awards" iconPath={assetPaths.topMenu.dashboardIcon} />
+        <NavMenu highlighted={4} />
 
         <View style={{flex: 1, alignItems: 'center'}}>
           <Text>pending redesign</Text>

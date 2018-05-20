@@ -12,6 +12,8 @@ const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
+import NavMenu from '../components/NavMenu';
+
 import assetPaths from '../assetPaths';
 
 import s from '../styles/eventscreen';
@@ -159,6 +161,7 @@ class EventScreen extends React.Component {
         colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
         <TopMenu menuTitle="what" iconPath={assetPaths.topMenu.connectIcon} />
+        <NavMenu highlighted={1} />
           <View style={[s.container, {height: 330}]}>
             { this.renderMapView(interpolations) }
             <Animated.ScrollView
