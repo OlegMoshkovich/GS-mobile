@@ -259,13 +259,17 @@ class DashboardScreen extends React.Component {
              </Animated.ScrollView>
           </View>
 
-          <View>
+          <View
+          style={{
+          bottom:7
+          }}
+          >
              <TouchableOpacity
                style={{
                top:70
                }}
                onPress={() => this.props.navigation.navigate({
-                 routeName: 'CommunicationChat',
+                 routeName: 'Calendar',
                      params: {
                          transition: 'default'
                      }
@@ -297,34 +301,32 @@ class DashboardScreen extends React.Component {
                    { useNativeDriver: true }
 
                  )}
-
                  >
+                   <View >
 
-                 {this.state.chatSessions.map((chatSession, index) => (
-                   <View style={styles.card} key={index}>
                      <Image
-                       source={chatSession.image}
-                       style={styles.cardImage}
-                       resizeMode="cover"
+                        source={require('../../assets/icons/Connect/Calendar.png')}
+                       style={{
+                         width:288,
+                         height:95,
+                         right:0
+                       }}
                      />
-                     <View >
-                       <Text numberOfLines={1} style={styles.cardtitle}>{chatSession.title}</Text>
-                       <Text numberOfLines={1} style={styles.cardDescription}>
-                         {chatSession.description}
-                       </Text>
-                     </View>
                    </View>
-                 ))}
              </Animated.ScrollView>
           </View>
 
-          <View>
+          <View
+          style={{
+          bottom:15
+          }}
+          >
              <TouchableOpacity
                style={{
                top:70
                }}
                onPress={() => this.props.navigation.navigate({
-                 routeName: 'CommunicationChat',
+                 routeName: 'Chat',
                      params: {
                          transition: 'default'
                      }
@@ -356,24 +358,19 @@ class DashboardScreen extends React.Component {
                    { useNativeDriver: true }
 
                  )}
-
                  >
+                   <View >
 
-                 {this.state.chatSessions.map((chatSession, index) => (
-                   <View style={styles.card} key={index}>
                      <Image
-                       source={chatSession.image}
-                       style={styles.cardImage}
-                       resizeMode="cover"
+                        source={require('../../assets/icons/Connect/Map.png')}
+                       style={{
+                         width:288,
+                         height:124,
+                         right:0,
+                         bottom:5
+                       }}
                      />
-                     <View >
-                       <Text numberOfLines={1} style={styles.cardtitle}>{chatSession.title}</Text>
-                       <Text numberOfLines={1} style={styles.cardDescription}>
-                         {chatSession.description}
-                       </Text>
-                     </View>
                    </View>
-                 ))}
              </Animated.ScrollView>
           </View>
 
