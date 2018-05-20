@@ -18,6 +18,11 @@ import assetPaths from '../assetPaths';
 
 
 class DashboardScreen extends React.Component {
+  componentDidMount() {
+  Font.loadAsync({
+    'open-sans-bold': require('./assets/fonts/TrefoilSans-Black.otf'),
+  });
+}
 
   constructor(props) {
     super(props);
@@ -161,15 +166,105 @@ class DashboardScreen extends React.Component {
            height: height,
            width:width,
          }}>
-
-
+         <View
+           style={{
+             top:370,
+             width:width-60,
+             left:30,
+             borderBottomColor: 'lightgrey',
+             borderBottomWidth: .4,
+           }}
+         />
 
         <TopMenu menuTitle="#comms" iconPath={assetPaths.topMenu.connectIcon} />
 
 
 
+         <Image
+           style={{
+             height: 290/1.4,
+             width: 250/1.4,
+             alignSelf:'center',
+             position:'absolute',
+             top: 120
 
+           }}
+           source={require('../../assets/Ava-Dashboard-Comms.png')}
+         />
 
+           <TouchableOpacity
+             style={{
+             flex:1,
+             top:130,
+             left:100,
+             position:'absolute'
+             }}
+             >
+                 <Image
+                   style={{height: 41,width: 40}}
+                   source={require('../../assets/Events-icon.png')}
+                 />
+           </TouchableOpacity >
+
+           <TouchableOpacity
+             style={{
+             flex:1,
+             top:130,
+             right:100,
+             position:'absolute'
+             }}
+             onPress={() => this.props.navigation.navigate({
+               routeName: 'CommunicationChat',
+                   params: {
+                       transition: 'default'
+                   }
+                 }
+             )}>
+             <Image
+               style={{height: 41,width: 40}}
+                 source={require('../../assets/Chat-icon.png')}
+             />
+           </TouchableOpacity>
+
+            <TouchableOpacity
+              style={{
+               flex:1,
+               top:250,
+               right:100,
+               position:'absolute'
+               }}
+               onPress={() => this.props.navigation.navigate({
+                 routeName: 'CommunicationMap',
+                     params: {
+                         transition: 'default'
+                     }
+                   }
+               )}>
+               <Image
+                 style={{height: 40,width: 40}}
+                   source={require('../../assets/Map-icon.png')}
+               />
+            </TouchableOpacity >
+
+            <TouchableOpacity
+              style={{
+              flex:1,
+              top:250,
+              left:100,
+              position:'absolute'
+              }}
+              onPress={() => this.props.navigation.navigate({
+                routeName: 'CommunicationCalendar',
+                    params: {
+                        transition: 'default'
+                    }
+                  }
+              )}>
+              <Image
+                style={{height: 40,width: 40}}
+                  source={require('../../assets/Calendar-icon.png')}
+              />
+            </TouchableOpacity >
 
            <TouchableOpacity
              style={{

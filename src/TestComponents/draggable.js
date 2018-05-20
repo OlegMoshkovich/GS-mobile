@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Animated, StyleSheet, View,Text } from 'react-native';
+import { Animated, StyleSheet, View,Text,TouchableOpacity } from 'react-native';
 
 import {
   PanGestureHandler,
@@ -75,8 +75,9 @@ export default class Example extends Component {
     return (
 
       <ScrollView style={styles.scrollView}>
+      <TouchableOpacity>
         <DraggableBox minDist={30} />
-
+      </TouchableOpacity>
 
       </ScrollView>
 
