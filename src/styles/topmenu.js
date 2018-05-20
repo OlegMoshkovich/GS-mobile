@@ -12,6 +12,7 @@ var styles = StyleSheet.create({
         flex: 1, // this needs to be rewritten...
         flexDirection: 'row',
         justifyContent: 'space-between',
+
         //borderColor: 'black',
         //borderWidth: 1,
     },
@@ -21,7 +22,6 @@ var styles = StyleSheet.create({
         color: "white",
         fontSize: 40,
         fontFamily: 'trefoil-sans-black',
-        // fontFamily: 'helvetica',
         margin: 15,
         opacity: 0.8,
 

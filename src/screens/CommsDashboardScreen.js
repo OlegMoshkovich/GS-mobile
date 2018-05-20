@@ -8,7 +8,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 const {width, height} = Dimensions.get('window');
 const CARD_HEIGHT =120;
-const CARD_WIDTH = CARD_HEIGHT - 34;
+const CARD_WIDTH = CARD_HEIGHT - 29;
 
 
 import AvaBottomMenu from '../components/AvaBottomMenu';
@@ -31,46 +31,35 @@ class DashboardScreen extends React.Component {
         {
           title: "Nicole Clark",
           description: "",
-          image: require('../../assets/Avatar_1.png'),
+          image: require('../../assets/icons/Connect/Chat_Avatar_1.png'),
         },
 
         {
           title: "Emma Brownstein",
           description: "",
-          image: require('../../assets/Avatar_3.png'),
+          image: require('../../assets/icons/Connect/Chat_Avatar_2.png'),
         },
         {
           title: "Nicole Clark",
           description: "",
-          image: require('../../assets/Avatar_1.png'),
+          image: require('../../assets/icons/Connect/Chat_Avatar_3.png'),
         },
 
         {
           title: "Emma Brownstein",
           description: "",
-          image: require('../../assets/Avatar_3.png'),
+          image: require('../../assets/icons/Connect/Chat_Avatar_1.png'),
         },
         {
           title: "Nicole Clark",
           description: "",
-          image: require('../../assets/Avatar_1.png'),
+          image: require('../../assets/icons/Connect/Chat_Avatar_2.png'),
         },
 
         {
           title: "Emma Brownstein",
           description: "",
-          image: require('../../assets/Avatar_3.png'),
-        },
-        {
-          title: "Nicole Clark",
-          description: "",
-          image: require('../../assets/Avatar_1.png'),
-        },
-
-        {
-          title: "Emma Brownstein",
-          description: "",
-          image: require('../../assets/Avatar_3.png'),
+          image: require('../../assets/icons/Connect/Chat_Avatar_3.png'),
         }
 
 
@@ -78,49 +67,26 @@ class DashboardScreen extends React.Component {
       ],
       gsEvents: [
         {
-          title: "Troop Award",
+          title: "",
           description: "",
-          image: require('../../assets/Event1.png'),
+          image: require('../../assets/icons/Connect/Event_1.png'),
         },
 
         {
-          title: "GSNY Event",
+          title: "",
           description: "",
-          image: require('../../assets/Event2.png'),
-        },
-        {
-          title: "Troop Award",
-          description: "",
-          image: require('../../assets/Event1.png'),
+          image: require('../../assets/icons/Connect/Event_2.png'),
         },
 
         {
-          title: "GSNY Event",
+          title: "",
           description: "",
-          image: require('../../assets/Event2.png'),
+          image: require('../../assets/icons/Connect/Event_1.png'),
         },
         {
-          title: "Troop Award",
+          title: "",
           description: "",
-          image: require('../../assets/Event1.png'),
-        },
-
-        {
-          title: "GSNY Event",
-          description: "",
-          image: require('../../assets/Event2.png'),
-        },
-
-        {
-          title: "Troop Award",
-          description: "",
-          image: require('../../assets/Event1.png'),
-        },
-
-        {
-          title: "GSNY Event",
-          description: "",
-          image: require('../../assets/Event2.png'),
+          image: require('../../assets/icons/Connect/Event_2.png'),
         },
 
 
@@ -152,229 +118,265 @@ class DashboardScreen extends React.Component {
         }
       )
   }
+
   render() {
 
     return (
       <LinearGradient
       colors={['#F9C025', '#FFDB2B']}
          style={{
+
            height: height,
            width:width,
          }}>
-         <View
-           style={{
-             top:370,
-             width:width-60,
-             left:30,
-             borderBottomColor: 'lightgrey',
-             borderBottomWidth: .4,
-           }}
-         />
-        
-        <TopMenu menuTitle="connect" iconPath={assetPaths.topMenu.connectIcon} />
+
+        <TopMenu menuTitle="#comms" iconPath={assetPaths.topMenu.connectIcon} />
 
 
+        <View
+          style={{
+          height:height-120,
+          top:300,
+          flex:1,
+          left:20,
+          flexDirection: 'column',
+          justifyContent: 'space-around',
+          alignItems: 'flex-start',
+          position:'absolute',
+          }}>
 
-         <Image
-           style={{
-             height: 290/1.4,
-             width: 250/1.4,
-             alignSelf:'center',
-             position:'absolute',
-             top: 120
-
-           }}
-           source={require('../../assets/Ava-Dashboard-Comms.png')}
-         />
-
-           <TouchableOpacity
-             style={{
-             flex:1,
-             top:130,
-             left:100,
-             position:'absolute'
-             }}
-             >
-                 <Image
-                   style={{height: 41,width: 40}}
-                   source={require('../../assets/Events-icon.png')}
-                 />
-           </TouchableOpacity >
-
-           <TouchableOpacity
-             style={{
-             flex:1,
-             top:130,
-             right:100,
-             position:'absolute'
-             }}
-             onPress={() => this.props.navigation.navigate({
-               routeName: 'CommunicationChat',
-                   params: {
-                       transition: 'default'
-                   }
-                 }
-             )}>
-             <Image
-               style={{height: 41,width: 40}}
-                 source={require('../../assets/Chat-icon.png')}
-             />
-           </TouchableOpacity>
-
-            <TouchableOpacity
-              style={{
-               flex:1,
-               top:250,
-               right:100,
-               position:'absolute'
+          <View>
+             <TouchableOpacity
+               style={{
+               top:70
                }}
                onPress={() => this.props.navigation.navigate({
-                 routeName: 'CommunicationMap',
+                 routeName: 'CommunicationChat',
                      params: {
                          transition: 'default'
                      }
                    }
                )}>
                <Image
-                 style={{height: 40,width: 40}}
-                   source={require('../../assets/Map-icon.png')}
+                 style={{height: 50,width: 50}}
+                   source={require('../../assets/icons/Connect/Icon_chat.png')}
                />
-            </TouchableOpacity >
-
-            <TouchableOpacity
-              style={{
-              flex:1,
-              top:250,
-              left:100,
-              position:'absolute'
-              }}
-              onPress={() => this.props.navigation.navigate({
-                routeName: 'CommunicationCalendar',
-                    params: {
-                        transition: 'default'
-                    }
-                  }
-              )}>
-              <Image
-                style={{height: 40,width: 40}}
-                  source={require('../../assets/Calendar-icon.png')}
-              />
-            </TouchableOpacity >
-
-           <TouchableOpacity
-             style={{
-             flex:1,
-             top:435,
-             left:10,
-             position:'absolute'
-             }}
-             onPress={() => this.props.navigation.navigate({
-               routeName: 'CommunicationChat',
-                   params: {
-                       transition: 'default'
-                   }
-                 }
-             )}>
-             <Image
-               style={{height: 41,width: 40}}
-                 source={require('../../assets/Chat-icon.png')}
-             />
-           </TouchableOpacity>
-
-           <TouchableOpacity
-             style={{
-             flex:1,
-             top:555,
-             left:10,
-             position:'absolute'
-             }}
-             onPress={() => this.props.navigation.navigate({
-               routeName: 'CommunicationCalendar',
-                   params: {
-                       transition: 'default'
-                   }
-                 }
-             )}>
-             <Image
-               style={{height: 41,width: 40}}
-                 source={require('../../assets/Events-icon.png')}
-             />
-           </TouchableOpacity>
-
-           <Animated.ScrollView
-               horizontal
-               scrollEventThrottle={1}
-               showsHorizontalScrollIndicator={false}
-               snapToInterval={CARD_WIDTH}
-               onScroll={Animated.event(
-                 [
-                   {
-                     nativeEvent: {
-                       contentOffset: {
-                         x: this.animation,
+             </TouchableOpacity>
+             <Animated.ScrollView
+                 style={{
+                 left:60
+                 }}
+                 horizontal
+                 scrollEventThrottle={1}
+                 showsHorizontalScrollIndicator={false}
+                 snapToInterval={CARD_WIDTH}
+                 onScroll={Animated.event(
+                   [
+                     {
+                       nativeEvent: {
+                         contentOffset: {
+                           x: this.animation,
+                         },
                        },
                      },
-                   },
-                 ],
-                 { useNativeDriver: true }
-               )}
+                   ],
+                   { useNativeDriver: true }
 
-               style={styles.scrollViewChats}
-               >
+                 )}
 
-               {this.state.chatSessions.map((chatSession, index) => (
-                 <View style={styles.card} key={index}>
-                   <Image
-                     source={chatSession.image}
-                     style={styles.cardImage}
-                     resizeMode="cover"
-                   />
-                   <View style={styles.textContent}>
-                     <Text numberOfLines={1} style={styles.cardtitle}>{chatSession.title}</Text>
-                     <Text numberOfLines={1} style={styles.cardDescription}>
-                       {chatSession.description}
-                     </Text>
+                 >
+
+                 {this.state.chatSessions.map((chatSession, index) => (
+                   <View style={styles.card} key={index}>
+                     <Image
+                       source={chatSession.image}
+                       style={styles.cardImage}
+                       resizeMode="cover"
+                     />
+                     <View >
+                       <Text numberOfLines={1} style={styles.cardtitle}>{chatSession.title}</Text>
+                       <Text numberOfLines={1} style={styles.cardDescription}>
+                         {chatSession.description}
+                       </Text>
+                     </View>
                    </View>
-                 </View>
-               ))}
-           </Animated.ScrollView>
+                 ))}
+             </Animated.ScrollView>
+          </View>
 
-           <Animated.ScrollView
-               horizontal
-               scrollEventThrottle={1}
-               showsHorizontalScrollIndicator={false}
-               snapToInterval={CARD_WIDTH}
-               onScroll={Animated.event(
-                 [
-                   {
-                     nativeEvent: {
-                       contentOffset: {
-                         x: this.animation,
+          <View>
+             <TouchableOpacity
+               style={{
+               top:70
+               }}
+               onPress={() => this.props.navigation.navigate({
+                 routeName: 'CommunicationChat',
+                     params: {
+                         transition: 'default'
+                     }
+                   }
+               )}>
+               <Image
+                 style={{height: 50,width: 50}}
+                   source={require('../../assets/icons/Connect/Icon_events.png')}
+               />
+             </TouchableOpacity>
+             <Animated.ScrollView
+                 style={{
+                 left:60
+                 }}
+                 horizontal
+                 scrollEventThrottle={1}
+                 showsHorizontalScrollIndicator={false}
+                 snapToInterval={CARD_WIDTH}
+                 onScroll={Animated.event(
+                   [
+                     {
+                       nativeEvent: {
+                         contentOffset: {
+                           x: this.animation,
+                         },
                        },
                      },
-                   },
-                 ],
-                 { useNativeDriver: true }
-               )}
-               style={styles.scrollViewEvents}
-               >
+                   ],
+                   { useNativeDriver: true }
 
-               {this.state.gsEvents.map((gsEvent, index) => (
-                 <View style={styles.cardEvents} key={index}>
-                   <Image
-                     source={gsEvent.image}
-                     style={styles.cardImage}
-                     resizeMode="cover"
-                   />
-                   <View style={styles.textContent}>
-                     <Text numberOfLines={1} style={styles.cardtitle}>{gsEvent.title}</Text>
+                 )}
 
+                 >
+
+                 {this.state.gsEvents.map((gsEvent, index) => (
+                   <View style={styles.eventCard} key={index}>
+                     <Image
+                       source={gsEvent.image}
+                       style={styles.eventImage}
+
+
+                     />
 
                    </View>
-                 </View>
-               ))}
-           </Animated.ScrollView>
+                 ))}
+             </Animated.ScrollView>
+          </View>
 
+          <View
+          style={{
+          bottom:7
+          }}
+          >
+             <TouchableOpacity
+               style={{
+               top:70
+               }}
+               onPress={() => this.props.navigation.navigate({
+                 routeName: 'Calendar',
+                     params: {
+                         transition: 'default'
+                     }
+                   }
+               )}>
+               <Image
+                 style={{height: 50,width: 50}}
+                   source={require('../../assets/icons/Connect/Icon_calendar.png')}
+               />
+             </TouchableOpacity>
+             <Animated.ScrollView
+                 style={{
+                 left:60
+                 }}
+                 horizontal
+                 scrollEventThrottle={1}
+                 showsHorizontalScrollIndicator={false}
+                 snapToInterval={CARD_WIDTH}
+                 onScroll={Animated.event(
+                   [
+                     {
+                       nativeEvent: {
+                         contentOffset: {
+                           x: this.animation,
+                         },
+                       },
+                     },
+                   ],
+                   { useNativeDriver: true }
+
+                 )}
+                 >
+                   <View >
+
+                     <Image
+                        source={require('../../assets/icons/Connect/Calendar.png')}
+                       style={{
+                         width:288,
+                         height:95,
+                         right:0
+                       }}
+                     />
+                   </View>
+             </Animated.ScrollView>
+          </View>
+
+          <View
+          style={{
+          bottom:15
+          }}
+          >
+             <TouchableOpacity
+               style={{
+               top:70
+               }}
+               onPress={() => this.props.navigation.navigate({
+                 routeName: 'Chat',
+                     params: {
+                         transition: 'default'
+                     }
+                   }
+               )}>
+               <Image
+                 style={{height: 50,width: 50}}
+                   source={require('../../assets/icons/Connect/Icon_map.png')}
+               />
+             </TouchableOpacity>
+             <Animated.ScrollView
+                 style={{
+                 left:60
+                 }}
+                 horizontal
+                 scrollEventThrottle={1}
+                 showsHorizontalScrollIndicator={false}
+                 snapToInterval={CARD_WIDTH}
+                 onScroll={Animated.event(
+                   [
+                     {
+                       nativeEvent: {
+                         contentOffset: {
+                           x: this.animation,
+                         },
+                       },
+                     },
+                   ],
+                   { useNativeDriver: true }
+
+                 )}
+                 >
+                   <View >
+
+                     <Image
+                        source={require('../../assets/icons/Connect/Map.png')}
+                       style={{
+                         width:288,
+                         height:124,
+                         right:0,
+                         bottom:5
+                       }}
+                     />
+                   </View>
+             </Animated.ScrollView>
+          </View>
+
+        </View>
+
+           <AvaBottomMenu showTab={false}  tabLeft={15} navigation={this.props.navigation}/>
 
       </LinearGradient>
     );
@@ -403,25 +405,28 @@ const styles = StyleSheet.create({
     right: 0,
     paddingVertical: 10,
   },
-  endPadding: {
-  },
+
   card: {
     padding: 0,
-
     backgroundColor: "transparent",
     marginHorizontal: 10,
     height: CARD_HEIGHT,
     width: CARD_WIDTH,
     overflow: "hidden",
   },
-  cardEvents: {
+  eventCard: {
     padding: 0,
-
     backgroundColor: "transparent",
     marginHorizontal: 10,
     height: CARD_HEIGHT,
-    width: CARD_WIDTH+13,
+    width: 210,
     overflow: "hidden",
+  },
+  eventImage: {
+    flex: 3,
+    height: CARD_HEIGHT,
+    width: 210,
+    alignSelf: "center",
   },
 
   cardImage: {
