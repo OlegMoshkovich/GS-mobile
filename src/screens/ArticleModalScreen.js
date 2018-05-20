@@ -5,6 +5,12 @@ import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import {Card, Button,Icon} from 'react-native-elements';
 
 
+import s from '../styles/articlemodal';
+import assetPaths from '../assetPaths';
+import articleContent from '../../data/articles/articleContent';
+
+
+
 class ModalScreen extends React.Component {
 
 
@@ -16,75 +22,50 @@ class ModalScreen extends React.Component {
     const sourceUri = { uri: imageUri }
 
     return (
-      <View style={{
-          backgroundColor: 'rgba(52,52,52,alpha)',
-
-        }}>
-
-
-       <View style={{position: 'absolute',flex: 1, flexDirection: 'row',marginTop:60,marginLeft:20,height:100 , alignItems:'flex-start'}}>
-           <TouchableOpacity style={{ margin: 5}} >
-           <Image
-             style={{height: 30,width: 30, right:0, top:0}}
-             source={require('../../assets/Share.png')}
+<View style={s.modalBackground}>
+  <View style={s.modalContainer}>
+    <TouchableOpacity style={s.modalButton} >
+      <Image
+        style={s.modalIconImage}
+        source={assetPaths.modals.articleModal.shareIcon} />
+    </TouchableOpacity>
+    <TouchableOpacity style={s.modalButton} >
+      <Image
+        style={s.modalIconImage}
+        source={assetPaths.modals.articleModal.starIcon} />
+    </TouchableOpacity>
+    <TouchableOpacity style={s.modalButton} >
+      <Image
+        style={s.modalIconImage}
+        source={assetPaths.modals.articleModal.commentIcon}
            />
            </TouchableOpacity>
-
-           <TouchableOpacity style={{margin: 5}} >
+           <TouchableOpacity style={s.modalButton} >
            <Image
-             style={{height: 30,width: 30, right:0, top:0}}
-             source={require('../../assets/Star.png')}
-           />
-           </TouchableOpacity>
-           <TouchableOpacity style={{margin: 5 }} >
-           <Image
-             style={{height: 30,width: 30, right:0, top:0}}
-             source={require('../../assets/Comment.png')}
-           />
-           </TouchableOpacity>
-           <TouchableOpacity style={{margin: 5}} >
-           <Image
-             style={{height: 30,width: 30, right:0, top:0}}
-             source={require('../../assets/Clap.png')}
+             style={s.modalIconImage}
+             source={assetPaths.modals.articleModal.clapIcon}
            />
            </TouchableOpacity>
        </View>
-
-
-      <TouchableOpacity
-           style={{
-               borderWidth:1,
-               borderColor:'transparent',
-               marginTop:60,
-               marginBottom:10,
-               position:'relative',
-               left:332,
-               width:27,
-               height:27,
-               backgroundColor:'transparent',
-               borderRadius:100,
-             }}
-             onPress={() => this.props.navigation.goBack()}
-         >
-         <Image
-           style={{height: 40,width: 40, right:10}}
-           source={require('../../assets/Exit-icon.png')}
-         />
+    <TouchableOpacity
+           style={s.exitButton} onPress={() => this.props.navigation.goBack()}
+    >
+      <Image style={s.exitIconImage}
+              source={assetPaths.modals.articleModal.exitIcon}/>
       </TouchableOpacity>
 
      <ScrollView >
-       <Text style ={{marginTop:24,marginBottom:0,left:26,color:"black",fontSize: 22,fontWeight:'bold' , fontFamily: 'trefoil-sans-semibold'}}>{JSON.stringify(title)}</Text>
+       <Text style ={s.articleTitle}>{JSON.stringify(title)}</Text>
        <Image
           style={{height: 225,marginTop:41,marginBottom:41,marginLeft:0,marginRight:0,}}
           resizeMode="cover"
           source={sourceUri}
        />
-       <Text style ={{marginTop:10,marginBottom:10,marginLeft:30,marginRight:30, color:"black",fontSize: 17, fontFamily: 'trefoil-sans-light' }}>{JSON.stringify(text)}</Text>
-       <Text style ={{marginTop:10,marginBottom:10,marginLeft:30,marginRight:30, color:"black",fontSize: 17 }}>{JSON.stringify(text)}</Text>
-       <Text style ={{marginTop:10,marginBottom:10,marginLeft:30,marginRight:30, color:"black",fontSize: 17 }}>{JSON.stringify(text)}</Text>
-       <Text style ={{marginTop:10,marginBottom:10,marginLeft:30,marginRight:30, color:"black",fontSize: 17 }}>{JSON.stringify(text)}</Text>
-       <Text style ={{marginTop:10,marginBottom:10,marginLeft:30,marginRight:30, color:"black",fontSize: 17 }}>{JSON.stringify(text)}</Text>
-       <Text style ={{marginTop:10,marginBottom:10,marginLeft:30,marginRight:30, color:"black",fontSize: 17 }}>{JSON.stringify(text)}</Text>
+       <Text style ={s.articleText}>{JSON.stringify(text)}</Text>
+       <Text style ={s.articleText}>{JSON.stringify(text)}</Text>
+       <Text style ={s.articleText}>{JSON.stringify(text)}</Text>
+       <Text style ={s.articleText}>{JSON.stringify(text)}</Text>
+      
      </ScrollView>
 
       </View>
