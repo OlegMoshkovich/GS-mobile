@@ -9,6 +9,12 @@ const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
 import ShopScreen from './ShopScreen';
 import s from '../styles/systemscreen';
+import { DraggableBox } from '../TestComponents/draggable';
+
+
+import AvaBottomMenu from '../components/AvaBottomMenu.js';
+import TopMenu from '../components/TopMenu';
+import assetPaths from '../assetPaths';
 
 
 
@@ -70,11 +76,31 @@ class SystemScreen extends React.Component {
       <LinearGradient
        colors={['#7E97D5', '#C499CD', '#FEC8E3']}
        style={[{ height: height, width:width}]}>
-    
+
+
+       <TopMenu menuTitle="profile" iconPath={assetPaths.topMenu.profileIcon} />
+       <View style={s.profileContainer}>
+       <TouchableOpacity>
+       <Image style={s.percentage}
+         source={require('../../assets/icons/Profile/Percentage.png')} />
+       </TouchableOpacity>
+       <TouchableOpacity>
+       <Image style={s.avaProfile}
+         source={require('../../assets/icons/Profile/Ava.png')} />
+       </TouchableOpacity>
+       <TouchableOpacity>
+       <Image style={s.addUser}
+         source={require('../../assets/icons/Profile/AddUser.png')} />
+       </TouchableOpacity>
+       </View>
+      <Text style={s.userName}>@Ava_G</Text>
+
+
+      <DraggableBox />
 
 
 
-
+      <AvaBottomMenu showTab={true} tabTitle={"Resume"} tabLeft={15} navigation={this.props.navigation}/>
 
 
 
