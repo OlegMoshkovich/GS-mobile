@@ -8,6 +8,43 @@ var styles = StyleSheet.create({
         flex: 1
     },
 
+    notificationContainer: {
+        position: 'absolute', top: 50, left: 20
+    },
+
+    notificationIcon: {width: 35, height: 35,},
+
+
+    homeChatContainer: {
+        height: 200,
+        position: 'absolute',
+        
+        left: 220,
+        zIndex: 12,
+        top: 80
+    },
+
+    homeChatImage: {resizeMode: 'contain', width: 140, height: 180},
+
+
+    // speech on bottom
+    speechInput: {
+        position: 'absolute',
+        left: 0,
+        top: 580,
+    },
+
+    speechInputImage: {
+       
+       alignSelf: 'center'
+
+    },
+
+
+
+
+
+
     view: {
         flex: 1,
         justifyContent: 'center',

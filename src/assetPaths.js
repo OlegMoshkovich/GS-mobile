@@ -96,6 +96,18 @@ paths.staticScreens = {
 
 }
 
+
+
+paths.homeScreen = {
+    chatBubbles: require('../assets/Home_Bubble_Welcome1.png'),
+    background: require('../assets/Home_Background2.png'),
+    speechInputImage: require('../assets/Speech-input.png'),
+    icons: {
+        notificationIcon: require('../assets/icons/notificationsHome.png'),
+    }
+}
+
+
 paths.modals = {
 
 

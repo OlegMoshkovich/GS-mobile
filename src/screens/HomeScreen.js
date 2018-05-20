@@ -7,9 +7,7 @@ import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
-
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
-
 
 import SystemScreen from './SystemScreen';
 import MapScreen from './MapScreen';
@@ -36,98 +34,48 @@ import AvaEndBlue from './AvaEndBlue';
 import s from '../styles/homescreen';
 
 import AvaBottomMenuHomescreen from '../components/AvaBottomMenuHomescreen';
-
-
-
+import assetPaths from '../assetPaths';
 
 const config = {
   velocityThreshold: 0.5,
   directionalOffsetThreshold: 50
 };
 
-
 class HomeScreen extends React.Component {
-
   constructor(props) {
     super(props);
-
     this.state = {
       myText: 'I\'m ready to get swiped!',
       gestureName: 'none',
       backgroundColor: '#fff',
       navigation: this.props.navigation,
       awardTop: new Animated.Value(0),
-
+      showSpeech: false,
     };
-
-
-    console.log("homescreen loaded");
-    console.log(this.state);
-
-
   }
 
   animate = () => {
-    Animated.timing( this.state.awardTop, { toValue: -height, duration: 300, }
-    ).start();
-
+    Animated.timing( this.state.awardTop, { toValue: -height, duration: 300}).start();
     //this.setState({activated : !this.state.activated});
-}
+  }
 
- 
   onSwipe(gestureName, gestureState) {
     const {SWIPE_UP, SWIPE_DOWN, SWIPE_LEFT, SWIPE_RIGHT} = swipeDirections;
-    
     switch (gestureName) {
       case SWIPE_UP:
-        
-        
-        this.props.navigation.navigate({
-          
-           routeName: 'SystemModal',
-           params: {
-             transition: 'systemTransition'
-           } 
-        
-        
-        });
-
-        
-
+        this.props.navigation.navigate({ routeName: 'SystemModal',
+          params: { transition: 'systemTransition' }});
         break;
       case SWIPE_DOWN:
-        
-
-        //  this.animate();
-
-         // console.log(this.state);
-
-
-
-        //
-      
-        this.props.navigation.navigate({
-
-          routeName: 'ShopModal',
-          params: {
-            transition: 'shopTransition'
-          } 
-        }
-        
-        );
-  
+        this.props.navigation.navigate({ routeName: 'ShopModal',
+          params: { transition: 'shopTransition'} });
         break;
-      
     }
   }
  
-
-
-
-
   environmentSwitch = () => {
     console.log('environment'+ this.state.environmentSwitch)
-      this.setState({environmentSwitch : !this.state.environmentSwitch});
+    this.setState({environmentSwitch : !this.state.environmentSwitch});
   }
 
   _onLongPressButton() {
@@ -146,105 +94,90 @@ class HomeScreen extends React.Component {
       )
     }
 
+  renderNotification() {
+    return(
+      <View style={s.notificationContainer}>
+        <TouchableOpacity>
+          <Image style={s.notificationIcon} source={assetPaths.homeScreen.icons.notificationIcon} />
+        </TouchableOpacity>
+      </View>
+    );
+  }
+
+  showChat() {
+    //
+    console.log("1 speech showing", this.state);
+
+    this.setState({showSpeech : true});
+
+    this.setState({myText: 'foo'});
+
+    console.log("2 speech showing", this.state);
+  }
 
   renderChat() {
     return(
-      <TouchableOpacity style = {[s.homeChatText,
-        {right: this.state.activated? 0:-200}]}
-        onPress={this.animate} onLongPress={this.animate}>
-        <Image style={[s.homeChatTextImage, {
-          height: this.state.environmentSwitch ? 0:155,
-          }]}
-          source={require('../../assets/Home_Bubble_Welcome1.png')}
-        />
-      </TouchableOpacity>
+      <View style={s.homeChatContainer}>
+        <TouchableOpacity onPress={() => {
+          
+            console.log("clicked on showspeec");
+            console.log("state was", this.state.showSpeech);
 
-    );
+            console.log("setting to true")
+            this.setState({showSpeech: true})
+
+            console.log("state set");
+            console.log(this.state.showSpeech);
+
+
+            
+          }
+          }>
+          <Image style={s.homeChatImage} 
+          source={assetPaths.homeScreen.chatBubbles} />
+        </TouchableOpacity>
+      </View>);
   }
-
 
   systemScreenStyle() {
-
-      return {
-        height: height,
-        width: width,
-        backgroundColor: 'transparent',
-
-      }
-
+    return { height: height, width: width, backgroundColor: 'transparent'}
   }
 
-
-
-  
-
   render() {
-
-
-
-    //let { fadeAnim } = this.state;
-
-
-
-    const animatedStyle = {
-
-      transform: [
-        {translateY: this.state.awardTop}
-      ]
-    }
+    const animatedStyle = { transform: [{translateY: this.state.awardTop}] }
 
     return (
-     
-      
-         <View>
+      <View>
+        <GestureRecognizer
+          onSwipe={(direction, state) => this.onSwipe(direction, state)}
+          config={config} style={{ flex: 1,
+            backgroundColor: this.state.backgroundColor
+          }}>
+          <View style={{ flex: 1, height: height, width: width}}>
+            <Image blurRadius={this.state.blurRadius}
+              style={{ height: height, width: width}}
+              source={assetPaths.homeScreen.background}/>
+              { this.renderNotification() }
+              { this.state.showSpeech ? null: this.renderChat() }
+
+            { this.state.showSpeech ? 
             
-          <GestureRecognizer
-        onSwipe={(direction, state) => this.onSwipe(direction, state)}
-        config={config}
-        style={{
-          flex: 1,
-          backgroundColor: this.state.backgroundColor
-        }}
-        >
+              <View style={[s.speechInput, {width: width}]} >
+                <TouchableOpacity onPress={() => this.setState({showSpeech: false})}>
+                <Image style={[s.speechInputImage, {width: width-50}]}
+                  resizeMode="contain"
+                  source={assetPaths.homeScreen.speechInputImage} />
+                </TouchableOpacity>
+              </View>
+            : null }
 
-        <View style={[s.viewStyle, { height: height, width: width}]}>
-            
-            
-            <Image
-              blurRadius={this.state.blurRadius}
-              style={{
-                height: this.state.environmentSwitch ? 0: height,
-                width: width, opacity: 1}}
-              source={require('../../assets/Home_Background1.png')}
-            />
-
-
-                
-
-            <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
-
-
-{/*
-          
-          
-            <Animated.View style={animatedStyle}>
-              <AwardScreen /> 
-            </Animated.View>
-          
-   
-*/}
-
-
-
-            
-            </View>
-            
-</GestureRecognizer>
-        
-       
+              { this.state.showSpeech ? null : 
+                <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
+              }
+            {/* <Animated.View style={animatedStyle}><AwardScreen /> </Animated.View> */}
           </View>
-
-    );
+        </GestureRecognizer> 
+      </View>);
   }
 }
 
