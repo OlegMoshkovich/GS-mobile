@@ -5,7 +5,7 @@ import {
 } from 'react-native';
 
 var styles = StyleSheet.create({
-    
+
 
     container: {
         top: 20,
@@ -18,10 +18,11 @@ var styles = StyleSheet.create({
     menuText: {
         color: "white",
         fontSize: 40,
-        fontFamily: 'trefoil-sans-black',
+        // fontFamily: 'trefoil-sans-black',
+        // fontFamily: 'helvetica',
         margin: 15,
         opacity: 0.8,
-        
+
     },
 
     menuNavButton: {
@@ -29,7 +30,7 @@ var styles = StyleSheet.create({
     },
 
     menuNavButtonImage: {
-        height: 40, 
+        height: 40,
         width: 40
     },
 
@@ -45,7 +46,7 @@ var styles = StyleSheet.create({
 
 
 
-    
+
 
 
 });

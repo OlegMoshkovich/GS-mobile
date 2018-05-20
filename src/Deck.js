@@ -5,7 +5,7 @@ import { withNavigation } from 'react-navigation'
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SWIPE_THRESHOLD = .05*SCREEN_WIDTH;
-const SWIPE_OUT_DURATION = 300;
+const SWIPE_OUT_DURATION = 200;
 
 class Deck extends Component{
 

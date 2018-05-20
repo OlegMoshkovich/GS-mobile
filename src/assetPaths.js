@@ -1,6 +1,6 @@
 /*
 
-organizing asset paths here 
+organizing asset paths here
 
 */
 
@@ -31,14 +31,17 @@ paths.bottomMenu = {
 
     darkGradient: require('../assets/bottomMenu/Nav_Bottom_Revised.png'),
 
+    // contextual icons above ava head
 
     contextIcons: {
         addCalendar: require('../assets/bottomMenu/icons/context-addCalendarEntry.png'),
         addChat: require('../assets/bottomMenu/icons/context-addChat.png'),
         addStory: require('../assets/bottomMenu/icons/context-postStory.png'),
-        seeFriends: require('../assets/bottomMenu/icons/context-seeFriends.png')
+        seeFriends: require('../assets/bottomMenu/icons/context-seeFriends.png'),
+        // had to change this because the actual asset was missing which breaks the app
+        
+        profile: require('../assets/bottomMenu/icons/context-seeFriends.png'),
     }
-    // contextual icons above ava head
 
 
 
@@ -63,7 +66,7 @@ paths.bottomMenu.homeScreen = {
 
     darkGradient: require('../assets/bottomMenu/Nav_Bottom_Revised.png')
 
-};
+}
 
 
 paths.topMenu = {
@@ -83,7 +86,6 @@ paths.topMenu = {
 
 
 paths.staticScreens = {
-
     journeyScreen: require('../assets/staticScreens/journey-2x.png'),
     awardScreen: require('../assets/staticScreens/awards-2x.png'),
     badgeScreen: require('../assets/staticScreens/badges-2x.png'),

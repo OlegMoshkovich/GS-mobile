@@ -9,13 +9,21 @@ const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
 import ShopScreen from './ShopScreen';
 import s from '../styles/systemscreen';
+import { DraggableBox } from '../TestComponents/draggable';
+
+
+import AvaBottomMenu from '../components/AvaBottomMenu.js';
+import TopMenu from '../components/TopMenu';
+import assetPaths from '../assetPaths';
+
+
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SWIPE_THRESHOLD = .05*SCREEN_WIDTH;
 const SWIPE_OUT_DURATION = 300;
 
 class SystemScreen extends React.Component {
-  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -50,54 +58,52 @@ class SystemScreen extends React.Component {
         }
       )
   }
-    viewStyle() {
-      return {
 
-        justifyContent: 'center',
-        alignItems: 'center',
-      }
-    }
 
 
 
 
   render() {
-  
+
 
     // need to refactor the icons into a flexbox grid
     // noticed that the icons dont all line up properly with their text...
 
     let { fadeAnim } = this.state;
     return (
-      
-      
+
+
       <LinearGradient
-       colors={['#394A74', '#AD95AB', '#394A74']}
+       colors={['#7E97D5', '#C499CD', '#FEC8E3']}
        style={[{ height: height, width:width}]}>
 
-      <View style ={s.container}>
-        <Text style ={s.menuText}>my profile</Text>
-        <TouchableOpacity style ={{margin:20}}>
-          <Image style={{height: 15,width: 15,top:50}}
-            source={require('../../assets/System-Icon-Search.png')} />
-        </TouchableOpacity>
-      </View>
 
-      <View style ={s.profileContainer}>
-        <TouchableOpacity style ={{left:10}}>
-          <Image style={s.profileImage}
-            source={require('../../assets/System-Ava-Avatar.png')} />
-        </TouchableOpacity>
-        <Text style ={s.profileCompleteText}>Your profile is only 51% complete</Text>
-      </View>
+       <TopMenu menuTitle="profile" iconPath={assetPaths.topMenu.profileIcon} />
+       <View style={s.profileContainer}>
+       <TouchableOpacity>
+       <Image style={s.percentage}
+         source={require('../../assets/icons/Profile/Percentage.png')} />
+       </TouchableOpacity>
+       <TouchableOpacity>
+       <Image style={s.avaProfile}
+         source={require('../../assets/icons/Profile/Ava.png')} />
+       </TouchableOpacity>
+       <TouchableOpacity>
+       <Image style={s.addUser}
+         source={require('../../assets/icons/Profile/AddUser.png')} />
+       </TouchableOpacity>
+       </View>
+      <Text style={s.userName}>@Ava_G</Text>
+
+
+      <DraggableBox />
 
 
 
-      <TouchableOpacity style = {s.systemIconsContainer}
-        onPress={this.animate} onLongPress={this.animate}>
-        <Image style={s.systemIconsImage}
-          source={require('../../assets/System-Menu.png')} />
-      </TouchableOpacity>
+      <AvaBottomMenu showTab={true} contextIcon={true} tabTitle={"Resume"} tabLeft={15} navigation={this.props.navigation}/>
+
+ 
+
     </LinearGradient>
     );
   }

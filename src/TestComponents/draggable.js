@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react';
-import { Animated, StyleSheet, View } from 'react-native';
+import { Animated, StyleSheet, View,Text } from 'react-native';
 
 import {
   PanGestureHandler,
@@ -10,6 +10,8 @@ import {
 
 import { USE_NATIVE_DRIVER } from './config';
 import { LoremIpsum } from './common';
+
+
 
 export class DraggableBox extends Component {
   constructor(props) {
@@ -56,7 +58,10 @@ export class DraggableBox extends Component {
               ],
             },
           ]}
-        />
+        >
+        <Text style={styles.text}>Outdoor</Text>
+        </Animated.View>
+
       </PanGestureHandler>
     );
   }
@@ -68,25 +73,43 @@ export default class Example extends Component {
   };
   render() {
     return (
+
       <ScrollView style={styles.scrollView}>
-        <LoremIpsum words={40} />
         <DraggableBox minDist={30} />
-        <LoremIpsum />
+
+
       </ScrollView>
+
     );
   }
 }
 
 const styles = StyleSheet.create({
   scrollView: {
+
     flex: 1,
+    position:'absolute',
+    top:100
   },
   box: {
+    bottom:200,
     width: 150,
     height: 150,
+    borderRadius:150,
     alignSelf: 'center',
-    backgroundColor: 'plum',
+    backgroundColor: 'white',
+    opacity:.4,
     margin: 10,
-    zIndex: 200,
+    zIndex: 0,
+  },
+  text: {
+    borderRadius:150,
+    alignSelf: 'center',
+    top:50,
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'black',
+    margin: 10,
+    zIndex: 0,
   },
 });

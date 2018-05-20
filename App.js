@@ -159,7 +159,7 @@ const transitionConfig = () => {
         const params = scene.route.params || {}
 
 
-        
+
         //const transition = params.transition;
 
 
@@ -191,10 +191,10 @@ const transitionConfig = () => {
 
 
               outputRange: [ yVariable, 0],
-    
-            }) 
-          
-          
+
+            })
+
+
 /*
         console.log("translateY", translateY);
         console.log("params", params);
@@ -205,7 +205,7 @@ const transitionConfig = () => {
 
               inputRange: [0,1],
               outputRange: [0, height],
-    
+
             })
           }
 
@@ -216,7 +216,7 @@ const transitionConfig = () => {
 
 
 
-        
+
 
 
         return {
@@ -236,7 +236,7 @@ const transitionConfig = () => {
 
 
 }
-  
+
 
 class App extends React.Component {
 
@@ -290,56 +290,53 @@ chat font: trefoil slab light
       Award: {screen: AwardScreen},
       AvaBlue: { screen: AvaEndBlue }
       },
-    
+
       {
         swipeEnabled:this.state.swiping,
 
         initialRouteName:'Home',
-        
+
         navigationOptions: {
           tabBarVisible: false
         },
     });
 
 
-    
-    
+
+
     const RootStack = StackNavigator(
       {
-    
-    
+
+
         Main: {
           screen: TabStack,
         },
-    
+
         SystemModal: {
           screen: SystemScreen,
         },
-    
-    
         ShopModal: {
           screen: ShopScreen
         },
-        
         ArticleModal: {
           screen: ArticleModalScreen,
         },
-        
+
       },
-      
-      
+
+
       {
-    
+
         transitionConfig,
         mode: 'modal',
         headerMode: 'none',
       }
-    
-    
-    
+
+
+
     );
 
-    
+
 
     TabStack.navigationOptions = ({ navigation }) => {
       let { routeName } = navigation.state.routes[navigation.state.index];
@@ -349,20 +346,20 @@ chat font: trefoil slab light
           swiping: false,
         })
 */
-        
+
       }
    }
 
 
 
     return (
-      
+
 
 
 
         <RootStack />
-  
-  
+
+
     );
   }
 }

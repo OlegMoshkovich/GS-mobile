@@ -23,14 +23,14 @@ var styles = StyleSheet.create({
     },
 
 
-    // ava 
+    // ava
     avaMenu: {
         alignSelf: 'flex-end',
         position: 'absolute',
         right: 20,
     },
 
-    // revised ava 
+    // revised ava
     avaImage: {
         height: 150,
         width: 100,
@@ -56,12 +56,12 @@ var styles = StyleSheet.create({
         width: 40,
     },
 
- 
+
     // the tab that appears sometimes
     tabButton: {
         alignSelf: 'flex-start', position: 'absolute', left: 15, zIndex: 1,
         bottom: -4,
-        
+
     },
     // background image
     tabImage: {
@@ -71,8 +71,13 @@ var styles = StyleSheet.create({
 
     // text on top
     tabText: {
-        fontFamily: 'trefoil-sans-regular',
-        position: 'absolute', top: 15, left: 14, zIndex: 2,
+        // fontFamily: 'trefoil-sans-regular',
+
+        position: 'absolute',
+        top: 15,
+        left: 14,
+        zIndex: 2,
+
         fontSize: 12,
     },
 
