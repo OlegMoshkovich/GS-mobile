@@ -152,23 +152,89 @@ class DashboardScreen extends React.Component {
         }
       )
   }
+
   render() {
 
     return (
       <LinearGradient
       colors={['#F9C025', '#FFDB2B']}
          style={{
+
            height: height,
            width:width,
          }}>
-         
+
         <TopMenu menuTitle="#comms" iconPath={assetPaths.topMenu.connectIcon} />
 
 
+        <View
+        style={{
+        height:height-100,
+        top:100,
+        flex:1,
+        left:20,
+        flexDirection: 'column',
+        justifyContent: 'space-around',
+        alignItems: 'flex-start',
+        position:'absolute',
+        }}>
+             <TouchableOpacity
+               onPress={() => this.props.navigation.navigate({
+                 routeName: 'CommunicationChat',
+                     params: {
+                         transition: 'default'
+                     }
+                   }
+               )}>
+               <Image
+                 style={{height: 50,width: 50}}
+                   source={require('../../assets/icons/Connect/Icon_chat.png')}
+               />
+             </TouchableOpacity>
+
+             <TouchableOpacity
+               onPress={() => this.props.navigation.navigate({
+                 routeName: 'CommunicationChat',
+                     params: {
+                         transition: 'default'
+                     }
+                   }
+               )}>
+               <Image
+                style={{height: 50,width: 50}}
+                   source={require('../../assets/icons/Connect/Icon_events.png')}
+               />
+             </TouchableOpacity>
+             <TouchableOpacity
+               onPress={() => this.props.navigation.navigate({
+                 routeName: 'CommunicationChat',
+                     params: {
+                         transition: 'default'
+                     }
+                   }
+               )}>
+               <Image
+                 style={{height: 50,width: 50}}
+                   source={require('../../assets/icons/Connect/Icon_calendar.png')}
+               />
+             </TouchableOpacity>
+             <TouchableOpacity
+               onPress={() => this.props.navigation.navigate({
+                 routeName: 'CommunicationChat',
+                     params: {
+                         transition: 'default'
+                     }
+                   }
+               )}>
+               <Image
+                style={{height: 50,width: 50}}
+                   source={require('../../assets/icons/Connect/Icon_map.png')}
+               />
+             </TouchableOpacity>
+</View>
 
 
-
-           <TouchableOpacity
+      {/*     <TouchableOpacity
              style={{
              flex:1,
              top:435,
@@ -207,6 +273,8 @@ class DashboardScreen extends React.Component {
                  source={require('../../assets/Events-icon.png')}
              />
            </TouchableOpacity>
+
+
 
            <Animated.ScrollView
                horizontal
@@ -281,7 +349,8 @@ class DashboardScreen extends React.Component {
                  </View>
                ))}
            </Animated.ScrollView>
-
+*/}
+           <AvaBottomMenu showTab={false}  tabLeft={15} navigation={this.props.navigation}/>
 
       </LinearGradient>
     );

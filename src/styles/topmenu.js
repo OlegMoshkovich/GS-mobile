@@ -12,6 +12,7 @@ var styles = StyleSheet.create({
         flex: 1, // this needs to be rewritten...
         flexDirection: 'row',
         justifyContent: 'space-between',
+
         //borderColor: 'black',
         //borderWidth: 1,
     },
