@@ -7,8 +7,6 @@ import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 
 
-
-
 // styles
 import s from '../styles/communityscreen.js';
 
@@ -20,9 +18,6 @@ import TopMenu from '../components/TopMenu';
 import assetPaths from '../assetPaths';
 
 
-
-
-
 class CommunityScreen extends React.Component {
  constructor(props) {
     super(props);
@@ -32,7 +27,6 @@ class CommunityScreen extends React.Component {
     };
   }
 
-
   setModalVisible(visible) {
      this.setState({modalVisible: visible});
   }
@@ -40,24 +34,22 @@ class CommunityScreen extends React.Component {
   renderNewStoriesSection() {
 
     // these images contain titles: TODO need to remove that 
-
-
     return(
       <ScrollView horizontal= {true}  >
       <Image
         style={s.newStoryImage}
         resizeMode="cover"
-        source={require('../../assets/Article_2.1.png')}
+        source={assetPaths.stories.storyCard01}
       />
       <Image
         style={s.newStoryImage}
         resizeMode="cover"
-        source={require('../../assets/Article_2.2.png')}
+        source={assetPaths.stories.storyCard02}
       />
       <Image
         style={s.newStoryImage}
         resizeMode="cover"
-        source={require('../../assets/Article_2.3.png')}
+        source={assetPaths.stories.storyCard03}
       />
     </ScrollView >
     );

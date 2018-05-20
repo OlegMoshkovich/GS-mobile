@@ -102,26 +102,33 @@ paths.modals = {
         shareIcon: require('../assets/Share.png'),
 
         starIcon: require('../assets/Star.png'),
-        commentIcon:
+        
+        commentIcon: require('../assets/Comment.png'),
 
-
-
-            require('../assets/Comment.png'),
-
-        clapIcon:
-
-
-            require('../assets/Clap.png'),
+        clapIcon: require('../assets/Clap.png'),
 
 
         exitIcon: require('../assets/Exit-icon.png'),
 
-     
+
 
 
     }
 
 }
+
+
+paths.stories = {
+    storyCard01: 
+        require('../assets/Article_2.1.png'),
+        storyCard02: 
+        require('../assets/Article_2.2.png'),
+        storyCard03: 
+        require('../assets/Article_2.3.png')
+    
+}
+
+
 
 
 export default paths;
