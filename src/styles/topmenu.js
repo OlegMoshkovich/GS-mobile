@@ -18,7 +18,7 @@ var styles = StyleSheet.create({
     menuText: {
         color: "white",
         fontSize: 40,
-        // fontFamily: 'trefoil-sans-black',
+        fontFamily: 'trefoil-sans-black',
         // fontFamily: 'helvetica',
         margin: 15,
         opacity: 0.8,
