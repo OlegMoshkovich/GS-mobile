@@ -39,7 +39,7 @@ class CommunityScreen extends React.Component {
 
   renderNewStoriesSection() {
 
-    // these images contain titles: TODO need to remove that 
+    // these images contain titles: TODO need to remove that
 
 
     return(
@@ -64,7 +64,7 @@ class CommunityScreen extends React.Component {
   }
   renderAllStoriesSection() {
 
-    // these images contain titles: TODO need to remove that 
+    // these images contain titles: TODO need to remove that
 
     return(
       <ScrollView horizontal= {true} style={{marginBottom:200}} >
@@ -140,7 +140,7 @@ class CommunityScreen extends React.Component {
        {this.renderNewStoriesSection()}
 
 
-        
+
          <Text style ={s.newStoriesTitle}>All Stories</Text>
         {this.renderAllStoriesSection()}
 
@@ -154,9 +154,9 @@ class CommunityScreen extends React.Component {
         <LinearGradient
         colors={['#F9C025', '#FFDB2B']}
          style={{ height: height, width:width}}>
-     
-        {/* this feels wrong ... clicking on michelle o story results in a badly styled modal 
-        
+
+        {/* this feels wrong ... clicking on michelle o story results in a badly styled modal
+
         */}
          <Modal
            animationType="slide"
@@ -173,9 +173,9 @@ class CommunityScreen extends React.Component {
 
              <View style={{ top:200}}>
                <Text>The first ever White House Camp Out</Text>
-               
+
                {/* why is this image styled differently??? */}
-               
+
                <Image
                  style={{height:211,width:224,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
 
@@ -194,12 +194,12 @@ class CommunityScreen extends React.Component {
 
          </Modal>
 
-               
+
           <TopMenu menuTitle="#share" iconPath={assetPaths.topMenu.shareIcon} />
 
-          
+
        {/* render featured stories */
-       
+
         this.renderStories()
       }
 

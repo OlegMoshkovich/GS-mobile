@@ -28,7 +28,8 @@ paths.bottomMenu = {
         addCalendar: require('../assets/bottomMenu/icons/context-addCalendarEntry.png'),
         addChat: require('../assets/bottomMenu/icons/context-addChat.png'),
         addStory: require('../assets/bottomMenu/icons/context-postStory.png'),
-        seeFriends: require('../assets/bottomMenu/icons/context-seeFriends.png')
+        seeFriends: require('../assets/bottomMenu/icons/context-seeFriends.png'),
+        profile: require('../assets/bottomMenu/icons/context-system.png'),
     }
     // contextual icons above ava head
 

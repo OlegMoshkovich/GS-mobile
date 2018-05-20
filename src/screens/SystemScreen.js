@@ -100,9 +100,9 @@ class SystemScreen extends React.Component {
 
 
 
-      <AvaBottomMenu showTab={true} tabTitle={"Resume"} tabLeft={15} navigation={this.props.navigation}/>
+      <AvaBottomMenu showTab={true} contextIcon={true} tabTitle={"Resume"} tabLeft={15} navigation={this.props.navigation}/>
 
-
+ 
 
     </LinearGradient>
     );

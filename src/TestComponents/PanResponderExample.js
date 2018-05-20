@@ -9,7 +9,7 @@ import { LoremIpsum } from '../common';
 var CIRCLE_SIZE = 80;
 
 // A clone of: https://github.com/facebook/react-native/blob/master/RNTester/js/PanResponderExample.js
-export default class PanResponderExample extends Component {
+export class PanResponderExample extends Component {
 
   _panResponder = {};
   _previousLeft = 0;

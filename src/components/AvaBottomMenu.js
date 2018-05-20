@@ -29,7 +29,7 @@ const navMenu_active = -200;
 const navMenu_inactive = 50;
 
 
-// tab 
+// tab
 const tabLocationBottom_inactive = -2;
 const tabLocationBottom_active = -100;
 const tabHeight = 50;
@@ -65,20 +65,20 @@ tabAnimation = () => {
         } else {
             this.setState({ blurRadius: maxBlurRadius });
         }
-        
-        
+
+
         Animated.timing(this.state.fadeAnim, { toValue: this.state.activated ? 1: 0, duration: animationDuration}).start(
 
             //console.log("animation done, now do something, ", this.state);
             () => {
-                
+
                 if (this.state.activated == true) {
                     console.log('activated ')
                     this.setState({tabOpacity: 1})
                 } else {
                     //console.log('deacrtivated')
                     this.setState({tabOpacity: 0})
-                    
+
 
                 }
             }
@@ -87,16 +87,16 @@ tabAnimation = () => {
 
 
         );
-        
-        
-        
+
+
+
 
         if (this.state.activated == true) {
             this.setState({
                 tabOpacity: 1,
                 activated: false
-            
-            
+
+
             });
         } else {
             this.setState({tabOpacity: 0, activated: true,});
@@ -141,6 +141,23 @@ tabAnimation = () => {
                             source={assetPaths.bottomMenu.contextIcons.seeFriends} />
                     </TouchableOpacity>
                 );
+            case 'Events':
+                return(
+                    <TouchableOpacity>
+                        <Image style={[s.contextIcon]}
+                            source={assetPaths.bottomMenu.contextIcons.seeFriends} />
+                    </TouchableOpacity>
+                );
+            case 'SystemModal':
+                return(
+                    <TouchableOpacity>
+                        <Image style={[s.contextIcon]}
+                            source={assetPaths.bottomMenu.contextIcons.profile} />
+                    </TouchableOpacity>
+                );
+
+
+
 
 
 
@@ -149,21 +166,21 @@ tabAnimation = () => {
                 // nothing
                 return;
 
-            
+
 
         }
-        
-        
+
+
 
     }
 
     render() {
 
-        
+
             return (
-               
+
                 <View>
-                  
+
                 <TouchableOpacity
                     style = {{
                     alignSelf: 'flex-end', position: 'absolute', right: 5, zIndex: 1,
@@ -178,18 +195,18 @@ tabAnimation = () => {
                     <Image style={s.avaImage}
                         source={assetPaths.bottomMenu.avaFace} />
 
-                    
+
 
 
                 </TouchableOpacity>
 
                 {
-                    
+
                     // show the little tab here in some cases
 
-                    this.props.showTab ? 
-                
-            
+                    this.props.showTab ?
+
+
                 <TouchableOpacity
                     style = {[s.tabButton, {
                     height: tabHeight, opacity: this.state.tabOpacity,
@@ -198,11 +215,11 @@ tabAnimation = () => {
                     <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
                         source={assetPaths.bottomMenu.tabBackground} />
                     <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
-                        
-                </TouchableOpacity> : 
+
+                </TouchableOpacity> :
                 null
                 }
-              
+
                 <Image
                     style={[s.gradientStyle, { width: width,
                         bottom: this.state.activated ? gradientBottom_active: gradientBottom_inactive}]}
@@ -231,7 +248,7 @@ tabAnimation = () => {
         }
 
 
-        
+
     }
 
 

@@ -11,6 +11,8 @@ import {
 import { USE_NATIVE_DRIVER } from './config';
 import { LoremIpsum } from './common';
 
+
+
 export class DraggableBox extends Component {
   constructor(props) {
     super(props);
@@ -71,11 +73,13 @@ export default class Example extends Component {
   };
   render() {
     return (
+
       <ScrollView style={styles.scrollView}>
         <DraggableBox minDist={30} />
 
 
       </ScrollView>
+
     );
   }
 }
