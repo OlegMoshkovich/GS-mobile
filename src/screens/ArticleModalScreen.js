@@ -55,17 +55,18 @@ class ModalScreen extends React.Component {
       </TouchableOpacity>
 
      <ScrollView >
-       <Text style ={s.articleTitle}>{JSON.stringify(title)}</Text>
+       <Text style ={s.articleTitle}>{title}</Text>
        <Image
           style={{height: 225,marginTop:41,marginBottom:41,marginLeft:0,marginRight:0,}}
           resizeMode="cover"
           source={sourceUri}
        />
-       <Text style ={s.articleText}>{JSON.stringify(text)}</Text>
-       <Text style ={s.articleText}>{JSON.stringify(text)}</Text>
-       <Text style ={s.articleText}>{JSON.stringify(text)}</Text>
-       <Text style ={s.articleText}>{JSON.stringify(text)}</Text>
-      
+       <Text style ={s.articleText}>{text}</Text>
+       <Text style ={s.articleText}>{text}</Text>
+       <Text style ={s.articleText}>{text}</Text>
+       <Text style ={s.articleText}>{text}</Text>
+
+       
      </ScrollView>
 
       </View>
