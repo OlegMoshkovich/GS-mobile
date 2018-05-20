@@ -51,6 +51,19 @@ var styles = StyleSheet.create({
         width: 40
     },
 
+    featuredStoriesView: {
+        top: 100,
+        position: 'absolute',
+        
+    },
+
+    featuredStoriesScrollView: {
+        marginTop: 40,
+    },
+
+
+
+
     featuredStoriesTitle: {
         color: "white",
         fontSize: 22,
@@ -91,6 +104,23 @@ var styles = StyleSheet.create({
         marginLeft: 10,
         left: 20
     },
+
+
+    // stories section
+    storySectionView: {
+        marginBottom: 200
+    },
+
+
+    // story modal - probably should
+    // go into its own file
+    storyModalView: {
+        top: 200
+    },
+
+    storyModalImage: {height:211,width:224,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20},
+
+    
 
 
 

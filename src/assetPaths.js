@@ -119,12 +119,29 @@ paths.modals = {
 
 
 paths.stories = {
-    storyCard01: 
-        require('../assets/Article_2.1.png'),
-        storyCard02: 
-        require('../assets/Article_2.2.png'),
-        storyCard03: 
-        require('../assets/Article_2.3.png')
+    
+
+    featuredStories: {
+        storyCard01: require('../assets/Article_1.2.png'),
+        storyCard02: require('../assets/Article_1.1.png'),
+        storyCard03: require('../assets/Article_1.3.png'),
+    },
+    newStories: {
+        storyCard01: require('../assets/Article_2.1.png'),
+        storyCard02: require('../assets/Article_2.2.png'),
+        storyCard03: require('../assets/Article_2.3.png')
+    },
+
+    allStories: {
+        storyCard01: require('../assets/Article_2.3.png'),
+        storyCard02: require('../assets/Article_2.2.png'),
+        storyCard03: require('../assets/Article_2.1.png'),
+
+    },
+
+    storyModal: {
+        storyImage: require('../assets/Article_Image_3.png')
+    }
     
 }
 

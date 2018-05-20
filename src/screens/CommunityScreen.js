@@ -26,177 +26,92 @@ class CommunityScreen extends React.Component {
       activated    : true,
     };
   }
-
   setModalVisible(visible) {
-     this.setState({modalVisible: visible});
+    this.setState({modalVisible: visible});
   }
-
   renderNewStoriesSection() {
-
-    // these images contain titles: TODO need to remove that 
+    // TODO create actual cards
     return(
       <ScrollView horizontal= {true}  >
-      <Image
-        style={s.newStoryImage}
-        resizeMode="cover"
-        source={assetPaths.stories.storyCard01}
-      />
-      <Image
-        style={s.newStoryImage}
-        resizeMode="cover"
-        source={assetPaths.stories.storyCard02}
-      />
-      <Image
-        style={s.newStoryImage}
-        resizeMode="cover"
-        source={assetPaths.stories.storyCard03}
-      />
-    </ScrollView >
+        <Image style={s.newStoryImage} resizeMode="cover"
+          source={assetPaths.stories.newStories.storyCard01} />
+        <Image style={s.newStoryImage} resizeMode="cover"
+          source={assetPaths.stories.newStories.storyCard02} />
+        <Image style={s.newStoryImage} resizeMode="cover"
+          source={assetPaths.stories.newStories.storyCard03} />
+      </ScrollView>
     );
   }
   renderAllStoriesSection() {
-
-    // these images contain titles: TODO need to remove that 
-
+    // TODO create cards
     return(
-      <ScrollView horizontal= {true} style={{marginBottom:200}} >
-      <Image
-        style={s.newStoryImage}
-        resizeMode="cover"
-        source={require('../../assets/Article_2.3.png')}
-      />
-
-
-      <Image
-        style={s.newStoryImage}
-        resizeMode="cover"
-        source={require('../../assets/Article_2.2.png')}
-      />
-      <Image
-        style={s.newStoryImage}
-        resizeMode="cover"
-        source={require('../../assets/Article_2.1.png')}
-      />
-
+      <ScrollView horizontal= {true} style={s.storySectionView} >
+        <Image style={s.newStoryImage} resizeMode="cover"
+          source={assetPaths.stories.newStories.storyCard01} />
+        <Image style={s.newStoryImage} resizeMode="cover"
+          source={assetPaths.stories.newStories.storyCard02} />
+        <Image style={s.newStoryImage} resizeMode="cover"
+          source={assetPaths.stories.newStories.storyCard03} />
      </ScrollView >
     );
   }
-
-  renderStories() {
+  renderFeaturedStories() {
     return(
-      <ScrollView
-      style ={{
-       top:100,
-       position:'absolute',
-       height: height,
-        }}>
-         <Text style ={s.featuredStoriesTitle}>Featured</Text>
-
-         <ScrollView horizontal= {true} style={{marginTop:40}}>
-
-         <TouchableOpacity
-           onPress={() => {this.props.navigation.navigate('MyModal', stories.story01);
-           }}>
-           <Image style={s.featuredStoryImage} resizeMode="cover"
-             source={require('../../assets/Article_1.2.png')} />
-         </TouchableOpacity>
-         <TouchableOpacity
-           onPress={() => {this.props.navigation.navigate('MyModal', {
-           text: "Text", title:"Title" });
-           }}>
-           <Image
-             style={s.featuredStoryImage}
-             resizeMode="cover"
-               source={require('../../assets/Article_1.1.png')}
-           />
-           </TouchableOpacity>
-
-
-
-           <TouchableOpacity
-           onPress={() => {
-                this.setModalVisible(true);
-
-             }}>
-           <Image
-             style={s.featuredStoryImage}
-             resizeMode="cover"
-               source={require('../../assets/Article_1.3.png')}
-           />
-           </TouchableOpacity>
-
-         </ScrollView >
-
-
-       <Text style ={s.newStoriesTitle}>Whats New</Text>
-       {this.renderNewStoriesSection()}
-
-
-        
-         <Text style ={s.newStoriesTitle}>All Stories</Text>
-        {this.renderAllStoriesSection()}
-
-     </ScrollView>
-
-    );
+    <ScrollView
+      style ={[s.featuredStoriesView, {height: height}]}>
+      <Text style ={s.featuredStoriesTitle}>Featured</Text>
+      <ScrollView horizontal= {true} style={{marginTop:40}}>
+        <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('MyModal', stories.story01); }}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.featuredStories.storyCard01} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('MyModal', {
+          text: "Text", title:"Title" }); }}>
+          <Image
+            style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.featuredStories.storyCard02} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => { this.setModalVisible(true); }}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.featuredStories.storyCard03} />
+        </TouchableOpacity>
+      </ScrollView >
+      <Text style ={s.newStoriesTitle}>Whats New</Text>
+        {this.renderNewStoriesSection()}
+      <Text style ={s.newStoriesTitle}>All Stories</Text>
+          {this.renderAllStoriesSection()}
+    </ScrollView>);
   }
 
   render() {
     return (
-        <LinearGradient
-        colors={['#F9C025', '#FFDB2B']}
-         style={{ height: height, width:width}}>
-     
-        {/* this feels wrong ... clicking on michelle o story results in a badly styled modal 
-        
-        */}
-         <Modal
-           animationType="slide"
-           transparent={false}
-           visible={this.state.modalVisible}
-           onRequestClose={() => {
-             alert('Modal has been closed.');
-           }}>
-
-
-           <LinearGradient
-            colors={['#F9C025', '#FFDB2B']}
-            style={{ height: height, width:width}}>
-
-             <View style={{ top:200}}>
-               <Text>The first ever White House Camp Out</Text>
-               
-               {/* why is this image styled differently??? */}
-               
-               <Image
-                 style={{height:211,width:224,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20}}
-
-                   source={require('../../assets/Article_Image_3.png')}
-               />
-               <TouchableOpacity
-                 onPress={() => {
-                   this.setModalVisible(!this.state.modalVisible);
-                 }}>
-                 <Text>close</Text>
-               </TouchableOpacity>
-             </View>
-
-            </LinearGradient>
-
-
-         </Modal>
-
-               
-          <TopMenu menuTitle="#share" iconPath={assetPaths.topMenu.shareIcon} />
-
+      <LinearGradient colors={['#F9C025', '#FFDB2B']}
+        style={{ height: height, width:width}}>
+        {/* this feels wrong ... clicking on michelle o story results in a badly styled modal  */}
+        <Modal animationType="slide" transparent={false}
+          visible={this.state.modalVisible}
+          onRequestClose={() => { alert('Modal has been closed.'); }}>
           
-       {/* render featured stories */
-       
-        this.renderStories()
-      }
-
-           <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
-
+          <LinearGradient colors={['#F9C025', '#FFDB2B']}
+            style={{ height: height, width:width}}>
+            <View style={s.storyModalView}>
+              <Text>The first ever White House Camp Out</Text>
+              <Image style={s.storyModalImage}
+                source={assetPaths.stories.storyModal.storyImage} />
+              <TouchableOpacity
+                onPress={() => {this.setModalVisible(!this.state.modalVisible); }}>
+                <Text>close</Text>
+              </TouchableOpacity>
+            </View>
+          </LinearGradient>
+        </Modal>
+        <TopMenu menuTitle="share" iconPath={assetPaths.topMenu.shareIcon} />
+        
+        { this.renderFeaturedStories() }
+        <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
       </LinearGradient>
     );
   }
