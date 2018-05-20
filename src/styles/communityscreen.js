@@ -54,7 +54,7 @@ var styles = StyleSheet.create({
     featuredStoriesView: {
         top: 100,
         position: 'absolute',
-        
+
     },
 
     featuredStoriesScrollView: {
@@ -118,9 +118,17 @@ var styles = StyleSheet.create({
         top: 200
     },
 
-    storyModalImage: {height:211,width:224,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20},
+    storyModalImage: {
+        height: 211,
+        width: 224,
+        marginBottom: 10,
+        marginTop: 10,
+        marginRight: 10,
+        marginLeft: 10,
+        left: 20
+    },
 
-    
+
 
 
 

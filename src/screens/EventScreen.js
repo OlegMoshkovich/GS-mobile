@@ -155,55 +155,30 @@ class EventScreen extends React.Component {
     });
 
     return (
-
-      
-
-        
-        
-
-      
- 
-        
-          <LinearGradient
-          colors={['#F9C025', '#FFDB2B']}
-            style={{ height: height, width:width}}>
-            <TopMenu menuTitle="what" iconPath={assetPaths.topMenu.connectIcon} />
-            
-          
-            <View style={[s.container, {height: height}]}>
-              { /* render map */
-                this.renderMapView(interpolations)
-              }
-              <Animated.ScrollView
-                horizontal
-                scrollEventThrottle={1}
-                showsHorizontalScrollIndicator={false}
-                snapToInterval={CARD_WIDTH-30}
-                onScroll={Animated.event([
-                  {nativeEvent: {contentOffset: {x: this.animation}}}
-                  ], { useNativeDriver: true }
-                )}
-                style={s.scrollView}>{this.state.markers.map((marker, index) => (
+      <LinearGradient
+        colors={['#F9C025', '#FFDB2B']}
+        style={{ height: height, width:width}}>
+        <TopMenu menuTitle="what" iconPath={assetPaths.topMenu.connectIcon} />
+          <View style={[s.container, {height: 330}]}>
+            { this.renderMapView(interpolations) }
+            <Animated.ScrollView
+              horizontal
+              scrollEventThrottle={1}
+              showsHorizontalScrollIndicator={false}
+              snapToInterval={CARD_WIDTH-30}
+              onScroll={Animated.event([
+                {nativeEvent: {contentOffset: {x: this.animation}}}], { useNativeDriver: true }
+              )}
+              style={s.scrollView}>{this.state.markers.map((marker, index) => (
                 <View style={[s.card, {shadowOffset: { x: 2, y: -2 },
-                  height: CARD_HEIGHT,
-                  width: CARD_WIDTH,}]} key={index}>
+                  height: CARD_HEIGHT, width: CARD_WIDTH,}]} key={index}>
                   <Image source={marker.image} style={s.cardImage} resizeMode="cover" />
-                </View>
-                ))}
-              </Animated.ScrollView>
-            </View>
-            
-            <AvaBottomMenu contextIcon={true} showTab={true} tabTitle={"All Events"} tabLeft={19} navigation={this.props.navigation}/> 
-
-
-          </LinearGradient>
-
-    );
+                </View>))}
+            </Animated.ScrollView>
+          </View>
+          <AvaBottomMenu contextIcon={true} showTab={true} tabTitle={"All Events"} tabLeft={19} navigation={this.props.navigation}/> 
+        </LinearGradient>);
   }
-
-
-
-
   
 }
 

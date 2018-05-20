@@ -161,11 +161,8 @@ class DashboardScreen extends React.Component {
            height: height,
            width:width,
          }}>
-
-
-
+         
         <TopMenu menuTitle="#comms" iconPath={assetPaths.topMenu.connectIcon} />
-
 
 
 

@@ -5,6 +5,12 @@ import {
 } from 'react-native';
 
 var styles = StyleSheet.create({
+
+    container: {
+        
+        
+    },
+    
     // icons next to ava
     navMenu: {
         flex: 1,

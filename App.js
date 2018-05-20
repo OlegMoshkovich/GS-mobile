@@ -23,6 +23,7 @@ import BadgeScreen from './src/screens/BadgeScreen';
 import JourneyScreen from './src/screens/JourneyScreen';
 import AwardScreen from './src/screens/AwardScreen';
 import AvaEndBlue from './src/screens/AvaEndBlue';
+import StoryModalScreen from './src/screens/StoryModalScreen';
 
 // adding fonts
 import { Font } from 'expo';
@@ -321,7 +322,10 @@ chat font: trefoil slab light
         ArticleModal: {
           screen: ArticleModalScreen,
         },
+        StoryModal: {
+          screen: StoryModalScreen,
 
+        }
       },
 
 

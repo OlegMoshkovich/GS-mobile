@@ -7,8 +7,9 @@ import {Card, Button,Icon} from 'react-native-elements';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
 
-
-import AvaBottomMenu from '../components/AvaBottomMenu.js';
+import TopMenu from '../components/TopMenu';
+import AvaBottomMenu from '../components/AvaBottomMenu';
+import assetPaths from '../assetPaths';
 
 
 // global styles
@@ -33,33 +34,8 @@ class CalendarScreen extends React.Component {
       <LinearGradient
       colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
-
-        <Text style ={s.menuText}>when</Text>
-
-        {/* comms menu -- TODO abstract to component - need enclosing JSX */}
-        <TouchableOpacity style ={s.commsDashboardIcon}
-          onPress={() => this.props.navigation.navigate({
-          routeName: 'CommunicationDashboard', params: { transition: 'default' }}
-          )}>
-          <Image style={s.commsMenuIconImage} 
-            source={require('../../assets/Dashboard-icon.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity  style ={s.commsChatIcon}
-          onPress={() => this.props.navigation.navigate({
-          routeName: 'CommunicationChat', params: { transition: 'default' }}
-          )}>
-          <Image style={s.commsMenuIconImage} 
-            source={require('../../assets/Chat-icon.png')} />
-        </TouchableOpacity>
-        <TouchableOpacity  style ={s.commsCalendarIcon}
-          onPress={() => this.props.navigation.navigate({
-          routeName: 'CommunicationCalendar', params: { transition: 'default' }}
-        )}>
-          <Image style={s.commsMenuIconImage} 
-            source={require('../../assets/Calendar-icon.png')} />
-        </TouchableOpacity>
-
-
+        <TopMenu menuTitle="when" iconPath={assetPaths.topMenu.connectIcon} />
+        
         <Agenda
           items={this.state.items}
           loadItemsForMonth={this.loadItems.bind(this)}
@@ -79,13 +55,13 @@ class CalendarScreen extends React.Component {
           //    '2017-05-26': {endingDay: true, color: 'gray'}}}
           // monthFormat={'yyyy'}
           theme={{calendarBackground: 'white', agendaKnobColor: 'darkgrey',selectedDayBackgroundColor: '#56CCF2', todayTextColor: 'red',  agendaTodayColor: 'red',}}
+          style={{top: -230,  height: 900, bottom: 200}}
+        
           //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
         />
        
 
       <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
-
-       
 
       </LinearGradient>
    );

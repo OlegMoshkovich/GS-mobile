@@ -62,22 +62,20 @@ class CommunityScreen extends React.Component {
       <Text style ={s.featuredStoriesTitle}>Featured</Text>
       <ScrollView horizontal= {true} style={{marginTop:40}}>
         <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('MyModal', stories.story01); }}>
+          onPress={() => {this.props.navigation.navigate('StoryModal', stories.story01)}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.featuredStories.storyCard01} />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('MyModal', {
-          text: "Text", title:"Title" }); }}>
-          <Image
-            style={s.featuredStoryImage} resizeMode="cover"
+          onPress={() => {console.log(2); this.props.navigation.navigate('StoryModal', stories.story02)}}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.featuredStories.storyCard02} />
         </TouchableOpacity>
         <TouchableOpacity
-          onPress={() => { this.setModalVisible(true); }}>
+          onPress={() => {this.props.navigation.navigate('StoryModal', stories.story03)}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.featuredStories.storyCard03} />
-        </TouchableOpacity>
+        </TouchableOpacity>        
       </ScrollView >
       <Text style ={s.newStoriesTitle}>Whats New</Text>
         {this.renderNewStoriesSection()}
@@ -90,27 +88,11 @@ class CommunityScreen extends React.Component {
     return (
       <LinearGradient colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
-        {/* this feels wrong ... clicking on michelle o story results in a badly styled modal  */}
-        <Modal animationType="slide" transparent={false}
-          visible={this.state.modalVisible}
-          onRequestClose={() => { alert('Modal has been closed.'); }}>
-          
-          <LinearGradient colors={['#F9C025', '#FFDB2B']}
-            style={{ height: height, width:width}}>
-            <View style={s.storyModalView}>
-              <Text>The first ever White House Camp Out</Text>
-              <Image style={s.storyModalImage}
-                source={assetPaths.stories.storyModal.storyImage} />
-              <TouchableOpacity
-                onPress={() => {this.setModalVisible(!this.state.modalVisible); }}>
-                <Text>close</Text>
-              </TouchableOpacity>
-            </View>
-          </LinearGradient>
-        </Modal>
         <TopMenu menuTitle="share" iconPath={assetPaths.topMenu.shareIcon} />
         
         { this.renderFeaturedStories() }
+        
+        
         <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
       </LinearGradient>
     );
