@@ -179,7 +179,7 @@ tabAnimation = () => {
 
             return (
 
-                <View>
+                <View style={s.container}>
 
                 <TouchableOpacity
                     style = {{
