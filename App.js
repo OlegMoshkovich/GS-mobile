@@ -281,7 +281,6 @@ chat font: trefoil slab light
       Connect: { screen: CommsDashboardScreen},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
-      Profile: { screen: SystemScreen},
       Explore: { screen: ExploreScreen },
       Dashboard: { screen: DashboardScreen },
       Badges: { screen: BadgeScreen},
