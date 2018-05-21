@@ -9,6 +9,7 @@ const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
 import ShopScreen from './ShopScreen';
 import s from '../styles/systemscreen';
+
 import { DraggableBox } from '../TestComponents/draggable';
 import { DraggableBox1 } from '../TestComponents/draggable1';
 import { DraggableBox2 } from '../TestComponents/draggable2';
@@ -28,6 +29,7 @@ class SystemScreen extends React.Component {
 
   constructor(props) {
     super(props);
+    console.log('this is system screen' ,this.props.navigation)
     this.state = {
       moveAnim     : new Animated.Value(0),
       activated    : true,
@@ -79,8 +81,8 @@ class SystemScreen extends React.Component {
        colors={['#7E97D5', '#C499CD', '#FEC8E3']}
        style={[{ height: height, width:width}]}>
        <TouchableOpacity
-         style={s.exit} onPress={() => this.props.navigation.goBack()} >
-         <Image style ={{width:35,height:35}} source={assetPaths.modals.articleModal.exit}/>
+         style={[s.exit, {zIndex: 100}]} onPress={() => this.props.navigation.goBack()} >
+         <Image style ={{width:45,height:45}} source={assetPaths.modals.articleModal.exit}/>
         </TouchableOpacity>
 
 
