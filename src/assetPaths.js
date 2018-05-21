@@ -91,8 +91,8 @@ paths.staticScreens = {
     journeyScreen: require('../assets/staticScreens/journey-2x.png'),
     awardScreen: require('../assets/staticScreens/awards-2x.png'),
     badgeScreen: require('../assets/staticScreens/badges-2x.png'),
-    avaEndBlue: require('../assets/staticScreens/Nav_Avatar_Face_Animations.png'),
-    avaEndYellow: require('../assets/staticScreens/ava-yellow-2x.png'),
+    avaEndBlue: require('../assets/ava_end.png'),
+    avaEndYellow: require('../assets/ava_end_yellow.png'),
     eventScreen: require('../assets/staticScreens/events-2x.png'),
 
 

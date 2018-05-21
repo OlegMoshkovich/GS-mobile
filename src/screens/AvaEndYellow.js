@@ -28,7 +28,7 @@ class AvaEndYellow extends React.Component {
         style={{ height: height, width:width, justifyContent: 'center', alignItems: 'center', }}>
 
 
-        <Image  style={{}} source={assetPaths.staticScreens.avaEndYellow} />
+        <Image style={{width: width}}resizeMode="contain" source={assetPaths.staticScreens.avaEndYellow} />
         
         
 
