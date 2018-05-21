@@ -22,6 +22,9 @@ class JourneyScreen extends React.Component {
 
 
   render() {
+
+    console.log(width);
+
     return (
       <LinearGradient
       colors={['#00C5F0', '#50EAFF']}
@@ -29,12 +32,30 @@ class JourneyScreen extends React.Component {
 
         <TopMenu menuTitle="journeys" iconPath={assetPaths.topMenu.dashboardIcon} />
         <NavMenu highlighted={3} />
-
-        <View style={{flex: 1, alignItems: 'center'}}>
-          <Text>pending redesign</Text>
+      
+        <View style={s.journeyContainer}>
+          <View style={s.journeyHeadlineContainer}>
+            <Text style={s.journeyHeadline}>Sow What? Award</Text>
+          </View>
+          <View style={s.journeyCarouselContainer}>
+            <Image style={s.journeyCarouselSwipeImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.swipeNavLeft}/>
+            <Image style={s.journeyCarouselCaretImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.caretLeft}/>
+            <Image style={s.journeyCarouselCenterImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.journeyImage}/>
+            <Image style={s.journeyCarouselCaretImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.caretRight}/>
+            <Image style={s.journeyCarouselSwipeImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.swipeNavRight}/>
+          </View>
         </View>
+        <View style={s.journeyCompletedContainer}>
+          <Image style={s.journeyCompletedImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.completed}/>
+          <Text style={s.journeyAwardNameTitle}>Harvest Award</Text>
+        </View>
+       
+        <View style={s.journeyBottomContainer}>
+          <Image style={{width: width-70, alignSelf: 'center'}} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.journeyCard}/>
+          
+        </View>
+       
 
-        
         
 
         <AvaBottomMenu navigation={this.props.navigation}/> 

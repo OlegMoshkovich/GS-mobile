@@ -180,6 +180,28 @@ paths.stories = {
 
     },
 
+
+    paths.journeyScreen = {
+
+        journeyCarousel: {
+
+            swipeNavLeft: require('../assets/journey/journey-slidenav-left.png'),
+            swipeNavRight: require('../assets/journey/journey-slidenav-right.png'),
+            caretLeft: require('../assets/journey/journey-caret-left.png'),
+            caretRight: require('../assets/journey/journey-caret-right.png'),
+
+            journeyImage: require('../assets/journey/journey-badge.png'),
+
+            journeyCard: require('../assets/journey/journey-card.png'),
+
+            completed: require('../assets/journey/journey-completed.png'),
+
+
+        },
+
+
+    },
+
     paths.navMenu = {
 
         dotOn: require('../assets/navMenu/navDot_on.png'),
