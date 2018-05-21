@@ -15,9 +15,9 @@ paths.bottomMenu = {
 
     calendarIcon: require('../assets/bottomMenu/icons/Calendar-icon.png'),
     chatIcon: require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
-   
-   
-   
+
+
+
     communityIcon: require('../assets/bottomMenu/icons/NAV_share-home.png'),
     connectIcon: require('../assets/bottomMenu/icons/NAV_connect-home.png'),
     dashboardIcon: require('../assets/bottomMenu/icons/NAV_dash-home.png'),
@@ -27,11 +27,11 @@ paths.bottomMenu = {
     connectIconOn: require('../assets/bottomMenu/icons/home-connect.png'),
     dashboardIconOn: require('../assets/bottomMenu/icons/home-dash.png'),
     exploreIconOn: require('../assets/bottomMenu/icons/home-explore.png'),
-    
-    
 
 
-    
+
+
+
     homeIcon: require('../assets/bottomMenu/icons/NAV_home-home.png'),
     mapIcon: require('../assets/bottomMenu/icons/Map-icon.png'),
     shopIcon: require('../assets/bottomMenu/icons/Shop-icon.png'),
@@ -109,6 +109,7 @@ paths.staticScreens = {
     avaEndBlue: require('../assets/ava_end.png'),
     avaEndYellow: require('../assets/ava_end_yellow.png'),
     eventScreen: require('../assets/staticScreens/events-2x.png'),
+    postModal: require('../assets/staticScreens/post.png'),
 
 
 }
