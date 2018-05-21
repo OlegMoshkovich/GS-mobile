@@ -20,6 +20,7 @@ import assetPaths from '../assetPaths';
 
 
 class CommunityScreen extends React.Component {
+
  constructor(props) {
     super(props);
     this.state = {
@@ -27,9 +28,11 @@ class CommunityScreen extends React.Component {
       activated    : true,
     };
   }
+
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
   }
+
   renderNewStoriesSection() {
     // TODO create actual cards
     return(
@@ -43,6 +46,7 @@ class CommunityScreen extends React.Component {
       </ScrollView>
     );
   }
+
   renderAllStoriesSection() {
     // TODO create cards
     return(
@@ -56,6 +60,7 @@ class CommunityScreen extends React.Component {
      </ScrollView >
     );
   }
+
   renderFeaturedStories() {
     return(
     <ScrollView
@@ -67,16 +72,18 @@ class CommunityScreen extends React.Component {
           <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.featuredStories.storyCard01} />
         </TouchableOpacity>
+
         <TouchableOpacity
-          onPress={() => {console.log(2); this.props.navigation.navigate('StoryModal', stories.story02)}}>
+          onPress={() => { this.props.navigation.navigate('StoryModal', stories.story02)}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.featuredStories.storyCard02} />
         </TouchableOpacity>
+
         <TouchableOpacity
           onPress={() => {this.props.navigation.navigate('StoryModal', stories.story03)}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.featuredStories.storyCard03} />
-        </TouchableOpacity>        
+        </TouchableOpacity>
       </ScrollView >
       <Text style ={s.newStoriesTitle}>Whats New</Text>
         {this.renderNewStoriesSection()}
@@ -92,9 +99,9 @@ class CommunityScreen extends React.Component {
         <TopMenu menuTitle="share" iconPath={assetPaths.topMenu.shareIcon} />
         <NavMenu highlighted={4} />
         { this.renderFeaturedStories() }
-        
-        
-        <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
+
+
+        <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/>
       </LinearGradient>
     );
   }
