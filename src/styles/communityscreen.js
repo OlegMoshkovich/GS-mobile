@@ -69,7 +69,7 @@ var styles = StyleSheet.create({
         fontSize: 22,
         top: 20,
         left: 30,
-        fontWeight: 'bold',
+        fontFamily: 'trefoil-sans-semibold'
     },
 
 
@@ -90,8 +90,8 @@ var styles = StyleSheet.create({
         color: "white",
         fontSize: 22,
         left: 30,
-        fontWeight: 'bold',
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'trefoil-sans-regular'
     },
 
 

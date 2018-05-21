@@ -85,7 +85,7 @@ class CommunityScreen extends React.Component {
             source={assetPaths.stories.featuredStories.storyCard03} />
         </TouchableOpacity>
       </ScrollView >
-      <Text style ={s.newStoriesTitle}>Whats New</Text>
+      <Text style ={s.newStoriesTitle}>Troop Stories</Text>
         {this.renderNewStoriesSection()}
       <Text style ={s.newStoriesTitle}>All Stories</Text>
           {this.renderAllStoriesSection()}

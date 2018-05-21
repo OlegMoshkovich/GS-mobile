@@ -26,7 +26,7 @@ class AwardScreen extends React.Component {
       colors={['#00C5F0', '#50EAFF']}
         style={{ height: height, width:width }}>
 
-        <TopMenu menuTitle="awards" iconPath={assetPaths.topMenu.dashboardIcon} />
+        <TopMenu navigation={this.props.navigation} menuTitle="awards" iconPath={assetPaths.topMenu.dashboardIcon} />
         <NavMenu highlighted={4} />
 
          <View style={s.awardContainer}>

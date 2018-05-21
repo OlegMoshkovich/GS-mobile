@@ -31,7 +31,7 @@ class CalendarScreen extends React.Component {
       <LinearGradient
       colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
-        <TopMenu menuTitle="when" iconPath={assetPaths.topMenu.connectIcon} />
+        <TopMenu navigation={this.props.navigation} menuTitle="when" iconPath={assetPaths.topMenu.connectIcon} />
         <NavMenu highlighted={0} />
 
 

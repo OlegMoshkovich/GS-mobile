@@ -260,7 +260,7 @@ class ChatScreen extends React.Component {
       colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
 
-        <TopMenu menuTitle="who" iconPath={assetPaths.topMenu.connectIcon} />
+        <TopMenu navigation={this.props.navigation} menuTitle="who" iconPath={assetPaths.topMenu.connectIcon} />
         <NavMenu highlighted={2} />
 
 

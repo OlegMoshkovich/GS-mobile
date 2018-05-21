@@ -30,7 +30,7 @@ class JourneyScreen extends React.Component {
       colors={['#00C5F0', '#50EAFF']}
         style={{ height: height, width:width }}>
 
-        <TopMenu menuTitle="journeys" iconPath={assetPaths.topMenu.dashboardIcon} />
+        <TopMenu navigation={this.props.navigation} menuTitle="journeys" iconPath={assetPaths.topMenu.dashboardIcon} />
         <NavMenu highlighted={3} />
       
         <View style={s.journeyContainer}>
