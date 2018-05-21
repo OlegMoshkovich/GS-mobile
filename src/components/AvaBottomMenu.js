@@ -230,7 +230,7 @@ tabAnimation = () => {
                 <Image
                     style={[s.gradientStyle, { width: width,
                         bottom: this.state.activated ? gradientBottom_active: gradientBottom_inactive}]}
-                    source={assetPaths.bottomMenu.darkGradient} />
+                    source={assetPaths.bottomMenu.gradient} />
                 <View style={[s.navStyle, {
                     bottom: this.state.activated ? navMenu_active: navMenu_inactive,
                     }]}>

@@ -107,11 +107,11 @@ class HomeScreen extends React.Component {
   renderChat() {
     return(
       <View style={s.homeChatContainer}>
-        <TouchableOpacity onPress={() => this.setState({showSpeech: true})}>
+        <TouchableOpacity >
           <Image style={[s.homeChatImage]} 
           source={assetPaths.homeScreen.chatBubbles} />
         </TouchableOpacity>
-        <TouchableOpacity style={{width: 50, left: 80, top: -30}}>
+        <TouchableOpacity style={{width: 50, left: 80, top: -30}} onPress={() => this.setState({showSpeech: true})}>
         <Image style={s.homeTutorialImage}
           source={assetPaths.homeScreen.responseBubbles} />
         </TouchableOpacity>
@@ -127,12 +127,10 @@ class HomeScreen extends React.Component {
 
     return (
       <View>
-        <GestureRecognizer
-          onSwipe={(direction, state) => this.onSwipe(direction, state)}
-          config={config} style={{ flex: 1,
-            backgroundColor: this.state.backgroundColor
-          }}>
+        
           <View style={{ flex: 1, height: height, width: width}}>
+          
+
             <Image blurRadius={this.state.blurRadius}
               style={{ height: height, width: width}}
               source={assetPaths.homeScreen.background}/>
@@ -150,14 +148,42 @@ class HomeScreen extends React.Component {
               </View>
             : null }
 
-              {
-                 this.state.showSpeech ? null : 
-                /* <AvaBottomMenuHomescreen navigation={this.props.navigation}/> */
-                null
-              }
+             
             {/* <Animated.View style={animatedStyle}><AwardScreen /> </Animated.View> */}
+          
+            <View style={{ top: 20, position: 'absolute', zIndex: 12, alignSelf: 'center', }}>
+              <TouchableOpacity onPress={() => {
+
+
+this.props.navigation.navigate({ routeName: 'SystemModal',
+params: { transition: 'systemTransition' }});
+
+
+              }}>
+                <Image source={assetPaths.homeScreen.icons.swipeUpIcon} style={
+                  { width: 35, height: 35 }}/>
+              </TouchableOpacity>
+            </View>
+
+             <View style={{ bottom: -600, position: 'absolute', zIndex: 12, alignSelf: 'center', }}>
+              <TouchableOpacity onPress={() => {
+
+this.props.navigation.navigate({ routeName: 'ShopModal',
+params: { transition: 'shopTransition' }});
+
+
+              }}>
+                <Image source={assetPaths.homeScreen.icons.swipeDownIcon} style={
+                  { width: 35, height: 35 }}/>
+              </TouchableOpacity>
+            </View>
+
+             {
+                 this.state.showSpeech ? null : 
+                <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
+              }
+          
           </View>
-        </GestureRecognizer> 
       </View>);
   }
 }

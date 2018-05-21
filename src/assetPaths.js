@@ -29,7 +29,7 @@ paths.bottomMenu = {
 
 
 
-    darkGradient: require('../assets/bottomMenu/Nav_Bottom_Revised.png'),
+    gradient: require('../assets/bottomMenu/avabottom-gradient.png'),
 
     // contextual icons above ava head
 
@@ -65,7 +65,7 @@ paths.bottomMenu.homeScreen = {
     shopIcon: require('../assets/bottomMenu/icons/Shop-icon.png'),
 
 
-    darkGradient: require('../assets/bottomMenu/Nav_Bottom_Revised.png')
+    gradient: require('../assets/bottomMenu/homescreen_gradient-bottom.png')
 
 }
 
@@ -108,6 +108,8 @@ paths.homeScreen = {
 
     icons: {
         notificationIcon: require('../assets/icons/notificationsHome.png'),
+        swipeUpIcon: require('../assets/icons/Home_SwipeUp.png'),
+        swipeDownIcon: require('../assets/icons/Home_SwipeDown.png'),
     }
 }
 
