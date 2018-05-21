@@ -5,18 +5,14 @@ import {
 } from 'react-native';
 
 var styles = StyleSheet.create({
-
-
     container: {
         top: 20,
         flex: 1, // this needs to be rewritten...
         flexDirection: 'row',
         justifyContent: 'space-between',
-
         //borderColor: 'black',
         //borderWidth: 1,
     },
-
 
     menuText: {
         color: "white",
@@ -24,7 +20,6 @@ var styles = StyleSheet.create({
         fontFamily: 'trefoil-sans-black',
         margin: 15,
         opacity: 0.8,
-
     },
 
     menuNavButton: {
@@ -37,8 +32,6 @@ var styles = StyleSheet.create({
         height: 40,
         width: 40
     },
-
-
 
     menuTapIconImage: {
         height: 72 / 4,
