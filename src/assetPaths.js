@@ -77,7 +77,8 @@ paths.topMenu = {
     dashboardIcon: require('../assets/topMenu/NAV_dash-top.png'),
     exploreIcon: require('../assets/topMenu/NAV_explore-top.png'),
     shareIcon: require('../assets/topMenu/NAV_share-top.png'),
-    tapHereIcon: require('../assets/topMenu/Tap_here_icon.png')
+    tapHereIcon: require('../assets/topMenu/Tap_here_icon.png'),
+    profileIcon: require('../assets/topMenu/NAV_profile.png')
 
 
 
