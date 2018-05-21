@@ -132,7 +132,7 @@ class DashboardScreen extends React.Component {
            width:width,
          }}>
 
-        <TopMenu menuTitle="connect" iconPath={assetPaths.topMenu.connectIcon} />
+        <TopMenu navigation={this.props.navigation} menuTitle="connect" iconPath={assetPaths.topMenu.connectIcon} />
         <NavMenu highlighted={3} />
 
 

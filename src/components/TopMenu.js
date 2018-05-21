@@ -37,7 +37,9 @@ class TopMenu extends Component {
             case 'Calendar':
                 this.props.navigation.navigate('Connect');
                 break;
-
+            default:
+                console.log("no navigation yet");
+                break;
 
         }
         
