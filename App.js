@@ -24,6 +24,7 @@ import JourneyScreen from './src/screens/JourneyScreen';
 import AwardScreen from './src/screens/AwardScreen';
 import AvaEndBlue from './src/screens/AvaEndBlue';
 import StoryModalScreen from './src/screens/StoryModalScreen';
+import PostModalScreen from './src/screens/PostModalScreen';
 
 // adding fonts
 import { Font } from 'expo';
@@ -98,13 +99,13 @@ const transitionConfig = () => {
           if (params.transition == 'systemTransition') {
            // yVariable *= -1;
 
-            
+
       const opacity = position.interpolate({
         inputRange: [thisSceneIndex - 1, thisSceneIndex],
         outputRange: [0, 1],
       })
 
-      return { opacity } 
+      return { opacity }
 
 
           } else {
@@ -126,7 +127,7 @@ const transitionConfig = () => {
 
 
 
-        
+
 
 
       }
@@ -220,6 +221,10 @@ chat font: trefoil slab light
         },
         StoryModal: {
           screen: StoryModalScreen,
+
+        },
+        PostModal: {
+          screen: PostModalScreen,
 
         }
       },

@@ -115,7 +115,14 @@ tabAnimation = () => {
         switch (this.props.navigation.state.routeName) {
             case 'Community':
                 return(
-                    <TouchableOpacity onPress={() => console.log("open modal")} >
+
+                    <TouchableOpacity  onPress={() => this.props.navigation.navigate({
+                       routeName: 'PostModal',
+                           params: {
+                               transition: 'default'
+                           }
+                         }
+                     )}>
                         <Image style={[s.contextIcon]}
                             source={assetPaths.bottomMenu.contextIcons.addStory} />
                     </TouchableOpacity>
@@ -220,8 +227,8 @@ tabAnimation = () => {
                     style={[s.gradientStyle, { width: width,
                         bottom: this.state.activated ? gradientBottom_active: gradientBottom_inactive}]}
                     source={assetPaths.bottomMenu.gradient} />
-                
-                
+
+
                 <View style={[s.navStyle, {
                     bottom: this.state.activated ? navMenu_active: navMenu_inactive,
                     }]}>
@@ -231,7 +238,7 @@ tabAnimation = () => {
                     </TouchableOpacity>
                     <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
                         {this.props.currentSection == 'community' ?
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIconOn} /> : 
+                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIconOn} /> :
                         <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIcon} />}
                     </TouchableOpacity>
                     <TouchableOpacity  onPress={() => this.props.navigation.navigate('Home')}>
@@ -239,12 +246,12 @@ tabAnimation = () => {
                     </TouchableOpacity>
                     <TouchableOpacity  onPress={() => this.props.navigation.navigate('Explore')} >
                         {this.props.currentSection == 'explore' ?
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIconOn} /> : 
+                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIconOn} /> :
                         <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIcon} />}
                     </TouchableOpacity>
                     <TouchableOpacity  onPress={() => this.props.navigation.navigate('Dashboard')} >
                         {this.props.currentSection == 'dashboard' ?
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIconOn} /> : 
+                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIconOn} /> :
                         <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIcon} />}
                     </TouchableOpacity>
                 </View>

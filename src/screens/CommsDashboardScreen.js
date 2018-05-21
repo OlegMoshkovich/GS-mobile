@@ -153,6 +153,8 @@ class DashboardScreen extends React.Component {
                style={{
                top:70
                }}
+        
+
                onPress={() => this.props.navigation.navigate({
                  routeName: 'Chat',
                      params: {
