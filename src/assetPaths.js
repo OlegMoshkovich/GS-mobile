@@ -108,6 +108,8 @@ paths.homeScreen = {
 
     icons: {
         notificationIcon: require('../assets/icons/notificationsHome.png'),
+        swipeUpIcon: require('../assets/icons/Home_SwipeUp.png'),
+        swipeDownIcon: require('../assets/icons/Home_SwipeDown.png'),
     }
 }
 

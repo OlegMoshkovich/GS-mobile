@@ -51,87 +51,6 @@ let MyTransition = (index, position) => {
     };
 };
 
-/*
-let TransitionConfiguration = () => {
-
-    return {
-
-        // Define scene interpolation, eq. custom transition
-        screenInterpolator: (sceneProps) => {
-            const {position, scene} = sceneProps;
-            const {index} = scene;
-            return MyTransition(index, position);
-        }
-    }
-};
-
-const CommunicationStack = StackNavigator(
-  { //Screens
-    CommunicationDashboard: {
-            screen: CommsDashboardScreen,
-            navigationOptions: ({ navigation }) => ({
-                  title: `#chat`,
-                  headerTintColor: 'white',
-                  headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                  headerTitleStyle: {
-                    fontWeight: 'bold',
-                    fontSize: 30
-                  },
-                }),
-    },
-      CommunicationChat: {
-              screen: ChatScreen,
-              navigationOptions: ({ navigation }) => ({
-                    title: `#chat`,
-                    headerTintColor: 'white',
-                    headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                    headerTitleStyle: {
-                      fontWeight: 'bold',
-                      fontSize: 30
-                    },
-                  }),
-      },
-      CommunicationGifterdChat: {
-              screen: GiftedChatScreen,
-      },
-      CommunicationMap: {
-        screen: MapScreen,
-        navigationOptions: ({ navigation }) => ({
-              title: `#map`,
-              headerTintColor: 'white',
-              headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-              headerTitleStyle: {
-                fontWeight: 'bold',
-                fontSize: 30
-              },
-            }),
-      },
-      CommunicationCalendar: {
-          screen: CalendarScreen,
-          navigationOptions: ({ navigation }) => ({
-                title: `#calendar`,
-                headerTintColor: 'white',
-                headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                  fontSize: 30
-                },
-              }),
-      },
-      },
-
-      {
-      headerMode: 'none',
-      navigationOptions: {
-        headerVisible: false,
-      },
-      transitionConfig: TransitionConfiguration,
-      },
-
-    );
-
-*/
-
 
 
 
@@ -179,55 +98,35 @@ const transitionConfig = () => {
           if (params.transition == 'systemTransition') {
            // yVariable *= -1;
 
-          }
-        }
+            
+      const opacity = position.interpolate({
+        inputRange: [thisSceneIndex - 1, thisSceneIndex],
+        outputRange: [0, 1],
+      })
+
+      return { opacity } 
 
 
-
-        let translateY = position.interpolate({
-
+          } else {
+            let translateY = position.interpolate({
               inputRange: [thisSceneIndex-1,thisSceneIndex],
-
-
-
-
               outputRange: [ yVariable, 0],
-
             })
-
-
-/*
-        console.log("translateY", translateY);
-        console.log("params", params);
-
-        if (params.hasOwnProperty('transition')) {
-          if (params.transition == 'shopTransition') {
-            translateY = position.interpolate({
-
-              inputRange: [0,1],
-              outputRange: [0, height],
-
-            })
-          }
-
-        }
-
-
-        */
-
-
-
-
 
 
         return {
 
 
-
-
           transform: [ {translateY}]
         }
 
+
+          }
+        }
+
+
+
+        
 
 
       }

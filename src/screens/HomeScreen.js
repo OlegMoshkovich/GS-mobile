@@ -133,6 +133,8 @@ class HomeScreen extends React.Component {
             backgroundColor: this.state.backgroundColor
           }}>
           <View style={{ flex: 1, height: height, width: width}}>
+          
+
             <Image blurRadius={this.state.blurRadius}
               style={{ height: height, width: width}}
               source={assetPaths.homeScreen.background}/>
@@ -156,6 +158,37 @@ class HomeScreen extends React.Component {
                 null
               }
             {/* <Animated.View style={animatedStyle}><AwardScreen /> </Animated.View> */}
+          
+            <View style={{ top: 20, position: 'absolute', zIndex: 12, alignSelf: 'center', }}>
+              <TouchableOpacity onPress={() => {
+
+
+this.props.navigation.navigate({ routeName: 'SystemModal',
+params: { transition: 'systemTransition' }});
+
+
+              }}>
+                <Image source={assetPaths.homeScreen.icons.swipeUpIcon} style={
+                  { width: 35, height: 35 }}/>
+              </TouchableOpacity>
+            </View>
+
+             <View style={{ bottom: -620, position: 'absolute', zIndex: 12, alignSelf: 'center', }}>
+              <TouchableOpacity onPress={() => {
+
+this.props.navigation.navigate({ routeName: 'ShopModal',
+params: { transition: 'shopTransition' }});
+
+
+              }}>
+                <Image source={assetPaths.homeScreen.icons.swipeDownIcon} style={
+                  { width: 35, height: 35 }}/>
+              </TouchableOpacity>
+            </View>
+
+            
+          
+          
           </View>
         </GestureRecognizer> 
       </View>);
