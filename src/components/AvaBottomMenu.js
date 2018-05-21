@@ -141,11 +141,18 @@ tabAnimation = () => {
                             source={assetPaths.bottomMenu.contextIcons.seeFriends} />
                     </TouchableOpacity>
                 );
-            case 'Events':
+            case 'Dashboard':
                 return(
                     <TouchableOpacity>
                         <Image style={[s.contextIcon]}
-                            source={assetPaths.bottomMenu.contextIcons.seeFriends} />
+                            source={assetPaths.bottomMenu.contextIcons.refresh} />
+                    </TouchableOpacity>
+                );
+            case 'Explore':
+                return(
+                    <TouchableOpacity>
+                        <Image style={[s.contextIcon]}
+                            source={assetPaths.bottomMenu.contextIcons.star} />
                     </TouchableOpacity>
                 );
             case 'SystemModal':

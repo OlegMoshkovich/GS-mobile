@@ -39,8 +39,9 @@ paths.bottomMenu = {
         addStory: require('../assets/bottomMenu/icons/context-postStory.png'),
         seeFriends: require('../assets/bottomMenu/icons/context-seeFriends.png'),
         // had to change this because the actual asset was missing which breaks the app
-        
-        profile: require('../assets/bottomMenu/icons/context-seeFriends.png'),
+        refresh: require('../assets/bottomMenu/icons/context-refresh.png'),
+        profile: require('../assets/bottomMenu/icons/context-system.png'),
+        star: require('../assets/bottomMenu/icons/context-star.png'),
     }
 
 
