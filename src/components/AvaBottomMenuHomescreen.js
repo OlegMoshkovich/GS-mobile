@@ -33,7 +33,7 @@ class AvaBottomMenuHomescreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            activated: true,
+            activated: false,
             moveAnim: new Animated.Value(0),
             fadeAnim: new Animated.Value(0),
             blurRadius: initialBlurRadius
@@ -66,13 +66,8 @@ class AvaBottomMenuHomescreen extends Component {
                 height: avaHeight,
                 }}
                 onPress={this.animate} onLongPress={this.animate}>
-                <Image style={s.avaImage}
-                    source={assetPaths.bottomMenu.homeScreen.avaFace} />
+                
             </TouchableOpacity>
-            <Image
-                style={[s.gradientStyle, { width: width,
-                    bottom: this.state.activated ? gradientBottom_active: gradientBottom_inactive}]}
-                source={assetPaths.bottomMenu.homeScreen.darkGradient} />
             <View style={[s.navStyle, {
                 bottom: this.state.activated ? navMenu_active: navMenu_inactive,
                 }]}>
