@@ -15,7 +15,7 @@ import { LoremIpsum } from './common';
 
 
 
-export class DraggableBox extends Component {
+export class DraggableBox2 extends Component {
   constructor(props) {
     super(props);
     this._translateX = new Animated.Value(0);
@@ -50,7 +50,7 @@ export class DraggableBox extends Component {
         {...this.props}
         onGestureEvent={this._onGestureEvent}
         onHandlerStateChange={this._onHandlerStateChange}
-        id="dragbox">
+        id="dragbox2">
 
         <Animated.View
           style={[
@@ -63,14 +63,10 @@ export class DraggableBox extends Component {
             },
           ]}
         >
-        <Text style={styles.text}>Outdoor</Text>
+        <Text style={styles.text}>Volunteer</Text>
         </Animated.View>
 
       </PanGestureHandler>
-
-
-
-
     );
   }
 }
@@ -78,13 +74,16 @@ export class DraggableBox extends Component {
 
 
 const styles = StyleSheet.create({
-
+  scrollView: {
+    flex: 1,
+    position:'absolute',
+  },
   box: {
-    bottom:40,
-    right:80,
-    width: 150,
-    height: 150,
-    borderRadius:150,
+    bottom:70,
+    right:60,
+    width: 90,
+    height: 90,
+    borderRadius: 90,
     alignSelf: 'center',
     backgroundColor: 'white',
     opacity:.4,
@@ -94,8 +93,8 @@ const styles = StyleSheet.create({
   text: {
     borderRadius:150,
     alignSelf: 'center',
-    top:50,
-    fontSize: 20,
+    top:25,
+    fontSize: 12,
     fontWeight: 'bold',
     color: 'black',
     margin: 10,

@@ -10,6 +10,8 @@ import Swiper from 'react-native-swiper';
 import ShopScreen from './ShopScreen';
 import s from '../styles/systemscreen';
 import { DraggableBox } from '../TestComponents/draggable';
+import { DraggableBox1 } from '../TestComponents/draggable1';
+import { DraggableBox2 } from '../TestComponents/draggable2';
 
 
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
@@ -96,13 +98,15 @@ class SystemScreen extends React.Component {
       <Text style={s.userName}>@Ava_G</Text>
 
 
-      <DraggableBox />
+        <DraggableBox/>
+        <DraggableBox1/>
+        <DraggableBox2/>
 
 
 
       <AvaBottomMenu showTab={true} contextIcon={true} tabTitle={"Resume"} tabLeft={15} navigation={this.props.navigation}/>
 
- 
+
 
     </LinearGradient>
     );
