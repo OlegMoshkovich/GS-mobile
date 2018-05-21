@@ -22,6 +22,29 @@ class TopMenu extends Component {
     }
 
 
+    navigateBack() {
+        console.log("navigating back");
+        console.log(this.props.navigation);
+        switch (this.props.navigation.state.routeName) {
+            case 'Badges': 
+            case 'Journey': 
+            case 'Award': 
+
+                this.props.navigation.navigate('Dashboard');
+                break;
+            case 'Chat':
+            case 'Events':
+            case 'Calendar':
+                this.props.navigation.navigate('Connect');
+                break;
+
+
+        }
+        
+    }
+
+
+
     render() {
 
         //console.log(this.props);
@@ -34,7 +57,7 @@ class TopMenu extends Component {
             <Text style ={s.menuText}>{this.props.menuTitle}</Text>
 
             <TouchableOpacity style ={s.menuNavButton}
-              onPress={this.updateData}>
+              onPress={() => this.navigateBack()}>
               <Image style={s.menuNavButtonImage}
                 source={this.props.iconPath} />
             </TouchableOpacity>

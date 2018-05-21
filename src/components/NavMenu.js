@@ -25,7 +25,7 @@ class NavMenu extends Component {
             if (x == this.props.highlighted) { opacity = {opacity: 1}
             } else { opacity = {opacity: 0.5} }
             dots.push(
-                <Image source={assetPaths.navMenu.dotOn} style={[s.navDotIcon, opacity]}/>
+                <Image key={x} source={assetPaths.navMenu.dotOn} style={[s.navDotIcon, opacity]}/>
             )
         }
 
