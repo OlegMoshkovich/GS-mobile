@@ -93,8 +93,8 @@ paths.topMenu = {
     exploreIcon: require('../assets/topMenu/NAV_explore-top.png'),
     shareIcon: require('../assets/topMenu/NAV_share-top.png'),
     tapHereIcon: require('../assets/topMenu/Tap_here_icon.png'),
-    profileIcon: require('../assets/topMenu/NAV_profile.png')
-
+    profileIcon: require('../assets/topMenu/NAV_profile.png'),
+    shopIcon: require('../assets/shop/nav-top-right.png'),
 
 
 
@@ -240,6 +240,31 @@ paths.badges = {
         dotOff: require('../assets/navMenu/navDot_off.png')
 
     };
+
+
+    paths.shop = {
+
+        icons: {
+
+            wishlist: require('../assets/shop/shop-wishlist.png'),
+            close: require('../assets/shop/shop-close.png'),
+            
+
+
+        },
+        
+        productFeatured: require('../assets/shop/shop-featured-01.png'),
+        productFeatured2: require('../assets/shop/shop-featured-02.png'),
+        bubbleNav: require('../assets/shop/shop-bubbleNav.png'),
+        bottomCategories: require('../assets/shop/shop-bottom.png'),
+
+
+
+
+
+
+
+    }
 
 
 

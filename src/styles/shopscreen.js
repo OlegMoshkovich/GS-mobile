@@ -49,11 +49,15 @@ var styles = StyleSheet.create({
 
     featuredTitle: {
         color: "white",
-        fontSize: 22,
-        top: 20,
-        left: 30,
-        fontWeight: 'bold',
+        fontSize: 18,
+        fontFamily: 'trefoil-sans-semibold',
+        marginBottom: 10,
+        marginTop: 20,
+
+        left: 20,
+
     },
+
 
     featuredProductImage: {
         height: 401,
@@ -62,15 +66,16 @@ var styles = StyleSheet.create({
         marginTop: 10,
         marginRight: 10,
         marginLeft: 10,
-        left: 20
+        left: 10
     },
 
     whatsNewTitle: {
         color: "white",
         fontSize: 22,
         left: 30,
-        fontWeight: 'bold',
-        marginBottom: 10
+        marginBottom: 10,
+        fontFamily: 'trefoil-sans-regular',
+
     },
 
 

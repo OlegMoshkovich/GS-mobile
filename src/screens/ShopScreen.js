@@ -6,10 +6,9 @@ import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 
-
-
-import AvaBottomMenu from '../components/AvaBottomMenu.js';
-
+import TopMenu from '../components/TopMenu';
+import AvaBottomMenu from '../components/AvaBottomMenu';
+import assetPaths from '../assetPaths';
 
 // global styles
 import s from '../styles/shopscreen.js';
@@ -41,30 +40,24 @@ class ShopScreen extends React.Component {
   render() {
     return (
         <LinearGradient
-         colors={['#6EB365', '#49945C', 'white']}
+         colors={['#68D634', '#4CB034', '#3F8C2D']}
          style={{ height: height, width:width}}>
+        <TopMenu menuTitle="shop" iconPath={assetPaths.topMenu.shopIcon} navigation={this.props.navigation} />
 
-        <View style ={s.container}>
-          <Text style ={s.menuText}>#shop</Text>
-          <TouchableOpacity style ={s.menuButton}>
-            <Image style={s.menuButtonImage}
-              source={require('../../assets/Shop-icon.png')} />
-          </TouchableOpacity>
-        </View>
-
+        
         <ScrollView
-          style ={{ top:100, position:'absolute', height: height}}>
+          style ={{ top:70, position:'absolute', height: height}}>
           <Text style ={s.featuredTitle}>Featured</Text>
-          <ScrollView horizontal= {true} style={{marginTop:40}}>
+          <ScrollView horizontal= {true}>
             <Image style={s.featuredProductImage} resizeMode="cover"
-                source={require('../../assets/Shop_Image.png')} />
+                source={assetPaths.shop.productFeatured} />
             <Image style={s.featuredProductImage} resizeMode="cover"
-                source={require('../../assets/Shop_Image.png')} />
+                source={assetPaths.shop.productFeatured2} />
             <Image style={s.featuredProductImage} resizeMode="cover"
-                source={require('../../assets/Shop_Image.png')} />
+                source={assetPaths.shop.productFeatured} />
           </ScrollView >
           <Text style ={s.whatsNewTitle}>Whats New</Text>
-            <ScrollView horizontal= {true} style={{marginBottom:200}} >
+            <ScrollView horizontal= {true} style={{marginBottom:200, left: -10}} >
               <Image style={s.productImage} resizeMode="cover"
                 source={require('../../assets/Shop_Image3.png')} />
               <Image style={s.productImage} resizeMode="cover"
