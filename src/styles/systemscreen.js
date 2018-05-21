@@ -66,6 +66,7 @@ var styles = StyleSheet.create({
       },
 
   systemIconsImage: {height:480/1.2,width:330/1.2},
+  exit: {alignSelf:'center',position:'absolute', top:45,right:30},
 
 });
 

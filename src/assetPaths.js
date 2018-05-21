@@ -145,6 +145,7 @@ paths.modals = {
 
 
         exitIcon: require('../assets/Exit-icon.png'),
+        exit: require('../assets/icons/Exit.png'),
 
 
 

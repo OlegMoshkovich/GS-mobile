@@ -78,9 +78,13 @@ class SystemScreen extends React.Component {
       <LinearGradient
        colors={['#7E97D5', '#C499CD', '#FEC8E3']}
        style={[{ height: height, width:width}]}>
+       <TouchableOpacity
+         style={s.exit} onPress={() => this.props.navigation.goBack()} >
+         <Image style ={{width:35,height:35}} source={assetPaths.modals.articleModal.exit}/>
+        </TouchableOpacity>
 
 
-       <TopMenu menuTitle="profile" iconPath={assetPaths.topMenu.profileIcon} />
+       <TopMenu menuTitle="profile"  />
        <View style={s.profileContainer}>
        <TouchableOpacity>
        <Image style={s.percentage}
