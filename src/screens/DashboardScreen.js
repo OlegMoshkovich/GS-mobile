@@ -24,9 +24,9 @@ class DashboardScreen extends React.Component {
       environmentSwitch: false,
     };
   };
-  
+
   renderDashboardMenu() {
-      
+
     // TODO make global: also that tap icon does not suggest swiping
     return(
       <View style ={s.container}>
@@ -47,7 +47,7 @@ class DashboardScreen extends React.Component {
   }
 
   renderAvaDashboard() {
-  
+
     // TODO -- need to remove the touchable Opacity items here that
     // right now just give padding
 
@@ -57,16 +57,25 @@ class DashboardScreen extends React.Component {
       <View style={s.mainDashboard}>
         <TouchableOpacity></TouchableOpacity>
         <TouchableOpacity></TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => this.props.navigation.navigate({
+          routeName: 'Badges'}
+          )}>
           <Image
             style={s.progressImage}
             source={require('../../assets/icons/Dashboard_Icon_Badges.png')} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity
+        onPress={() => this.props.navigation.navigate({
+        routeName: 'Journey'}
+        )}>
           <Image style={s.progressImage}
             source={require('../../assets/icons/Dashboard_Icon_Journeys.png')} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity
+        onPress={() => this.props.navigation.navigate({
+        routeName: 'Award'}
+        )}>
           <Image style={s.progressImage}
             source={require('../../assets/icons/Dashboard_Icon_Awards.png')} />
         </TouchableOpacity>
@@ -77,9 +86,9 @@ class DashboardScreen extends React.Component {
   }
 
   renderBadges() {
-    
+
     // TODO - not sure I understand what state.environmentSwitch is used for here...
-    
+
     return(
       <View style={s.badgeContainer}>
         <TouchableOpacity>
@@ -115,19 +124,19 @@ class DashboardScreen extends React.Component {
         <TopMenu menuTitle="dash" iconPath={assetPaths.topMenu.dashboardIcon} />
         <NavMenu highlighted={1} />
 
-        
 
-        <Image style={s.avaProfile} 
+
+        <Image style={s.avaProfile}
           source={require('../../assets/Ava-Dashboard1.png')} />
-        
+
         {this.renderAvaDashboard() }
 
         <Image style={s.progressBar}
           source={require('../../assets/Dashboard_ProgressBar.png')} />
-        
+
         {this.renderBadges()}
 
-        <AvaBottomMenu contextIcon={true}  showTab={true} tabTitle={"Leaderboard"} tabLeft={15} navigation={this.props.navigation}/> 
+        <AvaBottomMenu contextIcon={true}  showTab={true} tabTitle={"Leaderboard"} tabLeft={15} navigation={this.props.navigation}/>
       </LinearGradient>);
   }
 }
