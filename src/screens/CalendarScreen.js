@@ -6,12 +6,10 @@ import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 
-
 import TopMenu from '../components/TopMenu';
 import NavMenu from '../components/NavMenu';
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import assetPaths from '../assetPaths';
-
 
 // global styles
 import s from '../styles/calendarscreen';
@@ -28,8 +26,6 @@ class CalendarScreen extends React.Component {
     };
   }
 
-  
-
   render() {
     return (
       <LinearGradient
@@ -37,7 +33,17 @@ class CalendarScreen extends React.Component {
         style={{ height: height, width:width}}>
         <TopMenu menuTitle="when" iconPath={assetPaths.topMenu.connectIcon} />
         <NavMenu highlighted={0} />
-        <Agenda
+
+
+
+    <View style = {{
+      flex:1
+    }}>
+    <Image
+      style={{height: 1461/3,width: 1050/3, top:-220, left:15}}
+      source={require('../../assets/Calendar.png')}
+    />
+    {/*    <Agenda
           items={this.state.items}
           loadItemsForMonth={this.loadItems.bind(this)}
           selected={'2018-04-18'}
@@ -56,13 +62,12 @@ class CalendarScreen extends React.Component {
           //    '2017-05-26': {endingDay: true, color: 'gray'}}}
           // monthFormat={'yyyy'}
           theme={{calendarBackground: 'white', agendaKnobColor: 'darkgrey',selectedDayBackgroundColor: '#56CCF2', todayTextColor: 'red',  agendaTodayColor: 'red',}}
-          style={{top: -230,  height: 900, bottom: 200}}
-        
           //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
-        />
-       
+        />*/}
+</View>
 
-      <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
+
+      <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/>
 
       </LinearGradient>
    );

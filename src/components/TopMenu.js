@@ -12,7 +12,7 @@ import assetPaths from '../assetPaths'
 class TopMenu extends Component {
     constructor(props) {
         super(props);
-        
+
     }
 
     updateData() {
@@ -29,13 +29,16 @@ class TopMenu extends Component {
 
 
         return (
-            <View style ={s.container}>
+        <View style ={s.container}>
+
             <Text style ={s.menuText}>{this.props.menuTitle}</Text>
+
             <TouchableOpacity style ={s.menuNavButton}
               onPress={this.updateData}>
               <Image style={s.menuNavButtonImage}
                 source={this.props.iconPath} />
             </TouchableOpacity>
+
         </View>
         );
     }
