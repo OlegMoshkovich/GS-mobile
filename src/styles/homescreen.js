@@ -1,6 +1,8 @@
 'use strict'
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import {
+    StyleSheet
+} from 'react-native';
 
 var styles = StyleSheet.create({
 
@@ -9,23 +11,42 @@ var styles = StyleSheet.create({
     },
 
     notificationContainer: {
-        position: 'absolute', top: 50, left: 20
+        position: 'absolute',
+        top: 50,
+        left: 20
     },
 
-    notificationIcon: {width: 35, height: 35,},
+    notificationIcon: {
+        width: 35,
+        height: 35,
+    },
 
 
     homeChatContainer: {
         height: 200,
         position: 'absolute',
-        
+
         left: 220,
         zIndex: 12,
         top: 80
     },
 
-    homeChatImage: {resizeMode: 'contain', width: 140, height: 180},
+    homeChatImage: {
+        resizeMode: 'contain',
+        width: 140,
+        height: 180,
+        left: -40,
+        opacity: 0.8,
 
+    },
+    homeTutorialImage: {
+        width: 60,
+        resizeMode: 'contain',
+        
+
+        
+
+    },
 
     // speech on bottom
     speechInput: {
@@ -35,8 +56,8 @@ var styles = StyleSheet.create({
     },
 
     speechInputImage: {
-       
-       alignSelf: 'center'
+
+        alignSelf: 'center'
 
     },
 
@@ -53,8 +74,8 @@ var styles = StyleSheet.create({
     viewStyle: {
         flex: 1,
         backgroundColor: 'white',
-        
-        
+
+
     },
     // likely need to abstract this further, most screens will have 
     // 3 colors so maybe gradientStart, gradientMid, gradientEnd ?
@@ -67,10 +88,10 @@ var styles = StyleSheet.create({
     // live dialog w ava
     homeChatText: {
 
-        
-            alignSelf: 'flex-end',
-            position: 'absolute',
-            bottom: 420,
+
+        alignSelf: 'flex-end',
+        position: 'absolute',
+        bottom: 420,
     },
     homeChatTextImage: {
         width: 144,
@@ -132,7 +153,7 @@ var styles = StyleSheet.create({
         width: 50
     },
 
-    
+
 
 
 

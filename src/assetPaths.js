@@ -101,8 +101,10 @@ paths.staticScreens = {
 
 paths.homeScreen = {
     chatBubbles: require('../assets/Home_Bubble_Welcome1.png'),
+    responseBubbles: require('../assets/Home_Bubble_Response.png'),
     background: require('../assets/Home_Background2.png'),
     speechInputImage: require('../assets/Speech-input.png'),
+
     icons: {
         notificationIcon: require('../assets/icons/notificationsHome.png'),
     }
@@ -117,7 +119,7 @@ paths.modals = {
         shareIcon: require('../assets/Share.png'),
 
         starIcon: require('../assets/Star.png'),
-        
+
         commentIcon: require('../assets/Comment.png'),
 
         clapIcon: require('../assets/Clap.png'),
@@ -134,7 +136,7 @@ paths.modals = {
 
 
 paths.stories = {
-    
+
 
     featuredStories: {
         storyCard01: require('../assets/Article_1.2.png'),
@@ -157,13 +159,13 @@ paths.stories = {
     storyModal: {
         storyImage: require('../assets/Article_Image_3.png')
     }
-    
+
 }
 
 
 
 
-    paths.badges = {
+paths.badges = {
 
         scienceExpert: require('../assets/badges/badges-science.png'),
         truthSeeker: require('../assets/badges/badges-truth.png'),
@@ -199,6 +201,18 @@ paths.stories = {
 
         },
 
+
+    },
+
+    paths.awardScreen = {
+
+        awardImage: require('../assets/award/award_gold.png'),
+        completed: require('../assets/award/award-completed.png'),
+        info: require('../assets/award/award-info.png'),
+        icons: {
+            torch: require('../assets/award/award-torch.png'),
+            summit: require('../assets/award/award-journey.png'),
+        }
 
     },
 

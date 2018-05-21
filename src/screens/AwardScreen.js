@@ -29,8 +29,30 @@ class AwardScreen extends React.Component {
         <TopMenu menuTitle="awards" iconPath={assetPaths.topMenu.dashboardIcon} />
         <NavMenu highlighted={4} />
 
-        <View style={{flex: 1, alignItems: 'center'}}>
-          <Text>pending redesign</Text>
+         <View style={s.awardContainer}>
+          <View style={s.awardHeadlineContainer}>
+            <Text style={s.awardHeadline}>Gold Award</Text>
+          </View>
+          <View style={s.awardCarouselContainer}>
+            <Image style={s.awardCarouselCenterImage} resizeMode="contain" source={assetPaths.awardScreen.awardImage}/>
+          </View>
+        </View>
+        <View style={s.awardCompletedContainer}>
+          <Image style={s.awardCompletedImage} resizeMode="contain" source={assetPaths.awardScreen.completed}/>
+        </View>
+       
+        <View style={s.awardBottomContainer}>
+          <Text style={s.exploreMoreTitle}>Explore more awards</Text>
+          <View style={s.exploreMoreContainer}>
+            <View style={s.exploreMoreItem}>
+              <Image style={s.awardIcon} source={assetPaths.awardScreen.icons.torch} resizeMode="contain" />
+              <Text style={s.exploreAwardTitle}>Silver Torch</Text>
+            </View>
+            <View style={s.exploreMoreItem}>
+              <Image style={s.awardIcon} source={assetPaths.awardScreen.icons.summit} resizeMode="contain" />
+              <Text style={s.exploreAwardTitle}>Senior Journey Summit</Text>
+            </View>
+          </View>
         </View>
 
         

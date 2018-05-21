@@ -104,37 +104,16 @@ class HomeScreen extends React.Component {
     );
   }
 
-  showChat() {
-    //
-    console.log("1 speech showing", this.state);
-
-    this.setState({showSpeech : true});
-
-    this.setState({myText: 'foo'});
-
-    console.log("2 speech showing", this.state);
-  }
-
   renderChat() {
     return(
       <View style={s.homeChatContainer}>
-        <TouchableOpacity onPress={() => {
-          
-            console.log("clicked on showspeec");
-            console.log("state was", this.state.showSpeech);
-
-            console.log("setting to true")
-            this.setState({showSpeech: true})
-
-            console.log("state set");
-            console.log(this.state.showSpeech);
-
-
-            
-          }
-          }>
-          <Image style={s.homeChatImage} 
+        <TouchableOpacity onPress={() => this.setState({showSpeech: true})}>
+          <Image style={[s.homeChatImage]} 
           source={assetPaths.homeScreen.chatBubbles} />
+        </TouchableOpacity>
+        <TouchableOpacity style={{width: 50, left: 80, top: -30}}>
+        <Image style={s.homeTutorialImage}
+          source={assetPaths.homeScreen.responseBubbles} />
         </TouchableOpacity>
       </View>);
   }
@@ -171,8 +150,10 @@ class HomeScreen extends React.Component {
               </View>
             : null }
 
-              { this.state.showSpeech ? null : 
-                <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
+              {
+                 this.state.showSpeech ? null : 
+                /* <AvaBottomMenuHomescreen navigation={this.props.navigation}/> */
+                null
               }
             {/* <Animated.View style={animatedStyle}><AwardScreen /> </Animated.View> */}
           </View>
