@@ -115,7 +115,7 @@ tabAnimation = () => {
         switch (this.props.navigation.state.routeName) {
             case 'Community':
                 return(
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => console.log("open modal")} >
                         <Image style={[s.contextIcon]}
                             source={assetPaths.bottomMenu.contextIcons.addStory} />
                     </TouchableOpacity>
