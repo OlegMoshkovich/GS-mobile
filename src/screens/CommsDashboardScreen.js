@@ -154,7 +154,7 @@ class DashboardScreen extends React.Component {
                top:70
                }}
                onPress={() => this.props.navigation.navigate({
-                 routeName: 'CommunicationChat',
+                 routeName: 'Chat',
                      params: {
                          transition: 'default'
                      }
@@ -213,7 +213,7 @@ class DashboardScreen extends React.Component {
                top:70
                }}
                onPress={() => this.props.navigation.navigate({
-                 routeName: 'CommunicationChat',
+                 routeName: 'Events',
                      params: {
                          transition: 'default'
                      }
@@ -329,7 +329,7 @@ class DashboardScreen extends React.Component {
                top:70
                }}
                onPress={() => this.props.navigation.navigate({
-                 routeName: 'Chat',
+                 routeName: 'Map',
                      params: {
                          transition: 'default'
                      }
