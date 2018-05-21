@@ -77,7 +77,8 @@ paths.topMenu = {
     dashboardIcon: require('../assets/topMenu/NAV_dash-top.png'),
     exploreIcon: require('../assets/topMenu/NAV_explore-top.png'),
     shareIcon: require('../assets/topMenu/NAV_share-top.png'),
-    tapHereIcon: require('../assets/topMenu/Tap_here_icon.png')
+    tapHereIcon: require('../assets/topMenu/Tap_here_icon.png'),
+    profileIcon: require('../assets/topMenu/NAV_profile.png')
 
 
 
@@ -117,7 +118,7 @@ paths.modals = {
         shareIcon: require('../assets/Share.png'),
 
         starIcon: require('../assets/Star.png'),
-        
+
         commentIcon: require('../assets/Comment.png'),
 
         clapIcon: require('../assets/Clap.png'),
@@ -134,7 +135,7 @@ paths.modals = {
 
 
 paths.stories = {
-    
+
 
     featuredStories: {
         storyCard01: require('../assets/Article_1.2.png'),
@@ -157,7 +158,7 @@ paths.stories = {
     storyModal: {
         storyImage: require('../assets/Article_Image_3.png')
     }
-    
+
 }
 
 

@@ -69,7 +69,7 @@ class ChatScreen extends React.Component {
     return(
       <View style={styles.view}>
       <Image
-        style={{height: 77,width: 357}}
+        style={{height: 156/3,width: 1059/3}}
         source={require('../../assets/Chat_ConvoComponent0.png')}
       />
       </View>
@@ -90,7 +90,7 @@ class ChatScreen extends React.Component {
     return(
       <View style={styles.view}>
       <Image
-        style={{height: 77,width: 357,left:5}}
+        style={{height: 156/3,width: 1059/3}}
         source={require('../../assets/Chat_ConvoComponent1.png')}
       />
       </View>
@@ -111,7 +111,7 @@ class ChatScreen extends React.Component {
     return(
       <View style={styles.view}>
       <Image
-        style={{height: 77,width: 357,left:5}}
+        style={{height: 156/3,width: 1059/3}}
         source={require('../../assets/Chat_ConvoComponent2.png')}
       />
       </View>
@@ -132,7 +132,7 @@ class ChatScreen extends React.Component {
     return(
       <View style={styles.view}>
       <Image
-        style={{height: 77,width: 357}}
+        style={{height: 156/3,width: 1059/3}}
         source={require('../../assets/Chat_ConvoComponent3.png')}
       />
       </View>
@@ -153,13 +153,97 @@ class ChatScreen extends React.Component {
     return(
       <View style={styles.view}>
       <Image
-        style={{height: 77,width: 357}}
+        style={{height: 156/3,width: 1059/3}}
         source={require('../../assets/Chat_ConvoComponent4.png')}
       />
       </View>
     )
   }
   _renderCollapseView5 = (collapse) => {
+    return(
+      <View style={styles.collapseView}>
+      <Image
+        style={{height: 303,width: 375,right:10}}
+        source={require('../../assets/Chat_Session1.png')}
+      />
+      </View>
+    )
+  }
+
+  _renderView6 = (collapse) => {
+    return(
+      <View style={styles.view}>
+      <Image
+        style={{height: 156/3,width: 1059/3}}
+        source={require('../../assets/Chat_ConvoComponent5.png')}
+      />
+      </View>
+    )
+  }
+  _renderCollapseView6 = (collapse) => {
+    return(
+      <View style={styles.collapseView}>
+      <Image
+        style={{height: 303,width: 375,right:10}}
+        source={require('../../assets/Chat_Session1.png')}
+      />
+      </View>
+    )
+  }
+
+  _renderView7 = (collapse) => {
+    return(
+      <View style={styles.view}>
+      <Image
+        style={{height: 156/3,width: 1059/3}}
+        source={require('../../assets/Chat_ConvoComponent6.png')}
+      />
+      </View>
+    )
+  }
+  _renderCollapseView7 = (collapse) => {
+    return(
+      <View style={styles.collapseView}>
+      <Image
+        style={{height: 303,width: 375,right:10}}
+        source={require('../../assets/Chat_Session1.png')}
+      />
+      </View>
+    )
+  }
+
+  _renderView8 = (collapse) => {
+    return(
+      <View style={styles.view}>
+      <Image
+        style={{height: 156/3,width: 1059/3}}
+        source={require('../../assets/Chat_ConvoComponent7.png')}
+      />
+      </View>
+    )
+  }
+  _renderCollapseView8 = (collapse) => {
+    return(
+      <View style={styles.collapseView}>
+      <Image
+        style={{height: 303,width: 375,right:10}}
+        source={require('../../assets/Chat_Session1.png')}
+      />
+      </View>
+    )
+  }
+
+  _renderView9 = (collapse) => {
+    return(
+      <View style={styles.view}>
+      <Image
+        style={{height: 156/3,width: 1059/3}}
+        source={require('../../assets/Chat_ConvoComponent8.png')}
+      />
+      </View>
+    )
+  }
+  _renderCollapseView9 = (collapse) => {
     return(
       <View style={styles.collapseView}>
       <Image
@@ -181,7 +265,7 @@ class ChatScreen extends React.Component {
 
 
 
-       {/*  <ScrollView style={{ //Navigational Menu
+        <ScrollView style={{ //Navigational Menu
           flex:1,
           flexDirection: 'column',
           position: 'absolute',
@@ -207,36 +291,28 @@ class ChatScreen extends React.Component {
             />
             <CollapseView
 
-              renderView={this._renderView3}
+              renderView={this._renderView5}
               renderCollapseView={this._renderCollapseView3}
             />
             <CollapseView
-              renderView={this._renderView4}
+              renderView={this._renderView6}
               renderCollapseView={this._renderCollapseView4}
             />
 
             <CollapseView
-              renderView={this._renderView5}
+              renderView={this._renderView7}
               renderCollapseView={this._renderCollapseView5}
             />
             <CollapseView
-              renderView={this._renderView2}
+              renderView={this._renderView8}
               renderCollapseView={this._renderCollapseView2}
             />
         </ScrollView>
 
-        */}
 
-     
-          { /* this is not positioning correctly --- need to adjust this screens style --
-          
-          
-          <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/>
-          
-          */
-          
-          
-          }
+
+
+
       <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/>
 
       </LinearGradient>
@@ -251,7 +327,7 @@ const styles = StyleSheet.create({
   view: {
     height:70,
     padding:3,
-
+    left:20,
     justifyContent:'center',
     backgroundColor:'transparent',
   },
