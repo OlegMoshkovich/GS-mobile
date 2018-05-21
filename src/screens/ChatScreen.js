@@ -313,7 +313,7 @@ class ChatScreen extends React.Component {
 
 
 
-      <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/>
+      <AvaBottomMenu currentSection={'connect'} contextIcon={true} navigation={this.props.navigation}/>
 
       </LinearGradient>
     );

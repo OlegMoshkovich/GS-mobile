@@ -379,7 +379,7 @@ class DashboardScreen extends React.Component {
 
         </View>
 
-           <AvaBottomMenu showTab={false}  tabLeft={15} navigation={this.props.navigation}/>
+           <AvaBottomMenu currentSection={'connect'} showTab={false}  tabLeft={15} navigation={this.props.navigation}/>
 
       </LinearGradient>
     );

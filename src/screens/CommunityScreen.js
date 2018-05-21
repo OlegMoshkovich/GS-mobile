@@ -101,7 +101,7 @@ class CommunityScreen extends React.Component {
         { this.renderFeaturedStories() }
 
 
-        <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/>
+        <AvaBottomMenu currentSection={'community'} contextIcon={true} navigation={this.props.navigation}/>
       </LinearGradient>
     );
   }

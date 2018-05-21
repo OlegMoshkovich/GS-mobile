@@ -203,7 +203,7 @@ class MapScreen extends React.Component {
               </Animated.ScrollView>
             </View>
             
-            <AvaBottomMenu navigation={this.props.navigation}/> 
+            <AvaBottomMenu   currentSection={'connect'} navigation={this.props.navigation}/> 
 
 
           </LinearGradient>

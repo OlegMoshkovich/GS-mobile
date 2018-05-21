@@ -111,7 +111,7 @@ class BadgeScreen extends React.Component {
         
         
 
-        <AvaBottomMenu navigation={this.props.navigation}/> 
+        <AvaBottomMenu currentSection={'dashboard'} navigation={this.props.navigation}/> 
       </LinearGradient>);
   }
 }

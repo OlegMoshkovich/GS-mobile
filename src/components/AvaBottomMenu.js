@@ -206,50 +206,50 @@ tabAnimation = () => {
 
 
                 </TouchableOpacity>
-
-                {
-
-                    // show the little tab here in some cases
-
-                    this.props.showTab ?
-
-
-                <TouchableOpacity
-                    style = {[s.tabButton, {
+                { this.props.showTab ?
+                <TouchableOpacity style={[s.tabButton, {
                     height: tabHeight, opacity: this.state.tabOpacity,
-                    }]}
-                    onPress={this.tabAnimation}>
+                    }]} onPress={this.tabAnimation}>
                     <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
                         source={assetPaths.bottomMenu.tabBackground} />
-                    <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
-
-                </TouchableOpacity> :
-                null
-                }
+                    <Text style={[s.tabText, {
+                        left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
+                </TouchableOpacity> : null }
 
                 <Image
                     style={[s.gradientStyle, { width: width,
                         bottom: this.state.activated ? gradientBottom_active: gradientBottom_inactive}]}
                     source={assetPaths.bottomMenu.gradient} />
+                
+                
                 <View style={[s.navStyle, {
                     bottom: this.state.activated ? navMenu_active: navMenu_inactive,
                     }]}>
                     <TouchableOpacity  onPress={() => this.props.navigation.navigate('Connect')}>
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIcon} />
+                        {this.props.currentSection == 'connect' ? <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIconOn} /> :
+                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIcon} />}
                     </TouchableOpacity>
                     <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIcon} />
+                        {this.props.currentSection == 'community' ?
+                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIconOn} /> : 
+                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIcon} />}
                     </TouchableOpacity>
                     <TouchableOpacity  onPress={() => this.props.navigation.navigate('Home')}>
                         <Image style={s.navIconImage} source={assetPaths.bottomMenu.homeIcon} />
                     </TouchableOpacity>
                     <TouchableOpacity  onPress={() => this.props.navigation.navigate('Explore')} >
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIcon} />
+                        {this.props.currentSection == 'explore' ?
+                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIconOn} /> : 
+                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIcon} />}
                     </TouchableOpacity>
                     <TouchableOpacity  onPress={() => this.props.navigation.navigate('Dashboard')} >
-                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIcon} />
+                        {this.props.currentSection == 'dashboard' ?
+                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIconOn} /> : 
+                        <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIcon} />}
                     </TouchableOpacity>
                 </View>
+
+
             </View>
             );
         }
