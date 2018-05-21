@@ -79,8 +79,8 @@ class ChatScreen extends React.Component {
     return(
       <View style={styles.collapseView}>
       <Image
-        style={{height: 303,width: 375,right:10}}
-        source={require('../../assets/Chat_Session.png')}
+        style={{height: 1314/3,width: 993/3,left:10}}
+        source={require('../../assets/Chat_Session_Troop.png')}
       />
       </View>
     )
@@ -121,8 +121,8 @@ class ChatScreen extends React.Component {
     return(
       <View style={styles.collapseView}>
       <Image
-        style={{height: 303,width: 375,right:10}}
-        source={require('../../assets/Chat_Session1.png')}
+        style={{height: 831/3,width: 993/3,left:10}}
+        source={require('../../assets/Chat_Session2.png')}
       />
       </View>
     )
@@ -163,8 +163,8 @@ class ChatScreen extends React.Component {
     return(
       <View style={styles.collapseView}>
       <Image
-        style={{height: 303,width: 375,right:10}}
-        source={require('../../assets/Chat_Session1.png')}
+        style={{height: 831/3,width: 993/3,left:10}}
+        source={require('../../assets/Chat_Session2.png')}
       />
       </View>
     )
@@ -205,8 +205,8 @@ class ChatScreen extends React.Component {
     return(
       <View style={styles.collapseView}>
       <Image
-        style={{height: 303,width: 375,right:10}}
-        source={require('../../assets/Chat_Session1.png')}
+        style={{height: 831/3,width: 993/3,left:10}}
+        source={require('../../assets/Chat_Session2.png')}
       />
       </View>
     )
@@ -271,7 +271,7 @@ class ChatScreen extends React.Component {
           position: 'absolute',
           top:100,
           zIndex: 0,
-          bottom:80
+          bottom:0
           }}>
             <CollapseView
               renderView={this._renderView1}
@@ -306,6 +306,18 @@ class ChatScreen extends React.Component {
             <CollapseView
               renderView={this._renderView8}
               renderCollapseView={this._renderCollapseView2}
+            />
+            <CollapseView
+              renderView={this._renderView2}
+              renderCollapseView={this._renderCollapseView2}
+            />
+            <CollapseView
+              renderView={this._renderView3}
+              renderCollapseView={this._renderCollapseView3}
+            />
+            <CollapseView
+              renderView={this._renderView4}
+              renderCollapseView={this._renderCollapseView4}
             />
         </ScrollView>
 
