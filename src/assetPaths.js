@@ -161,6 +161,25 @@ paths.stories = {
 }
 
 
+
+
+    paths.badges = {
+
+        scienceExpert: require('../assets/badges/badges-science.png'),
+        truthSeeker: require('../assets/badges/badges-truth.png'),
+        womensHealth: require('../assets/badges/badges-women.png'),
+        textile: require('../assets/badges/badges-textile.png'),
+        big: {
+            seniorFirstAid: require('../assets/badges/badge-big-firstAid.png'),
+            socialInnovator: require('../assets/badges/badge-big-social.png'),
+            animals: require('../assets/badges/badge-big-animals.png'),
+            webDesigner: require('../assets/badges/badge-big-webdesigner.png'),
+        }
+
+
+
+    },
+
     paths.navMenu = {
 
         dotOn: require('../assets/navMenu/navDot_on.png'),
