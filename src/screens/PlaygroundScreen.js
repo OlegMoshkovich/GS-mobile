@@ -17,27 +17,7 @@ class PlaygroundScreen extends React.Component{
     alignItems: 'center',
   }
 
-  // constructor(props) {
 
-     // super(props);
-     //
-     // this.state = {
-     //    messages: [],
-     //  }
-     //
-     // this.state = {
-     //   animation: new Animated.Value(1)
-     //   };
-     // }
-
-   // startAnimation = () =>{
-   //   Animated.timing(this.state.animation, {
-   //     toValue:2,
-   //     duration:1000
-   //   }).start(()=>{
-   //    this.state.animation.setValue(1)
-   //   });
- // }
 
 
 
@@ -51,58 +31,13 @@ class PlaygroundScreen extends React.Component{
 
     return (
 
-<View style={{
-  flex:1,
-}}>
-      <View style={{
-        flex:6,
+    <View style={{
+      flex:1,
       }}>
-
-      </View>
-
-      <View style={{
-        flex:6,
-        flexDirection:'row',
-        justifyContent: 'space-around',
-        alignItems: 'center'
-
-      }}>
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-
-      </View>
-      <View style={{
-        flex:3 ,
-        flexDirection:'row',
-        justifyContent: 'space-around',
-        alignItems: 'center'
-
-      }}>
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-        <View style={styles.box} />
-
-      </View>
-
-      <View style={{
-        flex:1,
-      }}>
-
-      </View>
+        
 
 
-</View>
+    </View>
 
 
 

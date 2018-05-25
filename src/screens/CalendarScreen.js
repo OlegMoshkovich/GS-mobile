@@ -101,7 +101,7 @@ class CalendarScreen extends React.Component {
 
          for (let j = 0; j < numItems; j++) {
            this.state.items[strTime].push({
-             name: 'Tasks -- ' + strTime,
+             name: 'Events:',
              height: Math.max(50, Math.floor(Math.random() * 150))
            });
          }

@@ -10,8 +10,6 @@ var styles = StyleSheet.create({
         flex: 1, // this needs to be rewritten...
         flexDirection: 'row',
         justifyContent: 'space-between',
-        //borderColor: 'black',
-        //borderWidth: 1,
     },
 
     menuText: {
@@ -24,7 +22,6 @@ var styles = StyleSheet.create({
 
     menuNavButton: {
         margin: 20,
-        //borderWidth: 1,
         height: 20,
     },
 
@@ -38,16 +35,8 @@ var styles = StyleSheet.create({
         width: 90 / 4,
         top: 40,
         right: 45,
-        //borderWidth: 1,
         height: 20,
     },
-
-
-
-
-
-
-
 });
 
 export default styles;

@@ -34,6 +34,7 @@ import Dimensions from 'Dimensions';
 import SystemScreen from './src/screens/SystemScreen';
 const {width, height} = Dimensions.get('window');
 
+
 let MyTransition = (index, position) => {
 
     const inputRange = [index - 1, index, index + 1];
@@ -51,8 +52,18 @@ let MyTransition = (index, position) => {
         opacity
     };
 };
+let TransitionConfiguration = () => {
 
+    return {
 
+        // Define scene interpolation, eq. custom transition
+        screenInterpolator: (sceneProps) => {
+            const {position, scene} = sceneProps;
+            const {index} = scene;
+            return MyTransition(index, position);
+        }
+    }
+};
 
 
 
@@ -173,12 +184,76 @@ chat font: trefoil slab light
 
   render() {
 
+    const CommunicationStack = StackNavigator(
+  { //Screens
+    CommunicationDashboard: {
+            screen: CommsDashboardScreen,
+            navigationOptions: ({ navigation }) => ({
+                  title: `#chat`,
+                  headerTintColor: 'white',
+                  headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+                  headerTitleStyle: {
+                    fontWeight: 'bold',
+                    fontSize: 30
+                  },
+                }),
+    },
+      CommunicationChat: {
+              screen: ChatScreen,
+              navigationOptions: ({ navigation }) => ({
+                    title: `#chat`,
+                    headerTintColor: 'white',
+                    headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+                    headerTitleStyle: {
+                      fontWeight: 'bold',
+                      fontSize: 30
+                    },
+                  }),
+      },
+      CommunicationMap: {
+        screen: MapScreen,
+        navigationOptions: ({ navigation }) => ({
+              title: `#map`,
+              headerTintColor: 'white',
+              headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+              headerTitleStyle: {
+                fontWeight: 'bold',
+                fontSize: 30
+              },
+            }),
+      },
+      CommunicationCalendar: {
+          screen: CalendarScreen,
+          navigationOptions: ({ navigation }) => ({
+                title: `#calendar`,
+                headerTintColor: 'white',
+                headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                  fontSize: 30
+                },
+              }),
+      },
+      },
+
+      {
+      headerMode: 'none',
+      navigationOptions: {
+        headerVisible: false,
+      },
+      transitionConfig: TransitionConfiguration,
+      },
+
+    );
+
     const TabStack =  TabNavigator({
-      AvaYellow: { screen: AvaEndYellow },
-      Calendar: { screen: CalendarScreen},
-      Events: { screen: EventScreen},
-      Chat: { screen: ChatScreen},
-      Connect: { screen: CommsDashboardScreen},
+      // AvaYellow: { screen: AvaEndYellow },
+      // Calendar: { screen: CalendarScreen},
+      // Events: { screen: EventScreen},
+      // Chat: { screen: ChatScreen},
+      // Connect: { screen: CommsDashboardScreen},
+      Communication:{screen: CommunicationStack},
+      // Connect: { screen: CommunicationStack},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
       Explore: { screen: ExploreScreen },
