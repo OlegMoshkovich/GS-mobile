@@ -186,7 +186,7 @@ chat font: trefoil slab light
 
     const CommunicationStack = StackNavigator(
   { //Screens
-    CommunicationDashboard: {
+    ConnectDashboard: {
             screen: CommsDashboardScreen,
             navigationOptions: ({ navigation }) => ({
                   title: `#chat`,
@@ -198,7 +198,7 @@ chat font: trefoil slab light
                   },
                 }),
     },
-      CommunicationChat: {
+      Chat: {
               screen: ChatScreen,
               navigationOptions: ({ navigation }) => ({
                     title: `#chat`,
@@ -210,7 +210,7 @@ chat font: trefoil slab light
                     },
                   }),
       },
-      CommunicationMap: {
+      Map: {
         screen: MapScreen,
         navigationOptions: ({ navigation }) => ({
               title: `#map`,
@@ -222,8 +222,20 @@ chat font: trefoil slab light
               },
             }),
       },
-      CommunicationCalendar: {
+      Calendar: {
           screen: CalendarScreen,
+          navigationOptions: ({ navigation }) => ({
+                title: `#calendar`,
+                headerTintColor: 'white',
+                headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                  fontSize: 30
+                },
+              }),
+      },
+      Events: {
+          screen: EventScreen,
           navigationOptions: ({ navigation }) => ({
                 title: `#calendar`,
                 headerTintColor: 'white',
@@ -252,7 +264,7 @@ chat font: trefoil slab light
       // Events: { screen: EventScreen},
       // Chat: { screen: ChatScreen},
       // Connect: { screen: CommsDashboardScreen},
-      Communication:{screen: CommunicationStack},
+      Connect:{screen: CommunicationStack},
       // Connect: { screen: CommunicationStack},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
