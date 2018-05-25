@@ -1,24 +1,12 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, TouchableOpacity,Image, TouchableHighlight,Toggle, Alert,
-Platform, View, StatusBar, SafeAreaView} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,Toggle, Alert} from 'react-native';
 import Deck from '../Deck';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 import { USE_NATIVE_DRIVER } from '../TestComponents/config';
-
-
-
-
-import Carousel, { Pagination } from 'react-native-snap-carousel';
-
-import { sliderWidth, itemWidth } from '../TestComponents/SliderEntry.style';
-import SliderEntry from '../TestComponents/SliderEntry.style';
-import styles, { colors } from '../TestComponents/index.style';
-import { ENTRIES1, ENTRIES2 } from '../TestComponents/entries';
-import { scrollInterpolators, animatedStyles } from '../TestComponents/animations';
 
 
 import AvaBottomMenu from '../components/AvaBottomMenu';
@@ -77,7 +65,7 @@ class ExploreScreen extends React.Component {
     return (
       <LinearGradient colors={['#00C5F0', '#50EAFF']}
         style={{ height: height, width:width} }>
-
+        
         <TopMenu navigation={this.props.navigation} menuTitle="explore" iconPath={assetPaths.topMenu.exploreIcon} />
         <NavMenu highlighted={0} />
         <View style={{ position:'absolute', top:30 }}>
@@ -89,9 +77,9 @@ class ExploreScreen extends React.Component {
             style={s.scrollView}>
           </ScrollView>
         </View>
-
-        <AvaBottomMenu currentSection={'explore'} contextIcon={true} navigation={this.props.navigation}/>
-
+        
+        <AvaBottomMenu currentSection={'explore'} contextIcon={true} navigation={this.props.navigation}/> 
+        
       </LinearGradient>);
   }
 }
