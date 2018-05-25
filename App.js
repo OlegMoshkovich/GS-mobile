@@ -186,7 +186,8 @@ chat font: trefoil slab light
       Badges: { screen: BadgeScreen},
       Journey: { screen: JourneyScreen},
       Award: {screen: AwardScreen},
-      AvaBlue: { screen: AvaEndBlue }
+      AvaBlue: { screen: AvaEndBlue },
+      Playground: { screen: PlaygroundScreen },
       },
 
       {

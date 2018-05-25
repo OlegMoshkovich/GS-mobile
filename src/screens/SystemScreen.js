@@ -14,7 +14,6 @@ import { DraggableBox } from '../TestComponents/draggable';
 import { DraggableBox1 } from '../TestComponents/draggable1';
 import { DraggableBox2 } from '../TestComponents/draggable2';
 
-
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
 import assetPaths from '../assetPaths';

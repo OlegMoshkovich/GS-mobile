@@ -11,110 +11,123 @@ var CIRCLE_SIZE = 80;
 
 class PlaygroundScreen extends React.Component{
 
+  state = {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  }
 
-  constructor(props) {
-     super(props);
+  // constructor(props) {
 
-     this.state = {
-  messages: [],
-}
+     // super(props);
+     //
+     // this.state = {
+     //    messages: [],
+     //  }
+     //
+     // this.state = {
+     //   animation: new Animated.Value(1)
+     //   };
+     // }
 
-     this.state = {
-       animation: new Animated.Value(1)
-
-     };
-   }
-
-   startAnimation = () =>{
-     Animated.timing(this.state.animation, {
-       toValue:2,
-       duration:1000
-     }).start(()=>{
-      this.state.animation.setValue(1)
-     });
-
-   }
+   // startAnimation = () =>{
+   //   Animated.timing(this.state.animation, {
+   //     toValue:2,
+   //     duration:1000
+   //   }).start(()=>{
+   //    this.state.animation.setValue(1)
+   //   });
+ // }
 
 
 
   render() {
+   const {flexDirection, alignItems, justifyContent} = this.state
+   const layoutStyle = {flexDirection, justifyContent, alignItems}
 
-    const boxInterpolation =
-    this.state.animation.interpolate({
-      inputRange:[1,2],
-      outputRange:["lightgrey","red"]
-    });
+   const primaryAxis = flexDirection === 'row' ? 'Horizontal' : 'Vertical'
+   const secondaryAxis = flexDirection === 'row' ? 'Vertical' : 'Horizontal'
 
-    const boxlocation =
-    this.state.animation.interpolate({
-      inputRange:[1,2],
-      outputRange:[100,300]
-    });
-
-    const rotateInterpolate =
-    this.state.animation.interpolate({
-      inputRange:[1,360],
-      outputRange:['0deg','360deg']
-    });
-
-    const boxAnimatedStyle = {
-      backgroundColor:boxInterpolation
-    }
-
-    const animatedStyles = {
-      transform:[
-        {
-        translateY:boxlocation,
-      },
-      {
-        scale:this.state.animation
-      },
-      {
-        rotate:rotateInterpolate
-      }
-      ]
-    };
 
     return (
-      <ScrollView
-        waitFor={['dragbox', 'image_pinch', 'image_rotation', 'image_tilt']}
-        style={styles.scrollView}>
+
+<View style={{
+  flex:1,
+}}>
+      <View style={{
+        flex:6,
+      }}>
+
+      </View>
+
+      <View style={{
+        flex:6,
+        flexDirection:'row',
+        justifyContent: 'space-around',
+        alignItems: 'center'
+
+      }}>
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+
+      </View>
+      <View style={{
+        flex:3 ,
+        flexDirection:'row',
+        justifyContent: 'space-around',
+        alignItems: 'center'
+
+      }}>
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+        <View style={styles.box} />
+
+      </View>
+
+      <View style={{
+        flex:1,
+      }}>
+
+      </View>
+
+
+</View>
 
 
 
-
-  <DraggableBox />
-        <CardTest />
-        <View style={styles.container}>
-          <TouchableWithoutFeedback onPress = {this.startAnimation} >
-          <Animated.View style={[styles.box,animatedStyles,boxAnimatedStyle]} />
-          </TouchableWithoutFeedback>
-        </View>
-
-
-
-      </ScrollView>
     );
   }
 }
 
 
 const styles = StyleSheet.create({
-  scrollView: {
+  container: {
     flex: 1,
-    backgroundColor: '#F5FCFF',
   },
-  container:{
-    flex:1,
-    alignItems:"center",
-    justifyContent:"center"
+  layout: {
+    flex: 1,
+    backgroundColor: 'rgba(0,0,0,0.05)',
   },
-  box:{
-    width:150,
-    height:150,
-    backgroundColor:'tomato'
-  }
-});
+  box: {
+
+    width:30,
+    height:30,
+    borderRadius:30,
+    backgroundColor: 'lightgrey',
+    margin: 5,
+  },
+})
 
 
 
