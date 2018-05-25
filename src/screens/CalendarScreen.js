@@ -61,6 +61,7 @@ class CalendarScreen extends React.Component {
       // theme={{calendarBackground: '#F9C025', agendaKnobColor: 'darkgrey',selectedDayBackgroundColor: '#F9C025', todayTextColor: 'red',  agendaTodayColor: '#F9C025',}}
       theme={{
                 calendarBackground: '#F9C025',
+
                 textSectionTitleColor: 'white',
                 dayTextColor: 'white',
                 todayTextColor: 'white',
