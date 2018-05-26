@@ -16,7 +16,7 @@ var styles = StyleSheet.create({
 
 
     menuNavButtonImage: {
-        height: 40, 
+        height: 40,
         width: 40
     },
 
@@ -35,7 +35,7 @@ var styles = StyleSheet.create({
         borderColor: "lightgrey",
         borderRadius: 7,
         height: 460,
-        left: 12
+        left:-27
     },
 
     // not sure if this is even used

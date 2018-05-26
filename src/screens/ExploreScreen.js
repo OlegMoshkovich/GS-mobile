@@ -11,13 +11,6 @@ import { USE_NATIVE_DRIVER } from '../TestComponents/config';
 
 import { Constants } from 'expo';
 import Carousel from 'react-native-snap-carousel'; // 3.4.0
-import "@expo/vector-icons"; // 6.2.0
-
-
-
-
-
-
 
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
@@ -71,21 +64,23 @@ class ExploreScreen extends React.Component {
                  </View>
              );
          }
-         renderCard = (item) => {
+         renderCard = ({item}) => {
            return(
+             <TouchableOpacity
+               onPress={() => {this.props.navigation.navigate('ArticleModal', {
+               text: item.text, title: item.title, image_uri: item.uri}); }}>
              <Card key={item.id}
                containerStyle ={[s.cardContainer, { position: 'absolute',
-               width:width-50}]}>
+               width:width-60}]}>
                <Text style ={s.cardSource}>New Card </Text>
-               <TouchableOpacity
-                 onPress={() => {this.props.navigation.navigate('ArticleModal', {
-                 text: item.text, title: item.title, image_uri: item.uri}); }}>
+
                  <Text style ={s.articleTitle}>{item.title} </Text>
-               </TouchableOpacity>
+
                <Text style ={s.articleText}>{item.text}</Text>
                <Image style={s.articleCover} resizeMode="cover"
                  source={{ uri:item.uri }} />
              </Card>
+            </TouchableOpacity>
            )
          }
 
@@ -110,7 +105,7 @@ class ExploreScreen extends React.Component {
                 data={articles}
                 renderItem={this.renderCard}
                 sliderWidth={width - 20}
-                itemWidth={width - 100}
+                itemWidth={width - 80}
                 itemHeight={height}
               />
         {/*     <Carousel
