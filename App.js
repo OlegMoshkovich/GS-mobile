@@ -188,63 +188,18 @@ chat font: trefoil slab light
   { //Screens
     ConnectDashboard: {
             screen: CommsDashboardScreen,
-            navigationOptions: ({ navigation }) => ({
-                  title: `#chat`,
-                  headerTintColor: 'white',
-                  headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                  headerTitleStyle: {
-                    fontWeight: 'bold',
-                    fontSize: 30
-                  },
-                }),
     },
       Chat: {
               screen: ChatScreen,
-              navigationOptions: ({ navigation }) => ({
-                    title: `#chat`,
-                    headerTintColor: 'white',
-                    headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                    headerTitleStyle: {
-                      fontWeight: 'bold',
-                      fontSize: 30
-                    },
-                  }),
       },
       Map: {
         screen: MapScreen,
-        navigationOptions: ({ navigation }) => ({
-              title: `#map`,
-              headerTintColor: 'white',
-              headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-              headerTitleStyle: {
-                fontWeight: 'bold',
-                fontSize: 30
-              },
-            }),
       },
       Calendar: {
           screen: CalendarScreen,
-          navigationOptions: ({ navigation }) => ({
-                title: `#calendar`,
-                headerTintColor: 'white',
-                headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                  fontSize: 30
-                },
-              }),
       },
       Events: {
           screen: EventScreen,
-          navigationOptions: ({ navigation }) => ({
-                title: `#calendar`,
-                headerTintColor: 'white',
-                headerStyle: { backgroundColor: '#56CCF2', borderWidth: 0, borderBottomColor: 'transparent', height:50},
-                headerTitleStyle: {
-                  fontWeight: 'bold',
-                  fontSize: 30
-                },
-              }),
       },
       },
 
@@ -273,8 +228,8 @@ chat font: trefoil slab light
       Badges: { screen: BadgeScreen},
       Journey: { screen: JourneyScreen},
       Award: {screen: AwardScreen},
-      AvaBlue: { screen: AvaEndBlue },
-      Playground: { screen: PlaygroundScreen },
+      // AvaBlue: { screen: AvaEndBlue },
+      // Playground: { screen: PlaygroundScreen },
       },
 
       {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, TouchableOpacity,Image, TouchableHighlight,Toggle, Alert,
+import { StyleSheet, Text, TouchableOpacity,TouchableWithoutFeedback,Image, TouchableHighlight,Toggle, Alert,
 Platform, View, StatusBar, SafeAreaView} from 'react-native';
 import Deck from '../Deck';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
@@ -66,7 +66,7 @@ class ExploreScreen extends React.Component {
          }
          renderCard = ({item}) => {
            return(
-             <TouchableOpacity
+             <TouchableWithoutFeedback
                onPress={() => {this.props.navigation.navigate('ArticleModal', {
                text: item.text, title: item.title, image_uri: item.uri}); }}>
              <Card key={item.id}
@@ -80,7 +80,7 @@ class ExploreScreen extends React.Component {
                <Image style={s.articleCover} resizeMode="cover"
                  source={{ uri:item.uri }} />
              </Card>
-            </TouchableOpacity>
+            </TouchableWithoutFeedback>
            )
          }
 
