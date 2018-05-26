@@ -185,10 +185,10 @@ chat font: trefoil slab light
   render() {
 
     const CommunicationStack = StackNavigator(
-  { //Screens
-    ConnectDashboard: {
-            screen: CommsDashboardScreen,
-    },
+      { //Screens
+      ConnectDashboard: {
+              screen: CommsDashboardScreen,
+      },
       Chat: {
               screen: ChatScreen,
       },
@@ -200,6 +200,31 @@ chat font: trefoil slab light
       },
       Events: {
           screen: EventScreen,
+      },
+      },
+
+      {
+      headerMode: 'none',
+      navigationOptions: {
+        headerVisible: false,
+      },
+      transitionConfig: TransitionConfiguration,
+      },
+    );
+
+    const EducationStack = StackNavigator(
+      { //Screens
+      Dashboard: {
+              screen: DashboardScreen,
+      },
+      Badges: {
+              screen: BadgeScreen,
+      },
+      Journey: {
+              screen: JourneyScreen,
+      },
+      Award: {
+              screen: AwardScreen,
       },
       },
 
@@ -224,10 +249,10 @@ chat font: trefoil slab light
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
       Explore: { screen: ExploreScreen },
-      Dashboard: { screen: DashboardScreen },
-      Badges: { screen: BadgeScreen},
-      Journey: { screen: JourneyScreen},
-      Award: {screen: AwardScreen},
+      Dashboard: { screen: EducationStack },
+      // Badges: { screen: BadgeScreen},
+      // Journey: { screen: JourneyScreen},
+      // Award: {screen: AwardScreen},
       // AvaBlue: { screen: AvaEndBlue },
       // Playground: { screen: PlaygroundScreen },
       },
