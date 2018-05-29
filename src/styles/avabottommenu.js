@@ -7,10 +7,10 @@ import {
 var styles = StyleSheet.create({
 
     container: {
-        
-        
+
+
     },
-    
+
     // icons next to ava
     navMenu: {
         flex: 1,
@@ -65,7 +65,7 @@ var styles = StyleSheet.create({
 
     // the tab that appears sometimes
     tabButton: {
-        alignSelf: 'flex-start',
+        alignSelf: 'center',
         position: 'absolute',
         left: 15,
         zIndex: 1,
@@ -83,9 +83,8 @@ var styles = StyleSheet.create({
         fontFamily: 'trefoil-sans-regular',
         position: 'absolute',
         top: 15,
-        left: 14,
         zIndex: 2,
-
+    
         fontSize: 12,
     },
 

@@ -245,7 +245,6 @@ chat font: trefoil slab light
       // Chat: { screen: ChatScreen},
       // Connect: { screen: CommsDashboardScreen},
       Connect:{screen: CommunicationStack},
-      // Connect: { screen: CommunicationStack},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
       Explore: { screen: ExploreScreen },
