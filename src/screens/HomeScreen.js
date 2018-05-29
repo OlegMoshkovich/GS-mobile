@@ -72,7 +72,7 @@ class HomeScreen extends React.Component {
         break;
     }
   }
- 
+
   environmentSwitch = () => {
     console.log('environment'+ this.state.environmentSwitch)
     this.setState({environmentSwitch : !this.state.environmentSwitch});
@@ -108,7 +108,7 @@ class HomeScreen extends React.Component {
     return(
       <View style={s.homeChatContainer}>
         <TouchableOpacity >
-          <Image style={[s.homeChatImage]} 
+          <Image style={[s.homeChatImage]}
           source={assetPaths.homeScreen.chatBubbles} />
         </TouchableOpacity>
         <TouchableOpacity style={{width: 50, left: 80, top: -30}} onPress={() => this.setState({showSpeech: true})}>
@@ -126,65 +126,50 @@ class HomeScreen extends React.Component {
     const animatedStyle = { transform: [{translateY: this.state.awardTop}] }
 
     return (
-      <View>
-        
+
+
           <View style={{ flex: 1, height: height, width: width}}>
-          
+
 
             <Image blurRadius={this.state.blurRadius}
               style={{ height: height, width: width}}
               source={assetPaths.homeScreen.background}/>
               { this.renderNotification() }
               { this.state.showSpeech ? null: this.renderChat() }
+              { this.state.showSpeech ?
+                    <View style={[s.speechInput, {width: width}]} >
+                      <TouchableOpacity onPress={() => this.setState({showSpeech: false})}>
+                      <Image style={[s.speechInputImage, {width: width-50}]}
+                        resizeMode="contain"
+                        source={assetPaths.homeScreen.speechInputImage} />
+                      </TouchableOpacity>
+                    </View>: null }
 
-            { this.state.showSpeech ? 
-            
-              <View style={[s.speechInput, {width: width}]} >
-                <TouchableOpacity onPress={() => this.setState({showSpeech: false})}>
-                <Image style={[s.speechInputImage, {width: width-50}]}
-                  resizeMode="contain"
-                  source={assetPaths.homeScreen.speechInputImage} />
-                </TouchableOpacity>
-              </View>
-            : null }
 
-             
-            {/* <Animated.View style={animatedStyle}><AwardScreen /> </Animated.View> */}
-          
-            <View style={{ top: 20, position: 'absolute', zIndex: 12, alignSelf: 'center', }}>
+            <View style={{ top: 35, position: 'absolute', zIndex: 12, alignSelf: 'center', }}>
               <TouchableOpacity onPress={() => {
-
-
-this.props.navigation.navigate({ routeName: 'SystemModal',
-params: { transition: 'systemTransition' }});
-
-
+                  this.props.navigation.navigate({ routeName: 'SystemModal',
+                  params: { transition: 'systemTransition' }});
               }}>
                 <Image source={assetPaths.homeScreen.icons.swipeUpIcon} style={
                   { width: 35, height: 35 }}/>
               </TouchableOpacity>
             </View>
 
-             <View style={{ bottom: -600, position: 'absolute', zIndex: 12, alignSelf: 'center', }}>
+             <View style={{ bottom: 70, position: 'absolute', zIndex: 12, alignSelf: 'center', }}>
               <TouchableOpacity onPress={() => {
-
-this.props.navigation.navigate({ routeName: 'ShopModal',
-params: { transition: 'shopTransition' }});
-
-
+                  this.props.navigation.navigate({ routeName: 'ShopModal',
+                  params: { transition: 'shopTransition' }});
               }}>
                 <Image source={assetPaths.homeScreen.icons.swipeDownIcon} style={
                   { width: 35, height: 35 }}/>
               </TouchableOpacity>
             </View>
-
              {
-                 this.state.showSpeech ? null : 
+                 this.state.showSpeech ? null :
                 <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
               }
-          
-          </View>
-      </View>);
+          </View>);
   }
 }
 
