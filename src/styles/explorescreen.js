@@ -44,9 +44,17 @@ var styles = StyleSheet.create({
     cardSource: {
         marginBottom: 19,
         color: "black",
-        fontSize: 10,
+        fontSize: 12,
         fontWeight: 'normal',
         fontFamily: 'trefoil-sans-light'
+    },
+    cardBadge: {
+        marginBottom: 19,
+        position:'absolute',
+        height:30,
+        width:30,
+        right:0
+
     },
 
 

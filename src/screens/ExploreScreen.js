@@ -72,10 +72,13 @@ class ExploreScreen extends React.Component {
              <Card key={item.id}
                containerStyle ={[s.cardContainer, { position: 'absolute',
                width:width-60}]}>
-               <Text style ={s.cardSource}>New Card </Text>
-
+               <Text style ={s.cardSource}>{item.source} </Text>
+               <TouchableWithoutFeedback
+                 onPress={() => {this.props.navigation.navigate('Badges'); }}>
+               <Image style={s.cardBadge} resizeMode="cover"
+                 source={require('../../assets/Badge_WomenHealth.png')} />
+              </TouchableWithoutFeedback>
                  <Text style ={s.articleTitle}>{item.title} </Text>
-
                <Text style ={s.articleText}>{item.text}</Text>
                <Image style={s.articleCover} resizeMode="cover"
                  source={{ uri:item.uri }} />
@@ -98,14 +101,14 @@ class ExploreScreen extends React.Component {
             style={{ height: height, width:width} }>
             <TopMenu navigation={this.props.navigation} menuTitle="explore" iconPath={assetPaths.topMenu.exploreIcon} />
             <NavMenu highlighted={0} />
-
+<ScrollView>
             <View style={{ flex: 5}}>
               <Carousel
                 ref={(c) => { this._carousel = c; }}
                 data={articles}
                 renderItem={this.renderCard}
-                sliderWidth={width - 20}
-                itemWidth={width - 80}
+                sliderWidth={width}
+                itemWidth={width - 75}
                 itemHeight={height}
               />
         {/*     <Carousel
@@ -117,6 +120,7 @@ class ExploreScreen extends React.Component {
                 itemHeight={height}
               />*/}
             </View>
+</ScrollView>
             <AvaBottomMenu currentSection={'explore'} contextIcon={true} navigation={this.props.navigation}/>
 
           </LinearGradient>
