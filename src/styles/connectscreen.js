@@ -1,4 +1,6 @@
 'use strict'
+import Dimensions from 'Dimensions';
+const {width, height} = Dimensions.get('window');
 import React from 'react';
 import {
     StyleSheet

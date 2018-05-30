@@ -1,11 +1,12 @@
 import React from 'react';
-import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
+
+import { StyleSheet, Text, View, TouchableOpacity,Image,TouchableWithoutFeedback, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+import Dimensions from 'Dimensions';
 const {width, height} = Dimensions.get('window');
 const CARD_HEIGHT =120;
 const CARD_WIDTH = CARD_HEIGHT - 29;
@@ -15,6 +16,7 @@ import TopMenu from '../components/TopMenu';
 import NavMenu from '../components/NavMenu';
 
 import assetPaths from '../assetPaths';
+import s from '../styles/connectscreen';
 
 class DashboardScreen extends React.Component {
 
@@ -121,53 +123,25 @@ class DashboardScreen extends React.Component {
   render() {
 
     return (
-      <LinearGradient
-      colors={['#F9C025', '#FFDB2B']}
-         style={{
-
-           height: height,
-           width:width,
-         }}>
-
+      <LinearGradient colors={['#F9C025', '#FFDB2B']} style={{ height: height,width:width, flex:1}}>
         <TopMenu navigation={this.props.navigation} menuTitle="connect" iconPath={assetPaths.topMenu.connectIcon} />
         <NavMenu highlighted={3} />
 
-
-        <View
-          style={{
-          height:height-120,
-          top:300,
-          flex:1,
-          left:20,
-          flexDirection: 'column',
-          justifyContent: 'space-around',
-          alignItems: 'flex-start',
-          position:'absolute',
-          }}>
+        <View style={s.container}>
 
             <View>
-               <TouchableOpacity
-                 style={{
-                 top:70
-                 }}
-
-
+               <TouchableOpacity style={{ top:70 }}
                  onPress={() => this.props.navigation.navigate({
-                   routeName: 'Chat',
-                       params: {
-                           transition: 'default'
-                       }
-                     }
+                   routeName: 'Chat'}
                  )}>
                  <Image
                    style={{height: 50,width: 50}}
-                     source={require('../../assets/icons/Connect/Icon_chat.png')}
+                   source={require('../../assets/icons/Connect/Icon_chat.png')}
                  />
                </TouchableOpacity>
+
                <Animated.ScrollView
-                   style={{
-                   left:60
-                   }}
+                   style={{ left:60 }}
                    horizontal
                    scrollEventThrottle={1}
                    showsHorizontalScrollIndicator={false}
@@ -183,33 +157,29 @@ class DashboardScreen extends React.Component {
                        },
                      ],
                      { useNativeDriver: true }
-
-                   )}
-
-                   >
+                   )}>
 
                    {this.state.chatSessions.map((chatSession, index) => (
                      <View style={styles.card} key={index}>
+                     <TouchableWithoutFeedback
+                       onPress={() => {this.props.navigation.navigate('Chat'); }}>
                        <Image
                          source={chatSession.image}
                          style={styles.cardImage}
-                         resizeMode="cover"
-                       />
-                       <View >
+                         resizeMode="cover"/>
+                     </TouchableWithoutFeedback>
+                       <View>
                          <Text numberOfLines={1} style={styles.cardtitle}>{chatSession.title}</Text>
-                         <Text numberOfLines={1} style={styles.cardDescription}>
-                           {chatSession.description}
-                         </Text>
+                         <Text numberOfLines={1} style={styles.cardDescription}>{chatSession.description}</Text>
                        </View>
+
+
                      </View>
                    ))}
                </Animated.ScrollView>
             </View>
             <View>
-               <TouchableOpacity
-                 style={{
-                 top:70
-                 }}
+               <TouchableOpacity style={{top:70}}
                  onPress={() => this.props.navigation.navigate({
                    routeName: 'Events',
                        params: {
@@ -219,7 +189,7 @@ class DashboardScreen extends React.Component {
                  )}>
                  <Image
                    style={{height: 50,width: 50}}
-                     source={require('../../assets/icons/Connect/Icon_events.png')}
+                   source={require('../../assets/icons/Connect/Icon_events.png')}
                  />
                </TouchableOpacity>
                <Animated.ScrollView
@@ -248,13 +218,13 @@ class DashboardScreen extends React.Component {
 
                    {this.state.gsEvents.map((gsEvent, index) => (
                      <View style={styles.eventCard} key={index}>
+                     <TouchableWithoutFeedback
+                       onPress={() => {this.props.navigation.navigate('Events'); }}>
                        <Image
                          source={gsEvent.image}
                          style={styles.eventImage}
-
-
                        />
-
+                      </TouchableWithoutFeedback>
                      </View>
                    ))}
                </Animated.ScrollView>
@@ -299,7 +269,8 @@ class DashboardScreen extends React.Component {
                  )}
                  >
                    <View >
-
+                   <TouchableWithoutFeedback
+                     onPress={() => {this.props.navigation.navigate('Calendar'); }}>
                      <Image
                         source={require('../../assets/icons/Connect/Calendar.png')}
                        style={{
@@ -308,6 +279,7 @@ class DashboardScreen extends React.Component {
                          right:0
                        }}
                      />
+                   </TouchableWithoutFeedback>
                    </View>
              </Animated.ScrollView>
             </View>
@@ -351,6 +323,8 @@ class DashboardScreen extends React.Component {
                    )}
                    >
                      <View >
+                     <TouchableWithoutFeedback
+                       onPress={() => {this.props.navigation.navigate('Map'); }}>
 
                        <Image
                           source={require('../../assets/icons/Connect/Map.png')}
@@ -361,6 +335,7 @@ class DashboardScreen extends React.Component {
                            bottom:5
                          }}
                        />
+                     </TouchableWithoutFeedback>
                      </View>
                </Animated.ScrollView>
             </View>
