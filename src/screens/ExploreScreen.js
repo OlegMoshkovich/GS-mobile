@@ -101,7 +101,7 @@ class ExploreScreen extends React.Component {
             style={{ height: height, width:width} }>
             <TopMenu navigation={this.props.navigation} menuTitle="explore" iconPath={assetPaths.topMenu.exploreIcon} />
             <NavMenu highlighted={0} />
-<ScrollView>
+
             <View style={{ flex: 5}}>
               <Carousel
                 ref={(c) => { this._carousel = c; }}
@@ -120,7 +120,8 @@ class ExploreScreen extends React.Component {
                 itemHeight={height}
               />*/}
             </View>
-</ScrollView>
+
+
             <AvaBottomMenu currentSection={'explore'} contextIcon={true} navigation={this.props.navigation}/>
 
           </LinearGradient>

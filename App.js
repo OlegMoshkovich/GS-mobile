@@ -184,7 +184,7 @@ chat font: trefoil slab light
 
   render() {
 
-    const CommunicationStack = StackNavigator(
+    const ConnectStack = StackNavigator(
       { //Screens
       ConnectDashboard: {
               screen: CommsDashboardScreen,
@@ -244,7 +244,7 @@ chat font: trefoil slab light
       // Events: { screen: EventScreen},
       // Chat: { screen: ChatScreen},
       // Connect: { screen: CommsDashboardScreen},
-      Connect:{screen: CommunicationStack},
+      Connect:{screen: ConnectStack},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
       Explore: { screen: ExploreScreen },
@@ -259,7 +259,7 @@ chat font: trefoil slab light
       {
         swipeEnabled:this.state.swiping,
 
-        initialRouteName:'Home',
+        initialRouteName:'Connect',
 
         navigationOptions: {
           tabBarVisible: false
