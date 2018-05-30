@@ -40,22 +40,29 @@ class AvaBottomMenu extends Component {
             modalAnim: new Animated.Value(0),
             blurRadius: initialBlurRadius,
             tabOpacity: 1,
-            
+            expanded:true,
         };
 
     }
 
 
 tabAnimation = () => {
-    console.log("would be doing something with tab now");
 
+ console.log('expanded:'+ this.state.expanded)
     if (this.props.tabTitle){
       Animated.timing(this.state.modalAnim,{
-        toValue:-560,
-        duration:1500
+        toValue:this.state.expanded ? -560:0,
+        duration:1000
       }).start();
-      console.log( "I am in the resume")
-      this.state
+
+      if (this.state.expanded == true) {
+        console.log( ' I am in the true loop')
+          this.setState({
+              expanded: false
+          });
+      } else {
+          this.setState({ expanded: true});
+      }
 
     }
 
@@ -201,7 +208,7 @@ tabAnimation = () => {
                     height: tabHeight,
                     opacity: this.state.tabOpacity,
                     zIndex:13,
-                    left:5,
+
                   }]} onPress={this.tabAnimation}>
 
                     <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
