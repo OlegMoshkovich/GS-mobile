@@ -252,6 +252,7 @@ tabAnimation = () => {
                         <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIcon} />}
                     </TouchableOpacity>
                 </View>
+                
                 <Animated.View style={[{
                                 top:0,
                                 left:5,

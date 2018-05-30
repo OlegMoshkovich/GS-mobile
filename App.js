@@ -259,7 +259,7 @@ chat font: trefoil slab light
       {
         swipeEnabled:this.state.swiping,
 
-        initialRouteName:'Connect',
+        initialRouteName:'Home',
 
         navigationOptions: {
           tabBarVisible: false
