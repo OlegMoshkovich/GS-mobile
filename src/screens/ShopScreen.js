@@ -55,7 +55,7 @@ class ShopScreen extends React.Component {
                 source={assetPaths.shop.productFeatured2} />
             <Image style={s.featuredProductImage} resizeMode="cover"
                 source={assetPaths.shop.productFeatured} />
-          </ScrollView >
+          </ScrollView>
           <Text style ={s.whatsNewTitle}>Whats New</Text>
             <ScrollView horizontal= {true} style={{marginBottom:200, left: -10}} >
               <Image style={s.productImage} resizeMode="cover"
@@ -66,7 +66,7 @@ class ShopScreen extends React.Component {
                 source={require('../../assets/Shop_Image3.png')} />
               <Image style={s.productImage} resizeMode="cover"
                 source={require('../../assets/Shop_Image3.png')} />
-            </ScrollView >
+            </ScrollView>
         </ScrollView>
         <AvaBottomMenu navigation={this.props.navigation}/> 
       </LinearGradient>
