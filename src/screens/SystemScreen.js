@@ -90,10 +90,7 @@ class SystemScreen extends React.Component {
 
 
        <View style={s.profileContainer}>
-           <TouchableOpacity
-               style = {{ }}
-               onPress={this.animate} >
-           </TouchableOpacity>
+
 
            <TouchableOpacity  onPress={this.switch} >
            <Image style={s.percentage}
@@ -118,7 +115,7 @@ class SystemScreen extends React.Component {
 
 
 
-     <View style={{position:'absolute',left: this.state.settings ? 100:600,top:300}}>
+     <View style={{position:'absolute',left: this.state.settings ? 600:100,top:300}}>
             <DraggableBox/>
             <DraggableBox1/>
             <DraggableBox2/>
@@ -128,7 +125,7 @@ class SystemScreen extends React.Component {
   posiiton:'absolute',
   flex:1,
   top:-50,
-  left: this.state.settings ? 600:0,
+  left: this.state.settings ? 0:600,
   zIndex:0
 }}>
 
@@ -136,49 +133,60 @@ class SystemScreen extends React.Component {
       <View style={styles.row}>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.account} style={styles.image}/>
+          <Text style={s.iconText}>Account</Text>
        </TouchableOpacity>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.users} style={styles.image}/>
+          <Text style={s.iconText}>Users</Text>
        </TouchableOpacity>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.notification} style={styles.image}/>
+          <Text style={s.iconText}>Notification</Text>
        </TouchableOpacity>
       </View>
 
       <View style={styles.row}>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.avatar} style={styles.image}/>
+          <Text style={s.iconText}>Avatar</Text>
        </TouchableOpacity>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.language} style={styles.image}/>
+          <Text style={s.iconText}>Language</Text>
        </TouchableOpacity>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.permissions} style={styles.image}/>
+          <Text style={s.iconText}>Permissions</Text>
        </TouchableOpacity>
       </View>
 
       <View style={styles.row}>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.orders} style={styles.image}/>
+          <Text style={s.iconText}>Orders</Text>
        </TouchableOpacity>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.security} style={styles.image}/>
+          <Text style={s.iconText}>Security</Text>
        </TouchableOpacity>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.updates} style={styles.image}/>
+          <Text style={s.iconText}>Updates</Text>
        </TouchableOpacity>
       </View>
 
       <View style={styles.row}>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.about} style={styles.image}/>
-
+          <Text style={s.iconText}>About</Text>
        </TouchableOpacity>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.info} style={styles.image}/>
+          <Text style={s.iconText}>Info</Text>
        </TouchableOpacity>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.help} style={styles.image}/>
+          <Text style={s.iconText}>Help</Text>
        </TouchableOpacity>
       </View>
 
@@ -225,6 +233,8 @@ const styles = StyleSheet.create({
   image: {
     width:46,
     height:46,
+    marginLeft:10,
+    marginRight:10
   },
 
 })

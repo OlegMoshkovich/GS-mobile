@@ -13,14 +13,21 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
+    iconText:{
+      color:"white",
+      fontSize: 10,
+      fontFamily: 'Helvetica',
+      marginTop:10,
+      alignSelf:'center'
 
-   menuText: {
-     color:"white",
-     fontSize: 40,
-     fontFamily: 'Helvetica',
-     fontWeight:'bold',
-     margin:15
-   },
+    },
+     menuText: {
+       color:"white",
+       fontSize: 40,
+       fontFamily: 'Helvetica',
+       fontWeight:'bold',
+       margin:15
+     },
 
    profileContainer: {
       position:'absolute',
