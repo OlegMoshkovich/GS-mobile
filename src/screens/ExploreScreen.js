@@ -18,6 +18,10 @@ import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
 
 
+// global styles
+import t from '../styles/shopscreen.js';
+
+
 
 import {
   PanGestureHandler,
@@ -102,7 +106,9 @@ class ExploreScreen extends React.Component {
             <TopMenu navigation={this.props.navigation} menuTitle="explore" iconPath={assetPaths.topMenu.exploreIcon} />
             <NavMenu highlighted={0} />
 
+
             <View style={{ flex: 5}}>
+
               <Carousel
                 ref={(c) => { this._carousel = c; }}
                 data={articles}
@@ -111,15 +117,36 @@ class ExploreScreen extends React.Component {
                 itemWidth={width - 75}
                 itemHeight={height}
               />
-        {/*     <Carousel
-                ref={(c) => { this._carousel = c; }}
-                data={this.state.entries}
-                renderItem={this._renderItem}
-                sliderWidth={width - 20}
-                itemWidth={width - 100}
-                itemHeight={height}
-              />*/}
+
             </View>
+
+            <ScrollView
+              style ={{ top:height-70, marginBottom:400,position:'absolute', height: height}}>
+
+
+              <Text style ={t.whatsNewTitle}>Ralated Articles</Text>
+                <ScrollView horizontal= {true} style={{marginBottom:400, left: -10}} >
+                  <Image style={{width:366/2,height:384/2,marginLeft:30}} resizeMode="cover"
+                    source={require('../../assets/explore/Related_Article_1.png')} />
+                  <Image style={{width:366/2,height:384/2}} resizeMode="cover"
+                    source={require('../../assets/explore/Related_Article_2.png')} />
+                  <Image style={{width:366/2,height:384/2}} resizeMode="cover"
+                    source={require('../../assets/explore/Related_Article_3.png')} />
+                  <Image style={{width:366/2,height:384/2}} resizeMode="cover"
+                    source={require('../../assets/explore/Related_Article_1.png')} />
+                </ScrollView>
+                <Text style ={t.whatsNewTitle}>Ralated Articles</Text>
+                  <ScrollView horizontal= {true} style={{marginBottom:400, left: -10}} >
+                    <Image style={t.productImage} resizeMode="cover"
+                      source={require('../../assets/Shop_Image3.png')} />
+                    <Image style={t.productImage} resizeMode="cover"
+                      source={require('../../assets/Shop_Image3.png')} />
+                    <Image style={t.productImage} resizeMode="cover"
+                      source={require('../../assets/Shop_Image3.png')} />
+                    <Image style={t.productImage} resizeMode="cover"
+                      source={require('../../assets/Shop_Image3.png')} />
+                  </ScrollView>
+            </ScrollView>
 
 
             <AvaBottomMenu currentSection={'explore'} contextIcon={true} navigation={this.props.navigation}/>
