@@ -29,7 +29,7 @@ class CalendarScreen extends React.Component {
   render() {
     return (
       <LinearGradient
-      colors={['#F9C025', '#F9C025']}
+      colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
         <TopMenu navigation={this.props.navigation} menuTitle="when" iconPath={assetPaths.topMenu.connectIcon} />
         <NavMenu highlighted={0} />
@@ -37,51 +37,34 @@ class CalendarScreen extends React.Component {
 
 
     <View style = {{
-      flex:4
+      flex:1
     }}>
-
-    <Agenda
-      items={this.state.items}
-      loadItemsForMonth={this.loadItems.bind(this)}
-      selected={'2018-04-18'}
-      renderItem={this.renderItem.bind(this)}
-      renderEmptyDate={this.renderEmptyDate.bind(this)}
-      rowHasChanged={this.rowHasChanged.bind(this)}
-      // markingType={'period'}
-      // markedDates={{
-      //    '2017-05-08': {textColor: '#666'},
-      //    '2017-05-09': {textColor: '#666'},
-      //    '2017-05-14': {startingDay: true, endingDay: true, color: 'blue'},
-      //    '2017-05-21': {startingDay: true, color: 'blue'},
-      //    '2017-05-22': {endingDay: true, color: 'gray'},
-      //    '2017-05-24': {startingDay: true, color: 'gray'},
-      //    '2017-05-25': {color: 'gray'},
-      //    '2017-05-26': {endingDay: true, color: 'gray'}}}
-      // monthFormat={'yyyy'}
-      // theme={{calendarBackground: '#F9C025', agendaKnobColor: 'darkgrey',selectedDayBackgroundColor: '#F9C025', todayTextColor: 'red',  agendaTodayColor: '#F9C025',}}
-      theme={{
-                calendarBackground: '#F9C025',
-
-                textSectionTitleColor: 'white',
-                dayTextColor: 'white',
-                todayTextColor: 'white',
-                selectedDayTextColor: 'white',
-                monthTextColor: 'white',
-                selectedDayBackgroundColor: '#333248',
-                arrowColor: 'white',
-                // textDisabledColor: 'red',
-                'stylesheet.calendar.header': {
-                  week: {
-                    marginTop: 5,
-                    flexDirection: 'row',
-                    justifyContent: 'space-between'
-                  }
-                }
-               }}
-
-      //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
+    <Image
+      style={{height: 1461/3,width: 1050/3, top:-220, left:15}}
+      source={require('../../assets/Calendar.png')}
     />
-    </View>
+    {/*    <Agenda
+          items={this.state.items}
+          loadItemsForMonth={this.loadItems.bind(this)}
+          selected={'2018-04-18'}
+          renderItem={this.renderItem.bind(this)}
+          renderEmptyDate={this.renderEmptyDate.bind(this)}
+          rowHasChanged={this.rowHasChanged.bind(this)}
+          // markingType={'period'}
+          // markedDates={{
+          //    '2017-05-08': {textColor: '#666'},
+          //    '2017-05-09': {textColor: '#666'},
+          //    '2017-05-14': {startingDay: true, endingDay: true, color: 'blue'},
+          //    '2017-05-21': {startingDay: true, color: 'blue'},
+          //    '2017-05-22': {endingDay: true, color: 'gray'},
+          //    '2017-05-24': {startingDay: true, color: 'gray'},
+          //    '2017-05-25': {color: 'gray'},
+          //    '2017-05-26': {endingDay: true, color: 'gray'}}}
+          // monthFormat={'yyyy'}
+          theme={{calendarBackground: 'white', agendaKnobColor: 'darkgrey',selectedDayBackgroundColor: '#56CCF2', todayTextColor: 'red',  agendaTodayColor: 'red',}}
+          //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
+        />*/}
+</View>
 
 
       <AvaBottomMenu currentSection={'connect'} contextIcon={true} navigation={this.props.navigation}/>
@@ -101,7 +84,7 @@ class CalendarScreen extends React.Component {
 
          for (let j = 0; j < numItems; j++) {
            this.state.items[strTime].push({
-             name: 'Events:',
+             name: 'Tasks -- ' + strTime,
              height: Math.max(50, Math.floor(Math.random() * 150))
            });
          }

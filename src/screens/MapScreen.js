@@ -10,7 +10,15 @@ import ChatScreen from './ChatScreen.js';
 import PlaygroundScreen from './PlaygroundScreen.js';
 
 
-import AvaBottomMenu from '../components/AvaBottomMenu.js';
+import assetPaths from '../assetPaths';
+
+
+import {GiftedChat } from 'react-native-gifted-chat';
+import AvaBottomMenu from '../components/AvaBottomMenu';
+import TopMenu from '../components/TopMenu';
+import NavMenu from '../components/NavMenu';
+
+
 
 
 // global styles
@@ -44,7 +52,7 @@ class MapScreen extends React.Component {
     markers: mapMarkers,
     region: mapRegion,
   };
- 
+
   componentWillMount() {
     this.index = 0;
     this.animation = new Animated.Value(0);
@@ -145,38 +153,18 @@ class MapScreen extends React.Component {
     });
 
     return (
- 
+
         <View style={s.viewStyle}>
           <LinearGradient
-            colors={['#b98031', 'white', 'white']}
+            colors={['#F9C025', '#FFDB2B']}
             style={{ height: height, width:width}}>
-            <Text style ={s.menuText}>where</Text>
-            
-            {/* comms menu - cant abstract into function because JSX is not a single container */}
-            
-            <TouchableOpacity style ={s.commsDashboardIcon}
-              onPress={() => this.props.navigation.navigate({
-              routeName: 'CommunicationDashboard', params: { transition: 'default' }}
-            )}>
-              <Image style={s.commsMenuIconImage} 
-                source={require('../../assets/Dashboard-icon.png')} />
-            </TouchableOpacity>
-            <TouchableOpacity  style ={s.commsChatIcon}
-              onPress={() => this.props.navigation.navigate({
-              routeName: 'CommunicationChat', params: { transition: 'default' }}
-            )}>
-              <Image style={s.commsMenuIconImage} 
-                source={require('../../assets/Chat-icon.png')} />
-            </TouchableOpacity>
-            <TouchableOpacity  style ={s.commsCalendarIcon}
-              onPress={() => this.props.navigation.navigate({
-              routeName: 'CommunicationCalendar', params: { transition: 'default' }}
-            )}>
-              <Image style={s.commsMenuIconImage} 
-                source={require('../../assets/Calendar-icon.png')} />
-            </TouchableOpacity>
 
-            <View style={s.container}>
+            <TopMenu navigation={this.props.navigation} menuTitle="where" iconPath={assetPaths.topMenu.connectIcon} />
+            <NavMenu highlighted={2} />
+
+            <View style={{
+              flex:6
+            }}>
               { /* render map */
                 this.renderMapView(interpolations)
               }
@@ -202,8 +190,8 @@ class MapScreen extends React.Component {
                 ))}
               </Animated.ScrollView>
             </View>
-            
-            <AvaBottomMenu   currentSection={'connect'} navigation={this.props.navigation}/> 
+
+            <AvaBottomMenu   currentSection={'connect'} navigation={this.props.navigation}/>
 
 
           </LinearGradient>

@@ -14,7 +14,6 @@ import { DraggableBox } from '../TestComponents/draggable';
 import { DraggableBox1 } from '../TestComponents/draggable1';
 import { DraggableBox2 } from '../TestComponents/draggable2';
 
-
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
 import assetPaths from '../assetPaths';
@@ -33,6 +32,7 @@ class SystemScreen extends React.Component {
     this.state = {
       moveAnim     : new Animated.Value(0),
       activated    : true,
+      settings     : false,
       environmentSwitch: false,
       fadeAnim     : new Animated.Value(0),
       blurRadius: 0,
@@ -63,6 +63,16 @@ class SystemScreen extends React.Component {
       )
   }
 
+  switch = () => {
+    console.log( " I am in the switch",this.state.settings)
+
+
+    this.setState({
+      settings: !this.state.settings,
+      }
+      )
+  }
+
 
 
 
@@ -74,6 +84,7 @@ class SystemScreen extends React.Component {
     // noticed that the icons dont all line up properly with their text...
 
     let { fadeAnim } = this.state;
+
     return (
 
 
@@ -88,10 +99,20 @@ class SystemScreen extends React.Component {
 
        <TopMenu menuTitle="profile"  />
        <View style={s.profileContainer}>
-       <TouchableOpacity>
+
+       <TouchableOpacity
+           style = {{
+
+           }}
+           onPress={this.animate} >
+
+           </TouchableOpacity>
+
+       <TouchableOpacity  onPress={this.switch} >
        <Image style={s.percentage}
          source={require('../../assets/icons/Profile/Percentage.png')} />
        </TouchableOpacity>
+
        <TouchableOpacity>
        <Image style={s.avaProfile}
          source={require('../../assets/icons/Profile/Ava.png')} />
@@ -103,11 +124,11 @@ class SystemScreen extends React.Component {
        </View>
       <Text style={s.userName}>@Ava_G</Text>
 
-
+ <View style={{top: this.state.settings ? 600:0}}>
         <DraggableBox/>
         <DraggableBox1/>
         <DraggableBox2/>
-
+</View>
 
 
       <AvaBottomMenu showTab={true} contextIcon={true} tabTitle={"Resume"} tabLeft={15} navigation={this.props.navigation}/>

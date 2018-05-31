@@ -18,31 +18,33 @@ class TopMenu extends Component {
     updateData() {
 
         // to be implemented
-        console.log("updating data in menu");
+
     }
 
 
     navigateBack() {
-        console.log("navigating back");
-        console.log(this.props.navigation);
+        console.log("navigation routeName:::",this.props.navigation.state.routeName);
+
+        // console.log(this.props.navigation);
         switch (this.props.navigation.state.routeName) {
-            case 'Badges': 
-            case 'Journey': 
-            case 'Award': 
+            case 'Badges':
+            case 'Journey':
+            case 'Award':
 
                 this.props.navigation.navigate('Dashboard');
                 break;
             case 'Chat':
             case 'Events':
             case 'Calendar':
-                this.props.navigation.navigate('Connect');
+            case 'Map':
+                this.props.navigation.navigate('ConnectDashboard');
                 break;
             default:
                 console.log("no navigation yet");
                 break;
 
         }
-        
+
     }
 
 

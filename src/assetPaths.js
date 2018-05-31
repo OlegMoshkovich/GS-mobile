@@ -96,9 +96,6 @@ paths.topMenu = {
     profileIcon: require('../assets/topMenu/NAV_profile.png'),
     shopIcon: require('../assets/shop/nav-top-right.png'),
 
-
-
-
 }
 
 
@@ -110,6 +107,7 @@ paths.staticScreens = {
     avaEndYellow: require('../assets/ava_end_yellow.png'),
     eventScreen: require('../assets/staticScreens/events-2x.png'),
     postModal: require('../assets/staticScreens/post.png'),
+    resume: require('../assets/Resume.png')
 
 
 }
@@ -250,11 +248,11 @@ paths.badges = {
 
             wishlist: require('../assets/shop/shop-wishlist.png'),
             close: require('../assets/shop/shop-close.png'),
-            
+
 
 
         },
-        
+
         productFeatured: require('../assets/shop/shop-featured-01.png'),
         productFeatured2: require('../assets/shop/shop-featured-02.png'),
         bubbleNav: require('../assets/shop/shop-bubbleNav.png'),

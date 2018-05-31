@@ -34,6 +34,7 @@ import Dimensions from 'Dimensions';
 import SystemScreen from './src/screens/SystemScreen';
 const {width, height} = Dimensions.get('window');
 
+
 let MyTransition = (index, position) => {
 
     const inputRange = [index - 1, index, index + 1];
@@ -51,8 +52,18 @@ let MyTransition = (index, position) => {
         opacity
     };
 };
+let TransitionConfiguration = () => {
 
+    return {
 
+        // Define scene interpolation, eq. custom transition
+        screenInterpolator: (sceneProps) => {
+            const {position, scene} = sceneProps;
+            const {index} = scene;
+            return MyTransition(index, position);
+        }
+    }
+};
 
 
 
@@ -173,20 +184,76 @@ chat font: trefoil slab light
 
   render() {
 
+    const ConnectStack = StackNavigator(
+      { //Screens
+      ConnectDashboard: {
+              screen: CommsDashboardScreen,
+      },
+      Chat: {
+              screen: ChatScreen,
+      },
+      Map: {
+        screen: MapScreen,
+      },
+      Calendar: {
+          screen: CalendarScreen,
+      },
+      Events: {
+          screen: EventScreen,
+      },
+      },
+
+      {
+      headerMode: 'none',
+      navigationOptions: {
+        headerVisible: false,
+      },
+      transitionConfig: TransitionConfiguration,
+      },
+    );
+
+    const EducationStack = StackNavigator(
+      { //Screens
+      Dashboard: {
+              screen: DashboardScreen,
+      },
+      Badges: {
+              screen: BadgeScreen,
+      },
+      Journey: {
+              screen: JourneyScreen,
+      },
+      Award: {
+              screen: AwardScreen,
+      },
+      },
+
+      {
+      headerMode: 'none',
+      navigationOptions: {
+        headerVisible: false,
+      },
+      transitionConfig: TransitionConfiguration,
+      },
+
+    );
+
     const TabStack =  TabNavigator({
-      AvaYellow: { screen: AvaEndYellow },
-      Calendar: { screen: CalendarScreen},
-      Events: { screen: EventScreen},
-      Chat: { screen: ChatScreen},
-      Connect: { screen: CommsDashboardScreen},
+      // AvaYellow: { screen: AvaEndYellow },
+      // Calendar: { screen: CalendarScreen},
+      // Events: { screen: EventScreen},
+      // Chat: { screen: ChatScreen},
+      // Connect: { screen: CommsDashboardScreen},
+      Connect:{screen: ConnectStack},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
       Explore: { screen: ExploreScreen },
-      Dashboard: { screen: DashboardScreen },
-      Badges: { screen: BadgeScreen},
-      Journey: { screen: JourneyScreen},
-      Award: {screen: AwardScreen},
-      AvaBlue: { screen: AvaEndBlue }
+      Dashboard: { screen: EducationStack },
+      // Badges: { screen: BadgeScreen},
+      // Journey: { screen: JourneyScreen},
+      // Award: {screen: AwardScreen},
+      // AvaBlue: { screen: AvaEndBlue },
+      // Playground: { screen: PlaygroundScreen },
       },
 
       {
