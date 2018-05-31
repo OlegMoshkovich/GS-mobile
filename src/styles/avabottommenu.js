@@ -84,7 +84,7 @@ var styles = StyleSheet.create({
         position: 'absolute',
         top: 15,
         zIndex: 2,
-    
+
         fontSize: 12,
     },
 

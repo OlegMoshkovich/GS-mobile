@@ -14,7 +14,7 @@ import CommsDashboardScreen from './src/screens/CommsDashboardScreen.js'
 import ArticleModalScreen from './src/screens/ArticleModalScreen';
 import ShopScreen from './src/screens/ShopScreen.js';
 import DashboardScreen from './src/screens/DashboardScreen.js';
-import PlaygroundScreen from './src/screens/PlaygroundScreen.js';
+import PlaygroundScreen from './src/screens/PlaygroundScreen-flexbox.js';
 import ExploreScreen from './src/screens/ExploreScreen.js';
 import GiftedChatScreen from './src/screens/GiftedChatScreen.js';
 import AvaEndYellow from './src/screens/AvaEndYellow';
@@ -253,7 +253,7 @@ chat font: trefoil slab light
       // Journey: { screen: JourneyScreen},
       // Award: {screen: AwardScreen},
       // AvaBlue: { screen: AvaEndBlue },
-      // Playground: { screen: PlaygroundScreen },
+      Playground: { screen: PlaygroundScreen },
       },
 
       {
