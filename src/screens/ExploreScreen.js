@@ -119,7 +119,7 @@ class ExploreScreen extends React.Component {
               />
 
             </View>
-
+{/*
             <ScrollView
               style ={{ top:height-70, marginBottom:400,position:'absolute', height: height}}>
 
@@ -147,7 +147,7 @@ class ExploreScreen extends React.Component {
                       source={require('../../assets/Shop_Image3.png')} />
                   </ScrollView>
             </ScrollView>
-
+*/}
 
             <AvaBottomMenu currentSection={'explore'} contextIcon={true} navigation={this.props.navigation}/>
 
