@@ -49,7 +49,8 @@ class AvaBottomMenu extends Component {
 tabAnimation = () => {
 
  console.log('expanded:'+ this.state.expanded)
-    if (this.props.tabTitle){
+    
+    if (this.props.tabTitle == 'Resume'){
       Animated.timing(this.state.modalAnim,{
         toValue:this.state.expanded ? -560:0,
         duration:500

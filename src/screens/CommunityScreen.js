@@ -36,7 +36,7 @@ class CommunityScreen extends React.Component {
   renderNewStoriesSection() {
     // TODO create actual cards
     return(
-      <ScrollView horizontal= {true}  >
+      <ScrollView showsHorizontalScrollIndicator={false} horizontal= {true}  >
         <Image style={s.newStoryImage} resizeMode="cover"
           source={assetPaths.stories.newStories.storyCard01} />
         <Image style={s.newStoryImage} resizeMode="cover"
@@ -50,7 +50,7 @@ class CommunityScreen extends React.Component {
   renderAllStoriesSection() {
     // TODO create cards
     return(
-      <ScrollView horizontal= {true} style={s.storySectionView} >
+      <ScrollView showsHorizontalScrollIndicator={false} horizontal= {true} style={s.storySectionView} >
         <Image style={s.newStoryImage} resizeMode="cover"
           source={assetPaths.stories.newStories.storyCard01} />
         <Image style={s.newStoryImage} resizeMode="cover"
@@ -64,9 +64,9 @@ class CommunityScreen extends React.Component {
   renderFeaturedStories() {
     return(
     <ScrollView
-      style ={[s.featuredStoriesView, {height: height}]}>
+      style ={[s.featuredStoriesView, {height: height}]} showsVerticalScrollIndicator={false}>
       <Text style ={s.featuredStoriesTitle}>Featured</Text>
-      <ScrollView horizontal= {true} style={{marginTop:40}}>
+      <ScrollView horizontal= {true} style={{marginTop:40}} showsHorizontalScrollIndicator={false}>
         <TouchableOpacity
           onPress={() => {this.props.navigation.navigate('StoryModal', stories.story01)}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
