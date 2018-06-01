@@ -59,11 +59,9 @@ class TopMenu extends Component {
         <View style ={s.container}>
 
             <Text style ={s.menuText}>{this.props.menuTitle}</Text>
-
             <TouchableOpacity style ={s.menuNavButton}
               onPress={() => this.navigateBack()}>
-              <Image style={s.menuNavButtonImage}
-                source={this.props.iconPath} />
+              <Image style={s.menuNavButtonImage} source={this.props.iconPath} />
             </TouchableOpacity>
 
         </View>

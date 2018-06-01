@@ -44,9 +44,8 @@ class ShopScreen extends React.Component {
          style={{ height: height, width:width}}>
         <TopMenu menuTitle="shop" iconPath={assetPaths.topMenu.shopIcon} navigation={this.props.navigation} />
 
-        
         <ScrollView
-          style ={{ top:70, position:'absolute', height: height}}>
+          style ={{ top:91, position:'absolute', height: height}}>
           <Text style ={s.featuredTitle}>Featured</Text>
           <ScrollView horizontal= {true}>
             <Image style={s.featuredProductImage} resizeMode="cover"
