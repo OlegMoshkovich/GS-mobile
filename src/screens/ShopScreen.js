@@ -38,16 +38,31 @@ class ShopScreen extends React.Component {
   }
   
   render() {
+
+    /* old product info that was in the ScrollView under 'Categories'
+
+    <Image style={s.productImage} resizeMode="cover"
+                source={require('../../assets/Shop_Image3.png')} />
+              <Image style={s.productImage} resizeMode="cover"
+                source={require('../../assets/Shop_Image3.png')} />
+              <Image style={s.productImage} resizeMode="cover"
+                source={require('../../assets/Shop_Image3.png')} />
+              <Image style={s.productImage} resizeMode="cover"
+                source={require('../../assets/Shop_Image3.png')} />
+
+    */
+
+
     return (
         <LinearGradient
          colors={['#68D634', '#4CB034', '#3F8C2D']}
          style={{ height: height, width:width}}>
         <TopMenu menuTitle="shop" iconPath={assetPaths.topMenu.shopIcon} navigation={this.props.navigation} />
 
-        <ScrollView
+        <ScrollView 
           style ={{ top:91, position:'absolute', height: height}}>
           <Text style ={s.featuredTitle}>Featured</Text>
-          <ScrollView horizontal= {true}>
+          <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
             <Image style={s.featuredProductImage} resizeMode="cover"
                 source={assetPaths.shop.productFeatured} />
             <Image style={s.featuredProductImage} resizeMode="cover"
@@ -55,16 +70,9 @@ class ShopScreen extends React.Component {
             <Image style={s.featuredProductImage} resizeMode="cover"
                 source={assetPaths.shop.productFeatured} />
           </ScrollView>
-          <Text style ={s.whatsNewTitle}>Whats New</Text>
+          <Text style ={s.whatsNewTitle}>Categories</Text>
             <ScrollView horizontal= {true} style={{marginBottom:200, left: -10}} >
-              <Image style={s.productImage} resizeMode="cover"
-                source={require('../../assets/Shop_Image3.png')} />
-              <Image style={s.productImage} resizeMode="cover"
-                source={require('../../assets/Shop_Image3.png')} />
-              <Image style={s.productImage} resizeMode="cover"
-                source={require('../../assets/Shop_Image3.png')} />
-              <Image style={s.productImage} resizeMode="cover"
-                source={require('../../assets/Shop_Image3.png')} />
+              <Image style={s.searchIcon} resizeMethod="cover" source={assetPaths.shop.icons.search} />
             </ScrollView>
         </ScrollView>
         <AvaBottomMenu navigation={this.props.navigation}/> 

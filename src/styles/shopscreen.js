@@ -79,9 +79,27 @@ var styles = StyleSheet.create({
     },
 
 
-    productImage: {height: 212,width:156,marginBottom:10,marginTop:10,marginRight:10,marginLeft:10,left:20},
+    productImage: {
+        height: 212,
+        width: 156,
+        marginBottom: 10,
+        marginTop: 10,
+        marginRight: 10,
+        marginLeft: 10,
+        left: 20
+    },
 
-    
+
+    // category nav on bottom
+    searchIcon: {
+        width: 20,
+    }
+
+
+
+
+
+
 
 
 

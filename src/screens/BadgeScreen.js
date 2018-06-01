@@ -22,7 +22,7 @@ class BadgeScreen extends React.Component {
     return(
     <View style={[s.myBadgesContainer, {width: width}]}>
       <Text style={s.myBadgesTitle}>My Badges</Text>
-      <ScrollView horizontal={true} >
+      <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} >
         <TouchableOpacity style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
             source={assetPaths.badges.scienceExpert} />

@@ -221,6 +221,7 @@ paths.shop = {
     icons: {
         wishlist: require('../assets/shop/shop-wishlist.png'),
         close: require('../assets/shop/shop-close.png'),
+        search: require('../assets/shop/icon-search.png')
     },
 
     productFeatured: require('../assets/shop/shop-featured-01.png'),
