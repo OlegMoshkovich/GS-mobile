@@ -241,11 +241,12 @@ chat font: trefoil slab light
     const TabStack =  TabNavigator({
       // AvaYellow: { screen: AvaEndYellow },
       // Calendar: { screen: CalendarScreen},
-      // Events: { screen: EventScreen},
+
       // Chat: { screen: ChatScreen},
       // Connect: { screen: CommsDashboardScreen},
       Connect:{screen: ConnectStack},
       Community: { screen: CommunityScreen },
+      Events: { screen: EventScreen},
       Home: { screen: HomeScreen},
       Explore: { screen: ExploreScreen },
       Dashboard: { screen: EducationStack },
