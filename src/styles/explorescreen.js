@@ -34,7 +34,7 @@ var styles = StyleSheet.create({
         backgroundColor: "white",
         borderColor: "lightgrey",
         borderRadius: 7,
-        height: 460,
+        height: 400,
         left:-27
     },
 
@@ -74,7 +74,7 @@ var styles = StyleSheet.create({
     },
 
     articleCover: {
-        height: 225
+        height: 150
     },
 
  scrollView: {
