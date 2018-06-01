@@ -253,7 +253,7 @@ chat font: trefoil slab light
       // Journey: { screen: JourneyScreen},
       // Award: {screen: AwardScreen},
       // AvaBlue: { screen: AvaEndBlue },
-      Playground: { screen: PlaygroundScreen },
+      // Playground: { screen: PlaygroundScreen },
       },
 
       {

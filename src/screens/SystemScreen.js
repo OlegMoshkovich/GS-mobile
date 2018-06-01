@@ -92,12 +92,12 @@ class SystemScreen extends React.Component {
        <View style={s.profileContainer}>
 
 
-           <TouchableOpacity  onPress={this.switch} >
+           <TouchableOpacity  >
            <Image style={s.percentage}
              source={require('../../assets/icons/Profile/Percentage.png')} />
            </TouchableOpacity>
 
-           <TouchableOpacity>
+           <TouchableOpacity onPress={this.switch} >
            <Image style={s.avaProfile}
              source={require('../../assets/icons/Profile/Ava.png')} />
            </TouchableOpacity>
