@@ -49,7 +49,7 @@ class EventScreen extends React.Component {
       region: mapRegion,
     };
 
-    
+
   }
 
 
@@ -92,7 +92,7 @@ class EventScreen extends React.Component {
   }
   _getLocationAsync = async () => {
     console.log("Getting location now///");
-    
+
 
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
@@ -179,10 +179,10 @@ class EventScreen extends React.Component {
                 </View>))}
             </Animated.ScrollView>
           </View>
-          <AvaBottomMenu currentSection={'connect'} contextIcon={true} showTab={true} tabTitle={"All Events"} tabLeft={19} navigation={this.props.navigation}/> 
+          <AvaBottomMenu currentSection={'connect'} contextIcon={true} showTab={true} tabTitle={"All Events"} tabLeft={19} navigation={this.props.navigation}/>
         </LinearGradient>);
   }
-  
+
 }
 
 export default EventScreen;
