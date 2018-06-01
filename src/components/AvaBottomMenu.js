@@ -52,7 +52,7 @@ tabAnimation = () => {
     if (this.props.tabTitle){
       Animated.timing(this.state.modalAnim,{
         toValue:this.state.expanded ? -560:0,
-        duration:1000
+        duration:500
       }).start();
 
       if (this.state.expanded == true) {
@@ -159,10 +159,6 @@ tabAnimation = () => {
                             source={assetPaths.bottomMenu.contextIcons.profile} />
                     </TouchableOpacity>
                 );
-
-
-
-
 
 
 
