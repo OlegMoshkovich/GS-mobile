@@ -8,7 +8,7 @@ var styles = StyleSheet.create({
 
 
     journeyContainer: {
-        flex: 1,
+        flex: 4,
     },
     journeyHeader: {
         top: -100,

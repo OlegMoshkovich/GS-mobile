@@ -1,25 +1,63 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { Modal, StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert} from 'react-native';
+import { Modal, StyleSheet, Text, View, TouchableOpacity,TouchableWithoutFeedback,Image, TouchableHighlight,ScrollView,Toggle, Alert} from 'react-native';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
-
+import Carousel from 'react-native-snap-carousel'; // 3.4.0
 
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
 import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
 import s from '../styles/journeyscreen';
+import articles from '../../data/articles/articleContent.js';
 
+const SliderWidth = Dimensions.get('screen').width;
+const ItemWidth = 300.0;
+const ItemHeight = 600.0;
 
+const NumItems = 100;
+const Items = [
+  {id:1,icon:require('../../assets/journey/journeyIcon_1.png'),image:require('../../assets/journey/journeyCard_1.png')},
+  {id:2,icon:require('../../assets/journey/journeyIcon_2.png'),image:require('../../assets/journey/journeyCard_2.png')},
+];
+
+for(var i = 0; i < NumItems; i++) {
+  Items.push(i)
+}
 
 class JourneyScreen extends React.Component {
- constructor(props) {
+
+  constructor(props) {
     super(props);
+    this._renderItem = this._renderItem.bind(this)
   }
 
+    _renderItem({ item }) {
+        return (
+          <View style={{
+            width: ItemWidth,
+            height: ItemHeight,
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'transparent'
+          }}>
+          <ScrollView showsVerticalScrollIndicator = {false}>
+            <View style = {{paddingBottom:50}}>
+              <Image style={{alignSelf:'center', width:222,height:322}} resizeMode="cover"
+                source={item.icon} />
+            </View>
+            <View style = {{paddingBottom:200}}>
+            <Image style={{alignSelf:'center', width:277,height:407}} resizeMode="cover"
+              source={item.image} />
+            </View>
+
+                </ScrollView>
+          </View>
+        );
+      }
 
   render() {
 
@@ -32,35 +70,45 @@ class JourneyScreen extends React.Component {
 
         <TopMenu navigation={this.props.navigation} menuTitle="journeys" iconPath={assetPaths.topMenu.dashboardIcon} />
         <NavMenu highlighted={3} />
-      
-        <View style={s.journeyContainer}>
-          <View style={s.journeyHeadlineContainer}>
-            <Text style={s.journeyHeadline}>Sow What? Award</Text>
-          </View>
-          <View style={s.journeyCarouselContainer}>
-            <Image style={s.journeyCarouselSwipeImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.swipeNavLeft}/>
-            <Image style={s.journeyCarouselCaretImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.caretLeft}/>
-            <Image style={s.journeyCarouselCenterImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.journeyImage}/>
-            <Image style={s.journeyCarouselCaretImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.caretRight}/>
-            <Image style={s.journeyCarouselSwipeImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.swipeNavRight}/>
-          </View>
-        </View>
-        <View style={s.journeyCompletedContainer}>
-          <Image style={s.journeyCompletedImage} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.completed}/>
-          <Text style={s.journeyAwardNameTitle}>Harvest Award</Text>
-        </View>
-       
-        <View style={s.journeyBottomContainer}>
-          <Image style={{width: width-70, alignSelf: 'center'}} resizeMode="contain" source={assetPaths.journeyScreen.journeyCarousel.journeyCard}/>
-          
-        </View>
-       
 
-        
+          <View style={{ flex: 4}}>
 
-        <AvaBottomMenu currentSection={'dashboard'} navigation={this.props.navigation}/> 
+
+          <Carousel
+            ref={(c) => { this._carousel = c; }}
+            data={Items}
+            renderItem={this._renderItem}
+            sliderWidth={width}
+            itemWidth={width - 75}
+            itemHeight={height}
+          />
+
+
+        </View>
+
+
+
+        <AvaBottomMenu currentSection={'dashboard'} navigation={this.props.navigation}/>
       </LinearGradient>);
   }
 }
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#ecf0f1',
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    color: '#34495e',
+  },
+  slide: {
+    height: 100,
+    backgroundColor: 'lightgrey',
+  },
+});
 export default JourneyScreen;
