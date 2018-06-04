@@ -214,14 +214,14 @@ chat font: trefoil slab light
 
     const EducationStack = StackNavigator(
       { //Screens
+      Journey: {
+              screen: JourneyScreen,
+      },
       Dashboard: {
               screen: DashboardScreen,
       },
       Badges: {
               screen: BadgeScreen,
-      },
-      Journey: {
-              screen: JourneyScreen,
       },
       Award: {
               screen: AwardScreen,
