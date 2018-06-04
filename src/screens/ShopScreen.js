@@ -56,9 +56,11 @@ class ShopScreen extends React.Component {
               productDots={[
                 { top: 124, left: 130, 
                   productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                  bubbleOffset: { top: -55, left: -112 }
                 }, 
                 { top: 327, left: 200,
                   productBubble: assetPaths.shop.featuredProducts[0].bubbles[1],
+                  bubbleOffset: { top: -56, left: 19 }
                 }
               ]}
             />
@@ -70,7 +72,8 @@ class ShopScreen extends React.Component {
               imageNumber={1} 
               productDots={[
                 { top: 204, left: 130, 
-                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                  productBubble: assetPaths.shop.featuredProducts[1].bubbles[0],
+                  bubbleOffset: { top: -57, left: 19 }
                 }                
               ]}
             />
@@ -78,10 +81,12 @@ class ShopScreen extends React.Component {
               imageNumber={2} 
               productDots={[
                 { top: 33, left: 271, 
-                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                  productBubble: assetPaths.shop.featuredProducts[2].bubbles[0],
+                  bubbleOffset: { top: -18, left: -115 }
                 }, 
                 { top: 200, left: 169,
-                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[1],
+                  productBubble: assetPaths.shop.featuredProducts[2].bubbles[1],
+                  bubbleOffset: { top: -55, left: -113 }
                 }
               ]}
             />
@@ -89,13 +94,16 @@ class ShopScreen extends React.Component {
               imageNumber={3} 
               productDots={[
                 { top: 54, left: 137, 
-                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                  productBubble: assetPaths.shop.featuredProducts[3].bubbles[0],
+                  bubbleOffset: { top: -54, left: 20 }
                 }, 
                 { top: 201, left: 106,
-                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[1],
+                  productBubble: assetPaths.shop.featuredProducts[3].bubbles[1],
+                  bubbleOffset: { top: -20, left: -20 }
                 },
                 { top: 354, left: 143,
-                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[2],
+                  productBubble: assetPaths.shop.featuredProducts[3].bubbles[2],
+                  bubbleOffset: { top: -57, left: 20 }
                 }
               ]}
             />
@@ -103,10 +111,12 @@ class ShopScreen extends React.Component {
               imageNumber={4} 
               productDots={[
                 { top: 190, left: 163, 
-                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                  productBubble: assetPaths.shop.featuredProducts[4].bubbles[0],
+                  bubbleOffset: { top: -20, left: -117 }
                 }, 
                 { top: 366, left: 190,
-                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[1],
+                  productBubble: assetPaths.shop.featuredProducts[4].bubbles[1],
+                  bubbleOffset: { top: -73, left: 2 }
                 }
               ]}
             />
@@ -114,7 +124,8 @@ class ShopScreen extends React.Component {
               imageNumber={5} 
               productDots={[
                 { top: 208, left: 56, 
-                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                  productBubble: assetPaths.shop.featuredProducts[5].bubbles[0],
+                  bubbleOffset: { top: 0, left: 0 }
                 }, 
                
               ]}

@@ -35,7 +35,9 @@ class FeaturedProduct extends React.Component {
     showBubbles() {
         console.log("showing bubbles");
 
-        this.state.bubbleShowing == true ? this.setState({bubbleShowing: false}) : this.setState({bubbleShowing: true})
+        this.setState({bubbleShowing: !this.state.bubbleShowing});
+
+
 
 
 
@@ -57,7 +59,7 @@ class FeaturedProduct extends React.Component {
                 <TouchableOpacity onPress={() => this.showBubbles()}><Image style={s.featuredLookIcon} source={assetPaths.shop.icons.see} /></TouchableOpacity>
                 {this.props.productDots.map((dot) => {
                     num += 1;
-                   
+                    
 
                     return <View style={
                         
@@ -68,7 +70,9 @@ class FeaturedProduct extends React.Component {
                         <TouchableOpacity onPress={() => this.showBubbles()}>
                             <Image style={s.productDot} source={assetPaths.shop.icons.dot} />
                         </TouchableOpacity>
-                        <Image style={[s.productBubble, this.state.bubbleShowing ? {opacity: 0.8 } : 
+
+                        
+                        <Image style={[s.productBubble, {top: dot.bubbleOffset.top, left: dot.bubbleOffset.left}, this.state.bubbleShowing ? {opacity: 0.85 } : 
                                 {opacity: 0}]} source={dot.productBubble} />
                         </View>
                         
