@@ -14,20 +14,39 @@ class FeaturedProduct extends React.Component {
         super(props);
         this.state = {
             bubbleShowing: false,
+            
 
         }
     }
 
 
-    showBubble(dot) {
-        console.log("showing bubble for ", dot);
+    showBubble(dot, num) {
+        console.log("showing bubble for ", dot, num);
+
+     //   dot.bubbleOpacity == 0.4 ? dot.bubbleOpacity = 0 : bubbleOpacity = 0.4
+
+
+
+
+
+
+    }
+
+    showBubbles() {
+        console.log("showing bubbles");
+
+        this.state.bubbleShowing == true ? this.setState({bubbleShowing: false}) : this.setState({bubbleShowing: true})
+
+
+
     }
 
     render() {
 
 
 
-        let num = 0;
+        let num = 1000;
+
 
 
         return(
@@ -35,12 +54,23 @@ class FeaturedProduct extends React.Component {
                 <Image style={s.featuredProductImage}
                 source={assetPaths.shop.featuredProducts[this.props.imageNumber].image} />
                 <Text style={s.featuredTextInImage}>{this.props.imageTitle}</Text>
-                <Image style={s.featuredLookIcon} source={assetPaths.shop.icons.see} />
-
+                <TouchableOpacity onPress={() => this.showBubbles()}><Image style={s.featuredLookIcon} source={assetPaths.shop.icons.see} /></TouchableOpacity>
                 {this.props.productDots.map((dot) => {
                     num += 1;
+                   
 
-                    return <Image style={[s.featuredProductDot, {top: dot.top, left: dot.left}]} source={assetPaths.shop.icons.dot} />
+                    return <View style={
+                        
+                        {position: 'absolute', top: dot.top, left: dot.left}
+                        
+                    
+                        }>
+                        <TouchableOpacity onPress={() => this.showBubbles()}>
+                            <Image style={s.productDot} source={assetPaths.shop.icons.dot} />
+                        </TouchableOpacity>
+                        <Image style={[s.productBubble, this.state.bubbleShowing ? {opacity: 0.8 } : 
+                                {opacity: 0}]} source={dot.productBubble} />
+                        </View>
                         
                         
 

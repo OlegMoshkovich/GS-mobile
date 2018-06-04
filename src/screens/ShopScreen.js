@@ -51,18 +51,81 @@ class ShopScreen extends React.Component {
           <Text style ={s.featuredTitle}>Featured</Text>
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
             
-            <FeaturedProduct imageTitle="Gear" imageNumber={0}  productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
-            <FeaturedProduct imageTitle="STEM" imageNumber={1} productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
-            <FeaturedProduct imageTitle="Outdoors" imageNumber={2} productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
-            <FeaturedProduct imageTitle="Gear" imageNumber={3} productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
-            <FeaturedProduct imageTitle="STEM" imageNumber={4} productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
-            <FeaturedProduct imageTitle="Media" imageNumber={5} productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
-            
+            <FeaturedProduct key={0} imageTitle="Gear" 
+              imageNumber={0} 
+              productDots={[
+                { top: 124, left: 130, 
+                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                }, 
+                { top: 327, left: 200,
+                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[1],
+                }
+              ]}
+            />
+
+
+
+
+            <FeaturedProduct key={1} imageTitle="STEM" 
+              imageNumber={1} 
+              productDots={[
+                { top: 204, left: 130, 
+                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                }                
+              ]}
+            />
+            <FeaturedProduct key={2} imageTitle="Outdoor" 
+              imageNumber={2} 
+              productDots={[
+                { top: 33, left: 271, 
+                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                }, 
+                { top: 200, left: 169,
+                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[1],
+                }
+              ]}
+            />
+            <FeaturedProduct key={3} imageTitle="Gear" 
+              imageNumber={3} 
+              productDots={[
+                { top: 54, left: 137, 
+                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                }, 
+                { top: 201, left: 106,
+                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[1],
+                },
+                { top: 354, left: 143,
+                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[2],
+                }
+              ]}
+            />
+            <FeaturedProduct key={4} imageTitle="STEM" 
+              imageNumber={4} 
+              productDots={[
+                { top: 190, left: 163, 
+                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                }, 
+                { top: 366, left: 190,
+                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[1],
+                }
+              ]}
+            />
+            <FeaturedProduct key={5} imageTitle="Media" 
+              imageNumber={5} 
+              productDots={[
+                { top: 208, left: 56, 
+                  productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
+                }, 
+               
+              ]}
+            />
+
+
 
           </ScrollView>
           <Text style ={s.whatsNewTitle}>Categories</Text>
             <ScrollView horizontal= {true} style={s.categoryMenu} showsHorizontalScrollIndicator={false} >
-              <Image style={s.searchIcon} resizeMethod="cover" source={assetPaths.shop.icons.search} />
+              <Image style={s.searchIcon} resizeMode="cover" source={assetPaths.shop.icons.search} />
               <View style={s.pill}><Text style={s.pillText}>Outdoors</Text></View>
               <View style={s.pill}><Text style={s.pillText}>Badges</Text></View>
               <View style={s.pill}><Text style={s.pillText}>Uniforms</Text></View>

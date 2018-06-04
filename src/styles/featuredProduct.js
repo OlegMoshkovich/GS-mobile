@@ -46,6 +46,19 @@ var styles = StyleSheet.create({
 
     },
 
+    productDot: {
+        width: 20, 
+        height: 20,
+
+
+    },
+
+    productBubble: {
+        width: 111,
+        height: 49,
+
+    },
+
 
 
 
