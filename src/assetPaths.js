@@ -85,7 +85,8 @@ paths.staticScreens = {
     avaEndYellow: require('../assets/ava_end_yellow.png'),
     eventScreen: require('../assets/staticScreens/events-2x.png'),
     postModal: require('../assets/staticScreens/post.png'),
-    resume: require('../assets/Resume.png')
+    resume: require('../assets/Resume.png'),
+    related: require('../assets/Related.png')
 
 }
 
@@ -234,54 +235,54 @@ paths.shop = {
 
 
     featuredProducts: [
-        { 
+        {
             image: require('../assets/shop/featuredProduct01.png'),
             bubbles: [
                 require ('../assets/shop/helmet-price.png'),
                 require ('../assets/shop/elbow-pads-price.png'),
             ],
         },
-        { 
+        {
             image: require('../assets/shop/featuredProduct02.png'),
             bubbles: [
                 require ('../assets/shop/helmet-price.png'),
                 require ('../assets/shop/elbow-pads-price.png'),
             ],
         },
-        { 
+        {
             image: require('../assets/shop/featuredProduct03.png'),
             bubbles: [
                 require ('../assets/shop/helmet-price.png'),
                 require ('../assets/shop/elbow-pads-price.png'),
             ],
         },
-        { 
+        {
             image: require('../assets/shop/featuredProduct04.png'),
             bubbles: [
                 require ('../assets/shop/helmet-price.png'),
                 require ('../assets/shop/elbow-pads-price.png'),
             ],
         },
-        { 
+        {
             image: require('../assets/shop/featuredProduct05.png'),
             bubbles: [
                 require ('../assets/shop/helmet-price.png'),
                 require ('../assets/shop/elbow-pads-price.png'),
             ],
         },
-        { 
+        {
             image: require('../assets/shop/featuredProduct06.png'),
             bubbles: [
                 require ('../assets/shop/helmet-price.png'),
                 require ('../assets/shop/elbow-pads-price.png'),
             ],
-        },    
+        },
 
-        
-        
+
+
     ],
 
-    
+
 
 
 }
