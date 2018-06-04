@@ -51,9 +51,12 @@ class ShopScreen extends React.Component {
           <Text style ={s.featuredTitle}>Featured</Text>
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
             
-            <FeaturedProduct imageTitle="Gear" imageNumber={0} />
-            <FeaturedProduct imageTitle="STEM" imageNumber={1} />
-            <FeaturedProduct imageTitle="Gear" imageNumber={2} />
+            <FeaturedProduct imageTitle="Gear" imageNumber={0}  productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
+            <FeaturedProduct imageTitle="STEM" imageNumber={1} productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
+            <FeaturedProduct imageTitle="Outdoors" imageNumber={2} productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
+            <FeaturedProduct imageTitle="Gear" imageNumber={3} productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
+            <FeaturedProduct imageTitle="STEM" imageNumber={4} productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
+            <FeaturedProduct imageTitle="Media" imageNumber={5} productDots={[{top: 100, left: 100, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0]}, {top: 200, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1]}]}/>
             
 
           </ScrollView>

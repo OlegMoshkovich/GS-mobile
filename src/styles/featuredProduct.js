@@ -8,7 +8,7 @@ var styles = StyleSheet.create({
 
     featuredContainer: {
 
-        borderWidth: 1,
+      
     },
 
 
@@ -37,8 +37,12 @@ var styles = StyleSheet.create({
     },
 
     featuredProductDot: {
-        height: 20,
-        width: 20,
+        position: 'absolute',
+        top: 10,
+        left: 100,
+        zIndex: 100,
+
+
 
     },
 
