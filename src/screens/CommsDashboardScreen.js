@@ -289,7 +289,7 @@ class DashboardScreen extends React.Component {
                  top:70
                  }}
                  onPress={() => this.props.navigation.navigate({
-                   routeName: 'Map',
+                   routeName: 'Events',
                        params: {
                            transition: 'default'
                        }
@@ -324,7 +324,7 @@ class DashboardScreen extends React.Component {
                    >
                      <View >
                      <TouchableWithoutFeedback
-                       onPress={() => {this.props.navigation.navigate('Map'); }}>
+                       onPress={() => {this.props.navigation.navigate('Events'); }}>
 
                        <Image
                           source={require('../../assets/icons/Connect/Map.png')}
