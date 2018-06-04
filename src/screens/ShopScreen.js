@@ -12,6 +12,7 @@ import assetPaths from '../assetPaths';
 
 // global styles
 import s from '../styles/shopscreen.js';
+import FeaturedProduct from '../components/FeaturedProduct';
 
 class ShopScreen extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -43,18 +44,18 @@ class ShopScreen extends React.Component {
         <LinearGradient
          colors={['#68D634', '#4CB034', '#3F8C2D']}
          style={{ height: height, width:width}}>
-        <TopMenu menuTitle="shop" iconPath={assetPaths.topMenu.shopIcon} navigation={this.props.navigation} />
+        <TopMenu menuTitle="shop" iconPath={assetPaths.shop.icons.close} navigation={this.props.navigation} />
 
         <ScrollView 
           style ={{ top:91, position:'absolute', height: height}} showsVerticalScrollIndicator={false} >
           <Text style ={s.featuredTitle}>Featured</Text>
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
-            <Image style={s.featuredProductImage} resizeMode="cover"
-                source={assetPaths.shop.productFeatured} />
-            <Image style={s.featuredProductImage} resizeMode="cover"
-                source={assetPaths.shop.productFeatured2} />
-            <Image style={s.featuredProductImage} resizeMode="cover"
-                source={assetPaths.shop.productFeatured} />
+            
+            <FeaturedProduct imageTitle="Gear" imageNumber={0} />
+            <FeaturedProduct imageTitle="STEM" imageNumber={1} />
+            <FeaturedProduct imageTitle="Gear" imageNumber={2} />
+            
+
           </ScrollView>
           <Text style ={s.whatsNewTitle}>Categories</Text>
             <ScrollView horizontal= {true} style={s.categoryMenu} showsHorizontalScrollIndicator={false} >

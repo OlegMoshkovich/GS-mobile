@@ -220,14 +220,25 @@ paths.shop = {
 
     icons: {
         wishlist: require('../assets/shop/shop-wishlist.png'),
-        close: require('../assets/shop/shop-close.png'),
-        search: require('../assets/shop/icon-search.png')
+        close: require('../assets/shop/shop-close-button.png'),
+        search: require('../assets/shop/icon-search.png'),
+        see: require('../assets/shop/see.png'),
     },
 
     productFeatured: require('../assets/shop/shop-featured-01.png'),
     productFeatured2: require('../assets/shop/shop-featured-02.png'),
     bubbleNav: require('../assets/shop/shop-bubbleNav.png'),
     bottomCategories: require('../assets/shop/shop-bottom.png'),
+
+    featuredProductImages: [
+        require('../assets/shop/featuredProduct01.png'),
+        require('../assets/shop/featuredProduct02.png'),
+        require('../assets/shop/featuredProduct03.png'),
+        require('../assets/shop/featuredProduct04.png'),
+        require('../assets/shop/featuredProduct05.png'),
+        require('../assets/shop/featuredProduct06.png'),
+    ],
+
 
 }
 

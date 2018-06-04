@@ -65,38 +65,6 @@ var styles = StyleSheet.create({
     },
 
 
-    featuredTextInImage: {
-        textShadowColor: 'rgba(0, 0, 0, 0.75)',
-        textShadowOffset: {width: -1, height: 1},
-        textShadowRadius: 10,
-        color: 'white',
-
-    },
-
-    featuredLookIcon: {
-        width: 40,
-        height: 40,
-    },
-
-    featuredProductDot: {
-        height: 20,
-        width: 20,
-
-    },
-
-
-
-
-    featuredProductImage: {
-        height: 401,
-        width: 336,
-        marginBottom: 10,
-        marginTop: 10,
-        marginRight: 10,
-        marginLeft: 5,
-        left: 10
-    },
-
     whatsNewTitle: {
         color: "white",
         fontSize: 22,
