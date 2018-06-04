@@ -39,20 +39,6 @@ class ShopScreen extends React.Component {
   
   render() {
 
-    /* old product info that was in the ScrollView under 'Categories'
-
-    <Image style={s.productImage} resizeMode="cover"
-                source={require('../../assets/Shop_Image3.png')} />
-              <Image style={s.productImage} resizeMode="cover"
-                source={require('../../assets/Shop_Image3.png')} />
-              <Image style={s.productImage} resizeMode="cover"
-                source={require('../../assets/Shop_Image3.png')} />
-              <Image style={s.productImage} resizeMode="cover"
-                source={require('../../assets/Shop_Image3.png')} />
-
-    */
-
-
     return (
         <LinearGradient
          colors={['#68D634', '#4CB034', '#3F8C2D']}
@@ -60,7 +46,7 @@ class ShopScreen extends React.Component {
         <TopMenu menuTitle="shop" iconPath={assetPaths.topMenu.shopIcon} navigation={this.props.navigation} />
 
         <ScrollView 
-          style ={{ top:91, position:'absolute', height: height}}>
+          style ={{ top:91, position:'absolute', height: height}} showsVerticalScrollIndicator={false} >
           <Text style ={s.featuredTitle}>Featured</Text>
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
             <Image style={s.featuredProductImage} resizeMode="cover"
@@ -71,9 +57,29 @@ class ShopScreen extends React.Component {
                 source={assetPaths.shop.productFeatured} />
           </ScrollView>
           <Text style ={s.whatsNewTitle}>Categories</Text>
-            <ScrollView horizontal= {true} style={{marginBottom:200, left: -10}} >
+            <ScrollView horizontal= {true} style={s.categoryMenu} showsHorizontalScrollIndicator={false} >
               <Image style={s.searchIcon} resizeMethod="cover" source={assetPaths.shop.icons.search} />
+              <View style={s.pill}><Text style={s.pillText}>Outdoors</Text></View>
+              <View style={s.pill}><Text style={s.pillText}>Badges</Text></View>
+              <View style={s.pill}><Text style={s.pillText}>Uniforms</Text></View>
+              <View style={s.pill}><Text style={s.pillText}>Media</Text></View>
+              <View style={s.pill}><Text style={s.pillText}>Gifts</Text></View>
             </ScrollView>
+
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
+              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
+              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
+              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
+            </View>
+
+
         </ScrollView>
         <AvaBottomMenu navigation={this.props.navigation}/> 
       </LinearGradient>

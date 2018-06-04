@@ -45,6 +45,13 @@ var styles = StyleSheet.create({
         width: 40,
     },
 
+
+
+    closeButton: {
+        width: 40,
+        height: 40,
+    },
+
     // products
 
     featuredTitle: {
@@ -53,10 +60,31 @@ var styles = StyleSheet.create({
         fontFamily: 'trefoil-sans-semibold',
         marginBottom: 10,
         marginTop: 20,
-
         left: 20,
 
     },
+
+
+    featuredTextInImage: {
+        textShadowColor: 'rgba(0, 0, 0, 0.75)',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 10,
+        color: 'white',
+
+    },
+
+    featuredLookIcon: {
+        width: 40,
+        height: 40,
+    },
+
+    featuredProductDot: {
+        height: 20,
+        width: 20,
+
+    },
+
+
 
 
     featuredProductImage: {
@@ -65,7 +93,7 @@ var styles = StyleSheet.create({
         marginBottom: 10,
         marginTop: 10,
         marginRight: 10,
-        marginLeft: 10,
+        marginLeft: 5,
         left: 10
     },
 
@@ -78,21 +106,59 @@ var styles = StyleSheet.create({
 
     },
 
+    productContainer: {
+
+        flex: 1,
+        flexDirection: 'row',
+
+
+
+    },
 
     productImage: {
-        height: 212,
-        width: 156,
+        height: 226,
+        width: 170,
         marginBottom: 10,
         marginTop: 10,
-        marginRight: 10,
-        marginLeft: 10,
-        left: 20
+        marginRight: 5,
+        left: 10
     },
 
 
     // category nav on bottom
+
+    categoryMenu: {
+        marginBottom:20, 
+    },
+
     searchIcon: {
-        width: 20,
+        width: 54,
+        height: 54,
+        marginLeft: 20,
+
+    },
+
+    pill: {
+        backgroundColor: "white",
+        borderRadius: 24,
+        height: 40,
+        width: 130,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 2,
+        marginLeft: 5,
+        marginRight: 10,
+    },
+
+
+    pillText: {
+        fontFamily: 'trefoil-sans-regular',
+        color: 'grey',
+        fontSize: 18,
+
+        
+
     }
 
 
