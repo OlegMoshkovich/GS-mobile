@@ -85,7 +85,8 @@ paths.staticScreens = {
     avaEndYellow: require('../assets/ava_end_yellow.png'),
     eventScreen: require('../assets/staticScreens/events-2x.png'),
     postModal: require('../assets/staticScreens/post.png'),
-    resume: require('../assets/Resume.png')
+    resume: require('../assets/Resume.png'),
+    related: require('../assets/Related.png')
 
 }
 
@@ -234,28 +235,28 @@ paths.shop = {
 
 
     featuredProducts: [
-        { 
+        {
             image: require('../assets/shop/featuredProduct01.png'),
             bubbles: [
                 require ('../assets/shop/bubble-helmet.png'),
                 require ('../assets/shop/bubble-elbow-pads.png'),
             ],
         },
-        { 
+        {
             image: require('../assets/shop/featuredProduct02.png'),
             bubbles: [
                 require ('../assets/shop/bubble-robotics.png'),
                 
             ],
         },
-        { 
+        {
             image: require('../assets/shop/featuredProduct03.png'),
             bubbles: [
                 require ('../assets/shop/bubble-beanie.png'),
                 require ('../assets/shop/bubble-stove-kit.png'),
             ],
         },
-        { 
+        {
             image: require('../assets/shop/featuredProduct04.png'),
             bubbles: [
                 require ('../assets/shop/bubble-helmet2.png'),
@@ -263,25 +264,25 @@ paths.shop = {
                 require ('../assets/shop/bubble-sneakers.png'),
             ],
         },
-        { 
+        {
             image: require('../assets/shop/featuredProduct05.png'),
             bubbles: [
                 require ('../assets/shop/bubble-telescope.png'),
                 require ('../assets/shop/bubble-shirt.png'),
             ],
         },
-        { 
+        {
             image: require('../assets/shop/featuredProduct06.png'),
             bubbles: [
                 require ('../assets/shop/bubble-headphones.png'),
             ],
-        },    
+        },
 
-        
-        
+
+
     ],
 
-    
+
 
 
 }

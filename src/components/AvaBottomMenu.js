@@ -37,7 +37,8 @@ class AvaBottomMenu extends Component {
             activated: true,
             moveAnim: new Animated.Value(0),
             fadeAnim: new Animated.Value(0),
-            modalAnim: new Animated.Value(0),
+            resumeAnim: new Animated.Value(0),
+            relatedAnim: new Animated.Value(0),
             blurRadius: initialBlurRadius,
             tabOpacity: 1,
             expanded:true,
@@ -49,13 +50,28 @@ class AvaBottomMenu extends Component {
 tabAnimation = () => {
 
  console.log('expanded:'+ this.state.expanded)
-    
+
     if (this.props.tabTitle == 'Resume'){
-      Animated.timing(this.state.modalAnim,{
+      Animated.timing(this.state.resumeAnim,{
         toValue:this.state.expanded ? -560:0,
         duration:500
       }).start();
+      if (this.state.expanded == true) {
+        console.log( ' I am in the true loop')
+          this.setState({
+              expanded: false
+          });
+      } else {
+          this.setState({ expanded: true});
+      }
 
+    }
+
+    if (this.props.tabTitle == 'Related'){
+      Animated.timing(this.state.relatedAnim,{
+        toValue:this.state.expanded ? -135:0,
+        duration:500
+      }).start();
       if (this.state.expanded == true) {
         console.log( ' I am in the true loop')
           this.setState({
@@ -176,9 +192,14 @@ tabAnimation = () => {
     }
 
     render() {
-    const modalStyles = {
+    const resumeStyles = {
       transform:[
-        {translateY:this.state.modalAnim}
+        {translateY:this.state.resumeAnim}
+      ]
+    }
+    const relatedStyles = {
+      transform:[
+        {translateY:this.state.relatedAnim}
       ]
     }
 
@@ -198,23 +219,21 @@ tabAnimation = () => {
                         source={assetPaths.bottomMenu.avaFace} />
                 </TouchableOpacity>
 
-                { this.props.showTab ?
 
-                <Animated.View style={[{zIndex:13},modalStyles]}>
+                { this.props.showTab ?
+                <Animated.View style={[{zIndex:13},resumeStyles]}>
                 <TouchableOpacity style={[s.tabButton, {
                     height: tabHeight,
                     opacity: this.state.tabOpacity,
                     zIndex:13,
-
                   }]} onPress={this.tabAnimation}>
-
                     <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
                         source={assetPaths.bottomMenu.tabBackground} />
-
                     <Text style={[s.tabText, {
                         left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
                 </TouchableOpacity>
                 </Animated.View> : null }
+
 
 
                 <Image
@@ -249,17 +268,29 @@ tabAnimation = () => {
                         <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIcon} />}
                     </TouchableOpacity>
                 </View>
-                
+
                 <Animated.View style={[{
                                 top:0,
                                 left:5,
                                 zIndex: 12,
-                                position:'absolute'},modalStyles]}>
+                                position:'absolute'},resumeStyles]}>
                 <Image
                     style={{ width: 1101/3.07,
                                height:1722/3.07,
                               }}
                     source={assetPaths.staticScreens.resume} />
+                </Animated.View>
+
+                <Animated.View style={[{
+                                top:0,
+                                left:5,
+                                zIndex: 12,
+                                position:'absolute'},relatedStyles]}>
+                <Image
+                    style={{ width: 366,
+                               height:156,
+                              }}
+                    source={assetPaths.staticScreens.related} />
                 </Animated.View>
 
             </View>
