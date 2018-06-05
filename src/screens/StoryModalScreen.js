@@ -35,22 +35,18 @@ class StoryModalScreen extends React.Component {
 	{/* make into component later */}
 	<View style={s.modalMenuContainer}>
 		<TouchableOpacity style={s.modalButton} >
-			<Image style={s.modalIconImage} source={assetPaths.modals.articleModal.shareIcon} />
+			<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.share} />
 		</TouchableOpacity>
 		<TouchableOpacity style={s.modalButton} >
-			<Image style={s.modalIconImage} source={assetPaths.modals.articleModal.starIcon} />
+			<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.star} />
 		</TouchableOpacity>
 		<TouchableOpacity style={s.modalButton} >
-			<Image style={s.modalIconImage} source={assetPaths.modals.articleModal.commentIcon} />
-		</TouchableOpacity>
-		<TouchableOpacity style={s.modalButton} >
-			<Image style={s.modalIconImage} source={assetPaths.modals.articleModal.clapIcon} />
+			<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.like} />
 		</TouchableOpacity>
 	</View>
 	
-	<TouchableOpacity
-  	style={s.exitButton} onPress={() => this.props.navigation.goBack()} >
-		<Image style={s.exitIconImage} source={assetPaths.modals.articleModal.exitIcon}/>
+	<TouchableOpacity style={s.exitButton} onPress={() => this.props.navigation.goBack()} >
+		<Image style={s.exitIconImage} source={assetPaths.modals.shareModal.close}/>
   </TouchableOpacity>
 
 	
