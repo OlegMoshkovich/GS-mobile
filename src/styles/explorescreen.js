@@ -74,7 +74,7 @@ var styles = StyleSheet.create({
     },
 
     articleCover: {
-        height: 150
+        height: 170
     },
 
  scrollView: {

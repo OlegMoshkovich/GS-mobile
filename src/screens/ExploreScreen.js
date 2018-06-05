@@ -75,7 +75,7 @@ class ExploreScreen extends React.Component {
                text: item.text, title: item.title, image_uri: item.uri}); }}>
              <Card key={item.id}
                containerStyle ={[s.cardContainer, { position: 'absolute',
-               width:width-60}]}>
+               width:width-70}]}>
                <Text style ={s.cardSource}>{item.source} </Text>
                <TouchableWithoutFeedback
                  onPress={() => {this.props.navigation.navigate('Badges'); }}>
@@ -84,8 +84,10 @@ class ExploreScreen extends React.Component {
               </TouchableWithoutFeedback>
                  <Text style ={s.articleTitle}>{item.title} </Text>
                <Text style ={s.articleText}>{item.text}</Text>
+
                <Image style={s.articleCover} resizeMode="cover"
                  source={{ uri:item.uri }} />
+
              </Card>
             </TouchableWithoutFeedback>
            )
@@ -114,7 +116,7 @@ class ExploreScreen extends React.Component {
                 data={articles}
                 renderItem={this.renderCard}
                 sliderWidth={width}
-                itemWidth={width - 75}
+                itemWidth={width - 70}
                 itemHeight={height}
               />
 
