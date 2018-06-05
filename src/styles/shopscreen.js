@@ -100,15 +100,27 @@ var styles = StyleSheet.create({
 
 
     // category nav on bottom
+    categorySection: {
+        height: 100,
+    },
 
     categoryMenu: {
-        marginBottom:20, 
+        
+        paddingLeft: 60,
+        position: "absolute",
+        top: 37,
+
+
     },
 
     searchIcon: {
         width: 54,
         height: 54,
-        marginLeft: 20,
+        marginLeft: 10,
+        position: 'absolute',
+        zIndex: 3,
+        top: 37,
+       
 
     },
 
