@@ -15,6 +15,7 @@ import s from '../styles/eventscreen';
 // map specific data
 import mapStyle from '../styles/map/mapstyle.js';
 import mapMarkers from '../../data/map/markers.js';
+import mapMarkersFriends from '../../data/map/markersFriends.js';
 import mapRegion from '../../data/map/region.js';
 import mapLocation from '../../data/map/location.js';
 
@@ -31,8 +32,35 @@ class EventScreen extends React.Component {
       location   : mapLocation,
       markers    : mapMarkers,
       region     : mapRegion,
+      showingFriends: false,
+
+
     };
+
+    // bind to function
+    this.toggleMap = this.toggleMap.bind(this);
+
+
  }
+
+ toggleMap() {
+   console.log("---- toggle map");
+    if (this.state.showingFriends) {
+      this.setState({
+        markers: mapMarkers,
+        showingFriends: false,
+      })
+    } else {
+      this.setState({
+        markers: mapMarkersFriends,
+        showingFriends: true,
+      })
+    }
+
+    
+
+ }
+
   componentWillMount() {
     this.index = 0;
     this.animation = new Animated.Value(0);
@@ -98,8 +126,7 @@ class EventScreen extends React.Component {
             <MapView.Marker key={index} coordinate={marker.coordinate}>
               <Animated.View style={[s.markerWrap, opacityStyle]}>
                 <Animated.View style={[s.ring, scaleStyle]} />
-                <Image style={s.marker} source={marker.mapIcon} />
-                <Text>Foo</Text>
+                <Image style={[s.marker, this.state.showingFriends ? s.markerFriend : null ]} source={marker.mapIcon} resizeMode="contain"/>
               </Animated.View>
             </MapView.Marker>
           );
@@ -143,12 +170,13 @@ class EventScreen extends React.Component {
               )}
               style={s.scrollView}>{this.state.markers.map((marker, index) => (
                 <View style={[s.card, {shadowOffset: { x: 2, y: -2 },
-                  height: CARD_HEIGHT, width: CARD_WIDTH,}]} key={index}>
+                  height: CARD_HEIGHT, width: CARD_WIDTH,}, 
+                  this.state.showingFriends ? {height: 80, width: 80} : null ]} key={index}>
                   <Image source={marker.image} style={s.cardImage} resizeMode="cover" />
                 </View>))}
             </Animated.ScrollView>
           </View>
-          <AvaBottomMenu currentSection={'connect'} contextIcon={true} showTab={true} tabTitle={"All Events"} tabLeft={19} navigation={this.props.navigation}/>
+          <AvaBottomMenu contextFunction={this.toggleMap} currentSection={'connect'} contextIcon={true} showTab={true} tabTitle={"All Events"} tabLeft={19} navigation={this.props.navigation}/>
         </LinearGradient>);
   }
 

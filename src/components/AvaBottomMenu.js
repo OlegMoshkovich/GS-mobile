@@ -150,7 +150,7 @@ tabAnimation = () => {
                 );
             case 'Events':
                 return(
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={this.props.contextFunction}>
                         <Image style={[s.contextIcon]}
                             source={assetPaths.bottomMenu.contextIcons.seeFriends} />
                     </TouchableOpacity>
