@@ -21,7 +21,9 @@ const ItemHeight = 600.0;
 const NumItems = 100;
 const Items = [
   {id:1,icon:require('../../assets/journey/journeyIcon_1.png'),image:require('../../assets/journey/journeyCard_1.png')},
-  {id:2,icon:require('../../assets/journey/journeyIcon_2.png'),image:require('../../assets/journey/journeyCard_2.png')},
+  {id:2,icon:require('../../assets/journey/journeyIcon_2.png'),image:require('../../assets/journey/journeyCard_1.png')},
+  {id:3,icon:require('../../assets/journey/journeyIcon_2.png'),image:require('../../assets/journey/journeyCard_1.png')},
+  {id:4,icon:require('../../assets/journey/journeyIcon_2.png'),image:require('../../assets/journey/journeyCard_1.png')}
 ];
 
 for(var i = 0; i < NumItems; i++) {
@@ -44,17 +46,19 @@ class JourneyScreen extends React.Component {
             justifyContent: 'center',
             backgroundColor: 'transparent'
           }}>
-          <ScrollView showsVerticalScrollIndicator = {false}>
-            <View style = {{paddingBottom:50}}>
-              <Image style={{alignSelf:'center', width:222,height:322}} resizeMode="cover"
-                source={item.icon} />
-            </View>
-            <View style = {{paddingBottom:200}}>
-            <Image style={{alignSelf:'center', width:277,height:407}} resizeMode="cover"
-              source={item.image} />
-            </View>
+            <ScrollView showsVerticalScrollIndicator = {false}>
 
-                </ScrollView>
+              <View style = {{paddingBottom:50}}>
+                <Image style={{alignSelf:'center', width:786/3,height:1041/3}} resizeMode="cover"
+                  source={item.icon} />
+              </View>
+
+              <View style = {{paddingBottom:200}}>
+              <Image style={{alignSelf:'center', width:894/3,height:7344/3}} resizeMode="cover"
+                source={item.image} />
+              </View>
+
+            </ScrollView>
           </View>
         );
       }

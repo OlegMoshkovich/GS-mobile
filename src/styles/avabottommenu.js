@@ -83,6 +83,7 @@ var styles = StyleSheet.create({
         fontFamily: 'trefoil-sans-regular',
         position: 'absolute',
         top: 15,
+        alignSelf:'center',
         zIndex: 2,
 
         fontSize: 12,
