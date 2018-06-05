@@ -81,10 +81,6 @@ const transitionConfig = () => {
     }
 }
 
-// add context for the screen
-const AppContext = React.createContext();
-const ContextConsumer = AppContext.Consumer
-
 
 class App extends React.Component {
   constructor(props) {
