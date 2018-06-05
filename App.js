@@ -149,6 +149,10 @@ const transitionConfig = () => {
 
 }
 
+// add context for the screen
+const AppContext = React.createContext();
+
+
 
 class App extends React.Component {
 
@@ -162,17 +166,6 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-
-    /*
-
-
-    topMenu font is: trefoil sans black
-otherwise for section titles (new articles, featured stories, whats new in shop): trefoil sans semibold
-explore section article font: trefoil sans light
-chat font: trefoil slab light
-
-
-*/
     Font.loadAsync({
       'trefoil-sans-black': require('./assets/fonts/TrefoilSans-Black.otf'),
       'trefoil-sans-semibold': require('./assets/fonts/TrefoilSans-SemiBold.otf'),

@@ -22,9 +22,6 @@ const CARD_WIDTH = 664 / 2;
 const CARD_HEIGHT = 334 / 2;
 const {width, height} = Dimensions.get('window');
 
-// add context for the screen
-const EventScreenContext = React.createContext();
-
 
 class EventScreen extends React.Component {
   constructor(props) {
