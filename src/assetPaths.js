@@ -282,11 +282,30 @@ paths.shop = {
 
     ],
 
-
-
-
+    productCards: {
+        socks1: require('../assets/shop/card-socks.png'),
+        vest: require('../assets/shop/card-vest.png'),
+        guide: require('../assets/shop/card-guide.png'),
+        scarf: require('../assets/shop/card-scarf.png'),
+        slide: require('../assets/shop/card-slide.png'),
+        trefoil_pin: require('../assets/shop/card-pin.png'),
+        senior_vest: require('../assets/shop/card-featured.png'),
+        socks2: require('../assets/shop/card-socks2.png'),
+        shirt_activity: require('../assets/shop/card-shirt.png'),
+        backpack: require('../assets/shop/card-backpack.png'),
+        hair_ties : require('../assets/shop/card-hairties.png'),
+        membership_pin: require('../assets/shop/card-pin2.png'),
+        shirt_explorer: require('../assets/shop/card-shirt2.png'),
+        fleece: require('../assets/shop/card-fleece.png'),
+        bottle: require('../assets/shop/card-bottle.png'),
+        scarf_vintage: require('../assets/shop/card-scarf2.png'),
+        necklace: require('../assets/shop/card-necklace.png'),
+        daypack: require('../assets/shop/card-daypack.png'),
+        shirt_flag: require('../assets/shop/card-shirt3.png'),
+        cap: require('../assets/shop/card-cap.png'),
+        tent: require('../assets/shop/card-tent.png'),
+    },
 }
-
 
 
 export default paths;

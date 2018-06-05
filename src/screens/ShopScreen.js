@@ -99,7 +99,7 @@ class ShopScreen extends React.Component {
                 }, 
                 { top: 201, left: 106,
                   productBubble: assetPaths.shop.featuredProducts[3].bubbles[1],
-                  bubbleOffset: { top: -20, left: -20 }
+                  bubbleOffset: { top: -20, left: 23 }
                 },
                 { top: 354, left: 143,
                   productBubble: assetPaths.shop.featuredProducts[3].bubbles[2],
@@ -129,6 +129,8 @@ class ShopScreen extends React.Component {
                 }, 
                
               ]}
+
+            
             />
 
 
@@ -145,18 +147,64 @@ class ShopScreen extends React.Component {
             </ScrollView>
 
             <View style={s.productContainer}>
-              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
-              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.socks1} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.vest} />
             </View>
             <View style={s.productContainer}>
-              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
-              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.guide} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.scarf} />
             </View>
             <View style={s.productContainer}>
-              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
-              <Image style={s.productImage} resizeMode="cover" source={require('../../assets/Shop_Image3.png')} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.slide} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.trefoil_pin} />
             </View>
-
+            <View style={s.productContainer}>
+              <Image style={s.productImageBig} resizeMode="cover" source={assetPaths.shop.productCards.senior_vest} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.socks2} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.shirt_activity} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.backpack} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.hair_ties} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.membership_pin} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.shirt_explorer} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImageBig} resizeMode="cover" source={assetPaths.shop.productCards.fleece} />
+              
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.bottle} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.scarf_vintage} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.necklace} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.daypack} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.shirt_flag} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.cap} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImageBig} resizeMode="cover" source={assetPaths.shop.productCards.tent} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.socks1} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.vest} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.guide} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.scarf} />
+            </View>
+            <View style={s.productContainer}>
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.slide} />
+              <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.trefoil_pin} />
+            </View>
+            
 
         </ScrollView>
         <AvaBottomMenu navigation={this.props.navigation}/> 

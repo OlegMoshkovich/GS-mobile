@@ -92,6 +92,12 @@ var styles = StyleSheet.create({
         left: 10
     },
 
+    productImageBig: {
+        width: 346,
+        height: 428,
+        left: 17
+    },
+
 
     // category nav on bottom
 
@@ -116,7 +122,7 @@ var styles = StyleSheet.create({
         alignItems: 'center',
         marginTop: 2,
         marginLeft: 5,
-        marginRight: 10,
+        marginRight: 5,
     },
 
 

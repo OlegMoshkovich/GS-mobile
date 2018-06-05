@@ -6,15 +6,11 @@ import {
 
 var styles = StyleSheet.create({
 
-    featuredContainer: {
-
-      
-    },
-
+    featuredContainer: {},
 
     featuredTextInImage: {
         textShadowColor: 'rgba(0, 0, 0, 0.25)',
-        textShadowOffset: {width: -1, height: 1},
+        textShadowOffset: { width: -1, height: 1 },
         textShadowRadius: 10,
         color: 'white',
         fontFamily: 'trefoil-sans-semibold',
@@ -22,9 +18,6 @@ var styles = StyleSheet.create({
         position: 'absolute',
         left: 26,
         bottom: 16,
-
-        
-
     },
 
     featuredLookIcon: {
@@ -33,7 +26,6 @@ var styles = StyleSheet.create({
         position: 'absolute',
         bottom: 10,
         right: 2,
-
     },
 
     featuredProductDot: {
@@ -41,26 +33,21 @@ var styles = StyleSheet.create({
         top: 10,
         left: 100,
         zIndex: 100,
-
-
-
     },
 
     productDot: {
-        width: 20, 
+        width: 20,
         height: 20,
-
-
     },
 
     productBubble: {
         width: 111,
         height: 49,
-
     },
 
-
-
+    bubbleView: {
+        position: 'absolute'
+    },
 
     featuredProductImage: {
         height: 401,
@@ -72,8 +59,6 @@ var styles = StyleSheet.create({
         left: 10,
         borderRadius: 15,
     },
-
-
 });
 
 export default styles;
