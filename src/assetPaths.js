@@ -305,6 +305,27 @@ paths.shop = {
         cap: require('../assets/shop/card-cap.png'),
         tent: require('../assets/shop/card-tent.png'),
     },
+
+
+    
+
+
+
+}
+
+
+paths.avatars = {
+
+    pink: require('../assets/avatars/avatar01.png'),
+    blue: require('../assets/avatars/avatar02.png'),
+    green: require('../assets/avatars/avatar03.png'),
+    red: require('../assets/avatars/avatar04.png'),
+    grey: require('../assets/avatars/avatar05.png'),
+    yellow: require('../assets/avatars/avatar06.png'),
+    grey_dark: require('../assets/avatars/avatar07.png'),
+    grey2: require('../assets/avatars/avatar08.png'),
+    
+        
 }
 
 
