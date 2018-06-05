@@ -45,10 +45,10 @@ var styles = StyleSheet.create({
     },
 
     mainDashboard: {
+        top:35,
         flex:1,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        top:5
     },
 
     progressImage: {height: 41,width: 40},
@@ -57,12 +57,12 @@ var styles = StyleSheet.create({
         flex:1,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        bottom:30,
+        bottom:5,
         },
 
-    avaProfile: {height: 290/1.2,width: 227/1.2,alignSelf:'center', bottom:20},
+    avaProfile: {height: 290/1.4,width: 227/1.4,alignSelf:'center', bottom:20},
 
-    progressBar: {height: 8,width: 270,alignSelf:'center',bottom:60},
+    progressBar: {height: 8,width: 270,alignSelf:'center',top:12},
 
 
 

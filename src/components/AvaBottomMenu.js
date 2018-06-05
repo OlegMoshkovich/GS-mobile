@@ -57,7 +57,7 @@ tabAnimation = () => {
         } else { this.setState({ expanded: true}); }
     }
     if (this.props.tabTitle == 'Related'){
-        Animated.timing(this.state.relatedAnim,{ toValue:this.state.expanded ? -heightRelated:0, duration:500 }).start();
+        Animated.timing(this.state.relatedAnim,{ toValue:this.state.expanded ? -heightRelated:0, duration:300 }).start();
         if (this.state.expanded == true) { this.setState({expanded: false });
         } else { this.setState({ expanded: true}); }
     }

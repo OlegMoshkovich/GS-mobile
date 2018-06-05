@@ -54,20 +54,23 @@ class DashboardScreen extends React.Component {
     return(
 
       <View style={s.mainDashboard}>
-        <TouchableOpacity></TouchableOpacity>
-        <TouchableOpacity></TouchableOpacity>
+
+
         <TouchableOpacity
           onPress={() => this.props.navigation.navigate({
           routeName: 'Badges'}
           )}>
+          <Text style = {{color:'white',bottom:10,alignSelf:'center'}}>4</Text>
           <Image
             style={s.progressImage}
             source={require('../../assets/icons/Dashboard_Icon_Badges.png')} />
         </TouchableOpacity>
+
         <TouchableOpacity
         onPress={() => this.props.navigation.navigate({
         routeName: 'Journey'}
         )}>
+        <Text style = {{color:'white',bottom:10,alignSelf:'center'}}>1</Text>
           <Image style={s.progressImage}
             source={require('../../assets/icons/Dashboard_Icon_Journeys.png')} />
         </TouchableOpacity>
@@ -75,21 +78,20 @@ class DashboardScreen extends React.Component {
         onPress={() => this.props.navigation.navigate({
         routeName: 'Award'}
         )}>
+        <Text style = {{color:'white',bottom:10,alignSelf:'center'}}>1</Text>
           <Image style={s.progressImage}
             source={require('../../assets/icons/Dashboard_Icon_Awards.png')} />
         </TouchableOpacity>
-        <TouchableOpacity></TouchableOpacity>
-        <TouchableOpacity></TouchableOpacity>
+
+
       </View>
     );
   }
   renderBadges() {
-
     // TODO - not sure I understand what state.environmentSwitch is used for here...
-
     return(
       <View style={s.badgeContainer}>
-      <ScrollView horizontal = {true} showsHorizontalScrollIndicator = {false}>
+      <ScrollView horizontal = {true} showsHorizontalScrollIndicator = {false} style={{left:15}}>
             <TouchableOpacity  style={s.imagePadding}>
             <Image
             style={s.badgeImage}
@@ -134,6 +136,7 @@ class DashboardScreen extends React.Component {
         </View>
     );
   }
+
   render() {
     return (
       <LinearGradient
@@ -147,11 +150,14 @@ class DashboardScreen extends React.Component {
 
         <Image style={s.avaProfile}
           source={require('../../assets/Ava-Dashboard1.png')} />
+          <Image style={s.progressBar}
+            source={require('../../assets/Dashboard_ProgressBar.png')} />
 
         {this.renderAvaDashboard() }
 
-        <Image style={s.progressBar}
-          source={require('../../assets/Dashboard_ProgressBar.png')} />
+        <Text style={{color:'white',bottom:25,left:25, fontSize: 17,fontFamily: 'trefoil-sans-semibold'}}>
+        My Badges
+        </Text>
 
         {this.renderBadges()}
 
