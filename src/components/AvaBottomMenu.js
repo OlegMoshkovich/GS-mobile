@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, TouchableOpacity,Image, Animated} from 'react-n
 const {width, height} = Dimensions.get('window');
 const heightResume = 560;
 const heightRelated = 147;
-const heightBoard = 570;
+const heightBoard = 521;
 const heightEvents = 400;
 
 // global style
