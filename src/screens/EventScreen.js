@@ -21,6 +21,8 @@ import mapLocation from '../../data/map/location.js';
 
 const CARD_WIDTH = 664 / 2;
 const CARD_HEIGHT = 334 / 2;
+const AVATAR_ICON = 80;
+
 const {width, height} = Dimensions.get('window');
 
 
@@ -67,7 +69,20 @@ class EventScreen extends React.Component {
   }
   componentDidMount() {
     this.animation.addListener(({ value }) => {
-      let index = Math.floor(value / CARD_WIDTH+3)  ; // animate 30% away from landing on the next item
+
+      console.log("animation handler", value);
+      
+      let index;
+
+      if (this.state.showingFriends) {
+        index = Math.floor(value / AVATAR_ICON+0.5);
+      } else {
+        index = Math.floor(value / CARD_WIDTH+0.5)
+      }
+
+      
+
+
       if (index >= this.state.markers.length) {
         index = this.state.markers.length - 1;
       }
@@ -85,8 +100,7 @@ class EventScreen extends React.Component {
               latitudeDelta: this.state.region.latitudeDelta,
               longitudeDelta: this.state.region.longitudeDelta,
             },
-            350
-          );
+500          );
         }
       }, 10);
     });
@@ -141,14 +155,30 @@ class EventScreen extends React.Component {
 
   render() {
     const interpolations = this.state.markers.map((marker, index) => {
-    const inputRange = [(index - 1) * CARD_WIDTH,
-        index * CARD_WIDTH,
-        ((index + 1) * CARD_WIDTH)];
-    const scale = this.animation.interpolate({
-        inputRange, outputRange: [1, 1.5, 1], extrapolate: "clamp"});
-    const opacity = this.animation.interpolate({
-        inputRange, outputRange: [0.35, 1, 0.35], extrapolate: "clamp",
-    });
+    
+      let opacity, scale, inputRange;
+
+      if (this.state.showingFriends == true) {
+      
+        inputRange = [(index - 1) * AVATAR_ICON,
+          index * AVATAR_ICON, ((index + 1) * AVATAR_ICON)];
+        scale = this.animation.interpolate({
+          inputRange, outputRange: [1, 1.5, 1], extrapolate: "clamp"});
+        opacity = this.animation.interpolate({
+          inputRange, outputRange: [0.35, 1, 0.35], extrapolate: "clamp",});
+      
+      } else {
+
+        inputRange = [(index - 1) * CARD_WIDTH,
+          index * CARD_WIDTH, ((index + 1) * CARD_WIDTH)];
+        scale = this.animation.interpolate({
+          inputRange, outputRange: [1, 1.5, 1], extrapolate: "clamp"});
+        opacity = this.animation.interpolate({
+          inputRange, outputRange: [0.35, 1, 0.35], extrapolate: "clamp",});
+      }
+
+
+
       return { scale, opacity };
     });
 
@@ -160,21 +190,23 @@ class EventScreen extends React.Component {
         <NavMenu highlighted={1} />
           <View style={[s.container, {height: 330}]}>
             { this.renderMapView(interpolations) }
+            
             <Animated.ScrollView
               horizontal
               scrollEventThrottle={1}
               showsHorizontalScrollIndicator={false}
-              snapToInterval={CARD_WIDTH-30}
+              snapToInterval={this.state.showingFriends ? AVATAR_ICON : CARD_WIDTH-30}
               onScroll={Animated.event([
                 {nativeEvent: {contentOffset: {x: this.animation}}}], { useNativeDriver: true }
               )}
               style={s.scrollView}>{this.state.markers.map((marker, index) => (
-                <View style={[s.card, {shadowOffset: { x: 2, y: -2 },
-                  height: CARD_HEIGHT, width: CARD_WIDTH,}, 
-                  this.state.showingFriends ? {height: 80, width: 80} : null ]} key={index}>
+                <View style={[s.card, {shadowOffset: { x: 2, y: -2 }}, 
+                  this.state.showingFriends ? {height: AVATAR_ICON, width: AVATAR_ICON} : 
+                    {height: CARD_HEIGHT, width: CARD_WIDTH,} ]} key={index}>
                   <Image source={marker.image} style={s.cardImage} resizeMode="cover" />
                 </View>))}
             </Animated.ScrollView>
+
           </View>
           <AvaBottomMenu contextFunction={this.toggleMap} currentSection={'connect'} contextIcon={true} showTab={true} tabTitle={"All Events"} tabLeft={19} navigation={this.props.navigation}/>
         </LinearGradient>);

@@ -1,3 +1,7 @@
+import assetPaths from '../../src/assetPaths';
+
+
+
 let markers = [
     {
       coordinate: {
@@ -6,8 +10,8 @@ let markers = [
       },
       title: "Nicole Clark",
       description: "",
-      image: require('../../assets/Avatar_1.png'),
-      mapIcon: require('../../assets/Avatar_1.png')
+      image: assetPaths.avatars.pink,
+      mapIcon: assetPaths.avatars.pink,
     },
 
     {
@@ -17,8 +21,8 @@ let markers = [
       },
       title: "Emma Brownstein",
       description: "",
-      image: require('../../assets/Avatar_2.png'),
-      mapIcon: require('../../assets/Avatar_2.png')
+      image: assetPaths.avatars.blue,
+      mapIcon: assetPaths.avatars.blue,
 
     },
     {
@@ -28,8 +32,8 @@ let markers = [
       },
       title: "Chloe Miller",
       description: "",
-      image: require('../../assets/Avatar_3.png'),
-      mapIcon: require('../../assets/Avatar_3.png')
+      image: assetPaths.avatars.green,
+      mapIcon: assetPaths.avatars.green,
 
     },
     {
@@ -39,8 +43,8 @@ let markers = [
         },
         title: "Nicole Clark",
         description: "",
-        image: require('../../assets/Avatar_1.png'),
-        mapIcon: require('../../assets/Avatar_1.png')
+        image: assetPaths.avatars.red,
+        mapIcon: assetPaths.avatars.red,
       },
   
       {
@@ -50,8 +54,8 @@ let markers = [
         },
         title: "Emma Brownstein",
         description: "",
-        image: require('../../assets/Avatar_2.png'),
-        mapIcon: require('../../assets/Avatar_2.png')
+        image: assetPaths.avatars.grey,
+        mapIcon: assetPaths.avatars.grey,
   
       },
       {
@@ -61,8 +65,30 @@ let markers = [
         },
         title: "Chloe Miller",
         description: "",
-        image: require('../../assets/Avatar_3.png'),
-        mapIcon: require('../../assets/Avatar_3.png')
+        image: assetPaths.avatars.yellow,
+        mapIcon: assetPaths.avatars.yellow,
+  
+      }, 
+      {
+        coordinate: {
+            latitude: 37.7835215, 
+            longitude: -122.4786465,
+        },
+        title: "Chloe Miller",
+        description: "",
+        image: assetPaths.avatars.grey_dark,
+        mapIcon: assetPaths.avatars.grey_dark,
+  
+      }, 
+      {
+        coordinate: {
+            latitude: 37.7835215, 
+            longitude: -122.4786465,
+        },
+        title: "Chloe Miller",
+        description: "",
+        image: assetPaths.avatars.grey2,
+        mapIcon: assetPaths.avatars.grey2,
   
       }, 
 
