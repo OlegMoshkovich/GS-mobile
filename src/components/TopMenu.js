@@ -39,6 +39,9 @@ class TopMenu extends Component {
             case 'Map':
                 this.props.navigation.navigate('ConnectDashboard');
                 break;
+            case 'ShopModal':
+                this.props.navigation.goBack();
+                break;
             default:
                 console.log("no navigation yet");
                 break;

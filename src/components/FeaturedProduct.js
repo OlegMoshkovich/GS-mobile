@@ -23,7 +23,7 @@ class FeaturedProduct extends React.Component {
         let num = 1000;
         let bubbleOpacity = 0.9;
         return (
-            <View style={s.featuredContainer}>
+            <View style={s.featuredContainer} key={num*4}>
                 <Image style={s.featuredProductImage}
                 source={assetPaths.shop.featuredProducts[this.props.imageNumber].image} />
                 <Text style={s.featuredTextInImage}>{this.props.imageTitle}</Text>
@@ -33,7 +33,7 @@ class FeaturedProduct extends React.Component {
                 
                 {this.props.productDots.map((dot) => {
                     num += 1;
-                    return <View style={[s.bubbleView, {top: dot.top, left: dot.left}]}>
+                    return <View key={num*2} style={[s.bubbleView, {top: dot.top, left: dot.left}]}>
                         <TouchableOpacity onPress={() => this.showBubbles()}>
                             <Image style={s.productDot} source={assetPaths.shop.icons.dot} />
                         </TouchableOpacity>
