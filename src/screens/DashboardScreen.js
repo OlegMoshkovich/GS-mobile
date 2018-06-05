@@ -45,7 +45,6 @@ class DashboardScreen extends React.Component {
       </View>
     );
   }
-
   renderAvaDashboard() {
 
     // TODO -- need to remove the touchable Opacity items here that
@@ -84,37 +83,57 @@ class DashboardScreen extends React.Component {
       </View>
     );
   }
-
   renderBadges() {
 
     // TODO - not sure I understand what state.environmentSwitch is used for here...
 
     return(
       <View style={s.badgeContainer}>
-        <TouchableOpacity>
-          <Image
-            style={{height: 75,width: this.state.environmentSwitch ? 0: 75}}
+      <ScrollView horizontal = {true} showsHorizontalScrollIndicator = {false}>
+            <TouchableOpacity  style={s.imagePadding}>
+            <Image
+            style={s.badgeImage}
             source={require('../../assets/icons/Badges/Icon_Badge_1.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity >
+            </TouchableOpacity>
+            <TouchableOpacity  style={s.imagePadding}>
             <Image
-              style={{height: 75,width: this.state.environmentSwitch ? 0: 75}}
+              style={s.badgeImage}
               source={require('../../assets/icons/Badges/Icon_Badge_2.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity  style={s.imagePadding}>
             <Image
-              style={{height: 75,width: 75}}
+              style={s.badgeImage}
               source={require('../../assets/icons/Badges/Icon_Badge_3.png')} />
-          </TouchableOpacity>
-          <TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity  style={s.imagePadding}>
             <Image
-              style={{height: 75,width: this.state.environmentSwitch ? 0: 75}}
+              style={s.badgeImage}
               source={require('../../assets/icons/Badges/Icon_Badge_4.png')} />
-          </TouchableOpacity>
+            </TouchableOpacity>
+            <TouchableOpacity  style={s.imagePadding}>
+            <Image
+              style={s.badgeImage}
+              source={require('../../assets/icons/Badges/Icon_Badge_1.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity  style={s.imagePadding}>
+              <Image
+                style={s.badgeImage}
+                source={require('../../assets/icons/Badges/Icon_Badge_2.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity  style={s.imagePadding}>
+              <Image
+                style={s.badgeImage}
+                source={require('../../assets/icons/Badges/Icon_Badge_3.png')} />
+            </TouchableOpacity>
+            <TouchableOpacity  style={s.imagePadding}>
+              <Image
+                style={s.badgeImage}
+                source={require('../../assets/icons/Badges/Icon_Badge_4.png')} />
+            </TouchableOpacity>
+        </ScrollView>
         </View>
     );
   }
-
   render() {
     return (
       <LinearGradient

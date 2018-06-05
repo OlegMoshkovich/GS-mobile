@@ -22,8 +22,18 @@ var styles = StyleSheet.create({
         margin: 15
     },
     menuTapHereIcon: {
-        height:72/4, width:90/4, top:40,right:15 
+        height:72/4, width:90/4, top:40,right:15
     },
+    badgeImage: {
+      height: 75,
+      width:75,
+      padding:30
+    },
+    imagePadding:{
+      paddingLeft:5,
+      paddingRight:5
+    },
+
 
     dashboardIconButton: {
         margin: 20
@@ -54,7 +64,7 @@ var styles = StyleSheet.create({
 
     progressBar: {height: 8,width: 270,alignSelf:'center',bottom:60},
 
-    
+
 
 
 
