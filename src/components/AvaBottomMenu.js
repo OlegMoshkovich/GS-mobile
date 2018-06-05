@@ -3,8 +3,9 @@ import Dimensions from 'Dimensions';
 import { StyleSheet, Text, View, TouchableOpacity,Image, Animated} from 'react-native';
 const {width, height} = Dimensions.get('window');
 const heightResume = 560;
-const heightRelated = 156;
-const heightBoard = 400;
+const heightRelated = 147;
+const heightBoard = 521;
+const heightEvents = 400;
 
 // global style
 import s from '../styles/avabottommenu';
@@ -48,57 +49,60 @@ constructor(props) {
         expanded:true,
     };
 }
+
 tabAnimation = () => {
     if (this.props.tabTitle == 'Resume'){
-        Animated.timing(this.state.resumeAnim,{ toValue:this.state.expanded ? -560:0, duration:500 }).start();
+        Animated.timing(this.state.resumeAnim,{ toValue:this.state.expanded ? -heightResume:0, duration:500 }).start();
         if (this.state.expanded == true) { this.setState({ expanded: false });
         } else { this.setState({ expanded: true}); }
     }
     if (this.props.tabTitle == 'Related'){
-        Animated.timing(this.state.relatedAnim,{ toValue:this.state.expanded ? -135:0, duration:500 }).start();
+        Animated.timing(this.state.relatedAnim,{ toValue:this.state.expanded ? -heightRelated:0, duration:500 }).start();
         if (this.state.expanded == true) { this.setState({expanded: false });
         } else { this.setState({ expanded: true}); }
     }
     if (this.props.tabTitle == 'All Events'){
-        Animated.timing(this.state.allEventsAnim,{ toValue:this.state.expanded ? -135:0, duration:500 }).start();
+        Animated.timing(this.state.allEventsAnim,{ toValue:this.state.expanded ? -heightEvents:0, duration:500 }).start();
         if (this.state.expanded == true) { this.setState({ expanded: false });
         } else { this.setState({ expanded: true}); }
     }
     if (this.props.tabTitle == 'Leaderboard'){
-        Animated.timing(this.state.leaderboardAnim,{ toValue:this.state.expanded ? -135:0, duration:500 }).start();
+        Animated.timing(this.state.leaderboardAnim,{ toValue:this.state.expanded ? -heightBoard:0, duration:500 }).start();
         if (this.state.expanded == true) { this.setState({ expanded: false });
         } else { this.setState({ expanded: true}); }
     }
 }
-
 renderTabContent() {
     switch(this.props.navigation.state.routeName){
-        case 'SystemModal':
+
+    case 'SystemModal':
             return(
             <Animated.View style={[{ top:0, left:5, zIndex: 12, position:'absolute'},]}>
                 <Image style={{ width: 359, height:heightResume,}} source={assetPaths.staticScreens.resume} />
             </Animated.View> )
+
     case 'Explore':
         return(
             <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
                 <Image style={{ width: 366, height:heightRelated, }} source={assetPaths.staticScreens.related} />
             </Animated.View> )
+
     case 'Dashboard':
       return(
             <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
-                <Image style={{ width: 366, height:heightRelated, }} source={assetPaths.staticScreens.related} />
+                <Image style={{ width: 366, height:heightBoard }} source={assetPaths.staticScreens.leaderBoard} />
             </Animated.View> )
+
     case 'Events':
       return(
             <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
                 <Image style={{ width: 366, height:heightRelated, }} source={assetPaths.staticScreens.related} />
             </Animated.View> )
-     
+
 
 
   }
 }
-
 animate = () => {
     if (this.state.blurRadius == maxBlurRadius) {
         this.setState({ blurRadius: initialBlurRadius });
@@ -128,7 +132,6 @@ animate = () => {
     );
 
 }
-
 renderContextIcon() {
     // render contextual icon based on route
     switch (this.props.navigation.state.routeName) {
@@ -224,7 +227,6 @@ renderMenu() {
         </View>
     );
 }
-
 renderAva() {
     return(
         <TouchableOpacity
@@ -238,15 +240,10 @@ renderAva() {
         <Image style={s.avaImage}
             source={assetPaths.bottomMenu.avaFace} />
     </TouchableOpacity>
-    
+
     );
 }
-
 renderTab() {
-   
-
-
-
   switch(this.props.navigation.state.routeName){
 
     case 'SystemModal':
@@ -266,7 +263,7 @@ renderTab() {
 
         );
     case 'Explore':
-   
+
         const relatedStyles = { transform:[ {translateY:this.state.relatedAnim} ] }
 
             return(
@@ -282,10 +279,10 @@ renderTab() {
                     </Animated.View>
 
             );
-            
+
     case 'Events':
         const eventsStyles = { transform:[ {translateY:this.state.allEventsAnim} ] }
-        
+
             return(
                 <Animated.View style={[{zIndex:13},eventsStyles]}>
                         <TouchableOpacity style={[s.tabButton, {
@@ -297,13 +294,13 @@ renderTab() {
                         </TouchableOpacity>
                         {this.renderTabContent() }
                     </Animated.View>
-        
+
             );
 
       case 'Dashboard':
-   
+
             const leaderboardStyles = { transform:[ {translateY:this.state.leaderboardAnim} ] }
-  
+
             return(
                 <Animated.View style={[{zIndex:13},leaderboardStyles]}>
                         <TouchableOpacity style={[s.tabButton, {
@@ -315,22 +312,22 @@ renderTab() {
                         </TouchableOpacity>
                         {this.renderTabContent() }
                     </Animated.View>
-        
+
             );
 
-     
+
     }
 
 
 }
-
 renderGradient() {
     return(
         <Image style={[s.gradientStyle, { width: width, bottom: this.state.activated ? gradientBottom_active: gradientBottom_inactive}]} source={assetPaths.bottomMenu.gradient} />
     );
 }
+
 render() {
- 
+
         return (
 
             <View style={s.container}>
