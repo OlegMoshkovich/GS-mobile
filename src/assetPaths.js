@@ -86,7 +86,8 @@ paths.staticScreens = {
     eventScreen: require('../assets/staticScreens/events-2x.png'),
     postModal: require('../assets/staticScreens/post.png'),
     resume: require('../assets/Resume.png'),
-    related: require('../assets/Related.png')
+    related: require('../assets/Related.png'),
+    leaderBoard: require('../assets/Leaderboard.png')
 
 }
 
@@ -246,7 +247,7 @@ paths.shop = {
             image: require('../assets/shop/featuredProduct02.png'),
             bubbles: [
                 require ('../assets/shop/bubble-robotics.png'),
-                
+
             ],
         },
         {
@@ -307,7 +308,7 @@ paths.shop = {
     },
 
 
-    
+
 
 
 
@@ -324,8 +325,8 @@ paths.avatars = {
     yellow: require('../assets/avatars/avatar06.png'),
     grey_dark: require('../assets/avatars/avatar07.png'),
     grey2: require('../assets/avatars/avatar08.png'),
-    
-        
+
+
 }
 
 

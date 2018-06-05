@@ -53,7 +53,7 @@ let TransitionConfiguration = () => {
 
 const transitionConfig = () => {
   return {
-      transitionSpec: { 
+      transitionSpec: {
         duration: 200, //easing: Easing.out(Easing.poly(4)),
         timing: Animated.timing, useNativeDriver: true
       },
@@ -101,9 +101,10 @@ class App extends React.Component {
     );
 
     const EducationStack = StackNavigator(
-      { Journey: { screen: JourneyScreen, },
+      {
         Dashboard: { screen: DashboardScreen, },
         Badges: { screen: BadgeScreen, },
+        Journey: { screen: JourneyScreen, },
         Award: { screen: AwardScreen, }, },
       { headerMode: 'none', navigationOptions: { headerVisible: false, },
         transitionConfig: TransitionConfiguration, },
@@ -131,12 +132,12 @@ class App extends React.Component {
       PostModal: { screen: PostModalScreen, }
       },
       { transitionConfig, mode: 'modal', headerMode: 'none', });
-    
+
     TabStack.navigationOptions = ({ navigation }) => {
       let { routeName } = navigation.state.routes[navigation.state.index];
       if (routeName === 'Explore') { console.log("explore route"); }
     }
-    
+
     return (
       <RootStack />
     );
