@@ -257,7 +257,7 @@ paths.shop = {
             ],
         },
         {
-            image: require('../assets/shop/featuredProduct04.png'),
+            image: require('../assets/shop/featuredProduct04b.png'),
             bubbles: [
                 require ('../assets/shop/bubble-helmet2.png'),
                 require ('../assets/shop/bubble-harness.png'),
@@ -286,7 +286,7 @@ paths.shop = {
         socks1: require('../assets/shop/card-socks.png'),
         vest: require('../assets/shop/card-vest.png'),
         guide: require('../assets/shop/card-guide.png'),
-        scarf: require('../assets/shop/card-scarf.png'),
+        scarf: require('../assets/shop/card-scarf3.png'),
         slide: require('../assets/shop/card-slide.png'),
         trefoil_pin: require('../assets/shop/card-pin.png'),
         senior_vest: require('../assets/shop/card-featured.png'),
@@ -299,7 +299,7 @@ paths.shop = {
         fleece: require('../assets/shop/card-fleece.png'),
         bottle: require('../assets/shop/card-bottle.png'),
         scarf_vintage: require('../assets/shop/card-scarf2.png'),
-        necklace: require('../assets/shop/card-necklace.png'),
+        necklace: require('../assets/shop/card-necklace2.png'),
         daypack: require('../assets/shop/card-daypack.png'),
         shirt_flag: require('../assets/shop/card-shirt3.png'),
         cap: require('../assets/shop/card-cap.png'),

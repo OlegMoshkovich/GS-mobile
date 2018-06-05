@@ -22,6 +22,10 @@ const CARD_WIDTH = 664 / 2;
 const CARD_HEIGHT = 334 / 2;
 const {width, height} = Dimensions.get('window');
 
+// add context for the screen
+const EventScreenContext = React.createContext();
+
+
 class EventScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -92,15 +96,21 @@ class EventScreen extends React.Component {
           {this.state.markers.map((marker, index) => {
           const scaleStyle = {transform: [{scale: interpolations[index].scale}]};
           const opacityStyle = {opacity: interpolations[index].opacity};
+          
           return (
             <MapView.Marker key={index} coordinate={marker.coordinate}>
               <Animated.View style={[s.markerWrap, opacityStyle]}>
                 <Animated.View style={[s.ring, scaleStyle]} />
                 <Image style={s.marker} source={marker.mapIcon} />
+                <Text>Foo</Text>
               </Animated.View>
             </MapView.Marker>
           );
+        
+        
         })}
+
+
       </MapView>
     );
   }
