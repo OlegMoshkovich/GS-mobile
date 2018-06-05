@@ -100,7 +100,7 @@ class EventScreen extends React.Component {
               latitudeDelta: this.state.region.latitudeDelta,
               longitudeDelta: this.state.region.longitudeDelta,
             },
-500          );
+            500);
         }
       }, 10);
     });

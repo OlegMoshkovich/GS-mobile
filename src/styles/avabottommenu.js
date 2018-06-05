@@ -63,6 +63,8 @@ var styles = StyleSheet.create({
 
 
     // the tab that appears sometimes
+
+
     tabButton: {
         alignSelf: 'center',
         position: 'absolute',
@@ -77,12 +79,19 @@ var styles = StyleSheet.create({
         height: 47,
     },
 
+    modalStyle: {
+        top: 0,
+        left: 5,
+        zIndex: 12,
+        position: 'absolute'
+    },
+
     // text on top
     tabText: {
         fontFamily: 'trefoil-sans-regular',
         position: 'absolute',
         top: 15,
-        alignSelf:'center',
+        alignSelf: 'center',
         zIndex: 2,
 
         fontSize: 12,

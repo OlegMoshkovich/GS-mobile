@@ -116,6 +116,16 @@ paths.modals = {
         exitIcon: require('../assets/Exit-icon.png'),
         exit: require('../assets/icons/Exit.png'),
 
+    },
+
+    shareModal: {
+        addFriend: require('../assets/icons/shareModals/addFriend.png'),
+        close: require('../assets/icons/shareModals/close.png'),
+        requestSent: require('../assets/icons/shareModals/friendRequestSent.png'),
+        like: require('../assets/icons/shareModals/like.png'),
+        share: require('../assets/icons/shareModals/share.png'),
+        star: require('../assets/icons/shareModals/star.png'),
+
     }
 }
 
