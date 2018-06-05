@@ -26,306 +26,123 @@ import AvaEndBlue from './src/screens/AvaEndBlue';
 import StoryModalScreen from './src/screens/StoryModalScreen';
 import PostModalScreen from './src/screens/PostModalScreen';
 
+
 // adding fonts
 import { Font } from 'expo';
-
-
 import Dimensions from 'Dimensions';
 import SystemScreen from './src/screens/SystemScreen';
+
 const {width, height} = Dimensions.get('window');
 
-
 let MyTransition = (index, position) => {
-
     const inputRange = [index - 1, index, index + 1];
-    const opacity = position.interpolate({
-        inputRange,
-        outputRange: [0, 1, 1],
-    });
-
-    const scaleY = position.interpolate({
-        inputRange,
-        outputRange: ([0.8, 1, 1]),
-    });
-
-    return {
-        opacity
-    };
+    const opacity = position.interpolate({ inputRange, outputRange: [0, 1, 1],});
+    const scaleY = position.interpolate({ inputRange,  outputRange: ([0.8, 1, 1]),});
+    return { opacity };
 };
+
 let TransitionConfiguration = () => {
-
     return {
-
-        // Define scene interpolation, eq. custom transition
-        screenInterpolator: (sceneProps) => {
-            const {position, scene} = sceneProps;
-            const {index} = scene;
-            return MyTransition(index, position);
-        }
+      // Define scene interpolation, eq. custom transition
+      screenInterpolator: (sceneProps) => {
+        const {position, scene} = sceneProps; const {index} = scene;
+        return MyTransition(index, position);
+      }
     }
 };
 
-
-
-
 const transitionConfig = () => {
-
-
   return {
-
-      transitionSpec: {
-        duration: 200,
-        //easing: Easing.out(Easing.poly(4)),
-        timing: Animated.timing,
-        useNativeDriver: true
-
-
+      transitionSpec: { 
+        duration: 200, //easing: Easing.out(Easing.poly(4)),
+        timing: Animated.timing, useNativeDriver: true
       },
-
-
       screenInterpolator: sceneProps => {
-
         const {layout, position, scene} = sceneProps;
-
-
         const params = scene.route.params || {}
-
-
-
         //const transition = params.transition;
-
-
-
-
         const thisSceneIndex = scene.index
-
-        console.log("thisSceneIndex", scene.index);
-
+        //console.log("thisSceneIndex", scene.index);
         const width = layout.initWidth
-
         let yVariable = height;
-
-
         if (params.hasOwnProperty("transition")) {
           if (params.transition == 'systemTransition') {
-           // yVariable *= -1;
-
-
-      const opacity = position.interpolate({
-        inputRange: [thisSceneIndex - 1, thisSceneIndex],
-        outputRange: [0, 1],
-      })
-
-      return { opacity }
-
-
+            // yVariable *= -1;
+            const opacity = position.interpolate({
+              inputRange: [thisSceneIndex - 1, thisSceneIndex], outputRange: [0, 1], })
+            return { opacity }
           } else {
-            let translateY = position.interpolate({
-              inputRange: [thisSceneIndex-1,thisSceneIndex],
-              outputRange: [ yVariable, 0],
-            })
-
-
-        return {
-
-
-          transform: [ {translateY}]
-        }
-
-
+            let translateY = position.interpolate({ inputRange: [thisSceneIndex-1,thisSceneIndex],
+              outputRange: [ yVariable, 0], })
+            return { transform: [ {translateY}] }
           }
         }
-
-
-
-
-
-
       }
-
-
-  }
-
-
+    }
 }
 
 // add context for the screen
 const AppContext = React.createContext();
-
+const ContextConsumer = AppContext.Consumer
 
 
 class App extends React.Component {
-
   constructor(props) {
-    super(props);
-
-    this.state = {
-      swiping: true,
-
-    }
+    super(props); this.state = { swiping: true, }
   }
-
   componentDidMount() {
-    Font.loadAsync({
-      'trefoil-sans-black': require('./assets/fonts/TrefoilSans-Black.otf'),
-      'trefoil-sans-semibold': require('./assets/fonts/TrefoilSans-SemiBold.otf'),
-      'trefoil-sans-light':  require('./assets/fonts/TrefoilSans-Light.otf'),
-      'trefoil-sans-regular': require('./assets/fonts/TrefoilSans-Regular.otf'),
-    });
+    Font.loadAsync({ 'trefoil-sans-black': require('./assets/fonts/TrefoilSans-Black.otf'), 'trefoil-sans-semibold': require('./assets/fonts/TrefoilSans-SemiBold.otf'), 'trefoil-sans-light':  require('./assets/fonts/TrefoilSans-Light.otf'), 'trefoil-sans-regular': require('./assets/fonts/TrefoilSans-Regular.otf'),});
   }
-
-
   render() {
-
     const ConnectStack = StackNavigator(
-      { //Screens
-      ConnectDashboard: {
-              screen: CommsDashboardScreen,
-      },
-      Chat: {
-              screen: ChatScreen,
-      },
-      Map: {
-        screen: MapScreen,
-      },
-      Calendar: {
-          screen: CalendarScreen,
-      },
-      Events: {
-          screen: EventScreen,
-      },
-      },
-
-      {
-      headerMode: 'none',
-      navigationOptions: {
-        headerVisible: false,
-      },
-      transitionConfig: TransitionConfiguration,
-      },
+      { ConnectDashboard: { screen: CommsDashboardScreen, },
+        Chat: { screen: ChatScreen, },
+        Map: { screen: MapScreen, },
+        Calendar: { screen: CalendarScreen, },
+        Events: { screen: EventScreen, }, },
+      { headerMode: 'none', navigationOptions: { headerVisible: false, },
+        transitionConfig: TransitionConfiguration, },
     );
 
     const EducationStack = StackNavigator(
-      { //Screens
-      Journey: {
-              screen: JourneyScreen,
-      },
-      Dashboard: {
-              screen: DashboardScreen,
-      },
-      Badges: {
-              screen: BadgeScreen,
-      },
-      Award: {
-              screen: AwardScreen,
-      },
-      },
-
-      {
-      headerMode: 'none',
-      navigationOptions: {
-        headerVisible: false,
-      },
-      transitionConfig: TransitionConfiguration,
-      },
-
+      { Journey: { screen: JourneyScreen, },
+        Dashboard: { screen: DashboardScreen, },
+        Badges: { screen: BadgeScreen, },
+        Award: { screen: AwardScreen, }, },
+      { headerMode: 'none', navigationOptions: { headerVisible: false, },
+        transitionConfig: TransitionConfiguration, },
     );
 
     const TabStack =  TabNavigator({
-      // AvaYellow: { screen: AvaEndYellow },
-      // Calendar: { screen: CalendarScreen},
-
-      // Chat: { screen: ChatScreen},
-      // Connect: { screen: CommsDashboardScreen},
       Connect:{screen: ConnectStack},
       Community: { screen: CommunityScreen },
       Events: { screen: EventScreen},
       Home: { screen: HomeScreen},
       Explore: { screen: ExploreScreen },
       Dashboard: { screen: EducationStack },
-      // Badges: { screen: BadgeScreen},
-      // Journey: { screen: JourneyScreen},
-      // Award: {screen: AwardScreen},
-      // AvaBlue: { screen: AvaEndBlue },
-      // Playground: { screen: PlaygroundScreen },
       },
-
-      {
-        swipeEnabled:this.state.swiping,
-
+      { swipeEnabled:this.state.swiping,
         initialRouteName:'Home',
+        navigationOptions: { tabBarVisible: false },
+      });
 
-        navigationOptions: {
-          tabBarVisible: false
-        },
-    });
-
-
-
-
-    const RootStack = StackNavigator(
-      {
-
-
-        Main: {
-          screen: TabStack,
-        },
-
-        SystemModal: {
-          screen: SystemScreen,
-        },
-        ShopModal: {
-          screen: ShopScreen
-        },
-        ArticleModal: {
-          screen: ArticleModalScreen,
-        },
-        StoryModal: {
-          screen: StoryModalScreen,
-
-        },
-        PostModal: {
-          screen: PostModalScreen,
-
-        }
+    const RootStack = StackNavigator({
+      Main: { screen: TabStack, },
+      SystemModal: { screen: SystemScreen,},
+      ShopModal: { screen: ShopScreen },
+      ArticleModal: { screen: ArticleModalScreen, },
+      StoryModal: { screen: StoryModalScreen, },
+      PostModal: { screen: PostModalScreen, }
       },
-
-
-      {
-
-        transitionConfig,
-        mode: 'modal',
-        headerMode: 'none',
-      }
-
-
-
-    );
-
-
-
+      { transitionConfig, mode: 'modal', headerMode: 'none', });
+    
     TabStack.navigationOptions = ({ navigation }) => {
       let { routeName } = navigation.state.routes[navigation.state.index];
-      if (routeName === 'Explore') {
-        console.log("explore route");
-    /*    this.setState({
-          swiping: false,
-        })
-*/
-
-      }
-   }
-
-
-
+      if (routeName === 'Explore') { console.log("explore route"); }
+    }
+    
     return (
-
-
-
-
-        <RootStack />
-
-
+      <RootStack />
     );
   }
 }
