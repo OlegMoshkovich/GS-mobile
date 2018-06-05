@@ -41,6 +41,8 @@ constructor(props) {
         fadeAnim: new Animated.Value(0),
         resumeAnim: new Animated.Value(0),
         relatedAnim: new Animated.Value(0),
+        leaderboardAnim: new Animated.Value(0),
+        allEventsAnim: new Animated.Value(0),
         blurRadius: initialBlurRadius,
         tabOpacity: 1,
         expanded:true,
@@ -48,82 +50,50 @@ constructor(props) {
 }
 tabAnimation = () => {
     if (this.props.tabTitle == 'Resume'){
-      Animated.timing(this.state.resumeAnim,{
-        toValue:this.state.expanded ? -560:0,
-        duration:500
-      }).start();
-      if (this.state.expanded == true) {
-          this.setState({
-              expanded: false
-          });
-      } else {
-          this.setState({ expanded: true});
-      }
+        Animated.timing(this.state.resumeAnim,{ toValue:this.state.expanded ? -560:0, duration:500 }).start();
+        if (this.state.expanded == true) { this.setState({ expanded: false });
+        } else { this.setState({ expanded: true}); }
     }
-
     if (this.props.tabTitle == 'Related'){
-      Animated.timing(this.state.relatedAnim,{
-        toValue:this.state.expanded ? -135:0,
-        duration:500
-      }).start();
-      if (this.state.expanded == true) {
-          this.setState({
-              expanded: false
-          });
-      } else {
-          this.setState({ expanded: true});
-      }
+        Animated.timing(this.state.relatedAnim,{ toValue:this.state.expanded ? -135:0, duration:500 }).start();
+        if (this.state.expanded == true) { this.setState({expanded: false });
+        } else { this.setState({ expanded: true}); }
+    }
+    if (this.props.tabTitle == 'All Events'){
+        Animated.timing(this.state.allEventsAnim,{ toValue:this.state.expanded ? -135:0, duration:500 }).start();
+        if (this.state.expanded == true) { this.setState({ expanded: false });
+        } else { this.setState({ expanded: true}); }
+    }
+    if (this.props.tabTitle == 'Leaderboard'){
+        Animated.timing(this.state.leaderboardAnim,{ toValue:this.state.expanded ? -135:0, duration:500 }).start();
+        if (this.state.expanded == true) { this.setState({ expanded: false });
+        } else { this.setState({ expanded: true}); }
     }
 }
 
 renderTabContent() {
-  switch(this.props.navigation.state.routeName){
-
-    case 'SystemModal':
-      return(
-        <Animated.View style={[{
-                        top:0,
-                        left:5,
-                        zIndex: 12,
-                        position:'absolute'},]}>
-        <Image
-            style={{ width: 359,
-                       height:heightResume,
-                      }}
-            source={assetPaths.staticScreens.resume} />
-        </Animated.View>
-      )
-
+    switch(this.props.navigation.state.routeName){
+        case 'SystemModal':
+            return(
+            <Animated.View style={[{ top:0, left:5, zIndex: 12, position:'absolute'},]}>
+                <Image style={{ width: 359, height:heightResume,}} source={assetPaths.staticScreens.resume} />
+            </Animated.View> )
     case 'Explore':
-      return(
-        <Animated.View style={{
-                        top:0,
-                        left:5,
-                        zIndex: 12,
-                        position:'absolute'}}>
-        <Image
-            style={{ width: 366,
-                       height:heightRelated,
-                      }}
-            source={assetPaths.staticScreens.related} />
-        </Animated.View>
-      )
-
+        return(
+            <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
+                <Image style={{ width: 366, height:heightRelated, }} source={assetPaths.staticScreens.related} />
+            </Animated.View> )
     case 'Dashboard':
       return(
-        <Animated.View style={{
-                        top:0,
-                        left:5,
-                        zIndex: 12,
-                        position:'absolute'}}>
-
-        <Image style={{ width: 366,
-                        height:heightRelated,
-                      }}
-            source={assetPaths.staticScreens.related} />
-
-        </Animated.View>
-      )
+            <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
+                <Image style={{ width: 366, height:heightRelated, }} source={assetPaths.staticScreens.related} />
+            </Animated.View> )
+    case 'Events':
+      return(
+            <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
+                <Image style={{ width: 366, height:heightRelated, }} source={assetPaths.staticScreens.related} />
+            </Animated.View> )
+     
 
 
   }
@@ -224,85 +194,151 @@ renderContextIcon() {
 
         }
     }
+renderMenu() {
+    return(
+        <View style={[s.navStyle, {
+            bottom: this.state.activated ? navMenu_active: navMenu_inactive,
+            }]}>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Connect')}>
+                {this.props.currentSection == 'connect' ? <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIconOn} /> :
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIcon} />}
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
+                {this.props.currentSection == 'community' ?
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIconOn} /> :
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIcon} />}
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Home')}>
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.homeIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Explore')} >
+                {this.props.currentSection == 'explore' ?
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIconOn} /> :
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIcon} />}
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Dashboard')} >
+                {this.props.currentSection == 'dashboard' ?
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIconOn} /> :
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIcon} />}
+            </TouchableOpacity>
+        </View>
+    );
+}
 
+renderAva() {
+    return(
+        <TouchableOpacity
+        style = {{
+        alignSelf: 'flex-end', position: 'absolute', right: 5, zIndex: 1,
+        bottom: this.state.activated ? avaLocationBottom_active : avaLocationBottom_inactive,
+        height: avaHeight,
+        }}
+        onPress={this.animate} onLongPress={this.animate}>
+        { this.props.contextIcon ? this.renderContextIcon() : null }
+        <Image style={s.avaImage}
+            source={assetPaths.bottomMenu.avaFace} />
+    </TouchableOpacity>
+    
+    );
+}
+
+renderTab() {
+   
+
+
+
+  switch(this.props.navigation.state.routeName){
+
+    case 'SystemModal':
+        const resumeStyles = { transform:[ {translateY:this.state.resumeAnim} ] }
+
+        return(
+            <Animated.View style={[{zIndex:13},resumeStyles]}>
+                    <TouchableOpacity style={[s.tabButton, {
+                        height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,
+                    }]} onPress={this.tabAnimation}>
+                    <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
+                        source={assetPaths.bottomMenu.tabBackground} />
+                    <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
+                    </TouchableOpacity>
+                    {this.renderTabContent() }
+                </Animated.View>
+
+        );
+    case 'Explore':
+   
+        const relatedStyles = { transform:[ {translateY:this.state.relatedAnim} ] }
+
+            return(
+                <Animated.View style={[{zIndex:13},relatedStyles]}>
+                        <TouchableOpacity style={[s.tabButton, {
+                            height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,
+                        }]} onPress={this.tabAnimation}>
+                        <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
+                            source={assetPaths.bottomMenu.tabBackground} />
+                        <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
+                        </TouchableOpacity>
+                        {this.renderTabContent() }
+                    </Animated.View>
+
+            );
+            
+    case 'Events':
+        const eventsStyles = { transform:[ {translateY:this.state.allEventsAnim} ] }
+        
+            return(
+                <Animated.View style={[{zIndex:13},eventsStyles]}>
+                        <TouchableOpacity style={[s.tabButton, {
+                            height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,
+                        }]} onPress={this.tabAnimation}>
+                        <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
+                            source={assetPaths.bottomMenu.tabBackground} />
+                        <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
+                        </TouchableOpacity>
+                        {this.renderTabContent() }
+                    </Animated.View>
+        
+            );
+
+      case 'Dashboard':
+   
+            const leaderboardStyles = { transform:[ {translateY:this.state.leaderboardAnim} ] }
+  
+            return(
+                <Animated.View style={[{zIndex:13},leaderboardStyles]}>
+                        <TouchableOpacity style={[s.tabButton, {
+                            height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,
+                        }]} onPress={this.tabAnimation}>
+                        <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
+                            source={assetPaths.bottomMenu.tabBackground} />
+                        <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
+                        </TouchableOpacity>
+                        {this.renderTabContent() }
+                    </Animated.View>
+        
+            );
+
+     
+    }
+
+
+}
+
+renderGradient() {
+    return(
+        <Image style={[s.gradientStyle, { width: width, bottom: this.state.activated ? gradientBottom_active: gradientBottom_inactive}]} source={assetPaths.bottomMenu.gradient} />
+    );
+}
 render() {
-  const resumeStyles = {
-    transform:[
-      {translateY:this.state.resumeAnim}
-    ]
-  }
-  const relatedStyles = {
-    transform:[
-      {translateY:this.state.relatedAnim}
-    ]
-  }
-
+ 
         return (
 
             <View style={s.container}>
 
-            <TouchableOpacity
-                style = {{
-                alignSelf: 'flex-end', position: 'absolute', right: 5, zIndex: 1,
-                bottom: this.state.activated ? avaLocationBottom_active : avaLocationBottom_inactive,
-                height: avaHeight,
-                }}
-                onPress={this.animate} onLongPress={this.animate}>
-                { this.props.contextIcon ? this.renderContextIcon() : null }
-                <Image style={s.avaImage}
-                    source={assetPaths.bottomMenu.avaFace} />
-            </TouchableOpacity>
-
-
-            { this.props.showTab ?
-            <Animated.View style={[{zIndex:13},resumeStyles]}>
-            <TouchableOpacity style={[s.tabButton, {
-                height: tabHeight,
-                opacity: this.state.tabOpacity,
-                zIndex:13,
-              }]} onPress={this.tabAnimation}>
-                <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
-                    source={assetPaths.bottomMenu.tabBackground} />
-                <Text style={[s.tabText, {
-                    left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
-            </TouchableOpacity>
-            </Animated.View> : null }
-
-
-
-            <Image
-                style={[s.gradientStyle, { width: width,
-                    bottom: this.state.activated ? gradientBottom_active: gradientBottom_inactive}]}
-                source={assetPaths.bottomMenu.gradient} />
-
-
-            <View style={[s.navStyle, {
-                bottom: this.state.activated ? navMenu_active: navMenu_inactive,
-                }]}>
-                <TouchableOpacity  onPress={() => this.props.navigation.navigate('Connect')}>
-                    {this.props.currentSection == 'connect' ? <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIconOn} /> :
-                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIcon} />}
-                </TouchableOpacity>
-                <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
-                    {this.props.currentSection == 'community' ?
-                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIconOn} /> :
-                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIcon} />}
-                </TouchableOpacity>
-                <TouchableOpacity  onPress={() => this.props.navigation.navigate('Home')}>
-                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.homeIcon} />
-                </TouchableOpacity>
-                <TouchableOpacity  onPress={() => this.props.navigation.navigate('Explore')} >
-                    {this.props.currentSection == 'explore' ?
-                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIconOn} /> :
-                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIcon} />}
-                </TouchableOpacity>
-                <TouchableOpacity  onPress={() => this.props.navigation.navigate('Dashboard')} >
-                    {this.props.currentSection == 'dashboard' ?
-                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIconOn} /> :
-                    <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIcon} />}
-                </TouchableOpacity>
-            </View>
-
+           {this.renderAva()}
+            { this.props.showTab ? this.renderTab() : null }
+            {this.renderGradient()}
+            {this.renderMenu()}
             {this.renderTabContent()}
 
         </View>
