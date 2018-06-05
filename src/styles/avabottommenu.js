@@ -49,7 +49,6 @@ var styles = StyleSheet.create({
     },
 
     navStyle: {
-
         flex: 1,
         zIndex: 2,
         flexDirection: 'row',
