@@ -97,7 +97,6 @@ class CommunityScreen extends React.Component {
       <LinearGradient colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
         <TopMenu menuTitle="share" iconPath={assetPaths.topMenu.shareIcon} navigation={this.props.navigation} />
-        <NavMenu highlighted={4} />
         { this.renderFeaturedStories() }
 
 

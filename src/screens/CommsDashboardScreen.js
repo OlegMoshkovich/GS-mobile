@@ -125,7 +125,6 @@ class DashboardScreen extends React.Component {
     return (
       <LinearGradient colors={['#F9C025', '#FFDB2B']} style={{ height: height,width:width, flex:1}}>
         <TopMenu navigation={this.props.navigation} menuTitle="connect" iconPath={assetPaths.topMenu.connectIcon} />
-        <NavMenu highlighted={3} />
 
         <View style={s.container}>
 

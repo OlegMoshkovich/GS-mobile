@@ -144,7 +144,6 @@ class DashboardScreen extends React.Component {
         style={{ height: height, width:width }}>
 
         <TopMenu menuTitle="dash" iconPath={assetPaths.topMenu.dashboardIcon} navigation={this.props.navigation}/>
-        <NavMenu highlighted={1} />
 
 
 

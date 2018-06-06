@@ -187,7 +187,6 @@ class EventScreen extends React.Component {
         colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
         <TopMenu navigation={this.props.navigation} menuTitle="what" iconPath={assetPaths.topMenu.connectIcon} />
-        <NavMenu highlighted={1} />
           <View style={[s.container, {height: 330}]}>
             { this.renderMapView(interpolations) }
             

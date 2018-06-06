@@ -106,7 +106,6 @@ class ExploreScreen extends React.Component {
           <LinearGradient colors={['#00C5F0', '#50EAFF']}
             style={{ height: height, width:width} }>
             <TopMenu navigation={this.props.navigation} menuTitle="explore" iconPath={assetPaths.topMenu.exploreIcon} />
-            <NavMenu highlighted={0} />
 
 
             <View style={{ flex: 5}}>
