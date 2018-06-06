@@ -68,7 +68,7 @@ class CommunityScreen extends React.Component {
       <Text style ={s.featuredStoriesTitle}>Featured</Text>
       <ScrollView horizontal= {true} style={{marginTop:40}} showsHorizontalScrollIndicator={false}>
         <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('StoryModal', stories.story01)}}>
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 12})}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.featuredStories.storyCard01} />
         </TouchableOpacity>
