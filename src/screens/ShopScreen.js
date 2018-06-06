@@ -56,11 +56,6 @@ class ShopScreen extends React.Component {
 
     
 
-  showWishlistModal() {
-    return (
-      <Text>Modal</Text>
-    );
-  }
 
 
   render() {
@@ -73,9 +68,7 @@ class ShopScreen extends React.Component {
          colors={['#68D634', '#4CB034', '#3F8C2D']}
          style={{ height: height, width:width}}>
         <TopMenu menuTitle="shop" iconPath={assetPaths.shop.icons.close} navigation={this.props.navigation} />
-        <TouchableOpacity style={{position: 'absolute', top: 10, right: 10}} onPress={() => this.showWishlistModal()}>
-          <Image source={assetPaths.shop.icons.wishlist} style={{width: 20, height: 20}} />
-        </TouchableOpacity>
+        
         <ScrollView 
           style ={{ top:91, position:'absolute', height: height}} showsVerticalScrollIndicator={false} >
           <Text style ={s.featuredTitle}>Featured</Text>
@@ -178,7 +171,7 @@ class ShopScreen extends React.Component {
             <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.trefoil_pin} />
           </View>
         </ScrollView>
-        <AvaBottomMenu navigation={this.props.navigation}/> 
+        <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
       </LinearGradient>
     );
   }

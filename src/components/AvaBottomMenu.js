@@ -78,6 +78,8 @@ constructor(props) {
           ],
           longPress: false,
           chatInterface: false,
+          wishlistModal: false,
+
 
     };
 }
@@ -176,6 +178,9 @@ animate = () => {
 
 renderContextIcon() {
     // render contextual icon based on route
+    console.log(" --> ", this.props.navigation.state.routeName);
+
+
     switch (this.props.navigation.state.routeName) {
         case 'Community':
             return(
@@ -232,6 +237,13 @@ renderContextIcon() {
                         source={assetPaths.bottomMenu.contextIcons.profile} />
                 </TouchableOpacity>
             );
+        case 'ShopModal':
+            return(
+                <TouchableOpacity onPress={() => this.showWishlist()}>
+                    <Image style={[s.contextIcon]}
+                        source={assetPaths.bottomMenu.contextIcons.wishlist} />
+                </TouchableOpacity>
+            );
 
             default:
                 // nothing
@@ -239,6 +251,18 @@ renderContextIcon() {
 
         }
     }
+
+showWishlist() {
+    
+    
+    console.log("showing wishlist");
+    this.setState({wishlistModal: true});
+
+
+
+}
+
+
 renderMenu() {
     return(
         <View style={[s.navStyle, {
@@ -437,6 +461,22 @@ renderChatInterface() {
     );
 }
 
+
+renderWishlistModal() {
+    return (
+        <View style={{top: 0}}>
+    <Modal animationType="slide" transparent={true} visible={this.state.wishlistModal}
+            onRequestClose={() => console.log("modal closed")}>
+
+        <TouchableOpacity onPress={() => this.setState({wishlistModal: false})}>
+            <Image key={'wishlistImage'} style={{width: width, height: height}} source={assetPaths.staticScreens.wishlist} />
+        </TouchableOpacity>
+    </Modal>
+</View>
+
+
+    );
+}
 render() {
 
         return (
@@ -449,6 +489,7 @@ render() {
             {this.renderMenu()}
             {this.renderTabContent()}
             { this.renderChatInterface() }
+            { this.renderWishlistModal() }
 
 
         </View>
