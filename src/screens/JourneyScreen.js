@@ -22,8 +22,7 @@ const NumItems = 100;
 const Items = [
   {id:1,icon:require('../../assets/journey/journeyIcon_1.png'),image:require('../../assets/journey/journeyCard_1.png')},
   {id:2,icon:require('../../assets/journey/journeyIcon_2.png'),image:require('../../assets/journey/journeyCard_1.png')},
-  {id:3,icon:require('../../assets/journey/journeyIcon_2.png'),image:require('../../assets/journey/journeyCard_1.png')},
-  {id:4,icon:require('../../assets/journey/journeyIcon_2.png'),image:require('../../assets/journey/journeyCard_1.png')}
+  {id:3,icon:require('../../assets/journey/journeyIcon_3.png'),image:require('../../assets/journey/journeyCard_3.png')}
 ];
 
 for(var i = 0; i < NumItems; i++) {
@@ -47,15 +46,11 @@ class JourneyScreen extends React.Component {
             backgroundColor: 'transparent'
           }}>
             <ScrollView showsVerticalScrollIndicator = {false}>
-
               <View style = {{paddingBottom:50}}>
-                <Image style={{alignSelf:'center', width:786/3,height:1041/3}} resizeMode="cover"
-                  source={item.icon} />
+              <Image style={{alignSelf:'center', width:786/3,height:1041/3}} resizeMode="cover" source={item.icon} />
               </View>
-
               <View style = {{paddingBottom:200}}>
-              <Image style={{alignSelf:'center', width:894/3,height:7344/3}} resizeMode="cover"
-                source={item.image} />
+              <Image style={{alignSelf:'center', width:894/3,height:7344/3}} resizeMode="cover" source={item.image} />
               </View>
 
             </ScrollView>
@@ -64,19 +59,10 @@ class JourneyScreen extends React.Component {
       }
 
   render() {
-
-    console.log(width);
-
     return (
-      <LinearGradient
-      colors={['#00C5F0', '#50EAFF']}
-        style={{ height: height, width:width }}>
-
+      <LinearGradient colors={['#00C5F0', '#50EAFF']} style={{ height: height, width:width }}>
         <TopMenu navigation={this.props.navigation} menuTitle="journeys" iconPath={assetPaths.topMenu.dashboardIcon} />
-
           <View style={{ flex: 4}}>
-
-
           <Carousel
             ref={(c) => { this._carousel = c; }}
             data={Items}
@@ -85,33 +71,10 @@ class JourneyScreen extends React.Component {
             itemWidth={width - 75}
             itemHeight={height}
           />
-
-
         </View>
-
-
-
         <AvaBottomMenu currentSection={'dashboard'} navigation={this.props.navigation}/>
       </LinearGradient>);
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#ecf0f1',
-  },
-  paragraph: {
-    margin: 24,
-    fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    color: '#34495e',
-  },
-  slide: {
-    height: 100,
-    backgroundColor: 'lightgrey',
-  },
-});
+
 export default JourneyScreen;

@@ -3,7 +3,7 @@ import Dimensions from 'Dimensions';
 import { StyleSheet, Text, View, Modal, TouchableOpacity,Image, Animated, ScrollView} from 'react-native';
 const {width, height} = Dimensions.get('window');
 const heightResume = 560;
-const heightRelated = 147*1.5;
+const heightRelated = 209;
 const heightEvents = 550;
 
 const heightBoard = 521;
@@ -119,16 +119,16 @@ renderTabContent() {
 
     case 'Explore':
         return(
-            <Animated.View style={{ top:0, left:5, zIndex: 12,background:'white', position:'absolute'}}>
+            <Animated.View style={{ top:0, zIndex: 12,background:'white', position:'absolute'}}>
             <View style = {{background:'white'}}>
-              <Image style={{ width: 366, height:heightRelated}} source={require('../../assets/relatedBackground.png')} />
+              <Image style={{ width: width, height:heightRelated}} source={require('../../assets/relatedBackground.png')} />
                 <ScrollView
                   horizontal
                   scrollEventThrottle={1}
                   showsHorizontalScrollIndicator={false}
                   style = {{zIndex:12, position:'absolute'}}>
                   {this.state.relatedImages.map((image) => (
-                      <Image source={image.image} style={{width:119*1.5,height:161*1.5}} resizeMode="cover" />
+                      <Image source={image.image} style={{width:119*1.4,height:161*1.4}} resizeMode="cover" />
                   ))}
                 </ScrollView>
             </View>
