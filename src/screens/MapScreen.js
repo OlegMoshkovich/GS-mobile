@@ -160,7 +160,6 @@ class MapScreen extends React.Component {
             style={{ height: height, width:width}}>
 
             <TopMenu navigation={this.props.navigation} menuTitle="where" iconPath={assetPaths.topMenu.connectIcon} />
-            <NavMenu highlighted={2} />
 
             <View style={{
               flex:6

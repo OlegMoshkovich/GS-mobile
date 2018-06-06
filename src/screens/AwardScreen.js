@@ -27,7 +27,6 @@ class AwardScreen extends React.Component {
         style={{ height: height, width:width }}>
 
         <TopMenu navigation={this.props.navigation} menuTitle="awards" iconPath={assetPaths.topMenu.dashboardIcon} />
-        <NavMenu highlighted={4} />
 
          <View style={s.awardContainer}>
           <View style={s.awardHeadlineContainer}>

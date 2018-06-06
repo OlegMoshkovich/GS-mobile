@@ -73,7 +73,6 @@ class JourneyScreen extends React.Component {
         style={{ height: height, width:width }}>
 
         <TopMenu navigation={this.props.navigation} menuTitle="journeys" iconPath={assetPaths.topMenu.dashboardIcon} />
-        <NavMenu highlighted={3} />
 
           <View style={{ flex: 4}}>
 

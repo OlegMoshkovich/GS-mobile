@@ -111,9 +111,9 @@ class App extends React.Component {
     );
 
     const TabStack =  TabNavigator({
+      
       Connect:{screen: ConnectStack},
       Community: { screen: CommunityScreen },
-      Events: { screen: EventScreen},
       Home: { screen: HomeScreen},
       Explore: { screen: ExploreScreen },
       Dashboard: { screen: EducationStack },

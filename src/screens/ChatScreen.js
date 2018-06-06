@@ -262,7 +262,6 @@ class ChatScreen extends React.Component {
 
         <TopMenu navigation={this.props.navigation} 
         menuTitle="who" iconPath={assetPaths.topMenu.connectIcon} />
-        <NavMenu highlighted={2} />
 
 
 

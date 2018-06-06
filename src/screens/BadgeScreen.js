@@ -100,7 +100,6 @@ class BadgeScreen extends React.Component {
         style={{ height: height, width:width }}>
 
         <TopMenu menuTitle="badges" iconPath={assetPaths.topMenu.dashboardIcon} navigation={this.props.navigation} />
-        <NavMenu highlighted={2} />
 
         <View style={{flex: 1}}>
           { this.renderMyBadges() }
