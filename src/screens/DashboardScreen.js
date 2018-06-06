@@ -139,28 +139,13 @@ class DashboardScreen extends React.Component {
 
   render() {
     return (
-      <LinearGradient
-      colors={['#00C5F0', '#50EAFF']}
-        style={{ height: height, width:width }}>
-
+      <LinearGradient colors={['#00C5F0', '#50EAFF']} style={{ height: height, width:width }}>
         <TopMenu menuTitle="dash" iconPath={assetPaths.topMenu.dashboardIcon} navigation={this.props.navigation}/>
-
-
-
-        <Image style={s.avaProfile}
-          source={require('../../assets/Ava-Dashboard1.png')} />
-          
-          <Image style={s.progressBar}
-            source={require('../../assets/Dashboard_ProgressBar.png')} />
-
+        <Image style={s.avaProfile} source={require('../../assets/Ava-Dashboard1.png')} />
+        <Image style={s.progressBar} source={require('../../assets/Dashboard_ProgressBar.png')} />
         {this.renderAvaDashboard() }
-
-        <Text style={{color:'white',bottom:25,left:25, fontSize: 17,fontFamily: 'trefoil-sans-semibold'}}>
-        My Badges
-        </Text>
-
+        <Text style={{color:'white',bottom:25,left:25, fontSize: 17,fontFamily: 'trefoil-sans-semibold'}}>My Badges</Text>
         {this.renderBadges()}
-
         <AvaBottomMenu currentSection={'dashboard'}  showTab={true} tabTitle={"Leaderboard"} tabLeft={15} navigation={this.props.navigation}/>
       </LinearGradient>);
   }

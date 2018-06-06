@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, Animated} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Image, Animated, ScrollView} from 'react-native';
 const {width, height} = Dimensions.get('window');
 const heightResume = 560;
 const heightRelated = 147;
@@ -90,7 +90,10 @@ renderTabContent() {
     case 'Dashboard':
       return(
             <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
-                <Image style={{ width: 366, height:heightBoard }} source={assetPaths.staticScreens.leaderBoard} />
+              <ScrollView style={{  height:521, paddingBottom:200}}>
+                <Image style={{ width: 366, height:1027}} source={assetPaths.staticScreens.leaderBoard} />
+
+              </ScrollView>
             </Animated.View> )
 
     case 'Events':

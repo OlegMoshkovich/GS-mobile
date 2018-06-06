@@ -64,17 +64,6 @@ var styles = StyleSheet.create({
 
     progressBar: {height: 8,width: 270,alignSelf:'center',top:12},
 
-
-
-
-
-
-
-
-
-
-
-
 });
 
 
