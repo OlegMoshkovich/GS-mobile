@@ -469,9 +469,7 @@ renderWishlistModal() {
             onRequestClose={() => console.log("modal closed")}>
 
         <TouchableOpacity onPress={() => this.setState({wishlistModal: false})}>
-            <ScrollView style={{height: 820, paddingBottom: 200 }} vertical={true} bounces={false} >
-                <Image key={'wishlistImage'} style={{width: width, height: height}} source={assetPaths.staticScreens.wishlist} />
-            </ScrollView>
+            <Image key={'wishlistImage'} style={{width: width, height: height}} source={assetPaths.staticScreens.wishlist} />
         </TouchableOpacity>
     </Modal>
 </View>
