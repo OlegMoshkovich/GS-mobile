@@ -89,6 +89,9 @@ paths.staticScreens = {
     wishlist: require(
         '../assets/staticScreens/wishlistModal.png'
     ),
+    badgesOverview: require(
+        '../assets/staticScreens/badgeOverlay.png'
+    ),
     
 }
 paths.homeScreen = {

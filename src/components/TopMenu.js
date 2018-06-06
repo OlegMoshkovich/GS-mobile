@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity, Image, Animated} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity, Image, Animated, Modal} from 'react-native';
 const {width, height} = Dimensions.get('window');
 
 // global style
@@ -12,7 +12,10 @@ import assetPaths from '../assetPaths'
 class TopMenu extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            badgesShowing: false,
 
+        }
     }
 
     updateData() {
@@ -27,7 +30,11 @@ class TopMenu extends Component {
 
         // console.log(this.props.navigation);
         switch (this.props.navigation.state.routeName) {
-            case 'Badges':
+            case 'Explore':
+
+                this.setState({badgesShowing: true});
+                break;
+
             case 'Journey':
             case 'Award':
 
@@ -66,6 +73,20 @@ class TopMenu extends Component {
               onPress={() => this.navigateBack()}>
               <Image style={s.menuNavButtonImage} source={this.props.iconPath} />
             </TouchableOpacity>
+
+
+            {this.state.badgesShowing ? 
+                  
+                  <Modal animationType="fade" transparent={true} visible={this.state.badgesShowing}
+                          onRequestClose={() => console.log("modal closed")}>
+      
+                      <TouchableOpacity onPress={() => this.setState({badgesShowing: false})}>
+                          <Image key={'foobar123'} style={{width: width, height: height}} source={assetPaths.staticScreens.badgesOverview} />
+                      </TouchableOpacity>
+                  </Modal>
+              
+            
+            : null}
 
         </View>
         );
