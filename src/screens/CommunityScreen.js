@@ -48,7 +48,7 @@ class CommunityScreen extends React.Component {
   }
 
   renderAllStoriesSection() {
-    // TODO create cards
+    // TODO create cards  
     return(
       <ScrollView showsHorizontalScrollIndicator={false} horizontal= {true} style={s.storySectionView} >
         <Image style={s.newStoryImage} resizeMode="cover"

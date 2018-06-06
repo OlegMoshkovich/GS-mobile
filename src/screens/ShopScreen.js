@@ -1,6 +1,6 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
@@ -30,17 +30,50 @@ class ShopScreen extends React.Component {
       )
     };
   };
-  constructor(props) { super(props); this.state = { activated    : true, }; }
-  
+  constructor(props) { super(props); 
+    
+    this.state = { activated    : true, 
+      moveAnim: new Animated.Value(0),
+      modalShowing: false,
+      activated: false
+
+    };
+  }
+
+  animate = () => {
+    Animated.timing(
+      this.state.moveAnim,
+      {
+        toValue: this.state.activated ? 1: 0,
+        duration: 500
+      }
+    ).start();
+    this.setState({
+      activated: !this.state.activated,
+
+    })
+  }
+
+    
+
+  showWishlistModal() {
+    return (
+      <Text>Modal</Text>
+    );
+  }
 
 
   render() {
+
+    let {moveAnim} = this.state;
+    
+
     return (
         <LinearGradient
          colors={['#68D634', '#4CB034', '#3F8C2D']}
          style={{ height: height, width:width}}>
         <TopMenu menuTitle="shop" iconPath={assetPaths.shop.icons.close} navigation={this.props.navigation} />
-        <TouchableOpacity style={{position: 'absolute', top: 10, right: 10}} onPress={() => console.log("show wishlist")}>
+        <TouchableOpacity style={{position: 'absolute', top: 10, right: 10}} onPress={() => this.showWishlistModal()}>
           <Image source={assetPaths.shop.icons.wishlist} style={{width: 20, height: 20}} />
         </TouchableOpacity>
         <ScrollView 
