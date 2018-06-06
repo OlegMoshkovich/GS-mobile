@@ -37,6 +37,7 @@ class TopMenu extends Component {
 
             case 'Journey':
             case 'Award':
+            
 
                 this.props.navigation.navigate('Dashboard');
                 break;
