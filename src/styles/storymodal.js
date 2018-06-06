@@ -45,7 +45,7 @@ var styles = StyleSheet.create({
         paddingLeft: 15,
         paddingTop: 10,
         paddingBottom: 5,
-        backgroundColor: 'transparent',
+        backgroundColor: 'rgba(255, 255, 255, 0)'
 
      
 
@@ -99,7 +99,9 @@ var styles = StyleSheet.create({
     },
 
 storyContentContainer: {
-    marginTop: 100,
+    paddingTop: 100,
+    zIndex: -1,
+    
 
 },
 
