@@ -48,14 +48,8 @@ class ExploreScreen extends React.Component {
              onPress={() => {this.props.navigation.navigate('ArticleModal',
              {text: item.text, title: item.title, image_uri: item.uri}) }}>
              <Card key={item.id} containerStyle ={[s.cardContainer, { position: 'absolute', width:width-70}]}>
-             <Text style ={s.cardSource}>{item.source} </Text>
-             <TouchableWithoutFeedback onPress={() => {this.props.navigation.navigate('Badges'); }}>
-             <Image style={s.cardBadge} resizeMode="cover" source={require('../../assets/Badge_WomenHealth.png')} />
-             </TouchableWithoutFeedback>
-             <Text style ={s.articleTitle}>{item.title} </Text>
-             <Text style ={s.articleText}>{item.text}</Text>
-             <Image style={s.articleCover} resizeMode="cover" source={{ uri:item.uri }} />
-           </Card>
+                <Image resizeMode="cover" source={ item.image } style={{width:963/2.95,height:1320/2.95, top:-20,left:-20}} />
+             </Card>
           </TouchableWithoutFeedback>
          )
        }
@@ -84,24 +78,5 @@ class ExploreScreen extends React.Component {
 
       }
   }
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      alignItems: 'center',
-      justifyContent: 'center',
-      paddingTop: Constants.statusBarHeight,
-      backgroundColor: '#ecf0f1',
-    },
-    paragraph: {
-      margin: 24,
-      fontSize: 18,
-      fontWeight: 'bold',
-      textAlign: 'center',
-      color: '#34495e',
-    },
-    slide: {
-      height: 100,
-      backgroundColor: 'lightgrey',
-    },
-  });
+
 export default ExploreScreen;

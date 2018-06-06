@@ -1,15 +1,11 @@
 /*
-
 organizing asset paths here
-
 */
-
 let paths = {};
 
 // bottom menu with ava and icons
 paths.bottomMenu = {
     default: require('../assets/bottomMenu/ava/ava_default2.png'),
-
     // ...
     capShout: require('../assets/bottomMenu/ava/ava_cap_yell.png'),
     capSmileEyesClosed: require('../assets/bottomMenu/ava/ava_cap_eyesClosed_smile.png'),
@@ -27,20 +23,9 @@ paths.bottomMenu = {
     smile1: require('../assets/bottomMenu/ava/ava_smile1.png'),
     wave: require('../assets/bottomMenu/ava/ava_wave.png'),
     frown: require('../assets/bottomMenu/ava/ava_oh-no.png'),
-
-
-
     avaChatInterface: require('../assets/bottomMenu/ava/ava_chat_interface.png'),
-
-
-
-
-
     calendarIcon: require('../assets/bottomMenu/icons/Calendar-icon.png'),
     chatIcon: require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
-
-
-
     communityIcon: require('../assets/bottomMenu/icons/NAV_share-home.png'),
     connectIcon: require('../assets/bottomMenu/icons/NAV_connect-home.png'),
     dashboardIcon: require('../assets/bottomMenu/icons/NAV_dash-home.png'),
@@ -56,7 +41,6 @@ paths.bottomMenu = {
     gradient: require('../assets/bottomMenu/avabottom-gradient.png'),
     relatedBackground: require('../assets/relatedBackground.png'),
     // contextual icons above ava head
-
     contextIcons: {
         addCalendar: require('../assets/bottomMenu/icons/context-addCalendarEntry.png'),
         addChat: require('../assets/bottomMenu/icons/context-addChat.png'),
@@ -69,11 +53,8 @@ paths.bottomMenu = {
         wishlist: require('../assets/bottomMenu/icons/context-wishlist.png'),
     }
 };
-
 paths.bottomMenu.homeScreen = {
-
     avaFace: require('../assets/bottomMenu/ava/Ava_Default.png'),
-
     calendarIcon: require('../assets/bottomMenu/icons/Calendar-icon.png'),
     chatIcon: require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
     communityIcon: require('../assets/bottomMenu/icons/home-share.png'),
@@ -83,13 +64,9 @@ paths.bottomMenu.homeScreen = {
     homeIcon: require('../assets/bottomMenu/icons/home-game.png'),
     mapIcon: require('../assets/bottomMenu/icons/Map-icon.png'),
     shopIcon: require('../assets/bottomMenu/icons/Shop-icon.png'),
-
     gradient: require('../assets/bottomMenu/homescreen_gradient-bottom.png')
-
 }
-
 paths.topMenu = {
-
     connectIcon: require('../assets/topMenu/NAV_connect-top.png'),
     dashboardIcon: require('../assets/topMenu/NAV_dash-top.png'),
     exploreIcon: require('../assets/topMenu/NAV_explore-top.png'),
@@ -97,11 +74,8 @@ paths.topMenu = {
     tapHereIcon: require('../assets/topMenu/Tap_here_icon.png'),
     profileIcon: require('../assets/topMenu/NAV_profile.png'),
     shopIcon: require('../assets/shop/nav-top-right.png'),
-
 }
-
 paths.staticScreens = {
-
     journeyScreen: require('../assets/staticScreens/journey-2x.png'),
     awardScreen: require('../assets/staticScreens/awards-2x.png'),
     badgeScreen: require('../assets/staticScreens/badges-2x.png'),
@@ -117,9 +91,6 @@ paths.staticScreens = {
     ),
     
 }
-
-
-
 paths.homeScreen = {
 
     chatBubbles: require('../assets/Home_Bubble_Welcome1.png'),
@@ -132,10 +103,7 @@ paths.homeScreen = {
         swipeDownIcon: require('../assets/icons/Home_SwipeDown.png'),
     }
 }
-
-
 paths.modals = {
-
     articleModal: {
         shareIcon: require('../assets/Share.png'),
         starIcon: require('../assets/Star.png'),
@@ -143,22 +111,16 @@ paths.modals = {
         clapIcon: require('../assets/Clap.png'),
         exitIcon: require('../assets/Exit-icon.png'),
         exit: require('../assets/icons/Exit.png'),
-
     },
-
     shareModal: {
         addFriend: require('../assets/icons/shareModals/addFriend.png'),
         close: require('../assets/icons/shareModals/close.png'),
         like: require('../assets/icons/shareModals/like.png'),
         share: require('../assets/icons/shareModals/share.png'),
         star: require('../assets/icons/shareModals/star.png'),
-
     }
 }
-
-
 paths.stories = {
-
     featuredStories: {
         marley: require('../assets/share/featuredMarley2x.png'),
         supergirls: require('../assets/share/featuredSupergirls2x.png'),
@@ -168,7 +130,6 @@ paths.stories = {
         underwater: require('../assets/share/featuredCookie2x.png'),
         nasa: require('../assets/share/featuredNasa2x.png'),
         cassandra: require('../assets/share/featuredCassanda2x.png'),
-
     },
     newStories: {
         storyCard01: require('../assets/Article_2.1.png'),
@@ -180,18 +141,11 @@ paths.stories = {
         storyCard02: require('../assets/Article_2.2.png'),
         storyCard03: require('../assets/Article_2.1.png'),
     },
-
     storyModal: {
         storyImage: require('../assets/Article_Image_3.png')
     }
-
 }
-
-
-
-
 paths.badges = {
-
         scienceExpert: require('../assets/badges/badges-science.png'),
         truthSeeker: require('../assets/badges/badges-truth.png'),
         womensHealth: require('../assets/badges/badges-women.png'),
@@ -203,11 +157,8 @@ paths.badges = {
             webDesigner: require('../assets/badges/badge-big-webdesigner.png'),
         }
     },
-
-
 paths.journeyScreen = {
     journeyCarousel: {
-
         swipeNavLeft: require('../assets/journey/journey-slidenav-left.png'),
         swipeNavRight: require('../assets/journey/journey-slidenav-right.png'),
         caretLeft: require('../assets/journey/journey-caret-left.png'),
@@ -220,9 +171,7 @@ paths.journeyScreen = {
 
 
 },
-
 paths.awardScreen = {
-
     awardImage: require('../assets/award/award_gold.png'),
     completed: require('../assets/award/award-completed.png'),
     info: require('../assets/award/award-info.png'),
@@ -231,9 +180,7 @@ paths.awardScreen = {
         summit: require('../assets/award/award-journey.png'),
     }
 },
-
 paths.systemScreen = {
-
     icons: {
         account: require('../assets/icons/System/1_Account.png'),
         users: require('../assets/icons/System/2_Users.png'),
@@ -247,21 +194,13 @@ paths.systemScreen = {
         about: require('../assets/icons/System/10_About.png'),
         info: require('../assets/icons/System/11_Info.png'),
         help: require('../assets/icons/System/12_Help.png'),
-
-
     }
 },
-
 paths.navMenu = {
-
     dotOn: require('../assets/navMenu/navDot_on.png'),
     dotOff: require('../assets/navMenu/navDot_off.png')
-
 };
-
-
 paths.shop = {
-
     icons: {
         wishlist: require('../assets/shop/shop-heart.png'),
         close: require('../assets/shop/shop-close-button.png'),
@@ -269,14 +208,10 @@ paths.shop = {
         see: require('../assets/shop/see.png'),
         dot: require('../assets/shop/dot.png')
     },
-
     productFeatured: require('../assets/shop/shop-featured-01.png'),
     productFeatured2: require('../assets/shop/shop-featured-02.png'),
     bubbleNav: require('../assets/shop/shop-bubbleNav.png'),
     bottomCategories: require('../assets/shop/shop-bottom.png'),
-
-
-
     featuredProducts: [
         {
             image: require('../assets/shop/featuredProduct01.png'),
@@ -289,7 +224,6 @@ paths.shop = {
             image: require('../assets/shop/featuredProduct02.png'),
             bubbles: [
                 require ('../assets/shop/bubble-robotics.png'),
-
             ],
         },
         {
@@ -320,11 +254,7 @@ paths.shop = {
                 require ('../assets/shop/bubble-headphones.png'),
             ],
         },
-
-
-
     ],
-
     productCards: {
         socks1: require('../assets/shop/card-socks.png'),
         vest: require('../assets/shop/card-vest.png'),
@@ -355,8 +285,6 @@ paths.shop = {
 
 
 }
-
-
 paths.avatars = {
 
     pink: require('../assets/avatars/avatar01.png'),
@@ -370,6 +298,5 @@ paths.avatars = {
 
 
 }
-
 
 export default paths;
