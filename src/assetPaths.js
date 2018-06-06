@@ -121,6 +121,8 @@ paths.modals = {
         like: require('../assets/icons/shareModals/like.png'),
         share: require('../assets/icons/shareModals/share.png'),
         star: require('../assets/icons/shareModals/star.png'),
+        requestSent: require('../assets/icons/shareModals/friendRequestSent.png'),
+
     }
 }
 paths.stories = {
