@@ -104,6 +104,11 @@ class CommunityScreen extends React.Component {
           <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.featuredStories.storyCard03} />
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 8})}}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.featuredStories.storyCard03} />
+        </TouchableOpacity>
 
       </ScrollView >
       <Text style ={s.newStoriesTitle}>Troop Stories</Text>

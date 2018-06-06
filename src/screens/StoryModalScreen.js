@@ -64,6 +64,10 @@ class StoryModalScreen extends React.Component {
 				return (<Image style={{width: width, height: 2617, marginBottom: 100, top: -106}} source={require('../../assets/staticScreens/stories/nasa2x.png')} />);
 				break;
 			
+			case 8:
+				return (<Image style={{width: width, height: 2617, marginBottom: 100, top: -106,}} source={require('../../assets/staticScreens/stories/cassandra2x.png')} />);
+				break;
+			
 
 
 		}
