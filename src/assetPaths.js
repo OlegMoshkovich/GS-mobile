@@ -66,6 +66,7 @@ paths.bottomMenu = {
         refresh: require('../assets/bottomMenu/icons/context-refresh.png'),
         profile: require('../assets/bottomMenu/icons/context-system.png'),
         star: require('../assets/bottomMenu/icons/context-star.png'),
+        wishlist: require('../assets/bottomMenu/icons/context-wishlist.png'),
     }
 };
 
@@ -110,7 +111,10 @@ paths.staticScreens = {
     postModal: require('../assets/staticScreens/post.png'),
     resume: require('../assets/Resume.png'),
     related: require('../assets/Related.png'),
-    leaderBoard: require('../assets/Leaderboard.png')
+    leaderBoard: require('../assets/Leaderboard.png'),
+    wishlist: require(
+        '../assets/staticScreens/wishlistModal.png'
+    ),
     
 }
 
