@@ -8,15 +8,9 @@ let paths = {};
 
 // bottom menu with ava and icons
 paths.bottomMenu = {
-    // ...
-<<<<<<< HEAD
-    avaFace: require('../assets/bottomMenu/ava/Ava_Default.png'),
-    calendarIcon: require('../assets/bottomMenu/icons/Calendar-icon.png'),
-    chatIcon: require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
-=======
     default: require('../assets/bottomMenu/ava/ava_default2.png'),
 
-    // ... 
+    // ...
     capShout: require('../assets/bottomMenu/ava/ava_cap_yell.png'),
     capSmileEyesClosed: require('../assets/bottomMenu/ava/ava_cap_eyesClosed_smile.png'),
     capSmile: require('../assets/bottomMenu/ava/ava_cap_smile.png'),
@@ -38,17 +32,15 @@ paths.bottomMenu = {
 
     avaChatInterface: require('../assets/bottomMenu/ava/ava_chat_interface.png'),
 
-    
+
 
 
 
     calendarIcon: require('../assets/bottomMenu/icons/Calendar-icon.png'),
     chatIcon: require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
 
-    
 
 
->>>>>>> 2ee9ff36e91bdcc4a380c2fd1d052e0114a9f622
     communityIcon: require('../assets/bottomMenu/icons/NAV_share-home.png'),
     connectIcon: require('../assets/bottomMenu/icons/NAV_connect-home.png'),
     dashboardIcon: require('../assets/bottomMenu/icons/NAV_dash-home.png'),
