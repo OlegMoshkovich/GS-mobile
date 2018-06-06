@@ -32,7 +32,6 @@ class CalendarScreen extends React.Component {
       colors={['#F9C025', '#F9C025']}
         style={{ height: height, width:width}}>
         <TopMenu navigation={this.props.navigation} menuTitle="when" iconPath={assetPaths.topMenu.connectIcon} />
-        <NavMenu highlighted={0} />
 
 
 
