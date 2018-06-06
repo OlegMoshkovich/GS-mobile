@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, Animated} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Image, Animated, ScrollView} from 'react-native';
 const {width, height} = Dimensions.get('window');
 const heightResume = 560;
 const heightRelated = 147;
@@ -78,19 +78,24 @@ renderTabContent() {
     case 'SystemModal':
             return(
             <Animated.View style={[{ top:0, left:5, zIndex: 12, position:'absolute'},]}>
-                <Image style={{ width: 359, height:heightResume,}} source={assetPaths.staticScreens.resume} />
+              <ScrollView style={{  height:560, paddingBottom:200}} bounces={false}>
+                <Image style={{ width: 359, height:1196}} source={assetPaths.staticScreens.resume} />
+              </ScrollView>
             </Animated.View> )
 
     case 'Explore':
         return(
             <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
-                <Image style={{ width: 366, height:heightRelated, }} source={assetPaths.staticScreens.related} />
+                <Image style={{ width: 366, height:heightRelated}} source={assetPaths.staticScreens.related} />
             </Animated.View> )
 
     case 'Dashboard':
       return(
             <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
-                <Image style={{ width: 366, height:heightBoard }} source={assetPaths.staticScreens.leaderBoard} />
+              <ScrollView style={{  height:521, paddingBottom:200}} bounces={false}>
+                <Image style={{ width: 366, height:1027}} source={assetPaths.staticScreens.leaderBoard} />
+
+              </ScrollView>
             </Animated.View> )
 
     case 'Events':
