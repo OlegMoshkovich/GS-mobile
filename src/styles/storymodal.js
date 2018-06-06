@@ -25,6 +25,7 @@ var styles = StyleSheet.create({
 
     modalContainer: {
         flex: 1,
+        backgroundColor: 'white',
 
     },
 
@@ -38,44 +39,51 @@ var styles = StyleSheet.create({
         position: 'absolute',
         flex: 1,
         flexDirection: 'row',
-        marginTop: 60,
-        marginLeft: 20,
-        height: 100,
-        alignItems: 'flex-start'
+        marginTop: 20,
+        alignItems: 'flex-start',
+        marginBottom: 20,
+        paddingLeft: 15,
+        paddingTop: 10,
+        paddingBottom: 5,
+        backgroundColor: 'transparent',
+
+     
+
+
     },
 
 
     // menu -- TODO component
     modalButton: {
-        margin: 5
+        marginRight: 10,
     },
 
 
     modalIconImage: {
-        height: 30,
-        width: 30,
-        right: 0,
-        top: 0
+        height:17,
+        width: 17,
+        marginRight: 25,
     },
 
 
     exitButton: {
-        borderWidth: 1,
-        borderColor: 'transparent',
-        marginTop: 60,
-        marginBottom: 10,
-        position: 'relative',
-        left: 332,
-        width: 27,
-        height: 27,
-        backgroundColor: 'transparent',
-        borderRadius: 100,
+        right: -170
     },
 
     exitIconImage: {
-        height: 40,
-        width: 40,
-        right: 10
+        height: 25,
+        width: 25,
+    },
+
+    addFriend: {
+        top: 40,
+        right: -73,
+
+
+    },
+    addFriendImage: {
+        width: 100,
+        height: 28,
     },
 
 
@@ -83,7 +91,7 @@ var styles = StyleSheet.create({
         marginTop: 24,
         marginBottom: 0,
         left: 26,
-    padding: 10,
+        padding: 10,
         color: "black",
         fontSize: 22,
         fontWeight: 'bold',
@@ -91,7 +99,8 @@ var styles = StyleSheet.create({
     },
 
 storyContentContainer: {
-    
+    marginTop: 100,
+
 },
 
     storyImage: {
