@@ -33,6 +33,8 @@ class TopMenu extends Component {
             case 'Explore':
 
                 this.setState({badgesShowing: true});
+                
+                
                 break;
 
             case 'Journey':
