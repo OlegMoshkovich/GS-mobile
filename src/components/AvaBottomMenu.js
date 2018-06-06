@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, Animated, ScrollView} from 'react-native';
+import { StyleSheet, Text, View, Modal, TouchableOpacity,Image, Animated, ScrollView} from 'react-native';
 const {width, height} = Dimensions.get('window');
 const heightResume = 560;
 const heightRelated = 147;
@@ -47,6 +47,10 @@ constructor(props) {
         blurRadius: initialBlurRadius,
         tabOpacity: 1,
         expanded:true,
+        longPress: false,
+        chatInterface: false,
+        
+
     };
 }
 
@@ -115,28 +119,24 @@ animate = () => {
         this.setState({ blurRadius: maxBlurRadius });
     }
 
-    if (this.state.activated == true) {
-        this.setState({
-            tabOpacity: 1,
-            activated: false
-        });
-    } else {
-        this.setState({tabOpacity: 0, activated: true,});
+
+        if (this.state.activated == true) {
+            this.setState({
+                tabOpacity: 1,
+                activated: false
+            });
+        } else { this.setState({tabOpacity: 0, activated: true,}); }
+    
+        Animated.timing(this.state.fadeAnim, { toValue: this.state.activated ? 1: 0, duration: animationDuration}).start(
+            () => { if (this.state.activated == true) { console.log('activated '); this.setState({tabOpacity: 1}) } else { this.setState({tabOpacity: 0}) }});
+
+   
+
     }
 
-    Animated.timing(this.state.fadeAnim, { toValue: this.state.activated ? 1: 0, duration: animationDuration}).start(
-        () => {
 
-            if (this.state.activated == true) {
-                console.log('activated ')
-                this.setState({tabOpacity: 1})
-            } else {
-                this.setState({tabOpacity: 0})
-            }
-        }
-    );
 
-}
+
 renderContextIcon() {
     // render contextual icon based on route
     switch (this.props.navigation.state.routeName) {
@@ -240,45 +240,51 @@ renderRandomAva() {
       }
       
 
-    let randomAva = getRandomInt(16);
-    console.log(randomAva);
-    switch (randomAva) {
-        case 0:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.default} />);
-        case 1:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.frown} />);
-        case 2:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capShout} />);
-        case 3:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmileEyesClosed} />);
-        case 4:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile} />);
-        case 5:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile2} />);
-        case 6:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile3} />);
-        case 7:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capWave} />);
-        case 8:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capFrown} />);            
-        case 9:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.wave} />);            
-        case 10:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.cap} />);
-        case 11:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.shout} />);
-        case 12:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.eyesClosed} />);
-        case 13:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.eyesClosed2} />);        
-        case 14:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile3} />);
-        case 15:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile2} />);
-        case 16:
-            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile1} />);        
+    
 
-    }
+   
+
+        let randomAva = getRandomInt(16);
+        console.log(randomAva);
+        switch (randomAva) {
+            case 0:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.default} />);
+            case 1:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.frown} />);
+            case 2:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capShout} />);
+            case 3:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmileEyesClosed} />);
+            case 4:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile} />);
+            case 5:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile2} />);
+            case 6:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile3} />);
+            case 7:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capWave} />);
+            case 8:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capFrown} />);            
+            case 9:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.wave} />);            
+            case 10:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.cap} />);
+            case 11:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.shout} />);
+            case 12:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.eyesClosed} />);
+            case 13:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.eyesClosed2} />);        
+            case 14:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile3} />);
+            case 15:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile2} />);
+            case 16:
+                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile1} />);        
+    
+        }
+    
+
 
 
 
@@ -295,7 +301,7 @@ renderAva() {
         <TouchableOpacity
             style = {{  alignSelf: 'flex-end', position: 'absolute', right: 5, zIndex: 1,
                         bottom: this.state.activated ? avaLocationBottom_active : avaLocationBottom_inactive,
-                        height: avaHeight,}} onPress={this.animate} onLongPress={this.animate}>
+                        height: avaHeight,}} onLongPress={() => this.setState({chatInterface: true})} onPress={this.animate} >
                     { this.props.contextIcon ? this.renderContextIcon() : null }
                     { this.renderRandomAva()}
         </TouchableOpacity>
@@ -385,17 +391,49 @@ renderGradient() {
     );
 }
 
+showChatInterface() {
+    console.log("showing chat");
+    //this.setState({chatInterface: true});
+}
+
+hideChatInterface() {
+    console.log("hide chat");
+    //this.setState({chatInterface: false});
+
+}
+
+
+renderChatInterface() {
+    return (
+       
+        <View style={{top: 0}}>
+            <Modal animationType="slide" transparent={true} visible={this.state.chatInterface}
+                    onRequestClose={() => console.log("modal closed")}>
+                    
+                <TouchableOpacity onPress={() => this.setState({chatInterface: false})}>
+                    <Image key={'foobar123'} style={{width: width, height: height}} source={assetPaths.bottomMenu.avaChatInterface} />
+                </TouchableOpacity>
+            </Modal>
+        </View>
+
+
+
+    );
+}
+
 render() {
 
         return (
 
             <View style={s.container}>
 
-           {this.renderAva()}
+            {this.renderAva()}
             { this.props.showTab ? this.renderTab() : null }
             {this.renderGradient()}
             {this.renderMenu()}
             {this.renderTabContent()}
+            { this.renderChatInterface() }
+
 
         </View>
         );
