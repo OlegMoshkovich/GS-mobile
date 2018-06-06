@@ -227,19 +227,73 @@ renderMenu() {
         </View>
     );
 }
+
+renderRandomAva() {
+    
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * Math.floor(max));
+      }
+      
+
+    let randomAva = getRandomInt(16);
+    console.log(randomAva);
+    switch (randomAva) {
+        case 0:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.default} />);
+        case 1:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.frown} />);
+        case 2:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capShout} />);
+        case 3:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmileEyesClosed} />);
+        case 4:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile} />);
+        case 5:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile2} />);
+        case 6:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile3} />);
+        case 7:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capWave} />);
+        case 8:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capFrown} />);            
+        case 9:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.wave} />);            
+        case 10:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.cap} />);
+        case 11:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.shout} />);
+        case 12:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.eyesClosed} />);
+        case 13:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.eyesClosed2} />);        
+        case 14:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile3} />);
+        case 15:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile2} />);
+        case 16:
+            return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile1} />);        
+
+    }
+
+
+
+        
+
+
+
+
+}
+
+
 renderAva() {
     return(
         <TouchableOpacity
-        style = {{
-        alignSelf: 'flex-end', position: 'absolute', right: 5, zIndex: 1,
-        bottom: this.state.activated ? avaLocationBottom_active : avaLocationBottom_inactive,
-        height: avaHeight,
-        }}
-        onPress={this.animate} onLongPress={this.animate}>
-        { this.props.contextIcon ? this.renderContextIcon() : null }
-        <Image style={s.avaImage}
-            source={assetPaths.bottomMenu.avaFace} />
-    </TouchableOpacity>
+            style = {{  alignSelf: 'flex-end', position: 'absolute', right: 5, zIndex: 1,
+                        bottom: this.state.activated ? avaLocationBottom_active : avaLocationBottom_inactive,
+                        height: avaHeight,}} onPress={this.animate} onLongPress={this.animate}>
+                    { this.props.contextIcon ? this.renderContextIcon() : null }
+                    { this.renderRandomAva()}
+        </TouchableOpacity>
 
     );
 }

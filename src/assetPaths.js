@@ -9,7 +9,29 @@ let paths = {};
 // bottom menu with ava and icons
 paths.bottomMenu = {
     // ...
-    avaFace: require('../assets/bottomMenu/ava/Ava_Default.png'),
+    default: require('../assets/bottomMenu/ava/ava_default2.png'),
+
+    // ... 
+    capShout: require('../assets/bottomMenu/ava/ava_cap_yell.png'),
+    capSmileEyesClosed: require('../assets/bottomMenu/ava/ava_cap_eyesClosed_smile.png'),
+    capSmile: require('../assets/bottomMenu/ava/ava_cap_smile.png'),
+    capSmile2: require('../assets/bottomMenu/ava/ava_cap_smile2.png'),
+    capSmile3: require('../assets/bottomMenu/ava/ava_cap_smile3.png'),
+    capWave: require('../assets/bottomMenu/ava/ava_cap_wave.png'),
+    capFrown: require('../assets/bottomMenu/ava/ava_cap2.png'),
+    cap: require('../assets/bottomMenu/ava/ava_cap1.png'),
+    shout: require('../assets/bottomMenu/ava/ava_screams.png'),
+    eyesClosed2: require('../assets/bottomMenu/ava/ava_eyesClosed2.png'),
+    eyesClosed: require('../assets/bottomMenu/ava/ava_eyesClosed.png'),
+    smile3: require('../assets/bottomMenu/ava/ava_smile3.png'),
+    smile2: require('../assets/bottomMenu/ava/ava_smile2.png'),
+    smile1: require('../assets/bottomMenu/ava/ava_smile1.png'),
+    wave: require('../assets/bottomMenu/ava/ava_wave.png'),
+    frown: require('../assets/bottomMenu/ava/ava_oh-no.png'),
+
+
+
+
 
     calendarIcon: require('../assets/bottomMenu/icons/Calendar-icon.png'),
     chatIcon: require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
