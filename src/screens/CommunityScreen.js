@@ -68,22 +68,43 @@ class CommunityScreen extends React.Component {
       <Text style ={s.featuredStoriesTitle}>Featured</Text>
       <ScrollView horizontal= {true} style={{marginTop:40}} showsHorizontalScrollIndicator={false}>
         <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 12})}}>
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 1})}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.featuredStories.storyCard01} />
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => { this.props.navigation.navigate('StoryModal', stories.story02)}}>
+          onPress={() => { this.props.navigation.navigate('StoryModal', {id: 2})}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.featuredStories.storyCard02} />
         </TouchableOpacity>
 
         <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('StoryModal', stories.story03)}}>
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 3})}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.featuredStories.storyCard03} />
         </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 4})}}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.featuredStories.storyCard03} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 5})}}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.featuredStories.storyCard03} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 6})}}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.featuredStories.storyCard03} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 7})}}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.featuredStories.storyCard03} />
+        </TouchableOpacity>
+
       </ScrollView >
       <Text style ={s.newStoriesTitle}>Troop Stories</Text>
         {this.renderNewStoriesSection()}

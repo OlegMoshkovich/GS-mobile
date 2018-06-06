@@ -76,14 +76,14 @@ var styles = StyleSheet.create({
     },
 
     addFriend: {
-        top: 40,
-        right: -73,
+        top: 0,
+        right: -36,
 
 
     },
     addFriendImage: {
-        width: 100,
-        height: 28,
+        width: 98,
+        height: 27,
     },
 
 
@@ -102,6 +102,9 @@ storyContentContainer: {
     paddingTop: 100,
     zIndex: -1,
     
+    paddingBottom: 100,
+
+
 
 },
 
