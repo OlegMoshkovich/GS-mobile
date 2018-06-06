@@ -199,7 +199,7 @@ class EventScreen extends React.Component {
                 {nativeEvent: {contentOffset: {x: this.animation}}}], { useNativeDriver: true }
               )}
               style={s.scrollView}>{this.state.markers.map((marker, index) => (
-                <View style={[s.card, {shadowOffset: { x: 2, y: -2 }}, 
+                <View style={[s.card,  
                   this.state.showingFriends ? {height: AVATAR_ICON, width: AVATAR_ICON} : 
                     {height: CARD_HEIGHT, width: CARD_WIDTH,} ]} key={index}>
                   <Image source={marker.image} style={s.cardImage} resizeMode="cover" />
