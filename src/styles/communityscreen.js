@@ -76,8 +76,8 @@ var styles = StyleSheet.create({
 
 
     featuredStoryImage: {
-        height: 428 / 1.3,
-        width: 291 / 1.3,
+        height: 438 / 1.3,
+        width: 328 / 1.3,
         marginBottom: 10,
         marginTop: 10,
         marginRight: 10,

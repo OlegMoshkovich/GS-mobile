@@ -134,9 +134,15 @@ paths.modals = {
 paths.stories = {
 
     featuredStories: {
-        storyCard01: require('../assets/Article_1.2.png'),
-        storyCard02: require('../assets/Article_1.1.png'),
-        storyCard03: require('../assets/Article_1.3.png'),
+        marley: require('../assets/share/featuredMarley2x.png'),
+        supergirls: require('../assets/share/featuredSupergirls2x.png'),
+        muslim: require('../assets/share/featuredMuslim2x.png'),
+        smoking: require('../assets/share/featuredSmoking2x.png'),
+        malala: require('../assets/share/featuredMalala2x.png'),
+        underwater: require('../assets/share/featuredCookie2x.png'),
+        nasa: require('../assets/share/featuredNasa2x.png'),
+        cassandra: require('../assets/share/featuredCassanda2x.png'),
+
     },
     newStories: {
         storyCard01: require('../assets/Article_2.1.png'),
