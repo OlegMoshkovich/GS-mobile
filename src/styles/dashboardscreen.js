@@ -51,7 +51,7 @@ var styles = StyleSheet.create({
         justifyContent: 'space-around',
     },
 
-    progressImage: {height: 41,width: 40},
+    progressImage: {height: 41,width: 41},
 
     badgeContainer: {
         flex:1,

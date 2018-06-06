@@ -150,6 +150,7 @@ class DashboardScreen extends React.Component {
 
         <Image style={s.avaProfile}
           source={require('../../assets/Ava-Dashboard1.png')} />
+          
           <Image style={s.progressBar}
             source={require('../../assets/Dashboard_ProgressBar.png')} />
 
