@@ -18,16 +18,13 @@ const SliderWidth = Dimensions.get('screen').width;
 const ItemWidth = 300.0;
 const ItemHeight = 600.0;
 
-const NumItems = 100;
+
 const Items = [
   {id:1,icon:require('../../assets/journey/journeyIcon_1.png'),image:require('../../assets/journey/journeyCard_1.png')},
   {id:2,icon:require('../../assets/journey/journeyIcon_2.png'),image:require('../../assets/journey/journeyCard_1.png')},
   {id:3,icon:require('../../assets/journey/journeyIcon_3.png'),image:require('../../assets/journey/journeyCard_3.png')}
 ];
 
-for(var i = 0; i < NumItems; i++) {
-  Items.push(i)
-}
 
 class JourneyScreen extends React.Component {
 
@@ -52,7 +49,6 @@ class JourneyScreen extends React.Component {
               <View style = {{paddingBottom:200}}>
               <Image style={{alignSelf:'center', width:894/3,height:7344/3}} resizeMode="cover" source={item.image} />
               </View>
-
             </ScrollView>
           </View>
         );
@@ -62,6 +58,7 @@ class JourneyScreen extends React.Component {
     return (
       <LinearGradient colors={['#00C5F0', '#50EAFF']} style={{ height: height, width:width }}>
         <TopMenu navigation={this.props.navigation} menuTitle="journeys" iconPath={assetPaths.topMenu.dashboardIcon} />
+
           <View style={{ flex: 4}}>
           <Carousel
             ref={(c) => { this._carousel = c; }}
