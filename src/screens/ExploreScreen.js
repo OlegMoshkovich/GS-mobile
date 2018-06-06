@@ -3,25 +3,20 @@ import Dimensions from 'Dimensions';
 import { StyleSheet, Text, TouchableOpacity,TouchableWithoutFeedback,Image, TouchableHighlight,Toggle, Alert,
 Platform, View, StatusBar, SafeAreaView} from 'react-native';
 import Deck from '../Deck';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import { StackNavigator,TabNavigator, TabBarBottom } from 'react-navigation';
 import { LinearGradient } from "expo";
-import {Card, Button,Icon} from 'react-native-elements';
-const {width, height} = Dimensions.get('window');
+import { Card, Button,Icon } from 'react-native-elements';
 import { USE_NATIVE_DRIVER } from '../TestComponents/config';
-
 import { Constants } from 'expo';
 import Carousel from 'react-native-snap-carousel'; // 3.4.0
-
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
 import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
-
+const {width, height} = Dimensions.get('window');
 
 // global styles
 import t from '../styles/shopscreen.js';
-
-
 
 import {
   PanGestureHandler,
@@ -32,31 +27,9 @@ import {
 import s from '../styles/explorescreen.js';
 import articles from '../../data/articles/articleContent.js';
 
-
 class ExploreScreen extends React.Component {
-
-
       constructor (props) {
           super(props);
-          this.state = {
-           entries: [
-             {
-               title: 'Article 1',
-               text: "someltkgj",
-               color: 'red',
-             },
-             {
-               title: 'Article 2',
-               text: "sdlaskj",
-               color: 'blue',
-             },
-             {
-               title: 'Article 3',
-               text: "sdlkja ",
-               color: 'green',
-             }
-           ],
-         }
        }
 
        _renderItem ({item}) {
@@ -68,48 +41,33 @@ class ExploreScreen extends React.Component {
                  </View>
              );
          }
-         renderCard = ({item}) => {
-           return(
-             <TouchableWithoutFeedback
-               onPress={() => {this.props.navigation.navigate('ArticleModal', {
-               text: item.text, title: item.title, image_uri: item.uri}); }}>
-             <Card key={item.id}
-               containerStyle ={[s.cardContainer, { position: 'absolute',
-               width:width-70}]}>
-               <Text style ={s.cardSource}>{item.source} </Text>
-               <TouchableWithoutFeedback
-                 onPress={() => {this.props.navigation.navigate('Badges'); }}>
-               <Image style={s.cardBadge} resizeMode="cover"
-                 source={require('../../assets/Badge_WomenHealth.png')} />
-              </TouchableWithoutFeedback>
-                 <Text style ={s.articleTitle}>{item.title} </Text>
-               <Text style ={s.articleText}>{item.text}</Text>
 
-               <Image style={s.articleCover} resizeMode="cover"
-                 source={{ uri:item.uri }} />
-
-             </Card>
-            </TouchableWithoutFeedback>
-           )
-         }
-
-         // <Deck
-         //   data = {articles}
-         //   renderCard = {this.renderCard}
-         //   renderNoMoreCards = {this.renderNoMoreCards}/>
+       renderCard = ({item}) => {
+         return(
+           <TouchableWithoutFeedback
+             onPress={() => {this.props.navigation.navigate('ArticleModal',
+             {text: item.text, title: item.title, image_uri: item.uri}) }}>
+             <Card key={item.id} containerStyle ={[s.cardContainer, { position: 'absolute', width:width-70}]}>
+             <Text style ={s.cardSource}>{item.source} </Text>
+             <TouchableWithoutFeedback onPress={() => {this.props.navigation.navigate('Badges'); }}>
+             <Image style={s.cardBadge} resizeMode="cover" source={require('../../assets/Badge_WomenHealth.png')} />
+             </TouchableWithoutFeedback>
+             <Text style ={s.articleTitle}>{item.title} </Text>
+             <Text style ={s.articleText}>{item.text}</Text>
+             <Image style={s.articleCover} resizeMode="cover" source={{ uri:item.uri }} />
+           </Card>
+          </TouchableWithoutFeedback>
+         )
+       }
 
 
 
       render () {
         const { width, height } = Dimensions.get('window');
         return (
-          <LinearGradient colors={['#00C5F0', '#50EAFF']}
-            style={{ height: height, width:width} }>
+          <LinearGradient colors={['#00C5F0', '#50EAFF']} style={{ height: height, width:width} }>
             <TopMenu navigation={this.props.navigation} menuTitle="explore" iconPath={assetPaths.topMenu.exploreIcon} />
-
-
             <View style={{ flex: 5}}>
-
               <Carousel
                 ref={(c) => { this._carousel = c; }}
                 data={articles}
@@ -118,40 +76,8 @@ class ExploreScreen extends React.Component {
                 itemWidth={width - 70}
                 itemHeight={height}
               />
-
             </View>
-{/*
-            <ScrollView
-              style ={{ top:height-70, marginBottom:400,position:'absolute', height: height}}>
-
-
-              <Text style ={t.whatsNewTitle}>Ralated Articles</Text>
-                <ScrollView horizontal= {true} style={{marginBottom:400, left: -10}} >
-                  <Image style={{width:366/2,height:384/2,marginLeft:30}} resizeMode="cover"
-                    source={require('../../assets/explore/Related_Article_1.png')} />
-                  <Image style={{width:366/2,height:384/2}} resizeMode="cover"
-                    source={require('../../assets/explore/Related_Article_2.png')} />
-                  <Image style={{width:366/2,height:384/2}} resizeMode="cover"
-                    source={require('../../assets/explore/Related_Article_3.png')} />
-                  <Image style={{width:366/2,height:384/2}} resizeMode="cover"
-                    source={require('../../assets/explore/Related_Article_1.png')} />
-                </ScrollView>
-                <Text style ={t.whatsNewTitle}>Ralated Articles</Text>
-                  <ScrollView horizontal= {true} style={{marginBottom:400, left: -10}} >
-                    <Image style={t.productImage} resizeMode="cover"
-                      source={require('../../assets/Shop_Image3.png')} />
-                    <Image style={t.productImage} resizeMode="cover"
-                      source={require('../../assets/Shop_Image3.png')} />
-                    <Image style={t.productImage} resizeMode="cover"
-                      source={require('../../assets/Shop_Image3.png')} />
-                    <Image style={t.productImage} resizeMode="cover"
-                      source={require('../../assets/Shop_Image3.png')} />
-                  </ScrollView>
-            </ScrollView>
-*/}
-
             <AvaBottomMenu showTab={true}  tabTitle={"Related"} currentSection={'explore'} contextIcon={true} navigation={this.props.navigation}/>
-
           </LinearGradient>
   );
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert} from 'react-native';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert } from 'react-native';
+import { StackNavigator,TabNavigator, TabBarBottom } from 'react-navigation';
 import { LinearGradient } from "expo";
-import {Card, Button,Icon} from 'react-native-elements';
+import { Card, Button,Icon} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
-const {width, height} = Dimensions.get('window');
+const  { width, height} = Dimensions.get('window');
 
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';

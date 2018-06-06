@@ -3,7 +3,7 @@ import Dimensions from 'Dimensions';
 import { StyleSheet, Text, View, TouchableOpacity,Image, Animated, ScrollView} from 'react-native';
 const {width, height} = Dimensions.get('window');
 const heightResume = 560;
-const heightRelated = 147;
+const heightRelated = 147*1.5;
 const heightBoard = 521;
 const heightEvents = 400;
 
@@ -47,6 +47,33 @@ constructor(props) {
         blurRadius: initialBlurRadius,
         tabOpacity: 1,
         expanded:true,
+        relatedImages:[
+            {
+              image: require('../../assets/explore/related1.png'),
+            },
+            {
+              image: require('../../assets/explore/related2.png'),
+            },
+            {
+              image: require('../../assets/explore/related3.png'),
+            },
+            {
+              image: require('../../assets/explore/related4.png'),
+            },
+            {
+              image: require('../../assets/explore/related1.png'),
+            },
+            {
+              image: require('../../assets/explore/related2.png'),
+            },
+            {
+              image: require('../../assets/explore/related3.png'),
+            },
+            {
+              image: require('../../assets/explore/related4.png'),
+            },
+
+          ]
     };
 }
 
@@ -85,8 +112,19 @@ renderTabContent() {
 
     case 'Explore':
         return(
-            <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
-                <Image style={{ width: 366, height:heightRelated}} source={assetPaths.staticScreens.related} />
+            <Animated.View style={{ top:0, left:5, zIndex: 12,background:'white', position:'absolute'}}>
+            <View style = {{background:'white'}}>
+              <Image style={{ width: 366, height:heightRelated}} source={require('../../assets/relatedBackground.png')} />
+                <ScrollView
+                  horizontal
+                  scrollEventThrottle={1}
+                  showsHorizontalScrollIndicator={false}
+                  style = {{zIndex:12, position:'absolute'}}>
+                  {this.state.relatedImages.map((image) => (
+                      <Image source={image.image} style={{width:119*1.5,height:161*1.5}} resizeMode="cover" />
+                  ))}
+                </ScrollView>
+            </View>
             </Animated.View> )
 
     case 'Dashboard':
@@ -94,7 +132,6 @@ renderTabContent() {
             <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
               <ScrollView style={{  height:521, paddingBottom:200}} bounces={false}>
                 <Image style={{ width: 366, height:1027}} source={assetPaths.staticScreens.leaderBoard} />
-
               </ScrollView>
             </Animated.View> )
 
@@ -103,9 +140,6 @@ renderTabContent() {
             <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
                 <Image style={{ width: 366, height:heightRelated, }} source={assetPaths.staticScreens.related} />
             </Animated.View> )
-
-
-
   }
 }
 animate = () => {
@@ -253,77 +287,56 @@ renderTab() {
 
     case 'SystemModal':
         const resumeStyles = { transform:[ {translateY:this.state.resumeAnim} ] }
-
         return(
             <Animated.View style={[{zIndex:13},resumeStyles]}>
-                    <TouchableOpacity style={[s.tabButton, {
-                        height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,
-                    }]} onPress={this.tabAnimation}>
-                    <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
-                        source={assetPaths.bottomMenu.tabBackground} />
+                    <TouchableOpacity style={[s.tabButton, {height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,}]}
+                    onPress={this.tabAnimation}>
+                    <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]} source={assetPaths.bottomMenu.tabBackground}/>
                     <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
                     </TouchableOpacity>
                     {this.renderTabContent() }
-                </Animated.View>
-
+            </Animated.View>
         );
+
     case 'Explore':
-
         const relatedStyles = { transform:[ {translateY:this.state.relatedAnim} ] }
-
             return(
                 <Animated.View style={[{zIndex:13},relatedStyles]}>
-                        <TouchableOpacity style={[s.tabButton, {
-                            height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,
-                        }]} onPress={this.tabAnimation}>
-                        <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
-                            source={assetPaths.bottomMenu.tabBackground} />
+                        <TouchableOpacity style={[s.tabButton, { height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,}]}
+                        onPress={this.tabAnimation}>
+                        <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]} source={assetPaths.bottomMenu.tabBackground} />
                         <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
                         </TouchableOpacity>
                         {this.renderTabContent() }
-                    </Animated.View>
-
-            );
+                </Animated.View>
+          );
 
     case 'Events':
         const eventsStyles = { transform:[ {translateY:this.state.allEventsAnim} ] }
-
             return(
                 <Animated.View style={[{zIndex:13},eventsStyles]}>
-                        <TouchableOpacity style={[s.tabButton, {
-                            height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,
-                        }]} onPress={this.tabAnimation}>
-                        <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
-                            source={assetPaths.bottomMenu.tabBackground} />
+                        <TouchableOpacity style={[s.tabButton, {height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,}]}
+                        onPress={this.tabAnimation}>
+                        <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]} source={assetPaths.bottomMenu.tabBackground}/>
                         <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
                         </TouchableOpacity>
                         {this.renderTabContent() }
-                    </Animated.View>
-
+                </Animated.View>
             );
 
       case 'Dashboard':
-
             const leaderboardStyles = { transform:[ {translateY:this.state.leaderboardAnim} ] }
-
             return(
                 <Animated.View style={[{zIndex:13},leaderboardStyles]}>
-                        <TouchableOpacity style={[s.tabButton, {
-                            height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,
-                        }]} onPress={this.tabAnimation}>
-                        <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]}
-                            source={assetPaths.bottomMenu.tabBackground} />
+                        <TouchableOpacity style={[s.tabButton, {height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,}]}
+                        onPress={this.tabAnimation}>
+                        <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]} source={assetPaths.bottomMenu.tabBackground}/>
                         <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
                         </TouchableOpacity>
                         {this.renderTabContent() }
-                    </Animated.View>
-
+                </Animated.View>
             );
-
-
     }
-
-
 }
 renderGradient() {
     return(
