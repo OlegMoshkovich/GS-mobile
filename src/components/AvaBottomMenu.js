@@ -4,8 +4,10 @@ import { StyleSheet, Text, View, Modal, TouchableOpacity,Image, Animated, Scroll
 const {width, height} = Dimensions.get('window');
 const heightResume = 560;
 const heightRelated = 147*1.5;
+const heightEvents = 550;
+
 const heightBoard = 521;
-const heightEvents = 400;
+
 
 // global style
 import s from '../styles/avabottommenu';
@@ -140,8 +142,10 @@ renderTabContent() {
 
     case 'Events':
       return(
-            <Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
-                <Image style={{ width: 366, height:heightRelated, }} source={assetPaths.staticScreens.related} />
+            <Animated.View key={'fooYes3838'} style={{ left:5, zIndex: 14, position:'absolute',}}>
+                <ScrollView style={{height: 820, paddingBottom: 200 }} bounces={false}>
+                    <Image key={'eventAllEvents'} style={{top: -32, width: 365, height: 1055 , zIndex: 999, marginBottom: 230}} source={assetPaths.staticScreens.eventScreen} />
+                </ScrollView>
             </Animated.View> )
   }
 }

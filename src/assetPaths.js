@@ -106,12 +106,12 @@ paths.staticScreens = {
     badgeScreen: require('../assets/staticScreens/badges-2x.png'),
     avaEndBlue: require('../assets/ava_end.png'),
     avaEndYellow: require('../assets/ava_end_yellow.png'),
-    eventScreen: require('../assets/staticScreens/events-2x.png'),
+    eventScreen: require('../assets/staticScreens/AllEvents.png'),
     postModal: require('../assets/staticScreens/post.png'),
     resume: require('../assets/Resume.png'),
     related: require('../assets/Related.png'),
     leaderBoard: require('../assets/Leaderboard.png')
-
+    
 }
 
 
