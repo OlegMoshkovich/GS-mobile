@@ -48,7 +48,7 @@ class CommunityScreen extends React.Component {
   }
 
   renderAllStoriesSection() {
-    // TODO create cards  
+    // TODO create cards
     return(
       <ScrollView showsHorizontalScrollIndicator={false} horizontal= {true} style={s.storySectionView} >
         <Image style={s.newStoryImage} resizeMode="cover"
@@ -67,6 +67,7 @@ class CommunityScreen extends React.Component {
       style ={[s.featuredStoriesView, {height: height}]} showsVerticalScrollIndicator={false}>
       <Text style ={s.featuredStoriesTitle}>Featured</Text>
       <ScrollView horizontal= {true} style={{marginTop:40}} showsHorizontalScrollIndicator={false}>
+
         <TouchableOpacity
           onPress={() => {this.props.navigation.navigate('StoryModal', {id: 1})}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"

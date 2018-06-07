@@ -15,24 +15,10 @@ import s from '../styles/shopscreen.js';
 import FeaturedProduct from '../components/FeaturedProduct';
 
 class ShopScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    const params = navigation.state.params || {};
-    return {
-      headerRight: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Image style={s.shopHeaderRight} source={require('../../assets/Home-icon.png')} />
-        </TouchableOpacity>
-      ),
-      headerLeft: (
-        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
-          <Image style={s.shopHeaderLeft} source={require('../../assets/Explore-icon.png')} />
-        </TouchableOpacity>
-      )
-    };
-  };
-  constructor(props) { super(props); 
-    
-    this.state = { activated    : true, 
+
+  constructor(props) { super(props);
+
+    this.state = { activated    : true,
       moveAnim: new Animated.Value(0),
       modalShowing: false,
       activated: false
@@ -54,28 +40,28 @@ class ShopScreen extends React.Component {
     })
   }
 
-    
+
 
 
 
   render() {
 
     let {moveAnim} = this.state;
-    
+
 
     return (
         <LinearGradient
          colors={['#68D634', '#4CB034', '#3F8C2D']}
          style={{ height: height, width:width}}>
         <TopMenu menuTitle="shop" iconPath={assetPaths.shop.icons.close} navigation={this.props.navigation} />
-        
-        <ScrollView 
+
+        <ScrollView
           style ={{ top:91, position:'absolute', height: height}} showsVerticalScrollIndicator={false} >
           <Text style ={s.featuredTitle}>Featured</Text>
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
             <FeaturedProduct key={0} imageTitle="Gear" imageNumber={0} productDots={[
                 { top: 124, left: 130, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
-                  bubbleOffset: { top: -55, left: -112 }}, 
+                  bubbleOffset: { top: -55, left: -112 }},
                 { top: 327, left: 200, productBubble: assetPaths.shop.featuredProducts[0].bubbles[1],
                   bubbleOffset: { top: -56, left: 19 }} ]} />
             <FeaturedProduct key={1} imageTitle="STEM" imageNumber={1} productDots={[
@@ -83,19 +69,19 @@ class ShopScreen extends React.Component {
                   bubbleOffset: { top: -57, left: 19 }} ]} />
             <FeaturedProduct key={2} imageTitle="Outdoor" imageNumber={2} productDots={[
                 { top: 33, left: 271, productBubble: assetPaths.shop.featuredProducts[2].bubbles[0],
-                  bubbleOffset: { top: -18, left: -115 }}, 
+                  bubbleOffset: { top: -18, left: -115 }},
                 { top: 200, left: 169,productBubble: assetPaths.shop.featuredProducts[2].bubbles[1],
                   bubbleOffset: { top: -55, left: -113 }} ]} />
             <FeaturedProduct key={3} imageTitle="Gear" imageNumber={3} productDots={[
                 { top: 54, left: 137, productBubble: assetPaths.shop.featuredProducts[3].bubbles[0],
-                  bubbleOffset: { top: -54, left: 20 }}, 
+                  bubbleOffset: { top: -54, left: 20 }},
                 { top: 201, left: 106, productBubble: assetPaths.shop.featuredProducts[3].bubbles[1],
                   bubbleOffset: { top: -20, left: 23 }},
                 { top: 354, left: 143, productBubble: assetPaths.shop.featuredProducts[3].bubbles[2],
                   bubbleOffset: { top: -57, left: 20 } }]} />
             <FeaturedProduct key={4} imageTitle="STEM" imageNumber={4} productDots={[
                 { top: 190, left: 163, productBubble: assetPaths.shop.featuredProducts[4].bubbles[0],
-                  bubbleOffset: { top: -20, left: -117 }}, 
+                  bubbleOffset: { top: -20, left: -117 }},
                 { top: 366, left: 190, productBubble: assetPaths.shop.featuredProducts[4].bubbles[1],
                   bubbleOffset: { top: -73, left: 2 }} ]} />
             <FeaturedProduct key={5} imageTitle="Media" imageNumber={5} productDots={[
@@ -171,7 +157,7 @@ class ShopScreen extends React.Component {
             <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.trefoil_pin} />
           </View>
         </ScrollView>
-        <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/> 
+        <AvaBottomMenu contextIcon={true} navigation={this.props.navigation}/>
       </LinearGradient>
     );
   }

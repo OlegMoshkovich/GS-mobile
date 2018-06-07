@@ -5,7 +5,6 @@ const {width, height} = Dimensions.get('window');
 const heightResume = 560;
 const heightRelated = 209;
 const heightEvents = 550;
-
 const heightBoard = 521;
 
 
@@ -83,7 +82,6 @@ constructor(props) {
 
     };
 }
-
 tabAnimation = () => {
     if (this.props.tabTitle == 'Resume'){
         Animated.timing(this.state.resumeAnim,{ toValue:this.state.expanded ? -heightResume:0, duration:500 }).start();
@@ -128,7 +126,9 @@ renderTabContent() {
                   showsHorizontalScrollIndicator={false}
                   style = {{zIndex:12, position:'absolute'}}>
                   {this.state.relatedImages.map((image) => (
-                      <Image source={image.image} style={{width:119*1.4,height:161*1.4}} resizeMode="cover" />
+                    <View style = {{paddingTop:15}}>
+                      <Image source={image.image} style={{width:119*1.2,height:161*1.2}} resizeMode="cover"/>
+                    </View>
                   ))}
                 </ScrollView>
             </View>
@@ -172,10 +172,6 @@ animate = () => {
 
 
     }
-
-
-
-
 renderContextIcon() {
     // render contextual icon based on route
     console.log(" --> ", this.props.navigation.state.routeName);
@@ -251,18 +247,15 @@ renderContextIcon() {
 
         }
     }
-
 showWishlist() {
-    
-    
+
+
     console.log("showing wishlist");
     this.setState({wishlistModal: true});
 
 
 
 }
-
-
 renderMenu() {
     return(
         <View style={[s.navStyle, {
@@ -293,7 +286,6 @@ renderMenu() {
         </View>
     );
 }
-
 renderRandomAva() {
 
     function getRandomInt(max) {
@@ -355,8 +347,6 @@ renderRandomAva() {
 
 
 }
-
-
 renderAva() {
     return(
         <TouchableOpacity
@@ -430,19 +420,15 @@ renderGradient() {
         <Image style={[s.gradientStyle, { width: width, bottom: this.state.activated ? gradientBottom_active: gradientBottom_inactive}]} source={assetPaths.bottomMenu.gradient} />
     );
 }
-
 showChatInterface() {
     console.log("showing chat");
     //this.setState({chatInterface: true});
 }
-
 hideChatInterface() {
     console.log("hide chat");
     //this.setState({chatInterface: false});
 
 }
-
-
 renderChatInterface() {
     return (
 
@@ -460,8 +446,6 @@ renderChatInterface() {
 
     );
 }
-
-
 renderWishlistModal() {
     return (
         <View style={{top: 0}}>
