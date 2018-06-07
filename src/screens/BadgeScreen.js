@@ -23,24 +23,24 @@ class BadgeScreen extends React.Component {
     <View style={[{width: width, height: 200, left: 10, flex: 1, }]}>
       <Text style={s.myBadgesTitle}>My Badges</Text>
       <ScrollView style={{height: 200, }} showsHorizontalScrollIndicator={false} horizontal={true} >
-        <TouchableOpacity style={s.badgeContainer}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'space'})} style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
             source={assetPaths.badges.progress.spaceScienceExpert} />
           <Text style={s.badgeTitleText}>Science Expert</Text>
           <Text style={s.badgeCompletion}>(40% complete)</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={s.badgeContainer}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'truth'})} style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
             source={assetPaths.badges.progress.truthSeeker} />
           <Text style={s.badgeTitleText}>Truth Seeker</Text>
           <Text style={s.badgeCompletion}>(67% complete)</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={s.badgeContainer}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'style'})} style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
             source={assetPaths.badges.progress.womensHealth} />
           <Text style={s.badgeTitleText}>Women's Health</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={s.badgeContainer}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'textile'})}style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
             source={assetPaths.badges.progress.textileArtist} />
           <Text style={s.badgeTitleText}>Textile Designer</Text>
@@ -62,47 +62,47 @@ class BadgeScreen extends React.Component {
 
 
         }}>
-          <TouchableOpacity style={s.exploreContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'firstaid'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
               source={assetPaths.badges.default.seniorFirstAid} />
               <Text style={s.exploreBadgeTitle}>Senior First Aid</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={s.exploreContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'social'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
               source={assetPaths.badges.default.socialInnovator} />
               <Text style={s.exploreBadgeTitle}>Social Innovator</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={s.exploreContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'voice'})}style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
               source={assetPaths.badges.default.voiceForAnimals} />
               <Text style={s.exploreBadgeTitle}>Voice For Animals</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={s.exploreContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'website'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
               source={assetPaths.badges.default.webDesigner} />
               <Text style={s.exploreBadgeTitle}>Web Designer</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={s.exploreContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'style'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
               source={assetPaths.badges.default.scienceOfStyle} />
               <Text style={s.exploreBadgeTitle}>Science of Style</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={s.exploreContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'truth'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
               source={assetPaths.badges.default.truthSeeker} />
               <Text style={s.exploreBadgeTitle}>Truth Seeker</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={s.exploreContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'style'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
               source={assetPaths.badges.default.womensHealth} />
               <Text style={s.exploreBadgeTitle}>Women's Health</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={s.exploreContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'textile'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
               source={assetPaths.badges.default.textileArtist} />
               <Text style={s.exploreBadgeTitle}>Textile Artist</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={s.exploreContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'space'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
               source={assetPaths.badges.default.spaceScienceExpert} />
               <Text style={s.exploreBadgeTitle}>Space Science Expert</Text>
@@ -120,7 +120,7 @@ class BadgeScreen extends React.Component {
 
         <TopMenu menuTitle="badges" iconPath={assetPaths.topMenu.dashboardIcon} navigation={this.props.navigation} />
         
-        <View style={{top: 100, height: height-100}}>
+        <View style={{top: 0, height: height-100}}>
           <ScrollView style={{width: width}} vertical={true} >
           { this.renderMyBadges() }
           { this.renderExploreBadges() }
