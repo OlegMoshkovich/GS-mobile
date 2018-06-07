@@ -83,10 +83,10 @@ class SystemScreen extends React.Component {
 
        <TouchableOpacity
          style={[s.exit, {zIndex: 100}]} onPress={() => this.props.navigation.goBack()} >
-         <Image style ={{width:45,height:45}} source={assetPaths.modals.articleModal.exit}/>
+         <Image style ={{width:35,height:35}} source={assetPaths.shop.icons.close}/>
         </TouchableOpacity>
 
-       <TopMenu menuTitle="profile"/>
+       <TopMenu menuTitle="profile" />
 
 
        <View style={s.profileContainer}>
