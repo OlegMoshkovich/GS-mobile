@@ -6,109 +6,69 @@ import {
 
 var styles = StyleSheet.create({
 
-    // story modal - probably should
-    // go into its own file
-    storyModalView: {
-        top: 200
-    },
-
-    storyModalImage: {
-        height: 211,
-        width: 224,
-        marginBottom: 10,
-        marginTop: 10,
-        marginRight: 10,
-        marginLeft: 10,
-        left: 20
-    },
-
-
-    modalContainer: {
-        flex: 1,
-        backgroundColor: 'white',
-
-    },
-
 
     modalBackground: {
 
         // backgroundColor: 'rgba(52,52,52,alpha)',
 
     },
-    modalMenuContainer: {
+    modalContainer: {
         position: 'absolute',
         flex: 1,
         flexDirection: 'row',
-        marginTop: 20,
-        alignItems: 'flex-start',
-        marginBottom: 20,
-        paddingLeft: 15,
-        paddingTop: 10,
-        paddingBottom: 5,
-        backgroundColor: 'rgba(255, 255, 255, 0)'
-
-
-
-
+        marginTop: 60,
+        marginLeft: 20,
+        height: 100,
+        alignItems: 'flex-start'
     },
 
 
     // menu -- TODO component
     modalButton: {
-        marginRight: 10,
+        margin: 5
     },
 
 
     modalIconImage: {
-        height:17,
-        width: 17,
-        marginRight: 25,
+        height: 30,
+        width: 30,
+        right: 0,
+        top: 0
     },
 
 
     exitButton: {
-        right: -170
+        borderWidth: 1,
+        borderColor: 'transparent',
+        marginTop: 60,
+        marginBottom: 10,
+        position: 'relative',
+        left: 332,
+        width: 27,
+        height: 27,
+        backgroundColor: 'transparent',
+        borderRadius: 100,
     },
 
     exitIconImage: {
-        height: 25,
-        width: 25,
-    },
-
-    addFriend: {
-        top: 0,
-        right: -36,
-
-
-    },
-    addFriendImage: {
-        width: 98,
-        height: 27,
+        height: 40,
+        width: 40,
+        right: 10
     },
 
 
-    storyTitle: {
+    articleTitle: {
         marginTop: 24,
         marginBottom: 0,
         left: 26,
-        padding: 10,
         color: "black",
         fontSize: 22,
         fontWeight: 'bold',
         fontFamily: 'trefoil-sans-semibold'
     },
 
-storyContentContainer: {
-    paddingTop: 20,
-    zIndex: -1,
 
-    paddingBottom: 0,
-
-
-
-},
-
-    storyImage: {
+    articleImage: {
         height: 225,
         marginTop: 41,
         marginBottom: 41,
@@ -116,8 +76,7 @@ storyContentContainer: {
         marginRight: 0,
     },
 
-    storyText: {
-        padding: 10,
+    articleText: {
         marginTop: 10,
         marginBottom: 10,
         marginLeft: 30,
@@ -145,6 +104,10 @@ storyContentContainer: {
         fontFamily: 'trefoil-sans-light'
     }
 
+
+
+
 });
+
 
 export default styles;

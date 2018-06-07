@@ -11,7 +11,7 @@ import ResumeScreen from './src/screens/ResumeScreen.js';
 import CalendarScreen from './src/screens/CalendarScreen.js';
 import ChatScreen from './src/screens/ChatScreen.js';
 import CommsDashboardScreen from './src/screens/CommsDashboardScreen.js'
-import ArticleModalScreen from './src/screens/ArticleModalScreen';
+import ArticleModalScreen from './src/screens/ArticleModalScreen_';
 import ShopScreen from './src/screens/ShopScreen.js';
 import DashboardScreen from './src/screens/DashboardScreen.js';
 import PlaygroundScreen from './src/screens/PlaygroundScreen-flexbox.js';
@@ -111,7 +111,7 @@ class App extends React.Component {
     );
 
     const TabStack =  TabNavigator({
-      
+
       Connect:{screen: ConnectStack},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},

@@ -42,11 +42,13 @@ class ExploreScreen extends React.Component {
              );
          }
 
+
+
        renderCard = ({item}) => {
          return(
            <TouchableWithoutFeedback
-             onPress={() => {this.props.navigation.navigate('ArticleModal',
-             {text: item.text, title: item.title, image_uri: item.uri}) }}>
+            onPress={() => {this.props.navigation.navigate('ArticleModal', {id: item.id})}}>
+
              <Card key={item.id} containerStyle ={[s.cardContainer, { position: 'absolute', width:width-70}]}>
                 <Image resizeMode="cover" source={ item.image } style={{width:963/2.95,height:1320/2.95, top:-20,left:-20}} />
              </Card>

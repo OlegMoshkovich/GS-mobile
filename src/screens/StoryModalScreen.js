@@ -16,9 +16,7 @@ class StoryModalScreen extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-
 			friendRequested: false,
-
 		};
 		//console.log("story modal screen props", this.props);
 
@@ -36,7 +34,7 @@ class StoryModalScreen extends React.Component {
 				friendRequested: true,
 			});
 		}
-		
+
 	}
 
 	renderStoryPng(id) {
@@ -63,23 +61,17 @@ class StoryModalScreen extends React.Component {
 			case 7:
 				return (<Image style={{width: width, height: 2617, marginBottom: 100, top: -106}} source={require('../../assets/staticScreens/stories/nasa2x.png')} />);
 				break;
-			
 			case 8:
 				return (<Image style={{width: width, height: 2617, marginBottom: 100, top: -106,}} source={require('../../assets/staticScreens/stories/cassandra2x.png')} />);
 				break;
-			
-
-
 		}
-
 	}
 
   render() {
-		
+
 		const {params} = this.props.navigation.state;
 		const id = params ? params.id: 1;
 		console.log("rendering id", id);
-		
 
     return (
 		<View style={s.modalContainer}>
@@ -100,7 +92,7 @@ class StoryModalScreen extends React.Component {
 					<Image style={s.addFriendImage} source={
 						this.state.friendRequested ? assetPaths.modals.shareModal.requestSent :
 						assetPaths.modals.shareModal.addFriend
-						
+
 						}/>
 				</TouchableOpacity>
 		</View>
