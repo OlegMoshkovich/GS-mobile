@@ -116,6 +116,9 @@ renderTabContent() {
             </Animated.View> )
 
     case 'Explore':
+
+                
+
         return(
             <Animated.View style={{ top:0, zIndex: 12,  position:'absolute'}}>
             <View >
@@ -126,8 +129,8 @@ renderTabContent() {
                   showsHorizontalScrollIndicator={false}
                   style = {{zIndex:12, position:'absolute'}}>
                   {this.state.relatedImages.map((image) => (
-                    <View style = {{paddingTop:15}}>
-                      <Image source={image.image} style={{width:119*1.2,height:161*1.2}} resizeMode="cover"/>
+                    <View key={'view_' + Math.random()*2} style = {{paddingTop:15}}>
+                      <Image key={'img_' + Math.random()*10} source={image.image} style={{width:119*1.2,height:161*1.2}} resizeMode="cover"/>
                     </View>
                   ))}
                 </ScrollView>
@@ -301,39 +304,39 @@ renderRandomAva() {
         console.log(randomAva);
         switch (randomAva) {
             case 0:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.default} />);
+                return (<Image key={'ava00'} style={s.avaImage} source={assetPaths.bottomMenu.default} />);
             case 1:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.frown} />);
+                return (<Image key={'ava01'} style={s.avaImage} source={assetPaths.bottomMenu.frown} />);
             case 2:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capShout} />);
+                return (<Image key={'ava02'} style={s.avaImage} source={assetPaths.bottomMenu.capShout} />);
             case 3:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmileEyesClosed} />);
+                return (<Image key={'ava03'} style={s.avaImage} source={assetPaths.bottomMenu.capSmileEyesClosed} />);
             case 4:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile} />);
+                return (<Image key={'ava04'} style={s.avaImage} source={assetPaths.bottomMenu.capSmile} />);
             case 5:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile2} />);
+                return (<Image key={'ava05'} style={s.avaImage} source={assetPaths.bottomMenu.capSmile2} />);
             case 6:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capSmile3} />);
+                return (<Image key={'ava06'} style={s.avaImage} source={assetPaths.bottomMenu.capSmile3} />);
             case 7:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capWave} />);
+                return (<Image key={'ava07'} style={s.avaImage} source={assetPaths.bottomMenu.capWave} />);
             case 8:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.capFrown} />);
+                return (<Image key={'ava08'} style={s.avaImage} source={assetPaths.bottomMenu.capFrown} />);
             case 9:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.wave} />);
+                return (<Image key={'ava09'} style={s.avaImage} source={assetPaths.bottomMenu.wave} />);
             case 10:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.cap} />);
+                return (<Image key={'ava10'} style={s.avaImage} source={assetPaths.bottomMenu.cap} />);
             case 11:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.shout} />);
+                return (<Image key={'ava11'} style={s.avaImage} source={assetPaths.bottomMenu.shout} />);
             case 12:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.eyesClosed} />);
+                return (<Image key={'ava12'} style={s.avaImage} source={assetPaths.bottomMenu.eyesClosed} />);
             case 13:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.eyesClosed2} />);
+                return (<Image key={'ava13'} style={s.avaImage} source={assetPaths.bottomMenu.eyesClosed2} />);
             case 14:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile3} />);
+                return (<Image key={'ava14'} style={s.avaImage} source={assetPaths.bottomMenu.smile3} />);
             case 15:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile2} />);
+                return (<Image key={'ava15'} style={s.avaImage} source={assetPaths.bottomMenu.smile2} />);
             case 16:
-                return (<Image style={s.avaImage} source={assetPaths.bottomMenu.smile1} />);
+                return (<Image key={'ava16'} style={s.avaImage} source={assetPaths.bottomMenu.smile1} />);
 
         }
 
