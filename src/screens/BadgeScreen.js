@@ -20,9 +20,9 @@ class BadgeScreen extends React.Component {
 
   renderMyBadges() {
     return(
-    <View style={[s.myBadgesContainer, {width: width}]}>
+    <View style={[{width: width, height: 200, left: 10, flex: 1, }]}>
       <Text style={s.myBadgesTitle}>My Badges</Text>
-      <ScrollView showsHorizontalScrollIndicator={false} horizontal={true} >
+      <ScrollView style={{height: 200, }} showsHorizontalScrollIndicator={false} horizontal={true} >
         <TouchableOpacity style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
             source={assetPaths.badges.scienceExpert} />
@@ -52,14 +52,7 @@ class BadgeScreen extends React.Component {
 
   renderExploreBadges() {
     return(
-      <View style={{
-        
-        height: 400, position: 'absolute', bottom: 0,
-        width: width, top: -10,
-        left: 14,
-        
-        
-        }}>
+      <View style={{left: 14}}  >
         <Text style={s.myBadgesTitle}>Explore your next badge</Text>
         <View style={{
             flex: 1,
@@ -88,6 +81,31 @@ class BadgeScreen extends React.Component {
               source={assetPaths.badges.big.webDesigner} />
               <Text style={s.exploreBadgeTitle}>Web Designer</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={s.exploreContainer}>
+            <Image style={s.exploreBadge} resizeMode="contain"
+              source={assetPaths.badges.big.scienceExpert} />
+              <Text style={s.exploreBadgeTitle}>Science of Style</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={s.exploreContainer}>
+            <Image style={s.exploreBadge} resizeMode="contain"
+              source={assetPaths.badges.big.truthSeeker} />
+              <Text style={s.exploreBadgeTitle}>Truth Seeker</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={s.exploreContainer}>
+            <Image style={s.exploreBadge} resizeMode="contain"
+              source={assetPaths.badges.big.womensHealth} />
+              <Text style={s.exploreBadgeTitle}>Women's Health</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={s.exploreContainer}>
+            <Image style={s.exploreBadge} resizeMode="contain"
+              source={assetPaths.badges.big.textile} />
+              <Text style={s.exploreBadgeTitle}>Textile Designer</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={s.exploreContainer}>
+            <Image style={s.exploreBadge} resizeMode="contain"
+              source={assetPaths.badges.big.nasa} />
+              <Text style={s.exploreBadgeTitle}>Space Nasa</Text>
+          </TouchableOpacity>
         </View>
     </View>);
   }
@@ -101,11 +119,11 @@ class BadgeScreen extends React.Component {
 
         <TopMenu menuTitle="badges" iconPath={assetPaths.topMenu.dashboardIcon} navigation={this.props.navigation} />
 
-        <View style={{flex: 1}}>
+        <ScrollView style={{height: height, width: width, top: 120, position: 'absolute', zIndex: 90}} vertical={true} >
           { this.renderMyBadges() }
           { this.renderExploreBadges() }
 
-        </View>
+        </ScrollView>
 
         
         

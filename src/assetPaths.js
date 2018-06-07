@@ -160,6 +160,13 @@ paths.badges = {
             socialInnovator: require('../assets/badges/badge-big-social.png'),
             animals: require('../assets/badges/badge-big-animals.png'),
             webDesigner: require('../assets/badges/badge-big-webdesigner.png'),
+            scienceExpert: require('../assets/badges/badge-science-style.png'),
+            truthSeeker: require('../assets/badges/badge-big-truth.png'),
+            womensHealth:require('../assets/badges/badge-big-womensHealth.png'),
+            textile: require('../assets/badges/badge-big-textile.png'),
+            nasa: require('../assets/badges/badge-big-space.png'),
+        
+        
         }
     },
 paths.journeyScreen = {
