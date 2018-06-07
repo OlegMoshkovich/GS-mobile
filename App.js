@@ -7,23 +7,21 @@ import getSceneIndicesForInterpolationInputRange from 'react-navigation/src/util
 import MapScreen from './src/screens/MapScreen';
 import HomeScreen from './src/screens/HomeScreen.js';
 import CommunityScreen from './src/screens/CommunityScreen.js';
-import ResumeScreen from './src/screens/ResumeScreen.js';
 import CalendarScreen from './src/screens/CalendarScreen.js';
 import ChatScreen from './src/screens/ChatScreen.js';
 import CommsDashboardScreen from './src/screens/CommsDashboardScreen.js'
 import ArticleModalScreen from './src/screens/ArticleModalScreen_';
 import ShopScreen from './src/screens/ShopScreen.js';
 import DashboardScreen from './src/screens/DashboardScreen.js';
-import PlaygroundScreen from './src/screens/PlaygroundScreen-flexbox.js';
 import ExploreScreen from './src/screens/ExploreScreen.js';
-import GiftedChatScreen from './src/screens/GiftedChatScreen.js';
-import AvaEndYellow from './src/screens/AvaEndYellow';
 import EventScreen from './src/screens/EventScreen';
 import BadgeScreen from './src/screens/BadgeScreen';
 import JourneyScreen from './src/screens/JourneyScreen';
 import AwardScreen from './src/screens/AwardScreen';
-import AvaEndBlue from './src/screens/AvaEndBlue';
+
 import StoryModalScreen from './src/screens/StoryModalScreen';
+import BadgeModalScreen from './src/screens/BadgeModalScreen';
+
 import PostModalScreen from './src/screens/PostModalScreen';
 
 
@@ -129,6 +127,7 @@ class App extends React.Component {
       ShopModal: { screen: ShopScreen },
       ArticleModal: { screen: ArticleModalScreen, },
       StoryModal: { screen: StoryModalScreen, },
+      BadgeModal: { screen: BadgeModalScreen, },
       PostModal: { screen: PostModalScreen, }
       },
       { transitionConfig, mode: 'modal', headerMode: 'none', });

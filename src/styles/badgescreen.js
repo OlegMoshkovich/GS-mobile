@@ -9,10 +9,13 @@ var styles = StyleSheet.create({
 
     myBadgesContainer: {
         flex: 1,
-        top: -200,
         left: 14,
+        backgroundColor: 'red',
         height: 200,
-        position: 'absolute',
+        marginBottom: 20,
+        
+
+        
     },
     myBadgesTitle: {
         color: 'white',
