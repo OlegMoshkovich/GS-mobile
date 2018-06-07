@@ -119,8 +119,8 @@ renderTabContent() {
 
     case 'Explore':
         return(
-            <Animated.View style={{ top:0, zIndex: 12,background:'white', position:'absolute'}}>
-            <View style = {{background:'white'}}>
+            <Animated.View style={{ top:0, zIndex: 12,  position:'absolute'}}>
+            <View >
               <Image style={{ width: width, height:heightRelated}} source={require('../../assets/relatedBackground.png')} />
                 <ScrollView
                   horizontal

@@ -25,24 +25,24 @@ class BadgeScreen extends React.Component {
       <ScrollView style={{height: 200, }} showsHorizontalScrollIndicator={false} horizontal={true} >
         <TouchableOpacity style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
-            source={assetPaths.badges.scienceExpert} />
+            source={assetPaths.badges.progress.spaceScienceExpert} />
           <Text style={s.badgeTitleText}>Science Expert</Text>
           <Text style={s.badgeCompletion}>(40% complete)</Text>
         </TouchableOpacity>
         <TouchableOpacity style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
-            source={assetPaths.badges.truthSeeker} />
+            source={assetPaths.badges.progress.truthSeeker} />
           <Text style={s.badgeTitleText}>Truth Seeker</Text>
           <Text style={s.badgeCompletion}>(67% complete)</Text>
         </TouchableOpacity>
         <TouchableOpacity style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
-            source={assetPaths.badges.womensHealth} />
+            source={assetPaths.badges.progress.womensHealth} />
           <Text style={s.badgeTitleText}>Women's Health</Text>
         </TouchableOpacity>
         <TouchableOpacity style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
-            source={assetPaths.badges.textile} />
+            source={assetPaths.badges.progress.textileArtist} />
           <Text style={s.badgeTitleText}>Textile Designer</Text>
         </TouchableOpacity>
         
@@ -58,53 +58,54 @@ class BadgeScreen extends React.Component {
             flex: 1,
             flexDirection: 'row',
             flexWrap: 'wrap',
+            marginBottom: 200,
 
 
         }}>
           <TouchableOpacity style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
-              source={assetPaths.badges.big.seniorFirstAid} />
+              source={assetPaths.badges.default.seniorFirstAid} />
               <Text style={s.exploreBadgeTitle}>Senior First Aid</Text>
           </TouchableOpacity>
           <TouchableOpacity style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
-              source={assetPaths.badges.big.socialInnovator} />
+              source={assetPaths.badges.default.socialInnovator} />
               <Text style={s.exploreBadgeTitle}>Social Innovator</Text>
           </TouchableOpacity>
           <TouchableOpacity style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
-              source={assetPaths.badges.big.animals} />
-              <Text style={s.exploreBadgeTitle}>Animals</Text>
+              source={assetPaths.badges.default.voiceForAnimals} />
+              <Text style={s.exploreBadgeTitle}>Voice For Animals</Text>
           </TouchableOpacity>
           <TouchableOpacity style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
-              source={assetPaths.badges.big.webDesigner} />
+              source={assetPaths.badges.default.webDesigner} />
               <Text style={s.exploreBadgeTitle}>Web Designer</Text>
           </TouchableOpacity>
           <TouchableOpacity style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
-              source={assetPaths.badges.big.scienceExpert} />
+              source={assetPaths.badges.default.scienceOfStyle} />
               <Text style={s.exploreBadgeTitle}>Science of Style</Text>
           </TouchableOpacity>
           <TouchableOpacity style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
-              source={assetPaths.badges.big.truthSeeker} />
+              source={assetPaths.badges.default.truthSeeker} />
               <Text style={s.exploreBadgeTitle}>Truth Seeker</Text>
           </TouchableOpacity>
           <TouchableOpacity style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
-              source={assetPaths.badges.big.womensHealth} />
+              source={assetPaths.badges.default.womensHealth} />
               <Text style={s.exploreBadgeTitle}>Women's Health</Text>
           </TouchableOpacity>
           <TouchableOpacity style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
-              source={assetPaths.badges.big.textile} />
-              <Text style={s.exploreBadgeTitle}>Textile Designer</Text>
+              source={assetPaths.badges.default.textileArtist} />
+              <Text style={s.exploreBadgeTitle}>Textile Artist</Text>
           </TouchableOpacity>
           <TouchableOpacity style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
-              source={assetPaths.badges.big.nasa} />
-              <Text style={s.exploreBadgeTitle}>Space Nasa</Text>
+              source={assetPaths.badges.default.spaceScienceExpert} />
+              <Text style={s.exploreBadgeTitle}>Space Science Expert</Text>
           </TouchableOpacity>
         </View>
     </View>);
@@ -118,12 +119,14 @@ class BadgeScreen extends React.Component {
         style={{ height: height, width:width }}>
 
         <TopMenu menuTitle="badges" iconPath={assetPaths.topMenu.dashboardIcon} navigation={this.props.navigation} />
-
-        <ScrollView style={{height: height, width: width, top: 120, position: 'absolute', zIndex: 90}} vertical={true} >
+        
+        <View style={{top: 100, height: height-100}}>
+          <ScrollView style={{width: width}} vertical={true} >
           { this.renderMyBadges() }
           { this.renderExploreBadges() }
 
-        </ScrollView>
+          </ScrollView>
+        </View>
 
         
         

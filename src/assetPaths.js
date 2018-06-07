@@ -150,7 +150,41 @@ paths.stories = {
         storyImage: require('../assets/Article_Image_3.png')
     }
 }
+
+
 paths.badges = {
+
+    default: {
+        // default badges are just white without drop shadow
+        scienceOfStyle: require('../assets/badges/science-of-style.png'),
+        seniorFirstAid: require('../assets/badges/senior-first-aid.png'),
+        sky: require('../assets/badges/sky.png'),
+        socialInnovator: require('../assets/badges/social-innovator.png'),
+        spaceScienceExpert: require('../assets/badges/space-science-expert.png'),
+        truthSeeker: require('../assets/badges/truth-seeker.png'),
+        textileArtist: require('../assets/badges/textile-artist.png'),
+        voiceForAnimals: require('../assets/badges/voice-for-animals.png'),
+        webDesigner: require('../assets/badges/web-designer.png'),
+        womensHealth: require('../assets/badges/womens-health.png'),
+    },        
+
+    progress: {
+        // progress badges have some transparency at the top to reflect progress
+        scienceOfStyle: require('../assets/badges/science-of-style.png'),
+        seniorFirstAid: require('../assets/badges/senior-first-aid.png'),
+        sky: require('../assets/badges/sky.png'),
+        socialInnovator: require('../assets/badges/social-innovator.png'),
+        spaceScienceExpert: require('../assets/badges/space-science-expert-progress.png'),
+        truthSeeker: require('../assets/badges/truth-seeker-progress.png'),
+        textileArtist: require('../assets/badges/textile-artist.png'),
+        voiceForAnimals: require('../assets/badges/voice-for-animals.png'),
+        webDesigner: require('../assets/badges/web-designer.png'),
+        womensHealth: require('../assets/badges/womens-health.png'),
+    },        
+
+
+
+
         scienceExpert: require('../assets/badges/badges-science.png'),
         truthSeeker: require('../assets/badges/badges-truth.png'),
         womensHealth: require('../assets/badges/badges-women.png'),
