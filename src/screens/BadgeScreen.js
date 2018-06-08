@@ -80,7 +80,7 @@ class BadgeScreen extends React.Component {
           <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'website'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
               source={assetPaths.badges.default.webDesigner} />
-              <Text style={s.exploreBadgeTitle}>Web Designer</Text>
+              <Text style={s.exploreBadgeTitle}>Website Designer</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'style'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"

@@ -21,7 +21,7 @@ class BadgeModalScreen extends React.Component {
 				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/scienceOfStyle.png')} />);
 				break;
 			case 'firstaid':
-				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/scienceOfStyle.png')} />);
+				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/seniorFirstAid.png')} />);
 				break;
 			case 'sky':
 				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/sky.png')} />);
