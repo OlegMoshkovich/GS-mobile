@@ -1,6 +1,6 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View,PanResponder,Vibration, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
+import { StyleSheet, Text, View,PanResponder, Modal, Vibration, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
 import Deck from '../Deck';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
@@ -50,7 +50,11 @@ class HomeScreen extends React.Component {
       backgroundColor: '#fff',
       navigation: this.props.navigation,
       awardTop: new Animated.Value(0),
+
+      showYesNo: true,
+
       showSpeech: false,
+      chatInterface: false,
     };
   }
 
@@ -111,7 +115,13 @@ class HomeScreen extends React.Component {
           <Image style={[s.homeChatImage]}
           source={assetPaths.homeScreen.chatBubbles} />
         </TouchableOpacity>
-        <TouchableOpacity style={{width: 50, left: 80, top: -30}} onPress={() => this.setState({showSpeech: true})}>
+        <TouchableOpacity style={{width: 50, left: 80, top: -30}} onPress={
+          () => {
+            
+            
+            this.setState({chatInterface: true}); this.setState({showYesNo: false}); 
+          
+          }}>
         <Image style={s.homeTutorialImage}
           source={assetPaths.homeScreen.responseBubbles} />
         </TouchableOpacity>
@@ -135,15 +145,23 @@ class HomeScreen extends React.Component {
               style={{ height: height, width: width}}
               source={assetPaths.homeScreen.background}/>
               { this.renderNotification() }
-              { this.state.showSpeech ? null: this.renderChat() }
-              { this.state.showSpeech ?
-                    <View style={[s.speechInput, {width: width}]} >
-                      <TouchableOpacity onPress={() => this.setState({showSpeech: false})}>
-                      <Image style={[s.speechInputImage, {width: width-50}]}
-                        resizeMode="contain"
-                        source={assetPaths.homeScreen.speechInputImage} />
-                      </TouchableOpacity>
-                    </View>: null }
+              { this.state.showYesNo ? this.renderChat() : null }
+             
+               { this.state.chatInterface ?
+                    <View style={{top: 0}}>
+                    <Modal animationType="slide" transparent={true} visible={true}
+                            onRequestClose={() => console.log("modal closed")}>
+        
+                        <TouchableOpacity onPress={() => {this.setState({chatInterface: false}); this.setState({showYesNo: true})}}>
+                            <Image style={{width: width, height: height}} source={assetPaths.bottomMenu.avaChatInterface} />
+                        </TouchableOpacity>
+                    </Modal>
+                </View>
+        
+                    
+                    
+                    
+                    : null }
 
 
             <View style={{ top: 35, position: 'absolute', zIndex: 12, alignSelf: 'center', }}>
