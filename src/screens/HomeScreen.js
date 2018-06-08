@@ -3,7 +3,7 @@ import Dimensions from 'Dimensions';
 import { StyleSheet, Text, View,PanResponder, Modal, Vibration, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
 import Deck from '../Deck';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
-import { LinearGradient } from "expo";
+import { LinearGradient, Video } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
@@ -55,6 +55,8 @@ class HomeScreen extends React.Component {
 
       showSpeech: false,
       chatInterface: false,
+      showVideo: false,
+
     };
   }
 
@@ -100,8 +102,8 @@ class HomeScreen extends React.Component {
 
   renderNotification() {
     return(
-      <View style={s.notificationContainer}>
-        <TouchableOpacity>
+      <View style={[s.notificationContainer]}>
+        <TouchableOpacity onPress={() => this.setState({showVideo: !this.state.showVideo})}>
           <Image style={s.notificationIcon} source={assetPaths.homeScreen.icons.notificationIcon} />
         </TouchableOpacity>
       </View>
@@ -135,8 +137,34 @@ class HomeScreen extends React.Component {
   render() {
     const animatedStyle = { transform: [{translateY: this.state.awardTop}] }
 
-    return (
 
+
+
+        if (this.state.showVideo) {
+          return (
+          
+          <View style={{width: width, height: height}}>
+            
+            <Video 
+                source={{ uri: 'http://www.ventcases.com/screen_1.mp4' }}
+                rate={1.0}
+                volume={1.0}
+                isMuted={false}
+                resizeMode="cover"
+                shouldPlay
+                isLooping
+                style={{ width: width, height: height }}
+              />
+              { this.renderNotification() }
+              
+            </View>
+            
+        
+        );
+
+        } else {
+
+        return (
 
           <View style={{ flex: 1, height: height, width: width}}>
 
@@ -187,7 +215,12 @@ class HomeScreen extends React.Component {
                  this.state.showSpeech ? null :
                 <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
               }
-          </View>);
+          </View>
+        
+        
+      );
+
+    }
   }
 }
 
