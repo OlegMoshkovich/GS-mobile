@@ -73,7 +73,7 @@ class ExploreScreen extends React.Component {
                 itemHeight={height}
               />
             </View>
-            <AvaBottomMenu showTab={true}  tabTitle={"Related"} currentSection={'explore'} contextIcon={true} navigation={this.props.navigation}/>
+            <AvaBottomMenu showTab={true} tabLeft={26} tabTitle={"Related"} currentSection={'explore'} contextIcon={true} navigation={this.props.navigation}/>
           </LinearGradient>
   );
 

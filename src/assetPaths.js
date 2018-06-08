@@ -122,6 +122,8 @@ paths.modals = {
         share: require('../assets/icons/shareModals/share.png'),
         star: require('../assets/icons/shareModals/star.png'),
         requestSent: require('../assets/icons/shareModals/friendRequestSent.png'),
+        likeSolid: require('../assets/icons/shareModals/like-solid.png'),
+        starSolid: require('../assets/icons/shareModals/star-solid.png'),
 
     }
 }

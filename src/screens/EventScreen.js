@@ -207,7 +207,7 @@ class EventScreen extends React.Component {
             </Animated.ScrollView>
 
           </View>
-          <AvaBottomMenu contextFunction={this.toggleMap} currentSection={'connect'} contextIcon={true} showTab={true} tabTitle={"All Events"} tabLeft={19} navigation={this.props.navigation}/>
+          <AvaBottomMenu contextFunction={this.toggleMap} currentSection={'connect'} contextIcon={true} showTab={true} tabTitle={"All Events"} tabLeft={22} navigation={this.props.navigation}/>
         </LinearGradient>);
   }
 
