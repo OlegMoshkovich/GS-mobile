@@ -17,6 +17,9 @@ class StoryModalScreen extends React.Component {
 		super(props);
 		this.state = {
 			friendRequested: false,
+			heartSolid: false,
+			starSolid: false,
+
 		};
 		//console.log("story modal screen props", this.props);
 
@@ -79,11 +82,21 @@ class StoryModalScreen extends React.Component {
 				<TouchableOpacity style={s.modalButton} >
 					<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.share} />
 				</TouchableOpacity>
-				<TouchableOpacity style={s.modalButton} >
-					<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.star} />
+				<TouchableOpacity style={s.modalButton} onPress={() => this.setState({starSolid: !this.state.starSolid})}>
+					
+					{ this.state.starSolid ? 
+						<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.starSolid} /> : 
+						<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.star} />
+					}
+					
 				</TouchableOpacity>
-				<TouchableOpacity style={s.modalButton} >
-					<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.like} />
+				<TouchableOpacity style={s.modalButton} onPress={() => this.setState({heartSolid: !this.state.heartSolid})}>
+
+					{ this.state.heartSolid ? 
+						<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.likeSolid} /> :
+						<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.like} />
+					}
+					
 				</TouchableOpacity>
 				<TouchableOpacity style={s.exitButton} onPress={() => this.props.navigation.goBack()} >
 					<Image style={s.exitIconImage} source={assetPaths.modals.shareModal.close}/>
