@@ -146,7 +146,7 @@ class HomeScreen extends React.Component {
           <View style={{width: width, height: height}}>
             
             <Video 
-                source={{ uri: 'http://www.ventcases.com/screen_1.mp4' }}
+                source={{ uri: 'http://www.ventcases.com/ava1.mp4' }}
                 rate={1.0}
                 volume={1.0}
                 isMuted={false}
