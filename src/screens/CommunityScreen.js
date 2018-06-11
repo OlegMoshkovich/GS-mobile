@@ -88,7 +88,7 @@ class CommunityScreen extends React.Component {
   renderFeaturedStories() {
     return(
     <ScrollView
-      style ={[s.featuredStoriesView, {height: height}]} showsVerticalScrollIndicator={false}>
+      style ={[s.featuredStoriesView, {height: height+200}]} showsVerticalScrollIndicator={false} bounces={true} >
 
       { this.renderSearchBar() }
 
