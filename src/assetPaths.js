@@ -128,15 +128,25 @@ paths.modals = {
     }
 }
 paths.stories = {
+
+    marley: require('../assets/share/revised/marley2x.png'),
+    supergirls: require('../assets/share/revised/supergirls2x.png'),
+    muslim: require('../assets/share/revised/muslimGirls2x.png'),
+    smoking: require('../assets/share/revised/secondSmoke2x.png'),
+    malala: require('../assets/share/revised/malala2x.png'),
+    underwater: require('../assets/share/revised/cookieDive2x.png'),
+    nasa: require('../assets/share/revised/space2x.png'),
+    cassandra: require('../assets/share/revised/cassandra2x.png'),
+    aliceT: require('../assets/share/revised/aliceT2x.png'),
+    bellaM: require('../assets/share/revised/bellaM2x.png'),
+    jglBridge: require('../assets/share/revised/JGLBridge2x.png'),
+    michelleO: require('../assets/share/revised/michelleO2x.png'),
+
+
+
+
     featuredStories: {
-        marley: require('../assets/share/featuredMarley2x.png'),
-        supergirls: require('../assets/share/featuredSupergirls2x.png'),
-        muslim: require('../assets/share/featuredMuslim2x.png'),
-        smoking: require('../assets/share/featuredSmoking2x.png'),
-        malala: require('../assets/share/featuredMalala2x.png'),
-        underwater: require('../assets/share/featuredCookie2x.png'),
-        nasa: require('../assets/share/featuredNasa2x.png'),
-        cassandra: require('../assets/share/featuredCassanda2x.png'),
+        
     },
     newStories: {
         storyCard01: require('../assets/Article_2.1.png'),

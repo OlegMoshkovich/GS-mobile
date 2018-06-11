@@ -37,12 +37,26 @@ class CommunityScreen extends React.Component {
     // TODO create actual cards
     return(
       <ScrollView showsHorizontalScrollIndicator={false} horizontal= {true}  >
-        <Image style={s.newStoryImage} resizeMode="cover"
-          source={assetPaths.stories.newStories.storyCard01} />
-        <Image style={s.newStoryImage} resizeMode="cover"
-          source={assetPaths.stories.newStories.storyCard02} />
-        <Image style={s.newStoryImage} resizeMode="cover"
-          source={assetPaths.stories.newStories.storyCard03} />
+       <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 5})}}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.underwater} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 6})}}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.malala} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 7})}}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.nasa} />
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 8})}}>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.cassandra} />
+        </TouchableOpacity>
       </ScrollView>
     );
   }
@@ -51,12 +65,22 @@ class CommunityScreen extends React.Component {
     // TODO create cards
     return(
       <ScrollView showsHorizontalScrollIndicator={false} horizontal= {true} style={s.storySectionView} >
-        <Image style={s.newStoryImage} resizeMode="cover"
-          source={assetPaths.stories.newStories.storyCard01} />
-        <Image style={s.newStoryImage} resizeMode="cover"
-          source={assetPaths.stories.newStories.storyCard02} />
-        <Image style={s.newStoryImage} resizeMode="cover"
-          source={assetPaths.stories.newStories.storyCard03} />
+     <TouchableOpacity>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.michelleO} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.aliceT} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.bellaM} />
+        </TouchableOpacity>
+        <TouchableOpacity>
+          <Image style={s.featuredStoryImage} resizeMode="cover"
+            source={assetPaths.stories.jglBridge} />
+        </TouchableOpacity>
      </ScrollView >
     );
   }
@@ -71,48 +95,27 @@ class CommunityScreen extends React.Component {
         <TouchableOpacity
           onPress={() => {this.props.navigation.navigate('StoryModal', {id: 1})}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.featuredStories.marley} />
+            source={assetPaths.stories.marley} />
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => { this.props.navigation.navigate('StoryModal', {id: 2})}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.featuredStories.supergirls} />
+            source={assetPaths.stories.supergirls} />
         </TouchableOpacity>
 
         <TouchableOpacity
           onPress={() => {this.props.navigation.navigate('StoryModal', {id: 3})}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.featuredStories.muslim} />
+            source={assetPaths.stories.muslim} />
         </TouchableOpacity>
         <TouchableOpacity
           onPress={() => {this.props.navigation.navigate('StoryModal', {id: 4})}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.featuredStories.smoking} />
+            source={assetPaths.stories.smoking} />
         </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 5})}}>
-          <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.featuredStories.underwater} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 6})}}>
-          <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.featuredStories.malala} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 7})}}>
-          <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.featuredStories.nasa} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 8})}}>
-          <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.featuredStories.cassandra} />
-        </TouchableOpacity>
-
       </ScrollView >
-      <Text style ={s.newStoriesTitle}>Troop Stories</Text>
+      <Text style ={s.newStoriesTitle}>Friends</Text>
         {this.renderNewStoriesSection()}
       <Text style ={s.newStoriesTitle}>All Stories</Text>
           {this.renderAllStoriesSection()}

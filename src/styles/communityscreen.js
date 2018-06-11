@@ -76,13 +76,10 @@ var styles = StyleSheet.create({
 
 
     featuredStoryImage: {
-        height: 438 / 1.3,
-        width: 328 / 1.3,
+        height: 198,
+        width: 148,
         marginBottom: 10,
-        marginTop: 10,
-        marginRight: 10,
-        marginLeft: 10,
-        left: 20
+        left: 10
     },
 
 
