@@ -103,7 +103,7 @@ class HomeScreen extends React.Component {
   renderNotification() {
     return(
       <View style={[s.notificationContainer]}>
-        <TouchableOpacity onPress={() => this.setState({showVideo: !this.state.showVideo})}>
+        <TouchableOpacity>
           <Image style={s.notificationIcon} source={assetPaths.homeScreen.icons.notificationIcon} />
         </TouchableOpacity>
       </View>
@@ -169,9 +169,17 @@ class HomeScreen extends React.Component {
           <View style={{ flex: 1, height: height, width: width}}>
 
 
-            <Image blurRadius={this.state.blurRadius}
-              style={{ height: height, width: width}}
-              source={assetPaths.homeScreen.background}/>
+                <Video 
+                source={{ uri: 'http://www.ventcases.com/ava1.mp4' }}
+                rate={1.0}
+                volume={1.0}
+                isMuted={false}
+                resizeMode="cover"
+                shouldPlay
+                isLooping
+                style={{ width: width, height: height }}
+              />
+
               { this.renderNotification() }
               { this.state.showYesNo ? this.renderChat() : null }
              
