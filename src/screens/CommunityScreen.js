@@ -90,7 +90,7 @@ class CommunityScreen extends React.Component {
     <ScrollView
       style ={[s.featuredStoriesView, {height: height}]} showsVerticalScrollIndicator={false}>
       <Text style ={s.featuredStoriesTitle}>Featured</Text>
-      <ScrollView horizontal= {true} style={{marginTop:40}} showsHorizontalScrollIndicator={false}>
+      <ScrollView horizontal= {true} style={{marginTop: 30}} showsHorizontalScrollIndicator={false}>
 
         <TouchableOpacity
           onPress={() => {this.props.navigation.navigate('StoryModal', {id: 1})}}>
@@ -115,9 +115,9 @@ class CommunityScreen extends React.Component {
             source={assetPaths.stories.smoking} />
         </TouchableOpacity>
       </ScrollView >
-      <Text style ={s.newStoriesTitle}>Friends</Text>
+      <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10}]}>Friends</Text>
         {this.renderNewStoriesSection()}
-      <Text style ={s.newStoriesTitle}>All Stories</Text>
+      <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10, }]}>All Stories</Text>
           {this.renderAllStoriesSection()}
     </ScrollView>);
   }

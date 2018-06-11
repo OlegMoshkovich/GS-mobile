@@ -66,10 +66,13 @@ var styles = StyleSheet.create({
 
     featuredStoriesTitle: {
         color: "white",
-        fontSize: 22,
+        fontSize: 18,
         top: 20,
-        left: 30,
-        fontFamily: 'trefoil-sans-semibold'
+        left: 16,
+        fontFamily: 'trefoil-sans-semibold',
+        textShadowColor: 'rgba(0, 0, 0, 0.5)',
+        textShadowOffset: {width: -1, height: 1},
+        textShadowRadius: 5
     },
 
 
@@ -79,7 +82,9 @@ var styles = StyleSheet.create({
         height: 198,
         width: 148,
         marginBottom: 10,
-        left: 10
+        left: 10,
+        marginRight: 8,
+
     },
 
 
