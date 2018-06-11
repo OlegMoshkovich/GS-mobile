@@ -52,8 +52,12 @@ var styles = StyleSheet.create({
     },
 
     featuredStoriesView: {
-        top: 100,
+        top: 80,
         position: 'absolute',
+        paddingBottom: 1400,
+        marginBottom: 3300,
+        
+
 
     },
 
@@ -110,7 +114,6 @@ var styles = StyleSheet.create({
 
     // stories section
     storySectionView: {
-        marginBottom: 200
     },
 
 
@@ -131,7 +134,69 @@ var styles = StyleSheet.create({
     },
 
 
+    // tags etc
 
+
+    tagMenu: {
+        paddingLeft: 56,
+        position: "absolute",
+        top: 33,
+        zIndex: -1,
+        paddingRight: 20,
+
+    },
+
+    atMenu: {
+        paddingLeft: 56,
+        position: "absolute",
+        top: 73,
+        zIndex: -1,
+        paddingRight: 20,
+
+
+    },
+
+    searchBarStyle: {
+        width: 335,
+        height: 50,
+        marginLeft: 15.
+
+
+    },
+
+    searchIcon: {
+        width: 54,
+        height: 54,
+        marginLeft: 10,
+        position: 'absolute',
+        zIndex: 3,
+        top: 37,
+       
+
+    },
+
+    pill: {
+        backgroundColor: "white",
+        borderRadius: 24,
+        height: 30,
+        width: 100,
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginTop: 2,
+        marginLeft: 5,
+        marginRight: 5,
+    },
+
+
+    pillText: {
+        fontFamily: 'trefoil-sans-regular',
+        color: 'grey',
+        fontSize: 14,
+
+        
+
+    }
 
 
 

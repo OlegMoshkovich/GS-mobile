@@ -36,7 +36,7 @@ class CommunityScreen extends React.Component {
   renderNewStoriesSection() {
     // TODO create actual cards
     return(
-      <ScrollView showsHorizontalScrollIndicator={false} horizontal= {true}  >
+      <ScrollView showsHorizontalScrollIndicator={false} horizontal= {true} style={{}} >
        <TouchableOpacity
           onPress={() => {this.props.navigation.navigate('StoryModal', {id: 5})}}>
           <Image style={s.featuredStoryImage} resizeMode="cover"
@@ -89,8 +89,12 @@ class CommunityScreen extends React.Component {
     return(
     <ScrollView
       style ={[s.featuredStoriesView, {height: height}]} showsVerticalScrollIndicator={false}>
-      <Text style ={s.featuredStoriesTitle}>Featured</Text>
-      <ScrollView horizontal= {true} style={{marginTop: 30}} showsHorizontalScrollIndicator={false}>
+
+      { this.renderSearchBar() }
+
+      <View style={{top: 190}}>
+        <Text style ={s.featuredStoriesTitle}>Featured</Text>
+        <ScrollView horizontal= {true} style={{marginTop: 30}} showsHorizontalScrollIndicator={false}>
 
         <TouchableOpacity
           onPress={() => {this.props.navigation.navigate('StoryModal', {id: 1})}}>
@@ -114,12 +118,51 @@ class CommunityScreen extends React.Component {
           <Image style={s.featuredStoryImage} resizeMode="cover"
             source={assetPaths.stories.smoking} />
         </TouchableOpacity>
-      </ScrollView >
-      <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10}]}>Friends</Text>
-        {this.renderNewStoriesSection()}
-      <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10, }]}>All Stories</Text>
+        </ScrollView >
+        <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10}]}>Friends</Text>
+          {this.renderNewStoriesSection()}
+        <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10, }]}>All Stories</Text>
           {this.renderAllStoriesSection()}
+        </View>
     </ScrollView>);
+  }
+
+
+  renderSearchBar() {
+
+
+    return(
+      <View style={{height: 200, position: 'absolute', top: 15, width: width, flex: 1}}>
+        <Image style={s.searchBarStyle}source={require('../../assets/share/searchBar.png')} />
+        <View style={{marginTop: 20, height: 300, }}>
+          <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10, }]}>Trending</Text>
+          <Image style={{width: 30, height: 30, left: 20, position: 'absolute', top: 35}} source={require('../../assets/share/tagIcon.png')} />
+          <ScrollView horizontal= {true} style={s.tagMenu} showsHorizontalScrollIndicator={false} >
+            <View style={s.pill}><Text style={s.pillText}>#equality</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>#goldaward</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>#camp</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>#gsleaders</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>#newbadge</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>#climate</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>#STEAM</Text></View>
+          </ScrollView>
+          <Image style={{width: 30, height: 30, left: 20, position: 'absolute', top: 75}} source={require('../../assets/share/atIcon.png')} />
+          
+          <ScrollView horizontal= {true} style={[s.atMenu]} showsHorizontalScrollIndicator={false} >
+            <View style={s.pill}><Text style={s.pillText}>@jane-jane</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>@gs-blog</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>@michelle-o</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>@JosieD</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>@sams-stories</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>@gpower</Text></View>
+            <View style={s.pill}><Text style={s.pillText}>@cassyX</Text></View>
+          </ScrollView>
+        </View>
+      
+      </View>
+
+
+    );
   }
 
   render() {
@@ -127,6 +170,7 @@ class CommunityScreen extends React.Component {
       <LinearGradient colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
         <TopMenu menuTitle="share" iconPath={assetPaths.topMenu.shareIcon} navigation={this.props.navigation} />
+        
         { this.renderFeaturedStories() }
 
 
