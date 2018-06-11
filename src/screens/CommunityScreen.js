@@ -1,23 +1,15 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { Modal, StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert} from 'react-native';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import {StyleSheet, Text, View, TouchableOpacity,Image,ScrollView} from 'react-native';
 import { LinearGradient } from "expo";
-import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
-
 
 // styles
 import s from '../styles/communityscreen.js';
 
-// data
-import stories from '../../data/stories/stories.js';
-
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
-import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
-
 
 class CommunityScreen extends React.Component {
 
@@ -32,6 +24,64 @@ class CommunityScreen extends React.Component {
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
   }
+
+
+  renderStories() {
+    return(
+    <View style={StyleSheet.absoluteFill} >
+      <ScrollView style ={[s.mainScrollView]} showsVerticalScrollIndicator={false} >
+
+      { this.renderSearchBar() }
+
+      <View style={s.storiesScrollView}>
+        <Text style ={s.featuredStoriesTitle}>Featured</Text>
+          { this.renderFeaturedStoriesSection()}
+        <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10}]}>Friends</Text>
+          {this.renderNewStoriesSection()}
+        <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10, }]}>All Stories</Text>
+          {this.renderAllStoriesSection()}
+          {this.renderAllStoriesSection()}
+          {this.renderAllStoriesSection()}
+
+        </View>
+    </ScrollView></View>);
+  }
+
+
+
+  renderFeaturedStoriesSection() {
+    return(
+      <ScrollView horizontal= {true} style={s.featuredStoriesScrollView} showsHorizontalScrollIndicator={false}>
+
+      <TouchableOpacity
+        onPress={() => {this.props.navigation.navigate('StoryModal', {id: 1})}}>
+        <Image style={s.featuredStoryImage} resizeMode="cover"
+          source={assetPaths.stories.marley} />
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => { this.props.navigation.navigate('StoryModal', {id: 2})}}>
+        <Image style={s.featuredStoryImage} resizeMode="cover"
+          source={assetPaths.stories.supergirls} />
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => {this.props.navigation.navigate('StoryModal', {id: 3})}}>
+        <Image style={s.featuredStoryImage} resizeMode="cover"
+          source={assetPaths.stories.muslim} />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => {this.props.navigation.navigate('StoryModal', {id: 4})}}>
+        <Image style={s.featuredStoryImage} resizeMode="cover"
+          source={assetPaths.stories.smoking} />
+      </TouchableOpacity>
+      </ScrollView >
+
+    );
+  }
+
+
+
 
   renderNewStoriesSection() {
     // TODO create actual cards
@@ -85,58 +135,16 @@ class CommunityScreen extends React.Component {
     );
   }
 
-  renderFeaturedStories() {
-    return(
-    <ScrollView
-      style ={[s.featuredStoriesView, {height: height+200}]} showsVerticalScrollIndicator={false} bounces={true} >
-
-      { this.renderSearchBar() }
-
-      <View style={{top: 190}}>
-        <Text style ={s.featuredStoriesTitle}>Featured</Text>
-        <ScrollView horizontal= {true} style={{marginTop: 30}} showsHorizontalScrollIndicator={false}>
-
-        <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 1})}}>
-          <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.marley} />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => { this.props.navigation.navigate('StoryModal', {id: 2})}}>
-          <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.supergirls} />
-        </TouchableOpacity>
-
-        <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 3})}}>
-          <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.muslim} />
-        </TouchableOpacity>
-        <TouchableOpacity
-          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 4})}}>
-          <Image style={s.featuredStoryImage} resizeMode="cover"
-            source={assetPaths.stories.smoking} />
-        </TouchableOpacity>
-        </ScrollView >
-        <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10}]}>Friends</Text>
-          {this.renderNewStoriesSection()}
-        <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10, }]}>All Stories</Text>
-          {this.renderAllStoriesSection()}
-        </View>
-    </ScrollView>);
-  }
-
 
   renderSearchBar() {
 
 
     return(
-      <View style={{height: 200, position: 'absolute', top: 15, width: width, flex: 1}}>
+      <View style={[s.searchBarView, {width: width}]}>
         <Image style={s.searchBarStyle}source={require('../../assets/share/searchBar.png')} />
-        <View style={{marginTop: 20, height: 300, }}>
-          <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10, }]}>Trending</Text>
-          <Image style={{width: 30, height: 30, left: 20, position: 'absolute', top: 35}} source={require('../../assets/share/tagIcon.png')} />
+        <View style={s.tagAndAtViews}>
+          <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10}]}>Trending</Text>
+          <Image style={s.tagIcon} source={require('../../assets/share/tagIcon.png')} />
           <ScrollView horizontal= {true} style={s.tagMenu} showsHorizontalScrollIndicator={false} >
             <View style={s.pill}><Text style={s.pillText}>#equality</Text></View>
             <View style={s.pill}><Text style={s.pillText}>#goldaward</Text></View>
@@ -146,7 +154,7 @@ class CommunityScreen extends React.Component {
             <View style={s.pill}><Text style={s.pillText}>#climate</Text></View>
             <View style={s.pill}><Text style={s.pillText}>#STEAM</Text></View>
           </ScrollView>
-          <Image style={{width: 30, height: 30, left: 20, position: 'absolute', top: 75}} source={require('../../assets/share/atIcon.png')} />
+          <Image style={s.atIcon} source={require('../../assets/share/atIcon.png')} />
           
           <ScrollView horizontal= {true} style={[s.atMenu]} showsHorizontalScrollIndicator={false} >
             <View style={s.pill}><Text style={s.pillText}>@jane-jane</Text></View>
@@ -170,8 +178,9 @@ class CommunityScreen extends React.Component {
       <LinearGradient colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
         <TopMenu menuTitle="share" iconPath={assetPaths.topMenu.shareIcon} navigation={this.props.navigation} />
-        
-        { this.renderFeaturedStories() }
+        <View style={StyleSheet.absoluteFill}>
+        { this.renderStories() }
+        </View>
 
 
         <AvaBottomMenu currentSection={'community'} contextIcon={true} navigation={this.props.navigation}/>
