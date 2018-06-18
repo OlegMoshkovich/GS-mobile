@@ -1,5 +1,4 @@
 import React from 'react';
-import Dimensions from 'Dimensions';
 import { Text, View, TouchableOpacity,Image} from 'react-native';
 import assetPaths from '../assetPaths';
 import s from '../styles/featuredProduct.js';

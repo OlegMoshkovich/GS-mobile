@@ -1,3 +1,5 @@
+// @OlegMoshkovich - should we delete?
+
 module.exports = [
   {
     _id: Math.round(Math.random() * 1000000),

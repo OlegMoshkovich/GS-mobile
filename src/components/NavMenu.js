@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import Dimensions from 'Dimensions';
 import { View, Image} from 'react-native';
 import s from '../styles/navmenustyle';
 import assetPaths from '../assetPaths'

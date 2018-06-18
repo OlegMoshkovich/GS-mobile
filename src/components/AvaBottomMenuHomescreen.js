@@ -71,4 +71,4 @@ class AvaBottomMenuHomescreen extends Component {
     }
 }
 
-export default AvaBottomMenuHomescreen;
+export default AvaBottomMenuHomescreen
