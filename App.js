@@ -117,7 +117,7 @@ class App extends React.Component {
       Dashboard: { screen: EducationStack },
       },
       { swipeEnabled:this.state.swiping,
-        initialRouteName:'Community',
+        initialRouteName:'Home',
         navigationOptions: { tabBarVisible: false },
       });
 
