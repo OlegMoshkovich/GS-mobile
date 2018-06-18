@@ -1,36 +1,30 @@
 console.disableYellowBox = true;
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
+import { Animated} from 'react-native';
+import { Font } from 'expo';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
-import CardStackStyleInterpolator from 'react-navigation/src/views/CardStack/CardStackStyleInterpolator';
-import getSceneIndicesForInterpolationInputRange from 'react-navigation/src/utils/getSceneIndicesForInterpolationInputRange';
 import MapScreen from './src/screens/MapScreen';
-import HomeScreen from './src/screens/HomeScreen.js';
-import CommunityScreen from './src/screens/CommunityScreen.js';
-import CalendarScreen from './src/screens/CalendarScreen.js';
-import ChatScreen from './src/screens/ChatScreen.js';
-import CommsDashboardScreen from './src/screens/CommsDashboardScreen.js'
+import HomeScreen from './src/screens/HomeScreen';
+import CommunityScreen from './src/screens/CommunityScreen';
+import CalendarScreen from './src/screens/CalendarScreen';
+import ChatScreen from './src/screens/ChatScreen';
+import CommsDashboardScreen from './src/screens/CommsDashboardScreen'
 import ArticleModalScreen from './src/screens/ArticleModalScreen_';
-import ShopScreen from './src/screens/ShopScreen.js';
-import DashboardScreen from './src/screens/DashboardScreen.js';
-import ExploreScreen from './src/screens/ExploreScreen.js';
+import ShopScreen from './src/screens/ShopScreen';
+import DashboardScreen from './src/screens/DashboardScreen';
+import ExploreScreen from './src/screens/ExploreScreen';
 import EventScreen from './src/screens/EventScreen';
 import BadgeScreen from './src/screens/BadgeScreen';
 import JourneyScreen from './src/screens/JourneyScreen';
 import AwardScreen from './src/screens/AwardScreen';
-
 import StoryModalScreen from './src/screens/StoryModalScreen';
 import BadgeModalScreen from './src/screens/BadgeModalScreen';
-
 import PostModalScreen from './src/screens/PostModalScreen';
-
-
-// adding fonts
-import { Font } from 'expo';
 import Dimensions from 'Dimensions';
 import SystemScreen from './src/screens/SystemScreen';
 
-const {width, height} = Dimensions.get('window');
+
+const {height} = Dimensions.get('window');
 
 let MyTransition = (index, position) => {
     const inputRange = [index - 1, index, index + 1];
@@ -41,7 +35,6 @@ let MyTransition = (index, position) => {
 
 let TransitionConfiguration = () => {
     return {
-      // Define scene interpolation, eq. custom transition
       screenInterpolator: (sceneProps) => {
         const {position, scene} = sceneProps; const {index} = scene;
         return MyTransition(index, position);
@@ -51,32 +44,25 @@ let TransitionConfiguration = () => {
 
 const transitionConfig = () => {
   return {
-      transitionSpec: {
-        duration: 200, //easing: Easing.out(Easing.poly(4)),
-        timing: Animated.timing, useNativeDriver: true
-      },
-      screenInterpolator: sceneProps => {
-        const {layout, position, scene} = sceneProps;
-        const params = scene.route.params || {}
-        //const transition = params.transition;
-        const thisSceneIndex = scene.index
-        //console.log("thisSceneIndex", scene.index);
-        const width = layout.initWidth
-        let yVariable = height;
-        if (params.hasOwnProperty("transition")) {
-          if (params.transition == 'systemTransition') {
-            // yVariable *= -1;
-            const opacity = position.interpolate({
-              inputRange: [thisSceneIndex - 1, thisSceneIndex], outputRange: [0, 1], })
-            return { opacity }
-          } else {
-            let translateY = position.interpolate({ inputRange: [thisSceneIndex-1,thisSceneIndex],
-              outputRange: [ yVariable, 0], })
-            return { transform: [ {translateY}] }
-          }
+    transitionSpec: { duration: 200, timing: Animated.timing, useNativeDriver: true},
+    screenInterpolator: sceneProps => {
+      const {layout, position, scene} = sceneProps;
+      const params = scene.route.params || {}
+      const thisSceneIndex = scene.index
+      let yVariable = height;
+      if (params.hasOwnProperty("transition")) {
+        if (params.transition == 'systemTransition') {
+          const opacity = position.interpolate({
+            inputRange: [thisSceneIndex - 1, thisSceneIndex], outputRange: [0, 1], })
+          return { opacity }
+        } else {
+          let translateY = position.interpolate({ inputRange: [thisSceneIndex-1,thisSceneIndex],
+            outputRange: [ yVariable, 0], })
+          return { transform: [ {translateY}] }
         }
       }
     }
+  }
 }
 
 
@@ -84,9 +70,11 @@ class App extends React.Component {
   constructor(props) {
     super(props); this.state = { swiping: true, }
   }
+  
   componentDidMount() {
     Font.loadAsync({ 'trefoil-sans-black': require('./assets/fonts/TrefoilSans-Black.otf'), 'trefoil-sans-semibold': require('./assets/fonts/TrefoilSans-SemiBold.otf'), 'trefoil-sans-light':  require('./assets/fonts/TrefoilSans-Light.otf'), 'trefoil-sans-regular': require('./assets/fonts/TrefoilSans-Regular.otf'),});
   }
+  
   render() {
     const ConnectStack = StackNavigator(
       { ConnectDashboard: { screen: CommsDashboardScreen, },
@@ -109,7 +97,6 @@ class App extends React.Component {
     );
 
     const TabStack =  TabNavigator({
-
       Connect:{screen: ConnectStack},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
@@ -143,5 +130,4 @@ class App extends React.Component {
   }
 }
 
-
-export default App;
+export default App

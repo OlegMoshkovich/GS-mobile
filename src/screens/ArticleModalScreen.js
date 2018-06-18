@@ -1,15 +1,9 @@
+// @OlegMoshkovich - should we delete?
+
 import React from 'react';
-import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
-import {Card, Button,Icon} from 'react-native-elements';
-
-
+import { Text, View, TouchableOpacity,Image, ScrollView} from 'react-native';
 import s from '../styles/articlemodal';
 import assetPaths from '../assetPaths';
-import articleContent from '../../data/articles/articleContent';
-
-
 
 class ModalScreen extends React.Component {
 
@@ -21,8 +15,7 @@ class ModalScreen extends React.Component {
     const imageUri = params ? params.image_uri : null;
     const sourceUri = { uri: imageUri }
 
-    return (
-<View style={s.modalBackground}>
+    return (<View style={s.modalBackground}>
   <View style={s.modalContainer}>
     <TouchableOpacity style={s.modalButton} >
       <Image

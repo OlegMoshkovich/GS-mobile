@@ -1,19 +1,13 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { Modal, StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert} from 'react-native';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import { Text, View, Image} from 'react-native';
 import { LinearGradient } from "expo";
-import {Card, Button,Icon} from 'react-native-elements';
-
-
-const {width, height} = Dimensions.get('window');
-
-
-import AvaBottomMenu from '../components/AvaBottomMenu.js';
+import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
-import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
 import s from '../styles/awardscreen';
+
+const {width, height} = Dimensions.get('window');
 
 class AwardScreen extends React.Component {
   constructor(props) {

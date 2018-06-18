@@ -47,6 +47,7 @@ var styles = StyleSheet.create({
         
 
     },
+    chatQuestions: {width: 50, left: 80, top: -30},
 
     // speech on bottom
     speechInput: {
@@ -61,9 +62,13 @@ var styles = StyleSheet.create({
 
     },
 
+    profileButton: { top: 35, position: 'absolute', zIndex: 12, alignSelf: 'center', },
+
+    shopButton: { bottom: 70, position: 'absolute', zIndex: 12, alignSelf: 'center', },
 
 
-
+    upDownButtonIcon: { width: 35, height: 35 },
+    
 
 
     view: {
