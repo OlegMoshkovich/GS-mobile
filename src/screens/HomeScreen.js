@@ -51,7 +51,7 @@ class HomeScreen extends React.Component {
       navigation: this.props.navigation,
       awardTop: new Animated.Value(0),
 
-      showYesNo: false,
+      showYesNo: true,
 
       showSpeech: false,
       chatInterface: false,
