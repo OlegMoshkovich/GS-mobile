@@ -51,7 +51,7 @@ class HomeScreen extends React.Component {
       navigation: this.props.navigation,
       awardTop: new Animated.Value(0),
 
-      showYesNo: true,
+      showYesNo: false,
 
       showSpeech: false,
       chatInterface: false,
@@ -119,10 +119,10 @@ class HomeScreen extends React.Component {
         </TouchableOpacity>
         <TouchableOpacity style={{width: 50, left: 80, top: -30}} onPress={
           () => {
-            
-            
-            this.setState({chatInterface: true}); this.setState({showYesNo: false}); 
-          
+
+
+            this.setState({chatInterface: true}); this.setState({showYesNo: false});
+
           }}>
         <Image style={s.homeTutorialImage}
           source={assetPaths.homeScreen.responseBubbles} />
@@ -142,10 +142,10 @@ class HomeScreen extends React.Component {
 
         if (this.state.showVideo) {
           return (
-          
+
           <View style={{width: width, height: height}}>
-            
-            <Video 
+
+            <Video
                 source={{ uri: 'http://www.ventcases.com/ava1.mp4' }}
                 rate={1.0}
                 volume={1.0}
@@ -156,10 +156,10 @@ class HomeScreen extends React.Component {
                 style={{ width: width, height: height }}
               />
               { this.renderNotification() }
-              
+
             </View>
-            
-        
+
+
         );
 
         } else {
@@ -169,7 +169,7 @@ class HomeScreen extends React.Component {
           <View style={{ flex: 1, height: height, width: width}}>
 
 
-                <Video 
+                <Video
                 source={{ uri: 'http://www.ventcases.com/ava1.mp4' }}
                 rate={1.0}
                 volume={1.0}
@@ -182,21 +182,21 @@ class HomeScreen extends React.Component {
 
               { this.renderNotification() }
               { this.state.showYesNo ? this.renderChat() : null }
-             
+
                { this.state.chatInterface ?
                     <View style={{top: 0}}>
                     <Modal animationType="slide" transparent={true} visible={true}
                             onRequestClose={() => console.log("modal closed")}>
-        
+
                         <TouchableOpacity onPress={() => {this.setState({chatInterface: false}); this.setState({showYesNo: true})}}>
                             <Image style={{width: width, height: height}} source={assetPaths.bottomMenu.avaChatInterface} />
                         </TouchableOpacity>
                     </Modal>
                 </View>
-        
-                    
-                    
-                    
+
+
+
+
                     : null }
 
 
@@ -224,8 +224,8 @@ class HomeScreen extends React.Component {
                 <AvaBottomMenuHomescreen navigation={this.props.navigation}/>
               }
           </View>
-        
-        
+
+
       );
 
     }

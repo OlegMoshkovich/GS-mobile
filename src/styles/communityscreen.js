@@ -9,10 +9,9 @@ var styles = StyleSheet.create({
 
 
     mainScrollView: {
+        flex:2,
         top: 80,
-        position: 'absolute',
-        paddingBottom: 1400,
-        marginBottom: 3300,
+        marginBottom:100,
     },
 
     storiesScrollView: { top: 0 },
@@ -24,10 +23,11 @@ var styles = StyleSheet.create({
 
     tagIcon: {
         width: 30, height: 30, left: 20, position: 'absolute', top: 35},
+
     atIcon: {
         width: 30, height: 30, left: 20, position: 'absolute', top: 75},
 
-  
+
 
 
 
@@ -119,7 +119,7 @@ var styles = StyleSheet.create({
 
     },
 
-    
+
 
 
 

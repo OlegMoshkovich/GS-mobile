@@ -30,21 +30,15 @@ class CommunityScreen extends React.Component {
     return(
     <View style={StyleSheet.absoluteFill} >
       <ScrollView style ={[s.mainScrollView]} showsVerticalScrollIndicator={false} >
-
-      { this.renderSearchBar() }
-
-      <View style={s.storiesScrollView}>
-        <Text style ={s.featuredStoriesTitle}>Featured</Text>
-          { this.renderFeaturedStoriesSection()}
-        <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10}]}>Friends</Text>
-          {this.renderNewStoriesSection()}
-        <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10, }]}>All Stories</Text>
-          {this.renderAllStoriesSection()}
-          {this.renderAllStoriesSection()}
-          {this.renderAllStoriesSection()}
-
-        </View>
-    </ScrollView></View>);
+          { this.renderSearchBar() }
+          <Text style ={s.featuredStoriesTitle}>Featured</Text>
+            { this.renderFeaturedStoriesSection()}
+          <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10}]}>Friends</Text>
+            {this.renderNewStoriesSection()}
+          <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10, }]}>All Stories</Text>
+            {this.renderAllStoriesSection()}
+      </ScrollView>
+    </View>);
   }
 
 
@@ -155,7 +149,7 @@ class CommunityScreen extends React.Component {
             <View style={s.pill}><Text style={s.pillText}>#STEAM</Text></View>
           </ScrollView>
           <Image style={s.atIcon} source={require('../../assets/share/atIcon.png')} />
-          
+
           <ScrollView horizontal= {true} style={[s.atMenu]} showsHorizontalScrollIndicator={false} >
             <View style={s.pill}><Text style={s.pillText}>@jane-jane</Text></View>
             <View style={s.pill}><Text style={s.pillText}>@gs-blog</Text></View>
@@ -166,7 +160,7 @@ class CommunityScreen extends React.Component {
             <View style={s.pill}><Text style={s.pillText}>@cassyX</Text></View>
           </ScrollView>
         </View>
-      
+
       </View>
 
 
@@ -178,6 +172,7 @@ class CommunityScreen extends React.Component {
       <LinearGradient colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
         <TopMenu menuTitle="share" iconPath={assetPaths.topMenu.shareIcon} navigation={this.props.navigation} />
+
         <View style={StyleSheet.absoluteFill}>
         { this.renderStories() }
         </View>

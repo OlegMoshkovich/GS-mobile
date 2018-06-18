@@ -31,9 +31,7 @@ class ArticleModalScreen extends React.Component {
 			case 4:
 				return (<Image style={{width: 375, height: 3520, marginBottom: 100}} source={require('../../assets/staticScreens/articles/Article_04.png')} />);
 				break;
-			case 5:
-				return (<Image style={{width: 375, height: 3810, marginBottom: 100}} source={require('../../assets/staticScreens/articles/Article_01.png')} />);
-				break;
+	
 		}
 	}
 
