@@ -1,3 +1,5 @@
+// @OlegMoshkovich - should we delete?
+
 import PropTypes from 'prop-types';
 import React from 'react';
 import {

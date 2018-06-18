@@ -1,18 +1,14 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert} from 'react-native';
+import { Text, View, TouchableOpacity,Image} from 'react-native';
 import assetPaths from '../assetPaths';
 import s from '../styles/featuredProduct.js';
-
-const {width, height} = Dimensions.get('window');
 
 class FeaturedProduct extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            bubbleShowing: false,
-        }
+        this.state = { bubbleShowing: false,}
     }
 
     showBubbles() {
@@ -40,13 +36,10 @@ class FeaturedProduct extends React.Component {
                         <Image style={[s.productBubble, {top: dot.bubbleOffset.top, left: dot.bubbleOffset.left}, this.state.bubbleShowing ? {opacity: bubbleOpacity } : {opacity: 0}]} source={dot.productBubble} />
                         </View>}) 
                 }
-            </View>
-
-        );
+            </View>);
     }
 
 
 }
 
 export default FeaturedProduct
-

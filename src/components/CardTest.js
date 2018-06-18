@@ -1,3 +1,5 @@
+// @OlegMoshkovich - should we delete?
+
 import React, { Component } from "react";
 import { Text, View, StyleSheet, Image } from "react-native";
 import CollapseView from "react-native-collapse-view";

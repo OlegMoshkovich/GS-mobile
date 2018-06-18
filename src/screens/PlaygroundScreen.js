@@ -1,6 +1,12 @@
+// @OlegMoshkovich - should we delete?
 
 import React, { Component } from 'react';
-import { StyleSheet, View, } from 'react-native';
+import { Alert, StyleSheet, View, PanResponder, Animated,TouchableWithoutFeedback } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
+import { DraggableBox } from '../TestComponents/draggable';
+import { LoremIpsum } from '../TestComponents/common';
+import { CardTest } from '../components/CardTest';
+import { GiftedChat } from 'react-native-gifted-chat'
 
 var CIRCLE_SIZE = 80;
 
