@@ -38,6 +38,7 @@ class SystemScreen extends React.Component {
       blurRadius: 0,
     };
   };
+
   animate = () => {
     if (this.state.blurRadius == 10) {
       this.setState({
@@ -48,7 +49,6 @@ class SystemScreen extends React.Component {
         blurRadius: 10
       });
     }
-
     Animated.timing(
         this.state.fadeAnim,
         {

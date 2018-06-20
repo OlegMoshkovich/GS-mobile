@@ -9,8 +9,8 @@ var styles = StyleSheet.create({
     container: {
       top: -234,
 
-      
-        
+
+
 
     },
 

@@ -122,7 +122,7 @@ renderTabContent() {
   }
 }
 animate = () => {
-    
+
     if (this.state.blurRadius == maxBlurRadius) { this.setState({ blurRadius: initialBlurRadius });
     } else { this.setState({ blurRadius: maxBlurRadius }); }
 

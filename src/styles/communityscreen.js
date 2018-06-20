@@ -9,9 +9,9 @@ var styles = StyleSheet.create({
 
 
     mainScrollView: {
-        flex:2,
+        flex:1,
         top: 80,
-        marginBottom:100,
+        marginBottom:70,
     },
 
     storiesScrollView: { top: 0 },
