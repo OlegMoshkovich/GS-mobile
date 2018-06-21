@@ -108,6 +108,27 @@ class SystemScreen extends React.Component {
            </TouchableOpacity>
 
        </View>
+       <View style={s.profileContainer}>
+
+
+
+           <TouchableOpacity onPress={this.switch} >
+           <Image style={s.avaProfile}
+             source={require('../../assets/icons/Profile/Ava.png')} />
+           </TouchableOpacity>
+           <TouchableOpacity onPress={this.switch} >
+           <Image style={s.avaProfile}
+             source={require('../../assets/icons/Profile/Ava.png')} />
+           </TouchableOpacity>
+           <TouchableOpacity onPress={this.switch} >
+           <Image style={s.avaProfile}
+             source={require('../../assets/icons/Profile/Ava.png')} />
+           </TouchableOpacity>
+
+
+
+       </View>
+
 
 
 
