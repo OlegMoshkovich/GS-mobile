@@ -15,6 +15,7 @@ import DashboardScreen from './src/screens/DashboardScreen';
 import ExploreScreen from './src/screens/ExploreScreen';
 import EventScreen from './src/screens/EventScreen';
 import BadgeScreen from './src/screens/BadgeScreen';
+import PlaygroundScreen from './src/screens/PlaygroundScreen_PanResponder';
 import JourneyScreen from './src/screens/JourneyScreen';
 import AwardScreen from './src/screens/AwardScreen';
 import StoryModalScreen from './src/screens/StoryModalScreen';
@@ -68,14 +69,18 @@ const transitionConfig = () => {
 
 class App extends React.Component {
   constructor(props) {
-    super(props); this.state = { swiping: true, }
+    super(props);
+    this.state = {
+      swiping: true,
+      connect:false}
   }
-  
+
   componentDidMount() {
     Font.loadAsync({ 'trefoil-sans-black': require('./assets/fonts/TrefoilSans-Black.otf'), 'trefoil-sans-semibold': require('./assets/fonts/TrefoilSans-SemiBold.otf'), 'trefoil-sans-light':  require('./assets/fonts/TrefoilSans-Light.otf'), 'trefoil-sans-regular': require('./assets/fonts/TrefoilSans-Regular.otf'),});
   }
-  
+
   render() {
+
     const ConnectStack = StackNavigator(
       { ConnectDashboard: { screen: CommsDashboardScreen, },
         Chat: { screen: ChatScreen, },
@@ -100,6 +105,7 @@ class App extends React.Component {
       Connect:{screen: ConnectStack},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
+      Playground: {screen:PlaygroundScreen},
       Explore: { screen: ExploreScreen },
       Dashboard: { screen: EducationStack },
       },
@@ -120,8 +126,15 @@ class App extends React.Component {
       { transitionConfig, mode: 'modal', headerMode: 'none', });
 
     TabStack.navigationOptions = ({ navigation }) => {
+
       let { routeName } = navigation.state.routes[navigation.state.index];
       if (routeName === 'Explore') { console.log("explore route"); }
+    }
+
+    ConnectStack.navigationOptions = ({ navigation }) => {
+      let { routeName } = navigation.state.routes[navigation.state.index];
+      if (routeName === 'Chat') {
+        console.log("In the Chat"); }
     }
 
     return (

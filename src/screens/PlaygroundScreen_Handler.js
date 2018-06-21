@@ -53,6 +53,7 @@ class PanResponderExample extends Component {
   }
 
   _highlight = () => {
+    console.log('the element is highlighted')
     this._circleStyles.style.backgroundColor = 'blue';
     this._updateNativeStyles();
   };
@@ -67,6 +68,7 @@ class PanResponderExample extends Component {
   };
 
   _handleStartShouldSetPanResponder = (e, gestureState) => {
+
     // Should we become active when the user presses down on the circle?
     return true;
   };
@@ -87,6 +89,7 @@ class PanResponderExample extends Component {
   };
 
   _handlePanResponderEnd = (e, gestureState) => {
+    console.log("in the start should set pan responder" + JSON.stringify(gestureState.dx))
     this._unHighlight();
     this._previousLeft += gestureState.dx;
     this._previousTop += gestureState.dy;
@@ -106,7 +109,7 @@ class PlaygroundScreen extends React.Component{
         style={styles.scrollView}>
 
         <PanResponderExample />
-        <DraggableBox />
+  
 
       </ScrollView>
     );
