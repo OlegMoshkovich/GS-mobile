@@ -51,6 +51,7 @@ class PlaygroundScreen_PanResponder extends React.Component{
       onMoveShouldSetPanResponder: (evt, gestureState) => !!getDirectionAndColor(gestureState),
       onPanResponderMove: (evt, gestureState) => {
         const drag = getDirectionAndColor(gestureState);
+        console.log('gesture state:'+gestureState.dx)
         this.setState({
           zone: drag,
         });

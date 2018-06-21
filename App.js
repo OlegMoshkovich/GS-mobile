@@ -131,11 +131,7 @@ class App extends React.Component {
       if (routeName === 'Explore') { console.log("explore route"); }
     }
 
-    ConnectStack.navigationOptions = ({ navigation }) => {
-      let { routeName } = navigation.state.routes[navigation.state.index];
-      if (routeName === 'Chat') {
-        console.log("In the Chat"); }
-    }
+    
 
     return (
       <RootStack />

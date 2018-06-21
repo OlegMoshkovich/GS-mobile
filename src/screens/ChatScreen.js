@@ -1,7 +1,8 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated, PanResponder} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,Toggle, Alert, Animated, PanResponder} from 'react-native';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
@@ -33,25 +34,7 @@ class ChatScreen extends React.Component {
 
     };
   }
-   // starts with a default message
-  componentDidMount() {
-    //Analytics.record('aws-expo-demo-app-launched');
-    console.log('component did mount')
-    this.setState({
-      messages: [
-        {
-          _id: 1,
-          text: 'Developers! Developers! Developers!',
-          createdAt: new Date(),
-          user: {
-            _id: 2,
-            name: 'React Native',
-            avatar: 'https://facebook.github.io/react/img/logo_og.png',
-            },
-          },
-        ],
-      })
-    }
+
   animate = () => {
     Animated.timing(
       this.state.moveAnim,
@@ -70,8 +53,12 @@ class ChatScreen extends React.Component {
   }
 
    onSwipeLeft(gestureState) {
-     console.log(gestureState);
-     return this.props
+
+     console.log("printing gesture state" + gestureState.moveX);
+     return
+     if(gestureState.moveX>100){
+
+     this.props
              .navigation
              .dispatch(NavigationActions.reset(
                {
@@ -81,6 +68,7 @@ class ChatScreen extends React.Component {
                   ]
                 }));
    }
+ }
 
 
 
@@ -274,20 +262,23 @@ class ChatScreen extends React.Component {
   }
 
 
-  componentWillMount() {
-    console.log("component will mount")
-    }
-    componentWillUnMount() {
-      console.log("component will UNmount")
-      }
+
 
   render() {
 
     const config = {
-      velocityThreshold: .3,
-      directionalOffsetThreshold: 150
+      velocityThreshold: .4,
+      directionalOffsetThreshold: 100
     };
     return (
+      <GestureRecognizer
+
+
+  onSwipeLeft={(state) => this.onSwipeLeft(state)}
+
+  config={config}
+
+  >
       <LinearGradient
       colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
@@ -360,6 +351,7 @@ class ChatScreen extends React.Component {
       <AvaBottomMenu currentSection={'connect'} contextIcon={true} navigation={this.props.navigation}/>
 
       </LinearGradient>
+      </GestureRecognizer>
     );
   }
 }
