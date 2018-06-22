@@ -33,6 +33,7 @@ class SystemScreen extends React.Component {
       moveAnim     : new Animated.Value(0),
       activated    : true,
       settings     : false,
+      users     : false,
       environmentSwitch: false,
       fadeAnim     : new Animated.Value(0),
       blurRadius: 0,
@@ -70,6 +71,15 @@ class SystemScreen extends React.Component {
       }
       )
   }
+  users = () => {
+    console.log( " I am in the users",this.state.users)
+
+
+    this.setState({
+      users: !this.state.users,
+      }
+      )
+  }
 
   render() {
 
@@ -89,9 +99,7 @@ class SystemScreen extends React.Component {
        <TopMenu menuTitle="profile" />
 
 
-       <View style={s.profileContainer}>
-
-
+       <View style={[s.profileContainer,{left: this.state.users ? 600:50}]}>
            <TouchableOpacity  >
            <Image style={s.percentage}
              source={require('../../assets/icons/Profile/Percentage.png')} />
@@ -102,31 +110,28 @@ class SystemScreen extends React.Component {
              source={require('../../assets/icons/Profile/Ava.png')} />
            </TouchableOpacity>
 
-           <TouchableOpacity>
+           <TouchableOpacity onPress={this.users}>
            <Image style={s.addUser}
              source={require('../../assets/icons/Profile/AddUser.png')} />
            </TouchableOpacity>
 
        </View>
-       <View style={s.profileContainer}>
 
 
+        <View style={[s.profileContainerUsers,{left: this.state.users ? 10:600}]}>
 
-           <TouchableOpacity onPress={this.switch} >
+           <TouchableOpacity onPress={this.users} >
            <Image style={s.avaProfile}
-             source={require('../../assets/icons/Profile/Ava.png')} />
+             source={require('../../assets/icons/Profile/Profile_Ava.png')} />
            </TouchableOpacity>
-           <TouchableOpacity onPress={this.switch} >
+           <TouchableOpacity  >
            <Image style={s.avaProfile}
-             source={require('../../assets/icons/Profile/Ava.png')} />
+             source={require('../../assets/icons/Profile/Profile_Lilly.png')} />
            </TouchableOpacity>
-           <TouchableOpacity onPress={this.switch} >
+           <TouchableOpacity  >
            <Image style={s.avaProfile}
-             source={require('../../assets/icons/Profile/Ava.png')} />
+             source={require('../../assets/icons/Profile/Profile_Maud.png')} />
            </TouchableOpacity>
-
-
-
        </View>
 
 

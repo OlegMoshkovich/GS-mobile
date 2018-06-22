@@ -56,7 +56,6 @@ class ChatScreen extends React.Component {
 
      console.log("printing gesture state" + gestureState.moveX);
      return
-     if(gestureState.moveX>100){
 
      this.props
              .navigation
@@ -68,7 +67,6 @@ class ChatScreen extends React.Component {
                   ]
                 }));
    }
- }
 
 
 
@@ -268,7 +266,7 @@ class ChatScreen extends React.Component {
 
     const config = {
       velocityThreshold: .4,
-      directionalOffsetThreshold: 100
+      directionalOffsetThreshold: 150
     };
     return (
       <GestureRecognizer

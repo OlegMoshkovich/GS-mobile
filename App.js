@@ -105,9 +105,9 @@ class App extends React.Component {
       Connect:{screen: ConnectStack},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
-      Playground: {screen:PlaygroundScreen},
       Explore: { screen: ExploreScreen },
       Dashboard: { screen: EducationStack },
+      Playground: {screen:PlaygroundScreen},
       },
       { swipeEnabled:this.state.swiping,
         initialRouteName:'Home',
@@ -131,7 +131,7 @@ class App extends React.Component {
       if (routeName === 'Explore') { console.log("explore route"); }
     }
 
-    
+
 
     return (
       <RootStack />
