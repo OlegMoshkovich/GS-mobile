@@ -38,6 +38,7 @@ constructor(props) {
         relatedAnim: new Animated.Value(0),
         leaderboardAnim: new Animated.Value(0),
         allEventsAnim: new Animated.Value(0),
+        tab: false,
         blurRadius: initialBlurRadius,
         tabOpacity: 1,
         expanded:true,
@@ -122,6 +123,10 @@ renderTabContent() {
   }
 }
 animate = () => {
+  console.log(this.state.tab)
+    this.setState({
+      tab: !this.state.tab,
+    })
 
     if (this.state.blurRadius == maxBlurRadius) { this.setState({ blurRadius: initialBlurRadius });
     } else { this.setState({ blurRadius: maxBlurRadius }); }
@@ -252,7 +257,7 @@ renderTab() {
         return(
             <Animated.View style={[{zIndex:13},resumeStyles]}>
                 <TouchableOpacity style={[s.tabButton, {height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,}]}
-                    onPress={this.tabAnimation}>
+                    onPress={this.tabAnimation} disabled={this.state.tab}>
                     <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]} source={assetPaths.bottomMenu.tabBackground}/>
                     <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
                 </TouchableOpacity>
@@ -263,7 +268,7 @@ renderTab() {
         const relatedStyles = { transform:[ {translateY:this.state.relatedAnim} ] }
             return(<Animated.View style={[{zIndex:13},relatedStyles]}>
                 <TouchableOpacity style={[s.tabButton, { height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,}]}
-                    onPress={this.tabAnimation}>
+                    onPress={this.tabAnimation} disabled={this.state.tab}>
                     <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]} source={assetPaths.bottomMenu.tabBackground} />
                     <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
                 </TouchableOpacity>
@@ -274,7 +279,7 @@ renderTab() {
         const eventsStyles = { transform:[ {translateY:this.state.allEventsAnim} ] }
             return(<Animated.View style={[{zIndex:13},eventsStyles]}>
                     <TouchableOpacity style={[s.tabButton, {height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,}]}
-                        onPress={this.tabAnimation}>
+                        onPress={this.tabAnimation} disabled={this.state.tab}>
                         <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]} source={assetPaths.bottomMenu.tabBackground}/>
                         <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
                         </TouchableOpacity>
@@ -285,7 +290,7 @@ renderTab() {
         const leaderboardStyles = { transform:[ {translateY:this.state.leaderboardAnim} ] }
         return(<Animated.View style={[{zIndex:13},leaderboardStyles]}>
                     <TouchableOpacity style={[s.tabButton, {height: tabHeight, opacity: this.state.tabOpacity, zIndex:13,}]}
-                        onPress={this.tabAnimation}>
+                        onPress={this.tabAnimation} disabled={this.state.tab}>
                         <Image style={[s.tabImage, {opacity: this.state.tabOpacity}]} source={assetPaths.bottomMenu.tabBackground}/>
                         <Text style={[s.tabText, {left: this.props.tabLeft, opacity: this.state.tabOpacity}]}>{this.props.tabTitle}</Text>
                     </TouchableOpacity>
@@ -321,6 +326,7 @@ renderWishlistModal() {
         </Modal>
     </View>);
 }
+
 
 render() {
     return (<View style={s.container}>

@@ -50,7 +50,7 @@ var styles = StyleSheet.create({
 
     navStyle: {
         flex: 1,
-        zIndex: 2,
+        zIndex: 13,
         flexDirection: 'row',
         justifyContent: 'space-around',
     },
@@ -69,7 +69,7 @@ var styles = StyleSheet.create({
         alignSelf: 'center',
         position: 'absolute',
         left: 15,
-        zIndex: 1,
+        zIndex: 0,
         bottom: -4,
 
     },
