@@ -59,7 +59,7 @@ class EventScreen extends React.Component {
       })
     }
 
-    
+
 
  }
 
@@ -71,7 +71,7 @@ class EventScreen extends React.Component {
     this.animation.addListener(({ value }) => {
 
       console.log("animation handler", value);
-      
+
       let index;
 
       if (this.state.showingFriends) {
@@ -80,7 +80,7 @@ class EventScreen extends React.Component {
         index = Math.floor(value / CARD_WIDTH+0.5)
       }
 
-      
+
 
 
       if (index >= this.state.markers.length) {
@@ -135,7 +135,7 @@ class EventScreen extends React.Component {
           {this.state.markers.map((marker, index) => {
           const scaleStyle = {transform: [{scale: interpolations[index].scale}]};
           const opacityStyle = {opacity: interpolations[index].opacity};
-          
+
           return (
             <MapView.Marker key={index} coordinate={marker.coordinate}>
               <Animated.View style={[s.markerWrap, opacityStyle]}>
@@ -144,8 +144,8 @@ class EventScreen extends React.Component {
               </Animated.View>
             </MapView.Marker>
           );
-        
-        
+
+
         })}
 
 
@@ -155,18 +155,18 @@ class EventScreen extends React.Component {
 
   render() {
     const interpolations = this.state.markers.map((marker, index) => {
-    
+
       let opacity, scale, inputRange;
 
       if (this.state.showingFriends == true) {
-      
+
         inputRange = [(index - 1) * AVATAR_ICON,
           index * AVATAR_ICON, ((index + 1) * AVATAR_ICON)];
         scale = this.animation.interpolate({
           inputRange, outputRange: [1, 1.5, 1], extrapolate: "clamp"});
         opacity = this.animation.interpolate({
           inputRange, outputRange: [0.35, 1, 0.35], extrapolate: "clamp",});
-      
+
       } else {
 
         inputRange = [(index - 1) * CARD_WIDTH,
@@ -189,7 +189,7 @@ class EventScreen extends React.Component {
         <TopMenu navigation={this.props.navigation} menuTitle="what" iconPath={assetPaths.topMenu.connectIcon} />
           <View style={[s.container, {height: 330}]}>
             { this.renderMapView(interpolations) }
-            
+
             <Animated.ScrollView
               horizontal
               scrollEventThrottle={1}
@@ -199,8 +199,8 @@ class EventScreen extends React.Component {
                 {nativeEvent: {contentOffset: {x: this.animation}}}], { useNativeDriver: true }
               )}
               style={s.scrollView}>{this.state.markers.map((marker, index) => (
-                <View style={[s.card,  
-                  this.state.showingFriends ? {height: AVATAR_ICON, width: AVATAR_ICON} : 
+                <View style={[s.card,
+                  this.state.showingFriends ? {height: AVATAR_ICON, width: AVATAR_ICON} :
                     {height: CARD_HEIGHT, width: CARD_WIDTH,} ]} key={index}>
                   <Image source={marker.image} style={s.cardImage} resizeMode="cover" />
                 </View>))}

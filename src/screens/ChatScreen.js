@@ -1,12 +1,15 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,Toggle, Alert, Animated, PanResponder} from 'react-native';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import CollapseView from "react-native-collapse-view";
+import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+import { NavigationActions } from 'react-navigation';
 
 import assetPaths from '../assetPaths';
 
@@ -23,6 +26,7 @@ class ChatScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      swipe: 'I\'m ready to get swiped!',
       moveAnim     : new Animated.Value(1),
       activated    : true,
       valueInitial : 0,
@@ -30,24 +34,7 @@ class ChatScreen extends React.Component {
 
     };
   }
-   // starts with a default message
-  componentDidMount() {
-    //Analytics.record('aws-expo-demo-app-launched');
-    this.setState({
-      messages: [
-        {
-          _id: 1,
-          text: 'Developers! Developers! Developers!',
-          createdAt: new Date(),
-          user: {
-            _id: 2,
-            name: 'React Native',
-            avatar: 'https://facebook.github.io/react/img/logo_og.png',
-            },
-          },
-        ],
-      })
-    }
+
   animate = () => {
     Animated.timing(
       this.state.moveAnim,
@@ -64,6 +51,24 @@ class ChatScreen extends React.Component {
       }
     )
   }
+
+   onSwipeLeft(gestureState) {
+
+     console.log("printing gesture state" + gestureState.moveX);
+     return
+
+     this.props
+             .navigation
+             .dispatch(NavigationActions.reset(
+               {
+                  index: 0,
+                  actions: [
+                    NavigationActions.navigate({ routeName: 'ConnectDashboard'})
+                  ]
+                }));
+   }
+
+
 
   _renderView1 = (collapse) => {
     return(
@@ -254,13 +259,29 @@ class ChatScreen extends React.Component {
     )
   }
 
+
+
+
   render() {
+
+    const config = {
+      velocityThreshold: .4,
+      directionalOffsetThreshold: 150
+    };
     return (
+      <GestureRecognizer
+
+
+  onSwipeLeft={(state) => this.onSwipeLeft(state)}
+
+  config={config}
+
+  >
       <LinearGradient
       colors={['#F9C025', '#FFDB2B']}
         style={{ height: height, width:width}}>
 
-        <TopMenu navigation={this.props.navigation} 
+        <TopMenu navigation={this.props.navigation}
         menuTitle="who" iconPath={assetPaths.topMenu.connectIcon} />
 
 
@@ -328,6 +349,7 @@ class ChatScreen extends React.Component {
       <AvaBottomMenu currentSection={'connect'} contextIcon={true} navigation={this.props.navigation}/>
 
       </LinearGradient>
+      </GestureRecognizer>
     );
   }
 }

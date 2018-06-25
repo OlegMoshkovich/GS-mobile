@@ -39,6 +39,16 @@ var styles = StyleSheet.create({
       justifyContent: 'space-between',
       alignItems:'center'
     },
+    profileContainerUsers: {
+       position:'absolute',
+       top:101,
+       left:50,
+       width:width-100,
+       flex: 1,
+       flexDirection: 'row',
+      
+       alignItems:'center'
+     },
 
 
    avaProfile:{
