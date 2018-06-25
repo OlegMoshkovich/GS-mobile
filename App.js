@@ -82,6 +82,8 @@ class App extends React.Component {
   render() {
 
     const ConnectStack = StackNavigator(
+    
+    
       { ConnectDashboard: { screen: CommsDashboardScreen, },
         Chat: { screen: ChatScreen, },
         Map: { screen: MapScreen, },
@@ -89,7 +91,10 @@ class App extends React.Component {
         Events: { screen: EventScreen, }, },
       { headerMode: 'none', navigationOptions: { headerVisible: false, },
         transitionConfig: TransitionConfiguration, },
-    );
+    
+    
+    
+      );
 
     const EducationStack = StackNavigator(
       {
@@ -112,7 +117,8 @@ class App extends React.Component {
       { swipeEnabled:this.state.swiping,
         initialRouteName:'Home',
         navigationOptions: { tabBarVisible: false },
-      });
+      }
+    );
 
     const RootStack = StackNavigator({
       Main: { screen: TabStack, },
@@ -128,13 +134,31 @@ class App extends React.Component {
     TabStack.navigationOptions = ({ navigation }) => {
 
       let { routeName } = navigation.state.routes[navigation.state.index];
-      if (routeName === 'Explore') { console.log("explore route"); }
+      if (routeName === 'Community') { 
+        
+
+
+
+        console.log("community route - reset nav in connect");
+        console.log(navigation.state);
+
+
+      
+        //console.log(ConnectStack);
+
+        
+        
+      }
+
+      
+
+
     }
 
 
 
     return (
-      <RootStack />
+      <RootStack  />
     );
   }
 }

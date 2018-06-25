@@ -55,6 +55,8 @@ class ChatScreen extends React.Component {
    onSwipeLeft(gestureState) {
 
      console.log("printing gesture state" + gestureState.moveX);
+
+
      return
 
      this.props
