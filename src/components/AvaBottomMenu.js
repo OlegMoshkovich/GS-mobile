@@ -78,6 +78,9 @@ tabAnimation = () => {
     }
 }
 renderTabContent() {
+    console.log('rendering contextual content');
+    
+
     switch(this.props.navigation.state.routeName){
 
     case 'SystemModal':
