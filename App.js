@@ -69,6 +69,7 @@ const transitionConfig = () => {
 
 class App extends React.Component {
   constructor(props) {
+
     super(props);
     this.state = {
       swiping: true,
@@ -80,6 +81,7 @@ class App extends React.Component {
   }
 
   render() {
+
 
     const ConnectStack = StackNavigator(
       { ConnectDashboard: { screen: CommsDashboardScreen, },
@@ -125,10 +127,13 @@ class App extends React.Component {
       },
       { transitionConfig, mode: 'modal', headerMode: 'none', });
 
-    TabStack.navigationOptions = ({ navigation }) => {
 
+    TabStack.navigationOptions = ({ navigation }) => {
       let { routeName } = navigation.state.routes[navigation.state.index];
-      if (routeName === 'Explore') { console.log("explore route"); }
+      if (routeName === 'Explore') {
+        console.log('navigation='+JSON.stringify(navigation.state))
+
+       }
     }
 
 

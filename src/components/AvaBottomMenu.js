@@ -38,6 +38,7 @@ constructor(props) {
         relatedAnim: new Animated.Value(0),
         leaderboardAnim: new Animated.Value(0),
         allEventsAnim: new Animated.Value(0),
+        routeName:this.props.navigation.state.routeName,
         tab: false,
         blurRadius: initialBlurRadius,
         tabOpacity: 1,
@@ -54,6 +55,7 @@ constructor(props) {
         longPress: false,
         chatInterface: false,
         wishlistModal: false};
+        console.log("ava navigation:", this.state.routeName)
 }
 
 tabAnimation = () => {
@@ -214,6 +216,37 @@ renderMenu() {
         </View>
     );
 }
+
+
+renderMenu() {
+    return(
+        <View style={[s.navStyle, {bottom: this.state.activated ? navMenu_active: navMenu_inactive,}]}>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Connect')}>
+                {this.props.currentSection == 'connect' ? <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIconOn} /> :
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.connectIcon} />}
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Community')}>
+                {this.props.currentSection == 'community' ?
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIconOn} /> :
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.communityIcon} />}
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Home')}>
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.homeIcon} />
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Explore')} >
+                {this.props.currentSection == 'explore' ?
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIconOn} /> :
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.exploreIcon} />}
+            </TouchableOpacity>
+            <TouchableOpacity  onPress={() => this.props.navigation.navigate('Dashboard')} >
+                {this.props.currentSection == 'dashboard' ?
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIconOn} /> :
+                <Image style={s.navIconImage} source={assetPaths.bottomMenu.dashboardIcon} />}
+            </TouchableOpacity>
+        </View>
+    );
+}
+
 renderRandomAva() {
     function getRandomInt(max) { return Math.floor(Math.random() * Math.floor(max)); }
 
@@ -240,6 +273,7 @@ renderRandomAva() {
 }
 
 renderAva() {
+
     return(<TouchableOpacity
                 style = {{  alignSelf: 'flex-end', position: 'absolute', right: 5, zIndex: 1,
                         bottom: this.state.activated ? avaLocationBottom_active : avaLocationBottom_inactive,
@@ -317,6 +351,7 @@ renderChatInterface() {
     </Modal></View>);
 }
 renderWishlistModal() {
+
     return (<View style={{top: 0}}>
         <Modal animationType="slide" transparent={true} visible={this.state.wishlistModal}
             onRequestClose={() => console.log("modal closed")}>
@@ -330,6 +365,7 @@ renderWishlistModal() {
 
 render() {
     return (<View style={s.container}>
+
             {this.renderAva()}
             {this.props.showTab ? this.renderTab() : null }
             {this.renderGradient()}

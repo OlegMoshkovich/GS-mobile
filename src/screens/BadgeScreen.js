@@ -33,19 +33,19 @@ class BadgeScreen extends React.Component {
           <Image style={s.badgeCarousel} resizeMode="contain"
             source={assetPaths.badges.progress.truthSeeker} />
           <Text style={s.badgeTitleText}>Truth Seeker</Text>
-          <Text style={s.badgeCompletion}>(67% complete)</Text>
+          <Text style={s.badgeCompletion}>(67% complete)</Text>z
         </TouchableOpacity>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'style'})} style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
             source={assetPaths.badges.progress.womensHealth} />
-          <Text style={s.badgeTitleText}>Women's Health</Text>
+          <Text style={s.badgeTitleText}>Womens Health</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'textile'})}style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
             source={assetPaths.badges.progress.textileArtist} />
           <Text style={s.badgeTitleText}>Textile Designer</Text>
         </TouchableOpacity>
-        
+
       </ScrollView>
     </View>);
   }
@@ -95,7 +95,7 @@ class BadgeScreen extends React.Component {
           <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'style'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
               source={assetPaths.badges.default.womensHealth} />
-              <Text style={s.exploreBadgeTitle}>Women's Health</Text>
+              <Text style={s.exploreBadgeTitle}>Womens Health</Text>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'textile'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
@@ -119,7 +119,7 @@ class BadgeScreen extends React.Component {
         style={{ height: height, width:width }}>
 
         <TopMenu menuTitle="badges" iconPath={assetPaths.topMenu.dashboardIcon} navigation={this.props.navigation} />
-        
+
         <View style={{top: 0, height: height-100}}>
           <ScrollView style={{width: width}} vertical={true} >
           { this.renderMyBadges() }
@@ -128,10 +128,10 @@ class BadgeScreen extends React.Component {
           </ScrollView>
         </View>
 
-        
-        
 
-        <AvaBottomMenu currentSection={'dashboard'} navigation={this.props.navigation}/> 
+
+
+        <AvaBottomMenu currentSection={'dashboard'} navigation={this.props.navigation}/>
       </LinearGradient>);
   }
 }

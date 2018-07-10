@@ -1,7 +1,7 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
 import { StyleSheet, Text, TouchableOpacity,TouchableWithoutFeedback,Image, TouchableHighlight,Toggle, Alert,
-Platform, View, StatusBar, SafeAreaView} from 'react-native';
+Platform, View, StatusBar, SafeAreaView, Platform} from 'react-native';
 import Deck from '../Deck';
 import { StackNavigator,TabNavigator, TabBarBottom } from 'react-navigation';
 import { LinearGradient } from "expo";
@@ -30,6 +30,10 @@ import articles from '../../data/articles/articleContent.js';
 class ExploreScreen extends React.Component {
       constructor (props) {
           super(props);
+          console.log('local navigation parameter' + JSON.stringify(this.props.navigation.state.key))
+          this.state = {
+           screenKey: this.props.navigation.state.key
+          };
        }
 
        _renderItem ({item}) {
@@ -73,7 +77,7 @@ class ExploreScreen extends React.Component {
                 itemHeight={height}
               />
             </View>
-            <AvaBottomMenu showTab={true} tabLeft={26} tabTitle={"Related"} currentSection={'explore'} contextIcon={true} navigation={this.props.navigation}/>
+            <AvaBottomMenu key={this.props.navigation.state.key} showTab={true} tabLeft={26} tabTitle={"Related"} currentSection={'explore'} contextIcon={true} navigation={this.props.navigation}/>
           </LinearGradient>
   );
 

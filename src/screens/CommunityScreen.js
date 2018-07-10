@@ -131,8 +131,6 @@ class CommunityScreen extends React.Component {
 
 
   renderSearchBar() {
-
-
     return(
       <View style={[s.searchBarView, {width: width}]}>
         <Image style={s.searchBarStyle}source={require('../../assets/share/searchBar.png')} />
@@ -160,10 +158,7 @@ class CommunityScreen extends React.Component {
             <View style={s.pill}><Text style={s.pillText}>@cassyX</Text></View>
           </ScrollView>
         </View>
-
       </View>
-
-
     );
   }
 

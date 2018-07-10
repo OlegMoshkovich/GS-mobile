@@ -15,7 +15,7 @@ class BadgeModalScreen extends React.Component {
 	}
 
 	renderBadgePng(id) {
-        
+
 		switch (id) {
 			case 'style':
 				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/scienceOfStyle.png')} />);
@@ -38,29 +38,27 @@ class BadgeModalScreen extends React.Component {
 			case 'truth':
 				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/truthSeeker.png')} />);
 				break;
-			
+
 			case 'voice':
 				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/voiceForAnimals.png')} />);
                 break;
             case 'website':
 				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/websiteDesigner.png')} />);
 				break;
-			
-
-
 		}
 
 	}
 
   render() {
-		
+
 		const {params} = this.props.navigation.state;
 		const id = params ? params.id: 'style';
 		console.log("rendering id", id);
-		
+
 
     return (
 		<View style={s.modalContainer}>
+		
 			<View style={[s.modalMenuContainer, {width: width}]}>
 				<TouchableOpacity style={s.modalButton} >
 					<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.share} />

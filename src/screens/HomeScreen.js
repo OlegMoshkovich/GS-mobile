@@ -53,16 +53,19 @@ class HomeScreen extends React.Component {
 
   renderChat() {
     return(<View style={s.homeChatContainer}>
+
         <TouchableOpacity >
           <Image style={[s.homeChatImage]} source={assetPaths.homeScreen.chatBubbles} />
         </TouchableOpacity>
+
         <TouchableOpacity style={s.chatQuestions} onPress={() => {
           this.setState({chatInterface: true, showYesNo: false}); }}>
         <Image style={s.homeTutorialImage} source={assetPaths.homeScreen.responseBubbles} />
         </TouchableOpacity>
+
       </View>);
   }
-  
+
   systemScreenStyle() { return { height: height, width: width, backgroundColor: 'transparent'} }
 
   render() {
@@ -97,7 +100,9 @@ class HomeScreen extends React.Component {
         { this.state.showYesNo ? this.renderChat() : null }
 
         { this.state.chatInterface ?
+
           <View style={{top: 0}}>
+
             <Modal animationType="slide" transparent={true} visible={true} onRequestClose={() => console.log("modal closed")}>
               <TouchableOpacity onPress={() => {this.setState({chatInterface: false}); this.setState({showYesNo: true})}}>
                 <Image style={{width: width, height: height}} source={assetPaths.bottomMenu.avaChatInterface} />

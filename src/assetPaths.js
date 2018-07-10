@@ -92,7 +92,7 @@ paths.staticScreens = {
     badgesOverview: require(
         '../assets/staticScreens/badgeOverlay.png'
     ),
-    
+
 }
 paths.homeScreen = {
 
@@ -141,12 +141,8 @@ paths.stories = {
     bellaM: require('../assets/share/revised/bellaM2x.png'),
     jglBridge: require('../assets/share/revised/JGLBridge2x.png'),
     michelleO: require('../assets/share/revised/michelleO2x.png'),
-
-
-
-
     featuredStories: {
-        
+
     },
     newStories: {
         storyCard01: require('../assets/Article_2.1.png'),
@@ -178,7 +174,7 @@ paths.badges = {
         voiceForAnimals: require('../assets/badges/voice-for-animals.png'),
         webDesigner: require('../assets/badges/web-designer.png'),
         womensHealth: require('../assets/badges/womens-health.png'),
-    },        
+    },
 
     progress: {
         // progress badges have some transparency at the top to reflect progress
@@ -192,7 +188,7 @@ paths.badges = {
         voiceForAnimals: require('../assets/badges/voice-for-animals.png'),
         webDesigner: require('../assets/badges/web-designer.png'),
         womensHealth: require('../assets/badges/womens-health.png'),
-    },        
+    },
 
 
 
@@ -211,8 +207,8 @@ paths.badges = {
             womensHealth:require('../assets/badges/badge-big-womensHealth.png'),
             textile: require('../assets/badges/badge-big-textile.png'),
             nasa: require('../assets/badges/badge-big-space.png'),
-        
-        
+
+
         }
     },
 paths.journeyScreen = {
@@ -336,15 +332,9 @@ paths.shop = {
         cap: require('../assets/shop/card-cap.png'),
         tent: require('../assets/shop/card-tent.png'),
     },
-
-
-
-
-
-
 }
-paths.avatars = {
 
+paths.avatars = {
     pink: require('../assets/avatars/avatar01.png'),
     blue: require('../assets/avatars/avatar02.png'),
     green: require('../assets/avatars/avatar03.png'),
@@ -353,8 +343,6 @@ paths.avatars = {
     yellow: require('../assets/avatars/avatar06.png'),
     grey_dark: require('../assets/avatars/avatar07.png'),
     grey2: require('../assets/avatars/avatar08.png'),
-
-
 }
 
 export default paths;
