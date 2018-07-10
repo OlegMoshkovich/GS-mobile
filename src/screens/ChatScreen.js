@@ -53,6 +53,7 @@ class ChatScreen extends React.Component {
   }
 
    onSwipeLeft(gestureState) {
+<<<<<<< HEAD
      return this.props
                  .navigation
                  .dispatch(NavigationActions.reset(
@@ -63,6 +64,24 @@ class ChatScreen extends React.Component {
                       ]
                     }));
     }
+=======
+
+     console.log("printing gesture state" + gestureState.moveX);
+
+
+     return
+
+     this.props
+             .navigation
+             .dispatch(NavigationActions.reset(
+               {
+                  index: 0,
+                  actions: [
+                    NavigationActions.navigate({ routeName: 'ConnectDashboard'})
+                  ]
+                }));
+   }
+>>>>>>> 7d5d7c9b5cfaba4425344b6d46be367c679513db
 
 
 
