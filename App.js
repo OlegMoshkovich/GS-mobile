@@ -77,7 +77,19 @@ class App extends React.Component {
 
   componentDidMount() {
     Font.loadAsync({ 'trefoil-sans-black': require('./assets/fonts/TrefoilSans-Black.otf'), 'trefoil-sans-semibold': require('./assets/fonts/TrefoilSans-SemiBold.otf'), 'trefoil-sans-light':  require('./assets/fonts/TrefoilSans-Light.otf'), 'trefoil-sans-regular': require('./assets/fonts/TrefoilSans-Regular.otf'),});
+ 
+ 
+    console.log("app component mounted, set up additional navigation options");
+    console.log(this.props);
+ 
+ 
   }
+
+  componentDidUpdate() {
+    console.log("component did update, nav", this.props);
+    
+  }
+
 
   render() {
 
