@@ -1,7 +1,7 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
 import { StyleSheet, Text, TouchableOpacity,TouchableWithoutFeedback,Image, TouchableHighlight,Toggle, Alert,
-Platform, View, StatusBar, SafeAreaView, Platform} from 'react-native';
+Platform, View, StatusBar, SafeAreaView} from 'react-native';
 import Deck from '../Deck';
 import { StackNavigator,TabNavigator, TabBarBottom } from 'react-navigation';
 import { LinearGradient } from "expo";
