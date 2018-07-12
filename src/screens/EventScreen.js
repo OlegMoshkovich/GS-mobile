@@ -11,6 +11,7 @@ import TopMenu from '../components/TopMenu';
 import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
 import s from '../styles/eventscreen';
+const color = '#FFF2AD';
 
 // map specific data
 import mapStyle from '../styles/map/mapstyle.js';
@@ -184,7 +185,7 @@ class EventScreen extends React.Component {
 
     return (
       <LinearGradient
-        colors={['#F9C025', '#FFDB2B']}
+          colors={[color, color]}
         style={{ height: height, width:width}}>
         <TopMenu navigation={this.props.navigation} menuTitle="what" iconPath={assetPaths.topMenu.connectIcon} />
           <View style={[s.container, {height: 330}]}>

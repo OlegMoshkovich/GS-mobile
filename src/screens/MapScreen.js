@@ -17,7 +17,7 @@ import {GiftedChat } from 'react-native-gifted-chat';
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
 import NavMenu from '../components/NavMenu';
-
+const color = '#FFF2AD';
 
 
 
@@ -156,7 +156,7 @@ class MapScreen extends React.Component {
 
         <View style={s.viewStyle}>
           <LinearGradient
-            colors={['#F9C025', '#FFDB2B']}
+          colors={[color, color]}
             style={{ height: height, width:width}}>
 
             <TopMenu navigation={this.props.navigation} menuTitle="where" iconPath={assetPaths.topMenu.connectIcon} />

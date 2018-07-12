@@ -5,6 +5,7 @@ import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
+const color = '#FFF2AD';
 
 import TopMenu from '../components/TopMenu';
 import NavMenu from '../components/NavMenu';
@@ -29,7 +30,7 @@ class CalendarScreen extends React.Component {
   render() {
     return (
       <LinearGradient
-      colors={['#F9C025', '#F9C025']}
+      colors={[color, color]}
         style={{ height: height, width:width}}>
         <TopMenu navigation={this.props.navigation} menuTitle="when" iconPath={assetPaths.topMenu.connectIcon} />
 

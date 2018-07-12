@@ -131,12 +131,13 @@ class DashboardScreen extends React.Component {
         <View style={s.container}>
 
             <View>
+
                <TouchableOpacity style={{ top:70 }}
                  onPress={() => this.props.navigation.navigate({
                    routeName: 'Chat'}
                  )}>
                  <Image
-                   style={{height: 50,width: 50}}
+                   style={{height: 45,width: 45}}
                    source={require('../../assets/icons/Connect/Icon_chat.png')}
                  />
                </TouchableOpacity>
@@ -189,7 +190,7 @@ class DashboardScreen extends React.Component {
                      }
                  )}>
                  <Image
-                   style={{height: 50,width: 50}}
+                   style={{height: 45,width: 45}}
                    source={require('../../assets/icons/Connect/Icon_events.png')}
                  />
                </TouchableOpacity>
@@ -243,7 +244,7 @@ class DashboardScreen extends React.Component {
                    }
                )}>
                <Image
-                 style={{height: 50,width: 50}}
+                 style={{height: 45,width: 45}}
                    source={require('../../assets/icons/Connect/Icon_calendar.png')}
                />
              </TouchableOpacity>
@@ -284,7 +285,8 @@ class DashboardScreen extends React.Component {
                    </View>
              </Animated.ScrollView>
             </View>
-            <View style={{bottom:15}}>
+
+          {/*  <View style={{bottom:15}}>
                <TouchableOpacity
                  style={{
                  top:70
@@ -301,6 +303,7 @@ class DashboardScreen extends React.Component {
                      source={require('../../assets/icons/Connect/Icon_map.png')}
                  />
                </TouchableOpacity>
+
                <Animated.ScrollView
                    style={{
                    left:60
@@ -340,6 +343,7 @@ class DashboardScreen extends React.Component {
                      </View>
                </Animated.ScrollView>
             </View>
+            */}
         </View>
         <AvaBottomMenu currentSection={'connect'} showTab={false}  tabLeft={15} navigation={this.props.navigation}/>
 
