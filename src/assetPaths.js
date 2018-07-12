@@ -92,18 +92,16 @@ paths.staticScreens = {
     badgesOverview: require(
         '../assets/staticScreens/badgeOverlay.png'
     ),
-
 }
 paths.homeScreen = {
-
     chatBubbles: require('../assets/Home_Bubble_Welcome1.png'),
     responseBubbles: require('../assets/Home_Bubble_Response.png'),
     background: require('../assets/Home_Background2.png'),
     speechInputImage: require('../assets/Speech-input.png'),
     icons: {
         notificationIcon: require('../assets/icons/notificationsHome.png'),
-        swipeUpIcon: require('../assets/icons/Home_SwipeUp.png'),
-        swipeDownIcon: require('../assets/icons/Home_SwipeDown.png'),
+        swipeUpIcon: require('../assets/topMenu/NAV_profile.png'),
+        swipeDownIcon: require('../assets/topMenu/NAV_shop.png'),
     }
 }
 paths.modals = {
@@ -124,7 +122,6 @@ paths.modals = {
         requestSent: require('../assets/icons/shareModals/friendRequestSent.png'),
         likeSolid: require('../assets/icons/shareModals/like-solid.png'),
         starSolid: require('../assets/icons/shareModals/star-solid.png'),
-
     }
 }
 paths.stories = {
@@ -158,10 +155,7 @@ paths.stories = {
         storyImage: require('../assets/Article_Image_3.png')
     }
 }
-
-
 paths.badges = {
-
     default: {
         // default badges are just white without drop shadow
         scienceOfStyle: require('../assets/badges/science-of-style.png'),
@@ -175,7 +169,6 @@ paths.badges = {
         webDesigner: require('../assets/badges/web-designer.png'),
         womensHealth: require('../assets/badges/womens-health.png'),
     },
-
     progress: {
         // progress badges have some transparency at the top to reflect progress
         scienceOfStyle: require('../assets/badges/science-of-style.png'),
@@ -189,27 +182,21 @@ paths.badges = {
         webDesigner: require('../assets/badges/web-designer.png'),
         womensHealth: require('../assets/badges/womens-health.png'),
     },
-
-
-
-
-        scienceExpert: require('../assets/badges/badges-science.png'),
-        truthSeeker: require('../assets/badges/badges-truth.png'),
-        womensHealth: require('../assets/badges/badges-women.png'),
-        textile: require('../assets/badges/badges-textile.png'),
-        big: {
-            seniorFirstAid: require('../assets/badges/badge-big-firstAid.png'),
-            socialInnovator: require('../assets/badges/badge-big-social.png'),
-            animals: require('../assets/badges/badge-big-animals.png'),
-            webDesigner: require('../assets/badges/badge-big-webdesigner.png'),
-            scienceExpert: require('../assets/badges/badge-science-style.png'),
-            truthSeeker: require('../assets/badges/badge-big-truth.png'),
-            womensHealth:require('../assets/badges/badge-big-womensHealth.png'),
-            textile: require('../assets/badges/badge-big-textile.png'),
-            nasa: require('../assets/badges/badge-big-space.png'),
-
-
-        }
+    scienceExpert: require('../assets/badges/badges-science.png'),
+    truthSeeker: require('../assets/badges/badges-truth.png'),
+    womensHealth: require('../assets/badges/badges-women.png'),
+    textile: require('../assets/badges/badges-textile.png'),
+    big: {
+        seniorFirstAid: require('../assets/badges/badge-big-firstAid.png'),
+        socialInnovator: require('../assets/badges/badge-big-social.png'),
+        animals: require('../assets/badges/badge-big-animals.png'),
+        webDesigner: require('../assets/badges/badge-big-webdesigner.png'),
+        scienceExpert: require('../assets/badges/badge-science-style.png'),
+        truthSeeker: require('../assets/badges/badge-big-truth.png'),
+        womensHealth:require('../assets/badges/badge-big-womensHealth.png'),
+        textile: require('../assets/badges/badge-big-textile.png'),
+        nasa: require('../assets/badges/badge-big-space.png'),
+      }
     },
 paths.journeyScreen = {
     journeyCarousel: {
@@ -220,10 +207,7 @@ paths.journeyScreen = {
         journeyImage: require('../assets/journey/journey-badge.png'),
         journeyCard: require('../assets/journey/journey-card.png'),
         completed: require('../assets/journey/journey-completed.png'),
-
-    },
-
-
+    }
 },
 paths.awardScreen = {
     awardImage: require('../assets/award/award_gold.png'),
@@ -333,7 +317,6 @@ paths.shop = {
         tent: require('../assets/shop/card-tent.png'),
     },
 }
-
 paths.avatars = {
     pink: require('../assets/avatars/avatar01.png'),
     blue: require('../assets/avatars/avatar02.png'),

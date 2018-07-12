@@ -3,6 +3,7 @@ import Dimensions from 'Dimensions';
 import {StyleSheet, Text, View, TouchableOpacity,Image,ScrollView} from 'react-native';
 import { LinearGradient } from "expo";
 const {width, height} = Dimensions.get('window');
+const color = '#FFF2AD';
 
 // styles
 import s from '../styles/communityscreen.js';
@@ -164,7 +165,7 @@ class CommunityScreen extends React.Component {
 
   render() {
     return (
-      <LinearGradient colors={['#F9C025', '#FFDB2B']}
+      <LinearGradient colors={[color, color]}
         style={{ height: height, width:width}}>
         <TopMenu menuTitle="share" iconPath={assetPaths.topMenu.shareIcon} navigation={this.props.navigation} />
 

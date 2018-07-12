@@ -18,6 +18,8 @@ const SliderWidth = Dimensions.get('screen').width;
 const ItemWidth = 300.0;
 const ItemHeight = 600.0;
 
+const color = '#BACDFF'
+
 
 const Items = [
   {id:1,icon:require('../../assets/journey/journeyIcon_1.png'),image:require('../../assets/journey/journeyCard_1.png')},
@@ -56,7 +58,7 @@ class JourneyScreen extends React.Component {
 
   render() {
     return (
-      <LinearGradient colors={['#00C5F0', '#50EAFF']} style={{ height: height, width:width }}>
+      <LinearGradient colors={[color,color]} style={{ height: height, width:width }}>
         <TopMenu navigation={this.props.navigation} menuTitle="journeys" iconPath={assetPaths.topMenu.dashboardIcon} />
 
           <View style={{ flex: 4}}>

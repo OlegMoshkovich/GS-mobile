@@ -10,6 +10,8 @@ import Dimensions from 'Dimensions';
 const {width, height} = Dimensions.get('window');
 const CARD_HEIGHT =120;
 const CARD_WIDTH = CARD_HEIGHT - 29;
+const color = '#FFF2AD';
+
 
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
@@ -123,7 +125,7 @@ class DashboardScreen extends React.Component {
   render() {
 
     return (
-      <LinearGradient colors={['#F9C025', '#FFDB2B']} style={{ height: height,width:width, flex:1}}>
+      <LinearGradient colors={[color, color]} style={{ height: height,width:width, flex:1}}>
         <TopMenu navigation={this.props.navigation} menuTitle="connect" iconPath={assetPaths.topMenu.connectIcon} />
 
         <View style={s.container}>

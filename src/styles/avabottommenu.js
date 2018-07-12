@@ -7,8 +7,6 @@ import {
 var styles = StyleSheet.create({
 
     container: {
-
-
     },
 
     // icons next to ava
@@ -27,7 +25,6 @@ var styles = StyleSheet.create({
         height: 35,
         width: 35,
     },
-
 
     // ava
     avaMenu: {
@@ -55,23 +52,17 @@ var styles = StyleSheet.create({
         justifyContent: 'space-around',
     },
 
-
     navIconImage: {
         height: 40,
         width: 40,
     },
-
-
     // the tab that appears sometimes
-
-
     tabButton: {
         alignSelf: 'center',
         position: 'absolute',
         left: 15,
         zIndex: 0,
         bottom: -4,
-
     },
     // background image
     tabImage: {
@@ -93,22 +84,19 @@ var styles = StyleSheet.create({
         top: 15,
         alignSelf: 'center',
         zIndex: 2,
-
+        color:'white',
         fontSize: 12,
     },
-
-
-
+    
     // context icon
     contextIcon: {
-        width: 50,
-        height: 50,
+        width: 40,
+        height: 40,
         position: 'absolute',
-        right: 25,
+        right: 27,
         top: -45,
         zIndex: 12
     }
-
 
 });
 

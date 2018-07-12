@@ -11,25 +11,21 @@ var styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
     },
-
     menuText: {
-        color: "white",
+        color: "#51258A",
         fontSize: 40,
         fontFamily: 'trefoil-sans-black',
         margin: 15,
         opacity: 0.8,
     },
-
     menuNavButton: {
         margin: 20,
         height: 20,
     },
-
     menuNavButtonImage: {
         height: 40,
         width: 40
     },
-
     menuTapIconImage: {
         height: 72 / 4,
         width: 90 / 4,

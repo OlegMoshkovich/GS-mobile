@@ -9,6 +9,7 @@ const {width, height} = Dimensions.get('window');
 import TopMenu from '../components/TopMenu';
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import assetPaths from '../assetPaths';
+const color = '#A9FFBC';
 
 // global styles
 import s from '../styles/shopscreen.js';
@@ -51,7 +52,7 @@ class ShopScreen extends React.Component {
 
     return (
         <LinearGradient
-         colors={['#68D634', '#4CB034', '#3F8C2D']}
+         colors={[color, color]}
          style={{ height: height, width:width}}>
         <TopMenu menuTitle="shop" iconPath={assetPaths.shop.icons.close} navigation={this.props.navigation} />
 

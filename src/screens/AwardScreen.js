@@ -6,6 +6,7 @@ import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
 import assetPaths from '../assetPaths';
 import s from '../styles/awardscreen';
+const color = '#BACDFF'
 
 const {width, height} = Dimensions.get('window');
 
@@ -15,7 +16,7 @@ class AwardScreen extends React.Component {
   }
 
   render() {
-    return (<LinearGradient colors={['#00C5F0', '#50EAFF']} style={{ height: height, width:width }}>
+    return (<LinearGradient colors={[color,color]} style={{ height: height, width:width }}>
       <TopMenu navigation={this.props.navigation} menuTitle="awards" iconPath={assetPaths.topMenu.dashboardIcon} />
         <View style={s.awardContainer}>
           <View style={s.awardHeadlineContainer}>
@@ -41,7 +42,7 @@ class AwardScreen extends React.Component {
           </View>
         </View>
       </View>
-      <AvaBottomMenu currentSection={'dashboard'} navigation={this.props.navigation}/> 
+      <AvaBottomMenu currentSection={'dashboard'} navigation={this.props.navigation}/>
       </LinearGradient>);
   }
 }

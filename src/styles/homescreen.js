@@ -5,7 +5,6 @@ import {
 } from 'react-native';
 
 var styles = StyleSheet.create({
-
     container: {
         flex: 1
     },
@@ -21,14 +20,12 @@ var styles = StyleSheet.create({
         height: 35,
     },
 
-
     homeChatContainer: {
         height: 200,
         position: 'absolute',
-
         left: 220,
         zIndex: 12,
-        top: 80
+        top: 120
     },
 
     homeChatImage: {
@@ -42,10 +39,6 @@ var styles = StyleSheet.create({
     homeTutorialImage: {
         width: 60,
         resizeMode: 'contain',
-        
-
-        
-
     },
     chatQuestions: {width: 50, left: 80, top: -30},
 
@@ -57,19 +50,13 @@ var styles = StyleSheet.create({
     },
 
     speechInputImage: {
-
         alignSelf: 'center'
-
     },
 
-    profileButton: { top: 35, position: 'absolute', zIndex: 12, alignSelf: 'center', },
-
+    //important
+    profileButton: { top: 50, position: 'absolute', zIndex: 12, alignSelf: 'center', },
     shopButton: { bottom: 70, position: 'absolute', zIndex: 12, alignSelf: 'center', },
-
-
-    upDownButtonIcon: { width: 35, height: 35 },
-    
-
+    upDownButtonIcon: { width: 40, height: 40 },
 
     view: {
         flex: 1,
@@ -79,32 +66,26 @@ var styles = StyleSheet.create({
     viewStyle: {
         flex: 1,
         backgroundColor: 'white',
-
-
     },
-    // likely need to abstract this further, most screens will have 
+
+    // likely need to abstract this further, most screens will have
     // 3 colors so maybe gradientStart, gradientMid, gradientEnd ?
     gradientColorStart: {
         color: '#CCDBE6'
     },
 
 
-    // stand in chat text - temporary for now until we have 
+    // stand in chat text - temporary for now until we have
     // live dialog w ava
     homeChatText: {
-
-
         alignSelf: 'flex-end',
         position: 'absolute',
         bottom: 420,
     },
+
     homeChatTextImage: {
         width: 144,
     },
-
-
-
-
 
     // ava pop in from bottom (currently not shown)
     avaBottomView: {

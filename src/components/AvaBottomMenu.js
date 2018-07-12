@@ -82,8 +82,6 @@ tabAnimation = () => {
 }
 renderTabContent() {
     console.log('rendering contextual content');
-    
-
     switch(this.props.navigation.state.routeName){
 
     case 'SystemModal':
@@ -219,8 +217,6 @@ renderMenu() {
         </View>
     );
 }
-
-
 renderMenu() {
     return(
         <View style={[s.navStyle, {bottom: this.state.activated ? navMenu_active: navMenu_inactive,}]}>
@@ -364,7 +360,6 @@ renderWishlistModal() {
         </Modal>
     </View>);
 }
-
 
 render() {
     return (<View style={s.container}>

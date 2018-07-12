@@ -30,13 +30,14 @@ class TopMenu extends Component {
     }
 
     render() {
-        return (<View style ={s.container}>
+        return (
+          <View style ={s.container}>
             <Text style ={s.menuText}>{this.props.menuTitle}</Text>
-                <TouchableOpacity style ={s.menuNavButton}
-                    onPress={() => this.navigateBack()}>
-                    <Image style={s.menuNavButtonImage} source={this.props.iconPath} />
-                </TouchableOpacity>
-            
+              <TouchableOpacity style ={s.menuNavButton}
+                  onPress={() => this.navigateBack()}>
+                  <Image style={s.menuNavButtonImage} source={this.props.iconPath} />
+              </TouchableOpacity>
+
             {this.state.badgesShowing ?
                 <Modal  animationType="fade" transparent={true} visible={this.state.badgesShowing}
                         onRequestClose={() => console.log("modal closed")}>
@@ -44,7 +45,8 @@ class TopMenu extends Component {
                         <Image key={'foobar123'} style={{width: width, height: height}} source={assetPaths.staticScreens.badgesOverview} />
                     </TouchableOpacity>
                 </Modal> : null}
-            </View>);
+            </View>
+          );
     }
 }
 

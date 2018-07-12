@@ -7,6 +7,7 @@ import { Card, Button,Icon} from 'react-native-elements';
 import { Ionicons } from '@expo/vector-icons';
 import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 const  { width, height} = Dimensions.get('window');
+const color = '#BACDFF'
 
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
@@ -139,7 +140,7 @@ class DashboardScreen extends React.Component {
 
   render() {
     return (
-      <LinearGradient colors={['#00C5F0', '#50EAFF']} style={{ height: height, width:width }}>
+      <LinearGradient colors={[color,color]} style={{ height: height, width:width }}>
         <TopMenu menuTitle="dash" iconPath={assetPaths.topMenu.dashboardIcon} navigation={this.props.navigation}/>
         <Image style={s.avaProfile} source={require('../../assets/Ava-Dashboard1.png')} />
         <Image style={s.progressBar} source={require('../../assets/Dashboard_ProgressBar.png')} />

@@ -14,6 +14,7 @@ import TopMenu from '../components/TopMenu';
 import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
 const {width, height} = Dimensions.get('window');
+const color = '#BACDFF';
 
 // global styles
 import t from '../styles/shopscreen.js';
@@ -65,7 +66,7 @@ class ExploreScreen extends React.Component {
       render () {
         const { width, height } = Dimensions.get('window');
         return (
-          <LinearGradient colors={['#00C5F0', '#50EAFF']} style={{ height: height, width:width} }>
+          <LinearGradient colors={[color, color]} style={{ height: height, width:width} }>
             <TopMenu navigation={this.props.navigation} menuTitle="explore" iconPath={assetPaths.topMenu.exploreIcon} />
             <View style={{ flex: 5}}>
               <Carousel

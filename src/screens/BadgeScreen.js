@@ -5,6 +5,7 @@ import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
+const color = '#BACDFF'
 
 
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
@@ -33,7 +34,7 @@ class BadgeScreen extends React.Component {
           <Image style={s.badgeCarousel} resizeMode="contain"
             source={assetPaths.badges.progress.truthSeeker} />
           <Text style={s.badgeTitleText}>Truth Seeker</Text>
-          <Text style={s.badgeCompletion}>(67% complete)</Text>z
+          <Text style={s.badgeCompletion}>(67% complete)</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'style'})} style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain"
@@ -59,8 +60,6 @@ class BadgeScreen extends React.Component {
             flexDirection: 'row',
             flexWrap: 'wrap',
             marginBottom: 200,
-
-
         }}>
           <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'firstaid'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain"
@@ -115,7 +114,7 @@ class BadgeScreen extends React.Component {
   render() {
     return (
       <LinearGradient
-      colors={['#00C5F0', '#50EAFF']}
+      colors={[color, color]}
         style={{ height: height, width:width }}>
 
         <TopMenu menuTitle="badges" iconPath={assetPaths.topMenu.dashboardIcon} navigation={this.props.navigation} />

@@ -10,6 +10,7 @@ import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import CollapseView from "react-native-collapse-view";
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 import { NavigationActions } from 'react-navigation';
+const color = '#FFF2AD';
 
 import assetPaths from '../assetPaths';
 
@@ -54,19 +55,10 @@ class ChatScreen extends React.Component {
 
    onSwipeLeft(gestureState) {
 
-     return this.props
-                 .navigation
-                 .dispatch(NavigationActions.reset(
-                   {
-                      index: 0,
-                      actions: [
-                        NavigationActions.navigate({ routeName: 'ConnectDashboard'})
-                      ]
-                    }));
-    }
 
 
-     console.log("printing gesture state" + gestureState.moveX);
+
+
 
 
      return
@@ -293,7 +285,7 @@ class ChatScreen extends React.Component {
 
   >
       <LinearGradient
-      colors={['#F9C025', '#FFDB2B']}
+      colors={[color, color]}
         style={{ height: height, width:width}}>
 
         <TopMenu navigation={this.props.navigation}

@@ -9,6 +9,7 @@ const {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
 import ShopScreen from './ShopScreen';
 import s from '../styles/systemscreen';
+const color = '#FFC1C1';
 
 import { DraggableBox } from '../TestComponents/draggable';
 import { DraggableBox1 } from '../TestComponents/draggable1';
@@ -88,7 +89,7 @@ class SystemScreen extends React.Component {
     return (
 
       <LinearGradient
-       colors={['#7E97D5', '#C499CD', '#FEC8E3']}
+       colors={[color, color]}
        style={[{ height: height, width:width}]}>
 
        <TouchableOpacity
