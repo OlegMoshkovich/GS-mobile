@@ -4,29 +4,24 @@ import {StyleSheet, Text, View, TouchableOpacity,Image,ScrollView} from 'react-n
 import { LinearGradient } from "expo";
 const {width, height} = Dimensions.get('window');
 const color = '#FFF2AD';
-
 // styles
 import s from '../styles/communityscreen.js';
-
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
 import assetPaths from '../assetPaths';
 
 class CommunityScreen extends React.Component {
 
- constructor(props) {
+  constructor(props) {
     super(props);
     this.state = {
       modalVisible: false,
       activated    : true,
     };
-  }
-
+ }
   setModalVisible(visible) {
     this.setState({modalVisible: visible});
   }
-
-
   renderStories() {
     return(
     <View style={StyleSheet.absoluteFill} >
@@ -41,9 +36,6 @@ class CommunityScreen extends React.Component {
       </ScrollView>
     </View>);
   }
-
-
-
   renderFeaturedStoriesSection() {
     return(
       <ScrollView horizontal= {true} style={s.featuredStoriesScrollView} showsHorizontalScrollIndicator={false}>
@@ -74,10 +66,6 @@ class CommunityScreen extends React.Component {
 
     );
   }
-
-
-
-
   renderNewStoriesSection() {
     // TODO create actual cards
     return(
@@ -105,7 +93,6 @@ class CommunityScreen extends React.Component {
       </ScrollView>
     );
   }
-
   renderAllStoriesSection() {
     // TODO create cards
     return(
@@ -129,11 +116,10 @@ class CommunityScreen extends React.Component {
      </ScrollView >
     );
   }
-
-
   renderSearchBar() {
     return(
       <View style={[s.searchBarView, {width: width}]}>
+      
         <Image style={s.searchBarStyle}source={require('../../assets/share/searchBar.png')} />
         <View style={s.tagAndAtViews}>
           <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10}]}>Trending</Text>
@@ -162,7 +148,6 @@ class CommunityScreen extends React.Component {
       </View>
     );
   }
-
   render() {
     return (
       <LinearGradient colors={[color, color]}
@@ -178,6 +163,7 @@ class CommunityScreen extends React.Component {
       </LinearGradient>
     );
   }
+
 }
 
 export default CommunityScreen;

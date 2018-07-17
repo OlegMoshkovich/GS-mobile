@@ -3,6 +3,7 @@ import Dimensions from 'Dimensions';
 import { Text, View, Modal, TouchableOpacity,Image, Animated, ScrollView} from 'react-native';
 import s from '../styles/avabottommenu';
 import assetPaths from '../assetPaths.js'
+import { Constants, Audio } from 'expo';
 
 const {width, height} = Dimensions.get('window');
 const heightResume = 560;
@@ -125,11 +126,25 @@ renderTabContent() {
             </Animated.View> )
   }
 }
-animate = () => {
+animate = async () => {
   console.log(this.state.tab)
     this.setState({
       tab: !this.state.tab,
     })
+
+      const source = {
+        uri: "http://soundimage.org/wp-content/uploads/2016/04/UI_Quirky34.mp3"
+      };
+
+      try {
+        await Audio.setIsEnabledAsync(true);
+        const sound = new Audio.Sound();
+        await sound.loadAsync(source);
+        await sound.playAsync();
+      } catch(error) {
+        console.error(error);
+      }
+
 
     if (this.state.blurRadius == maxBlurRadius) { this.setState({ blurRadius: initialBlurRadius });
     } else { this.setState({ blurRadius: maxBlurRadius }); }
@@ -276,7 +291,9 @@ renderAva() {
     return(<TouchableOpacity
                 style = {{  alignSelf: 'flex-end', position: 'absolute', right: 5, zIndex: 1,
                         bottom: this.state.activated ? avaLocationBottom_active : avaLocationBottom_inactive,
-                        height: avaHeight,}} onLongPress={() => this.setState({chatInterface: true})} onPress={this.animate} >
+                        height: avaHeight,}} onLongPress={() => this.setState({chatInterface: true})}
+                        onPress={this.animate
+                        } >
                 { this.props.contextIcon ? this.renderContextIcon() : null }
                 { this.renderRandomAva()}
         </TouchableOpacity>);

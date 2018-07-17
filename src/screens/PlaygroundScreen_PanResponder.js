@@ -8,6 +8,7 @@ import {  StatusBar,
   View,
   PanResponder,
   TouchableOpacity,
+  Button,
   Dimensions, } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { DraggableBox } from '../TestComponents/draggable';
@@ -15,6 +16,7 @@ import { LoremIpsum } from '../TestComponents/common';
 import { CardTest } from '../components/CardTest';
 import { GiftedChat } from 'react-native-gifted-chat'
 const { width, height } = Dimensions.get("window");
+import { Constants, Audio } from 'expo';
 
 const getDirectionAndColor = ({ moveX, moveY, dx, dy}) => {
   const draggedDown = dy > 30;
@@ -72,6 +74,25 @@ class PlaygroundScreen_PanResponder extends React.Component{
         <StatusBar hidden />
         <View style={styles.zone1} />
         <View style={styles.center}>
+        <View >
+            <Button
+              title="Chewie we're home"
+              onPress={async () => {
+                const source = {
+                  uri: "http://www.slspencer.com/Sounds/Chewbacca/Chewie3.mp3"
+                };
+
+                try {
+                  await Audio.setIsEnabledAsync(true);
+                  const sound = new Audio.Sound();
+                  await sound.loadAsync(source);
+                  await sound.playAsync();
+                } catch(error) {
+                  console.error(error);
+                }
+              }}
+            />
+          </View>
           <TouchableOpacity onPress={this.onPress}>
             <Text>{this.state.zone}</Text>
           </TouchableOpacity>
