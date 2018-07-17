@@ -64,8 +64,8 @@ var styles = StyleSheet.create({
     },
 
     searchBarStyle: {
-        width: 335,
-        height: 50,
+        width: 345,
+        height: 40,
         marginLeft: 15.
     },
 
