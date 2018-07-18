@@ -6,41 +6,53 @@ import {
 
 var styles = StyleSheet.create({
 
-
-
     mainScrollView: {
         flex:1,
         top: 80,
         marginBottom:70,
     },
 
-    storiesScrollView: { top: 0 },
+    storiesScrollView: {
+      top: 0
+    },
 
-    featuredStoriesScrollView: { marginTop: 30, },
+    featuredStoriesScrollView: {
+      marginTop: 30,
+    },
 
-    searchBarView: { height: 200, top: 15, },
-    tagAndAtViews: {marginTop: 20, height: 300, },
+    searchBarView: {
+      height: 200,
+      top: 15,
+    },
+
+    tagAndAtViews: {
+      marginTop: 20,
+      height: 300,
+    },
 
     tagIcon: {
-        width: 30, height: 30, left: 20, position: 'absolute', top: 35},
+      width: 30,
+      height: 30,
+      left: 20,
+      position: 'absolute',
+      top: 35
+    },
 
     atIcon: {
-        width: 30, height: 30, left: 20, position: 'absolute', top: 75},
-
-
-
-
+      width: 30,
+      height: 30,
+      left: 20,
+      position: 'absolute',
+      top: 75
+    },
 
     // tags etc
-
-
     tagMenu: {
         paddingLeft: 56,
         position: "absolute",
         top: 33,
         zIndex: -1,
         paddingRight: 20,
-
     },
 
     atMenu: {
@@ -49,16 +61,12 @@ var styles = StyleSheet.create({
         top: 73,
         zIndex: -1,
         paddingRight: 20,
-
-
     },
 
     searchBarStyle: {
-        width: 335,
-        height: 50,
+        width: 345,
+        height: 40,
         marginLeft: 15.
-
-
     },
 
     searchIcon: {
@@ -68,12 +76,10 @@ var styles = StyleSheet.create({
         position: 'absolute',
         zIndex: 3,
         top: 37,
-
-
     },
 
     pill: {
-        backgroundColor: "white",
+        backgroundColor: "#FD8059",
         borderRadius: 24,
         height: 30,
         width: 100,
@@ -85,16 +91,11 @@ var styles = StyleSheet.create({
         marginRight: 5,
     },
 
-
     pillText: {
         fontFamily: 'trefoil-sans-regular',
-        color: 'grey',
+        color: 'white',
         fontSize: 14,
-
-
-
     },
-
 
     featuredStoriesTitle: {
         color: "white",
@@ -118,15 +119,6 @@ var styles = StyleSheet.create({
         marginRight: 8,
 
     },
-
-
-
-
-
-
-
-
-
 });
 
 export default styles;
