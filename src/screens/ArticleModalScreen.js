@@ -54,12 +54,13 @@ class ModalScreen extends React.Component {
           resizeMode="cover"
           source={sourceUri}
        />
+
        <Text style ={s.articleText}>{text}</Text>
        <Text style ={s.articleText}>{text}</Text>
        <Text style ={s.articleText}>{text}</Text>
        <Text style ={s.articleText}>{text}</Text>
 
-       
+
      </ScrollView>
 
       </View>
