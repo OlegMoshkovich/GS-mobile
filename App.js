@@ -2,20 +2,19 @@ console.disableYellowBox = true;
 import React from 'react';
 import { Animated} from 'react-native';
 import { Font } from 'expo';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import {StackNavigator,TabNavigator} from 'react-navigation';
 import MapScreen from './src/screens/MapScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import CommunityScreen from './src/screens/CommunityScreen';
 import CalendarScreen from './src/screens/CalendarScreen';
 import ChatScreen from './src/screens/ChatScreen';
 import CommsDashboardScreen from './src/screens/CommsDashboardScreen'
-import ArticleModalScreen from './src/screens/ArticleModalScreen_';
+import ArticleModalScreen from './src/screens/ArticleModalScreen';
 import ShopScreen from './src/screens/ShopScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
 import ExploreScreen from './src/screens/ExploreScreen';
 import EventScreen from './src/screens/EventScreen';
 import BadgeScreen from './src/screens/BadgeScreen';
-import PlaygroundScreen from './src/screens/PlaygroundScreen_PanResponder';
 import JourneyScreen from './src/screens/JourneyScreen';
 import AwardScreen from './src/screens/AwardScreen';
 import StoryModalScreen from './src/screens/StoryModalScreen';
@@ -32,7 +31,6 @@ const {height} = Dimensions.get('window');
 let MyTransition = (index, position) => {
     const inputRange = [index - 1, index, index + 1];
     const opacity = position.interpolate({ inputRange, outputRange: [0, 1, 1],});
-    const scaleY = position.interpolate({ inputRange,  outputRange: ([0.8, 1, 1]),});
     return { opacity };
 };
 
@@ -49,7 +47,7 @@ const transitionConfig = () => {
   return {
     transitionSpec: { duration: 200, timing: Animated.timing, useNativeDriver: true},
     screenInterpolator: sceneProps => {
-      const {layout, position, scene} = sceneProps;
+      const {position, scene} = sceneProps;
       const params = scene.route.params || {}
       const thisSceneIndex = scene.index
       let yVariable = height;

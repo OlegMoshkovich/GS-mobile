@@ -1,22 +1,14 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import {Platform,StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Button, ActivityIndicator, Alert, Animated} from 'react-native';
-import {Marker, PROVIDER_GOOGLE } from 'react-native-maps'
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
-import { LinearGradient ,Constants, MapView, Location, Permissions } from 'expo';
-import Swiper from 'react-native-swiper';
-import CalendarScreen from './CalendarScreen.js';
-import ChatScreen from './ChatScreen.js';
-import PlaygroundScreen from './PlaygroundScreen.js';
+import {Text, View,Image, Animated} from 'react-native';
+import { LinearGradient, MapView, Location, Permissions } from 'expo';
 
 
 import assetPaths from '../assetPaths';
 
 
-import {GiftedChat } from 'react-native-gifted-chat';
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
-import NavMenu from '../components/NavMenu';
 const color = '#FFF2AD';
 
 
@@ -25,22 +17,12 @@ const color = '#FFF2AD';
 import s from '../styles/mapscreen';
 
 // map specific data
-import mapStyle from '../styles/map/mapstyle.js';
-
-
 import mapMarkers from '../../data/map/markers.js';
 import mapRegion from '../../data/map/region.js';
 import mapLocation from '../../data/map/location.js';
 
-const RandomNumber = Math.floor(Math.random() * 100) + 1
 const {width, height} = Dimensions.get('window');
 
-const Images = [
-  { uri: "../../assets/Avatar_1.png" },
-  { uri: "https://i.imgur.com/N7rlQYt.jpg" },
-  { uri: "https://i.imgur.com/UDrH0wm.jpg" },
-  { uri: "https://i.imgur.com/Ka8kNST.jpg" }
-]
 const CARD_HEIGHT = height / 4.5;
 const CARD_WIDTH = CARD_HEIGHT - 42;
 

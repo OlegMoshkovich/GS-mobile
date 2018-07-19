@@ -88,7 +88,7 @@ class HomeScreen extends React.Component {
     if (this.state.showVideo) {
       return (<View style={{width: width, height: height}}>
         <Video
-          source={{ uri: 'http://www.ventcases.com/ava1.mp4' }}
+          source={{ uri: 'https://s3.amazonaws.com/juliette-app-homescreen-video/ava1.mp4' }}
           rate={1.0}
           volume={1.0}
           isMuted={false}
@@ -102,7 +102,7 @@ class HomeScreen extends React.Component {
     } else {
       return (<View style={{ flex: 1, height: height, width: width}}>
         <Video
-          source={{ uri: 'http://www.ventcases.com/ava1.mp4' }}
+          source={{ uri: 'https://s3.amazonaws.com/juliette-app-homescreen-video/ava1.mp4' }}
           rate={1.0}
           volume={1.0}
           isMuted={false}

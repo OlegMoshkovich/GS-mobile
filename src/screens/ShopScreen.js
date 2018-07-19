@@ -60,6 +60,9 @@ class ShopScreen extends React.Component {
           style ={{ top:91, position:'absolute', height: height}} showsVerticalScrollIndicator={false} >
           <Text style ={s.featuredTitle}>Featured</Text>
           <ScrollView horizontal= {true} showsHorizontalScrollIndicator={false}>
+            <FeaturedProduct key={6} swaps={true} imageTitle="Swaps" imageNumber={6} productDots={[
+                { top: 147, left: 168, productBubble: assetPaths.shop.featuredProducts[6].bubbles[0],
+                  bubbleOffset: { top: -55, left: 18 }} ]} />
             <FeaturedProduct key={0} imageTitle="Gear" imageNumber={0} productDots={[
                 { top: 124, left: 130, productBubble: assetPaths.shop.featuredProducts[0].bubbles[0],
                   bubbleOffset: { top: -55, left: -112 }},

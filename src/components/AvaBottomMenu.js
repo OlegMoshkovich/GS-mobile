@@ -3,7 +3,7 @@ import Dimensions from 'Dimensions';
 import { Text, View, Modal, TouchableOpacity,Image, Animated, ScrollView} from 'react-native';
 import s from '../styles/avabottommenu';
 import assetPaths from '../assetPaths.js'
-import { Constants, Audio } from 'expo';
+import { Audio } from 'expo';
 
 const {width, height} = Dimensions.get('window');
 const heightResume = 560;
@@ -23,8 +23,6 @@ const gradientBottom_inactive = 0;
 const navMenu_active = -200;
 const navMenu_inactive = 50;
 
-const tabLocationBottom_inactive = -2;
-const tabLocationBottom_active = -100;
 const tabHeight = 50;
 
 class AvaBottomMenu extends Component {
@@ -119,7 +117,7 @@ renderTabContent() {
             </Animated.View>);
 
     case 'Events':
-      return(<Animated.View key={'fooYes3838'} style={{ left:5, zIndex: 14, position:'absolute',}}>
+      return(<Animated.View key={'test'} style={{ left:5, zIndex: 14, position:'absolute',}}>
                 <ScrollView style={{height: 820, paddingBottom: 200 }} bounces={false}>
                     <Image key={'eventAllEvents'} style={{top: -32, width: 365, height: 1055 , zIndex: 999, marginBottom: 230}} source={assetPaths.staticScreens.eventScreen} />
                 </ScrollView>
