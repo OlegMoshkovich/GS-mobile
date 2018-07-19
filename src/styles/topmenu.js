@@ -16,7 +16,6 @@ var styles = StyleSheet.create({
         fontSize: 40,
         fontFamily: 'trefoil-sans-black',
         margin: 15,
-        opacity: 0.8,
     },
     menuNavButton: {
         margin: 20,
