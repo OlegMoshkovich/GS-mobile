@@ -1,7 +1,7 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
 import { View, Modal, TouchableOpacity, Image, Animated} from 'react-native';
-import { Video } from "expo";
+import { Video, Constants, Audio } from "expo";
 import {swipeDirections} from 'react-native-swipe-gestures';
 import s from '../styles/homescreen';
 import AvaBottomMenuHomescreen from '../components/AvaBottomMenuHomescreen';
@@ -45,7 +45,23 @@ class HomeScreen extends React.Component {
 
   renderNotification() {
     return(<View style={[s.notificationContainer]}>
-        <TouchableOpacity>
+        <TouchableOpacity
+
+        onPress={ async () => {
+          const source = {
+            uri: "http://www.slspencer.com/Sounds/Chewbacca/Chewie3.mp3"
+          };
+
+          try {
+            await Audio.setIsEnabledAsync(true);
+            const sound = new Audio.Sound();
+            await sound.loadAsync(source);
+            await sound.playAsync();
+            console.log('the sound button is pressed')
+          } catch(error) {
+            console.error(error);
+          }
+        }}>
           <Image style={s.notificationIcon} source={assetPaths.homeScreen.icons.notificationIcon} />
         </TouchableOpacity>
       </View>);

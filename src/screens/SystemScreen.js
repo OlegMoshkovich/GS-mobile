@@ -2,10 +2,10 @@ import React from 'react';
 import Dimensions from 'Dimensions';
 import { Text, StyleSheet, View,PanResponder,Vibration, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
 import Deck from '../Deck';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import { StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
 import {Card, Button,Icon} from 'react-native-elements';
-const {width, height} = Dimensions.get('window');
+const  {width, height} = Dimensions.get('window');
 import Swiper from 'react-native-swiper';
 import ShopScreen from './ShopScreen';
 import s from '../styles/systemscreen';
@@ -19,14 +19,11 @@ import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
 import assetPaths from '../assetPaths';
 
-
-
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SWIPE_THRESHOLD = .05*SCREEN_WIDTH;
 const SWIPE_OUT_DURATION = 300;
 
 class SystemScreen extends React.Component {
-
   constructor(props) {
     super(props);
     console.log('this is system screen' ,this.props.navigation)
@@ -66,7 +63,6 @@ class SystemScreen extends React.Component {
   switch = () => {
     console.log( " I am in the switch",this.state.settings)
 
-
     this.setState({
       settings: !this.state.settings,
       }
@@ -74,53 +70,37 @@ class SystemScreen extends React.Component {
   }
   users = () => {
     console.log( " I am in the users",this.state.users)
-
-
     this.setState({
       users: !this.state.users,
-      }
-      )
+      })
   }
-
   render() {
-
     let { fadeAnim } = this.state;
 
     return (
-
       <LinearGradient
        colors={[color, color]}
        style={[{ height: height, width:width}]}>
-
        <TouchableOpacity
-         style={[s.exit, {zIndex: 100}]} onPress={() => this.props.navigation.goBack()} >
-         <Image style ={{width:35,height:35}} source={assetPaths.shop.icons.close}/>
-        </TouchableOpacity>
-
+          style={[s.exit, {zIndex: 100}]} onPress={() => this.props.navigation.goBack()} >
+          <Image style ={{width:35,height:35}} source={assetPaths.shop.icons.close}/>
+       </TouchableOpacity>
        <TopMenu menuTitle="profile" />
-
-
        <View style={[s.profileContainer,{left: this.state.users ? 600:50}]}>
            <TouchableOpacity  >
            <Image style={s.percentage}
              source={require('../../assets/icons/Profile/Percentage.png')} />
            </TouchableOpacity>
-
            <TouchableOpacity onPress={this.switch} >
            <Image style={s.avaProfile}
              source={require('../../assets/icons/Profile/Ava.png')} />
            </TouchableOpacity>
-
            <TouchableOpacity onPress={this.users}>
            <Image style={s.addUser}
              source={require('../../assets/icons/Profile/AddUser.png')} />
            </TouchableOpacity>
-
        </View>
-
-
-        <View style={[s.profileContainerUsers,{left: this.state.users ? 10:600}]}>
-
+       <View style={[s.profileContainerUsers,{left: this.state.users ? 10:600}]}>
            <TouchableOpacity onPress={this.users} >
            <Image style={s.avaProfile}
              source={require('../../assets/icons/Profile/Profile_Ava.png')} />
@@ -134,29 +114,19 @@ class SystemScreen extends React.Component {
              source={require('../../assets/icons/Profile/Profile_Maud.png')} />
            </TouchableOpacity>
        </View>
-
-
-
-
-      <Text style={s.userName}>@Ava_G</Text>
-
-
-
-     <View style={{position:'absolute',left: this.state.settings ? 600:100,top:300}}>
-            <DraggableBox/>
-            <DraggableBox1/>
-            <DraggableBox2/>
-     </View>
-
-<View style={{
-  posiiton:'absolute',
-  flex:1,
-  top:-50,
-  left: this.state.settings ? 0:600,
-  zIndex:0
-}}>
-
-
+       <Text style={s.userName}>@Ava_G</Text>
+       <View style={{position:'absolute',left: this.state.settings ? 600:100,top:300}}>
+              <DraggableBox/>
+              <DraggableBox1/>
+              <DraggableBox2/>
+       </View>
+      <View style={{
+        posiiton:'absolute',
+        flex:1,
+        top:-50,
+        left: this.state.settings ? 0:600,
+        zIndex:0
+      }}>
       <View style={styles.row}>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.account} style={styles.image}/>
@@ -171,7 +141,6 @@ class SystemScreen extends React.Component {
           <Text style={s.iconText}>Notification</Text>
        </TouchableOpacity>
       </View>
-
       <View style={styles.row}>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.avatar} style={styles.image}/>
@@ -186,7 +155,6 @@ class SystemScreen extends React.Component {
           <Text style={s.iconText}>Permissions</Text>
        </TouchableOpacity>
       </View>
-
       <View style={styles.row}>
        <TouchableOpacity>
           <Image source={assetPaths.systemScreen.icons.orders} style={styles.image}/>

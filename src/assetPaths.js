@@ -222,6 +222,7 @@ paths.awardScreen = {
         summit: require('../assets/award/award-journey.png'),
     }
 },
+
 paths.systemScreen = {
     icons: {
         account: require('../assets/icons/System/1_Account.png'),
@@ -238,6 +239,7 @@ paths.systemScreen = {
         help: require('../assets/icons/System/12_Help.png'),
     }
 },
+
 paths.navMenu = {
     dotOn: require('../assets/navMenu/navDot_on.png'),
     dotOff: require('../assets/navMenu/navDot_off.png')
@@ -246,7 +248,7 @@ paths.shop = {
     icons: {
         wishlist: require('../assets/shop/shop-heart.png'),
         close: require('../assets/shop/shop-close-button.png'),
-        search: require('../assets/shop/shopSearch.png'),
+        search: require('../assets/shop/icon-search.png'),
         see: require('../assets/shop/see.png'),
         dot: require('../assets/shop/dot.png')
     },

@@ -117,7 +117,6 @@ var styles = StyleSheet.create({
         marginBottom: 10,
         left: 10,
         marginRight: 8,
-
     },
 });
 
