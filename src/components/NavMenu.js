@@ -12,13 +12,10 @@ class NavMenu extends Component {
         for (let x = 0; x < 5; x++) {
             if (x == this.props.highlighted) { opacity = {opacity: 1}
             } else { opacity = {opacity: 0.5} }
-            
             dots.push(<Image key={x} source={assetPaths.navMenu.dotOn} style={[s.navDotIcon, opacity]}/>)
         }
         return(<View style={s.navContainer}>{ dots }</View>);
     }
-
-
 }
 
 export default NavMenu
