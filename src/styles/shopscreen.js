@@ -55,22 +55,22 @@ var styles = StyleSheet.create({
     // products
 
     featuredTitle: {
-        color: "white",
+        color: "#512589",
         fontSize: 18,
         fontFamily: 'trefoil-sans-semibold',
         marginBottom: 10,
         marginTop: 20,
-        left: 20,
+        left: 17,
 
     },
 
 
     whatsNewTitle: {
-        color: "white",
+        color: "#512589",
         fontSize: 22,
-        left: 30,
+        left: 17,
         marginBottom: 10,
-        fontFamily: 'trefoil-sans-regular',
+        fontFamily: 'trefoil-sans-semibold',
 
     },
 
@@ -114,21 +114,20 @@ var styles = StyleSheet.create({
     },
 
     searchIcon: {
-        width: 54,
-        height: 54,
-        marginLeft: 10,
+        width: 33,
+        height: 33,
+        marginLeft: 15,
         position: 'absolute',
         zIndex: 3,
         top: 37,
        
 
     },
-
     pill: {
-        backgroundColor: "white",
+        backgroundColor: "#FD8059",
         borderRadius: 24,
-        height: 40,
-        width: 130,
+        height: 30,
+        width: 100,
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
@@ -137,16 +136,11 @@ var styles = StyleSheet.create({
         marginRight: 5,
     },
 
-
     pillText: {
         fontFamily: 'trefoil-sans-regular',
-        color: 'grey',
-        fontSize: 18,
-
-        
-
-    }
-
+        color: 'white',
+        fontSize: 14,
+    },
 
 
 

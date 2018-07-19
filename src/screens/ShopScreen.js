@@ -91,7 +91,7 @@ class ShopScreen extends React.Component {
           </ScrollView>
           <View style={s.categorySection}>
             <Text style ={s.whatsNewTitle}>Categories</Text>
-            <Image style={s.searchIcon} resizeMode="cover" source={assetPaths.shop.icons.search} />
+            <Image style={s.searchIcon} resizeMode="contain" source={assetPaths.shop.icons.search} />
             <ScrollView horizontal= {true} style={s.categoryMenu} showsHorizontalScrollIndicator={false} >
               <View style={s.pill}><Text style={s.pillText}>Outdoors</Text></View>
               <View style={s.pill}><Text style={s.pillText}>Badges</Text></View>
