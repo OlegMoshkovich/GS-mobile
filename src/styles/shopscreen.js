@@ -107,8 +107,8 @@ var styles = StyleSheet.create({
     },
 
     searchIcon: {
-        width: 33,
-        height: 33,
+        width: 32,
+        height: 32,
         marginLeft: 15,
         position: 'absolute',
         zIndex: 3,
