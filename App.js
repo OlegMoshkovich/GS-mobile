@@ -23,6 +23,8 @@ import BadgeModalScreen from './src/screens/BadgeModalScreen';
 import PostModalScreen from './src/screens/PostModalScreen';
 import Dimensions from 'Dimensions';
 import SystemScreen from './src/screens/SystemScreen';
+import MicroBadgeScreen from './src/screens/MicroBadgeScreen';
+
 
 
 const {height} = Dimensions.get('window');
@@ -124,6 +126,7 @@ class App extends React.Component {
       Connect:{screen: ConnectStack},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
+      MicroBadge: { screen: MicroBadgeScreen },
       Explore: { screen: ExploreScreen },
       Dashboard: { screen: EducationStack },
       },
