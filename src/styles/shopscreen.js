@@ -75,12 +75,8 @@ var styles = StyleSheet.create({
     },
 
     productContainer: {
-
         flex: 1,
         flexDirection: 'row',
-
-
-
     },
 
     productImage: {
@@ -105,12 +101,9 @@ var styles = StyleSheet.create({
     },
 
     categoryMenu: {
-        
         paddingLeft: 60,
         position: "absolute",
         top: 37,
-
-
     },
 
     searchIcon: {
@@ -120,9 +113,8 @@ var styles = StyleSheet.create({
         position: 'absolute',
         zIndex: 3,
         top: 37,
-       
-
     },
+
     pill: {
         backgroundColor: "#FD8059",
         borderRadius: 24,

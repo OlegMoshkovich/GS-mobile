@@ -1,23 +1,20 @@
+
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, TouchableOpacity,TouchableWithoutFeedback,Image, TouchableHighlight,Toggle, Alert,
-Platform, View, StatusBar, SafeAreaView} from 'react-native';
-import Deck from '../Deck';
-import { StackNavigator,TabNavigator, TabBarBottom } from 'react-navigation';
+import { Text, TouchableWithoutFeedback,Image,View} from 'react-native';
+
 import { LinearGradient } from "expo";
-import { Card, Button,Icon } from 'react-native-elements';
+import { Card } from 'react-native-elements';
 import { USE_NATIVE_DRIVER } from '../TestComponents/config';
 import { Constants } from 'expo';
 import Carousel from 'react-native-snap-carousel'; // 3.4.0
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
-import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
-const {width, height} = Dimensions.get('window');
+
+const {width} = Dimensions.get('window');
 const color = '#BACDFF';
 
-// global styles
-import t from '../styles/shopscreen.js';
 
 import {
   PanGestureHandler,
