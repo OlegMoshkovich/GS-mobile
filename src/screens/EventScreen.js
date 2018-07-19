@@ -1,29 +1,23 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { Modal, StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
-import {Marker, PROVIDER_GOOGLE } from 'react-native-maps'
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
-import { LinearGradient ,Constants, MapView, Location, Permissions } from 'expo';
-import {Card, Button,Icon} from 'react-native-elements';
-import Swiper from 'react-native-swiper';
+
+import { View, Image, Animated} from 'react-native';
+import { LinearGradient, MapView, Location, Permissions } from 'expo';
 import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
-import NavMenu from '../components/NavMenu';
 import assetPaths from '../assetPaths';
 import s from '../styles/eventscreen';
-const color = '#FFF2AD';
 
 // map specific data
-import mapStyle from '../styles/map/mapstyle.js';
 import mapMarkers from '../../data/map/markers.js';
 import mapMarkersFriends from '../../data/map/markersFriends.js';
 import mapRegion from '../../data/map/region.js';
 import mapLocation from '../../data/map/location.js';
 
+const color = '#FFF2AD';
 const CARD_WIDTH = 664 / 2;
 const CARD_HEIGHT = 334 / 2;
 const AVATAR_ICON = 80;
-
 const {width, height} = Dimensions.get('window');
 
 
@@ -47,7 +41,6 @@ class EventScreen extends React.Component {
  }
 
  toggleMap() {
-   console.log("---- toggle map");
     if (this.state.showingFriends) {
       this.setState({
         markers: mapMarkers,
