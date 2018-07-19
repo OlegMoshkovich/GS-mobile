@@ -22,10 +22,22 @@ class FeaturedProduct extends React.Component {
                 <Image style={s.featuredProductImage}
                 source={assetPaths.shop.featuredProducts[this.props.imageNumber].image} />
                 <Text style={s.featuredTextInImage}>{this.props.imageTitle}</Text>
-                <TouchableOpacity onPress={() => this.showBubbles()}>
-                    <Image style={s.featuredLookIcon} source={assetPaths.shop.icons.see} />
-                </TouchableOpacity>
                 
+                {this.props.swaps == true ? 
+   <TouchableOpacity onPress={() => this.showBubbles()}>
+   <Image style={s.featuredLookIcon} source={assetPaths.shop.icons.trade} />
+</TouchableOpacity>         :
+
+            <TouchableOpacity onPress={() => this.showBubbles()}>
+            <Image style={s.featuredLookIcon} source={assetPaths.shop.icons.see} />
+        </TouchableOpacity>
+        
+
+                }
+                
+
+
+
                 {this.props.productDots.map((dot) => {
                     num += 1;
                     return <View key={num*2} style={[s.bubbleView, {top: dot.top, left: dot.left}]}>

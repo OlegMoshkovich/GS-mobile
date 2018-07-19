@@ -250,7 +250,8 @@ paths.shop = {
         close: require('../assets/shop/shop-close-button.png'),
         search: require('../assets/shop/shopSearch.png'),
         see: require('../assets/shop/see.png'),
-        dot: require('../assets/shop/dot.png')
+        dot: require('../assets/shop/dot.png'),
+        trade: require('../assets/shop/trade.png'),
     },
     productFeatured: require('../assets/shop/shop-featured-01.png'),
     productFeatured2: require('../assets/shop/shop-featured-02.png'),
@@ -296,6 +297,14 @@ paths.shop = {
             image: require('../assets/shop/featuredProduct06.png'),
             bubbles: [
                 require ('../assets/shop/bubble-headphones.png'),
+            ],
+        },
+        
+        
+        {
+            image: require('../assets/shop/featuredProduct00.png'),
+            bubbles: [
+                require ('../assets/shop/bubble-swaps.png'),
             ],
         },
     ],
