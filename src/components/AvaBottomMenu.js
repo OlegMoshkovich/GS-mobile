@@ -126,11 +126,25 @@ renderTabContent() {
             </Animated.View> )
   }
 }
-animate = () => {
-    console.log(this.state.tab)
+animate = async () => {
+  console.log(this.state.tab)
     this.setState({
       tab: !this.state.tab,
     })
+
+      const source = {
+        uri: "http://soundimage.org/wp-content/uploads/2016/04/UI_Quirky34.mp3"
+      };
+
+      try {
+        await Audio.setIsEnabledAsync(true);
+        const sound = new Audio.Sound();
+        await sound.loadAsync(source);
+        await sound.playAsync();
+      } catch(error) {
+        console.error(error);
+      }
+
 
     if (this.state.blurRadius == maxBlurRadius) { this.setState({ blurRadius: initialBlurRadius });
     } else { this.setState({ blurRadius: maxBlurRadius }); }
