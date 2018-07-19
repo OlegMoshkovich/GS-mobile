@@ -1,12 +1,9 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
-import {Card, Button,Icon} from 'react-native-elements';
-const {width, height} = Dimensions.get('window');
+import { View, TouchableOpacity,Image,ScrollView} from 'react-native';
+const {width} = Dimensions.get('window');
 import s from '../styles/articlemodal';
 import assetPaths from '../assetPaths';
-import storyContent from '../../data/stories/stories';
 
 class ArticleModalScreen extends React.Component {
 	constructor(props) {
@@ -72,4 +69,4 @@ class ArticleModalScreen extends React.Component {
   }
 }
 
-export default ArticleModalScreen;
+export default ArticleModalScreen
