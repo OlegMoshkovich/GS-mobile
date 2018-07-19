@@ -9,7 +9,7 @@ import CommunityScreen from './src/screens/CommunityScreen';
 import CalendarScreen from './src/screens/CalendarScreen';
 import ChatScreen from './src/screens/ChatScreen';
 import CommsDashboardScreen from './src/screens/CommsDashboardScreen'
-import ArticleModalScreen from './src/screens/ArticleModalScreen_';
+import ArticleModalScreen from './src/screens/ArticleModalScreen';
 import ShopScreen from './src/screens/ShopScreen';
 import DashboardScreen from './src/screens/DashboardScreen';
 import ExploreScreen from './src/screens/ExploreScreen';
