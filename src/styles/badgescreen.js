@@ -5,26 +5,20 @@ import {
 } from 'react-native';
 
 var styles = StyleSheet.create({
-
-
     myBadgesContainer: {
         flex: 1,
         left: 14,
         backgroundColor: 'red',
         height: 200,
         marginBottom: 20,
-        
-
-        
     },
+
     myBadgesTitle: {
         color: 'white',
         fontFamily: 'trefoil-sans-semibold',
         fontSize: 18,
         marginBottom: 10,
         left: 5,
-
-
     },
 
     badgeContainer: {
@@ -39,7 +33,6 @@ var styles = StyleSheet.create({
         alignSelf: 'center',
         marginBottom: 10,
     },
-
 
     badgeTitleText: {
         alignSelf: 'center',
@@ -60,21 +53,12 @@ var styles = StyleSheet.create({
         fontFamily: 'trefoil-sans-regular'
     },
 
-
-    exploreBadgeContainer: {
-
-    },
     exploreContainer: {
         alignItems: 'center',
         width: 180,
         height: 180,
         marginBottom: 40,
-        
         paddingTop: 30,
-
-
-
-
     },
 
     exploreBadge: {
@@ -87,23 +71,7 @@ var styles = StyleSheet.create({
         color: 'white',
         fontSize: 12,
         fontFamily: 'trefoil-sans-semibold',
-        
-
     },
-
-
-    largeBadgeContainer: {
-
-    },
-
-    badgeTitle: {
-
-    },
-
-
-
-
-
 });
 
 export default styles;
