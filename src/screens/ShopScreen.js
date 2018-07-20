@@ -1,9 +1,8 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import {Text, View, Image,ScrollView, Animated} from 'react-native';
+
 import { LinearGradient } from "expo";
-import {Card, Button,Icon} from 'react-native-elements';
 const {width, height} = Dimensions.get('window');
 
 import TopMenu from '../components/TopMenu';
@@ -167,4 +166,4 @@ class ShopScreen extends React.Component {
   }
 }
 
-export default ShopScreen;
+export default ShopScreen
