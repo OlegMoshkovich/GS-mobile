@@ -94,7 +94,7 @@ paths.staticScreens = {
     resume: require('../assets/Resume.png'),
     related: require('../assets/Related.png'),
     leaderBoard: require('../assets/Leaderboard2.png'),
-    wishlist: require('../assets/staticScreens/wishlistModal.png'),
+    wishlist: require('../assets/staticScreens/wishlistModal3.png'),
     badgesOverview: require('../assets/staticScreens/badgeOverlay.png'),
 }
 paths.homeScreen = {
