@@ -80,9 +80,7 @@ tabAnimation = () => {
     }
 }
 renderTabContent() {
-    console.log('rendering contextual content');
     switch(this.props.navigation.state.routeName){
-
     case 'SystemModal':
         return(
             <Animated.View style={[{ top:0, left:5, zIndex: 12, position:'absolute'},]}>
@@ -112,7 +110,7 @@ renderTabContent() {
     case 'Dashboard':
       return(<Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
               <ScrollView style={{  height:521, paddingBottom:200}} bounces={false}>
-                <Image style={{ width: 366, height:1027}} source={assetPaths.staticScreens.leaderBoard} />
+                <Image style={{ width: 366, height:1104}} source={assetPaths.staticScreens.leaderBoard} />
               </ScrollView>
             </Animated.View>);
 
