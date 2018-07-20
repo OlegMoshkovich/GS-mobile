@@ -22,9 +22,9 @@ const color = '#BACDFF'
 
 
 const Items = [
-  {id:1,icon:require('../../assets/journey/journeyIcon_1.png'),image:require('../../assets/journey/journeyCard_1.png')},
-  {id:2,icon:require('../../assets/journey/journeyIcon_2.png'),image:require('../../assets/journey/journeyCard_1.png')},
-  {id:3,icon:require('../../assets/journey/journeyIcon_3.png'),image:require('../../assets/journey/journeyCard_3.png')}
+  {id:1,icon:require('../../assets/journey/journeyIcon_1.png'),image:require('../../assets/journey/journeyCard_1v2.png')},
+  {id:2,icon:require('../../assets/journey/journeyIcon_2.png'),image:require('../../assets/journey/journeyCard_2v2.png')},
+  {id:3,icon:require('../../assets/journey/journeyIcon_3.png'),image:require('../../assets/journey/journeyCard_3v2.png')}
 ];
 
 
