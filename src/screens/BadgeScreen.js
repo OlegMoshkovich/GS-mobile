@@ -30,13 +30,13 @@ class BadgeScreen extends React.Component {
           <Text style={s.badgeTitleText}>Truth Seeker</Text>
           <Text style={s.badgeCompletion}>(67% complete)</Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'style'})} style={s.badgeContainer}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'womens'})} style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain" source={assetPaths.badges.progress.womensHealth} />
           <Text style={s.badgeTitleText}>Womens Health</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'textile'})}style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain" source={assetPaths.badges.progress.textileArtist} />
-          <Text style={s.badgeTitleText}>Textile Designer</Text>
+          <Text style={s.badgeTitleText}>Textile Artist</Text>
         </TouchableOpacity>
       </ScrollView>
     </View>);
@@ -76,7 +76,7 @@ class BadgeScreen extends React.Component {
             <Image style={s.exploreBadge} resizeMode="contain" source={assetPaths.badges.default.truthSeeker} />
               <Text style={s.exploreBadgeTitle}>Truth Seeker</Text>
           </TouchableOpacity>
-          <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'style'})} style={s.exploreContainer}>
+          <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'womens'})} style={s.exploreContainer}>
             <Image style={s.exploreBadge} resizeMode="contain" source={assetPaths.badges.default.womensHealth} />
               <Text style={s.exploreBadgeTitle}>Womens Health</Text>
           </TouchableOpacity>

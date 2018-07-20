@@ -44,6 +44,9 @@ class BadgeModalScreen extends React.Component {
             case 'website':
 				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/websiteDesigner.png')} />);
 				break;
+			case 'womens':
+				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/womensHealth.png')} />);
+				break;
 		}
 	}
 
