@@ -1,24 +1,18 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,Toggle, Alert, Animated, PanResponder} from 'react-native';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import { StyleSheet, View, Image, Animated} from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from "expo";
-import {Card, Button,Icon} from 'react-native-elements';
-import { Ionicons } from '@expo/vector-icons';
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import CollapseView from "react-native-collapse-view";
-import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+import GestureRecognizer from 'react-native-swipe-gestures';
 import { NavigationActions } from 'react-navigation';
 const color = '#FFF2AD';
 
 import assetPaths from '../assetPaths';
 
 
-import {GiftedChat } from 'react-native-gifted-chat';
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
-import NavMenu from '../components/NavMenu';
 
 const {width, height} = Dimensions.get('window');
 
@@ -32,7 +26,6 @@ class ChatScreen extends React.Component {
       activated    : true,
       valueInitial : 0,
       valueFinal   : 0
-
     };
   }
 
@@ -54,7 +47,7 @@ class ChatScreen extends React.Component {
   }
 
    onSwipeLeft(gestureState) {
-
+    
 
 
 
