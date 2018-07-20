@@ -93,7 +93,7 @@ paths.staticScreens = {
     postModal: require('../assets/staticScreens/post.png'),
     resume: require('../assets/Resume.png'),
     related: require('../assets/Related.png'),
-    leaderBoard: require('../assets/Leaderboard.png'),
+    leaderBoard: require('../assets/Leaderboard2.png'),
     wishlist: require('../assets/staticScreens/wishlistModal.png'),
     badgesOverview: require('../assets/staticScreens/badgeOverlay.png'),
 }
