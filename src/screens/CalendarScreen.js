@@ -29,64 +29,31 @@ class CalendarScreen extends React.Component {
 
   render() {
     return (
-      <LinearGradient
-      colors={[color, color]}
-        style={{ height: height, width:width}}>
+      <LinearGradient colors={[color, color]} style={{ height: height, width:width}}>
         <TopMenu navigation={this.props.navigation} menuTitle="when" iconPath={assetPaths.topMenu.connectIcon} />
-
-
-
-    <View style = {{
-      flex:4
-    }}>
-
-    <Agenda
-      items={this.state.items}
-      loadItemsForMonth={this.loadItems.bind(this)}
-      selected={'2018-04-18'}
-      renderItem={this.renderItem.bind(this)}
-      renderEmptyDate={this.renderEmptyDate.bind(this)}
-      rowHasChanged={this.rowHasChanged.bind(this)}
-      // markingType={'period'}
-      // markedDates={{
-      //    '2017-05-08': {textColor: '#666'},
-      //    '2017-05-09': {textColor: '#666'},
-      //    '2017-05-14': {startingDay: true, endingDay: true, color: 'blue'},
-      //    '2017-05-21': {startingDay: true, color: 'blue'},
-      //    '2017-05-22': {endingDay: true, color: 'gray'},
-      //    '2017-05-24': {startingDay: true, color: 'gray'},
-      //    '2017-05-25': {color: 'gray'},
-      //    '2017-05-26': {endingDay: true, color: 'gray'}}}
-      // monthFormat={'yyyy'}
-      // theme={{calendarBackground: '#F9C025', agendaKnobColor: 'darkgrey',selectedDayBackgroundColor: '#F9C025', todayTextColor: 'red',  agendaTodayColor: '#F9C025',}}
-      theme={{
-                calendarBackground: '#F9C025',
-
-                textSectionTitleColor: 'white',
-                dayTextColor: 'white',
-                todayTextColor: 'white',
-                selectedDayTextColor: 'white',
-                monthTextColor: 'white',
-                selectedDayBackgroundColor: '#333248',
-                arrowColor: 'white',
-                // textDisabledColor: 'red',
-                'stylesheet.calendar.header': {
-                  week: {
-                    marginTop: 5,
-                    flexDirection: 'row',
-                    justifyContent: 'space-between'
-                  }
-                }
-               }}
-
-      //renderDay={(day, item) => (<Text>{day ? day.day: 'item'}</Text>)}
-    />
-    </View>
-
-
+          <View style = {{ flex:4 }}>
+          <Agenda
+            items={this.state.items}
+            loadItemsForMonth={this.loadItems.bind(this)}
+            selected={'2018-04-18'}
+            renderItem={this.renderItem.bind(this)}
+            renderEmptyDate={this.renderEmptyDate.bind(this)}
+            rowHasChanged={this.rowHasChanged.bind(this)}
+            theme={{
+              calendarBackground: '#FFF2AD',
+              textSectionTitleColor: '#483D52',
+              dayTextColor: '#483D52',
+              todayTextColor: '#FF794E',
+              selectedDayTextColor: 'white',
+              monthTextColor: 'black',
+              selectedDayBackgroundColor: '#FF794E',
+              arrowColor: 'orange',
+              'stylesheet.calendar.header': {
+                week: { marginTop: 5, flexDirection: 'row', justifyContent: 'space-between' }}
+              }} />
+          </View>
       <AvaBottomMenu currentSection={'connect'} contextIcon={true} navigation={this.props.navigation}/>
-
-      </LinearGradient>
+    </LinearGradient>
    );
  }
 
@@ -101,32 +68,24 @@ class CalendarScreen extends React.Component {
 
          for (let j = 0; j < numItems; j++) {
            this.state.items[strTime].push({
-             name: 'Events:',
+             name: 'An Event',
              height: Math.max(50, Math.floor(Math.random() * 150))
            });
          }
        }
      }
-     //console.log(this.state.items);
      const newItems = {};
      Object.keys(this.state.items).forEach(key => {newItems[key] = this.state.items[key];});
-     this.setState({
-       items: newItems
-     });
+     this.setState({items: newItems});
    }, 1000);
-   // console.log(`Load Items for ${day.year}-${day.month}`);
  }
 
  renderItem(item) {
-   return (
-     <View style={[s.item, {height: item.height}]}><Text>{item.name}</Text></View>
-   );
+   return (<View style={[s.item, {height: item.height}]}><Text>{item.name}</Text></View>);
  }
 
  renderEmptyDate() {
-   return (
-     <View style={s.emptyDate}><Text>Nothing yet.</Text></View>
-   );
+   return (<View style={s.emptyDate}><Text>Nothing yet.</Text></View>);
  }
 
  rowHasChanged(r1, r2) {
@@ -139,4 +98,4 @@ class CalendarScreen extends React.Component {
  }
 }
 
-export default CalendarScreen;
+export default CalendarScreen
