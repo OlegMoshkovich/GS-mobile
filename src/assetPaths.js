@@ -24,9 +24,9 @@ paths.bottomMenu = {
     smile1: require('../assets/bottomMenu/ava/ava_smile1.png'),
     wave: require('../assets/bottomMenu/ava/ava_wave.png'),
     frown: require('../assets/bottomMenu/ava/ava_oh-no.png'),
-    
+
     avaChatInterface: require('../assets/bottomMenu/ava/ava_chat_interface.png'),
-    
+
     // icons
     calendarIcon: require('../assets/bottomMenu/icons/Calendar-icon.png'),
     chatIcon: require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
@@ -38,7 +38,7 @@ paths.bottomMenu = {
     mapIcon: require('../assets/bottomMenu/icons/Map-icon.png'),
     shopIcon: require('../assets/bottomMenu/icons/Shop-icon.png'),
     tabBackground: require('../assets/bottomMenu/bottomTab.png'),
-    
+
     // icons on
     communityIconOn: require('../assets/bottomMenu/icons/home-share.png'),
     connectIconOn: require('../assets/bottomMenu/icons/home-connect.png'),
@@ -47,7 +47,7 @@ paths.bottomMenu = {
 
     gradient: require('../assets/bottomMenu/avabottom-gradient.png'),
     relatedBackground: require('../assets/relatedBackground.png'),
-    
+
     // contextual icons above ava head
     contextIcons: {
         addCalendar: require('../assets/bottomMenu/icons/context-addCalendarEntry.png'),
@@ -158,6 +158,13 @@ paths.stories = {
         storyImage: require('../assets/Article_Image_3.png')
     }
 }
+
+paths.microbadges = {
+
+      Card01: require('../assets/badges/microBadgeCard01.png'),
+      Card02: require('../assets/badges/microBadgeCard02.png')
+  }
+
 paths.badges = {
     default: {
         // default badges are just white without drop shadow
@@ -298,8 +305,8 @@ paths.shop = {
                 require ('../assets/shop/bubble-headphones.png'),
             ],
         },
-        
-        
+
+
         {
             image: require('../assets/shop/featuredProduct00.png'),
             bubbles: [

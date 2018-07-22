@@ -31,19 +31,19 @@ var styles = StyleSheet.create({
       alignSelf:'center'
     },
 
-    featuredStoriesScrollView: {
+    relatedMediaScrollView: {
       marginTop: 180,
     },
 
-    featuredStoriesTitle: {
+    relatedMediaTitle: {
         color: "#51258A",
-        top:150,
+        top:155,
         fontSize: 18,
         left: 16,
         fontFamily: 'trefoil-sans-semibold'
     },
 
-    featuredStoryImage: {
+    relatedMediaCard: {
         height: 198,
         width: 148,
         marginBottom: 10,

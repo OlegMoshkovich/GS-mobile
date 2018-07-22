@@ -90,30 +90,24 @@ class MicroBadgeScreen extends React.Component {
 
 
 
-       <Text style ={s.featuredStoriesTitle}>In your world already...</Text>
-       <ScrollView horizontal= {true} style={s.featuredStoriesScrollView} showsHorizontalScrollIndicator={false}>
+       <Text style ={s.relatedMediaTitle}>In your world already...</Text>
+       <ScrollView horizontal= {true} style={s.relatedMediaScrollView} showsHorizontalScrollIndicator={false}>
 
-       <TouchableOpacity
-         onPress={() => {this.props.navigation.navigate('StoryModal', {id: 1})}}>
-         <Image style={s.featuredStoryImage} resizeMode="cover"
-           source={assetPaths.stories.marley} />
-       </TouchableOpacity>
-
-       <TouchableOpacity
-         onPress={() => { this.props.navigation.navigate('StoryModal', {id: 2})}}>
-         <Image style={s.featuredStoryImage} resizeMode="cover"
-           source={assetPaths.stories.supergirls} />
-       </TouchableOpacity>
 
        <TouchableOpacity
          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 3})}}>
-         <Image style={s.featuredStoryImage} resizeMode="cover"
-           source={assetPaths.stories.muslim} />
+         <Image style={s.relatedMediaCard} resizeMode="cover"
+           source={assetPaths.microbadges.Card01} />
        </TouchableOpacity>
        <TouchableOpacity
          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 4})}}>
-         <Image style={s.featuredStoryImage} resizeMode="cover"
-           source={assetPaths.stories.smoking} />
+         <Image style={s.relatedMediaCard} resizeMode="cover"
+           source={assetPaths.microbadges.Card02} />
+       </TouchableOpacity>
+       <TouchableOpacity
+         onPress={() => {this.props.navigation.navigate('StoryModal', {id: 4})}}>
+         <Image style={s.relatedMediaCard} resizeMode="cover"
+           source={assetPaths.microbadges.Card01} />
        </TouchableOpacity>
        </ScrollView >
 
