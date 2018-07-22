@@ -162,7 +162,8 @@ paths.stories = {
 paths.microbadges = {
 
       Card01: require('../assets/badges/microBadgeCard01.png'),
-      Card02: require('../assets/badges/microBadgeCard02.png')
+      Card02: require('../assets/badges/microBadgeCard02.png'),
+      Card03: require('../assets/badges/microBadgeCard03.png')
   }
 
 paths.badges = {

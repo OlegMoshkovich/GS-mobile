@@ -82,10 +82,13 @@ class MicroBadgeScreen extends React.Component {
        colors={[color, color]}
        style={[{ height: height, width:width}]}>
 
-       <TopMenu menuTitle="badge" />
+       <TopMenu menuTitle="exprience" />
        <View style={s.profileContainer}>
+        <TouchableOpacity style={s.microbadgeContainer}
+          onPress={() => {this.props.navigation.navigate('MicroBadgeModal', {id: 1})}}>
            <Image style={s.microbadgeIcon}
              source={require('../../assets/MicroBadge.png')} />
+        </TouchableOpacity>
        </View>
 
 
@@ -94,22 +97,33 @@ class MicroBadgeScreen extends React.Component {
        <ScrollView horizontal= {true} style={s.relatedMediaScrollView} showsHorizontalScrollIndicator={false}>
 
 
-       <TouchableOpacity
-         onPress={() => {this.props.navigation.navigate('StoryModal', {id: 3})}}>
+       <TouchableOpacity>
          <Image style={s.relatedMediaCard} resizeMode="cover"
            source={assetPaths.microbadges.Card01} />
        </TouchableOpacity>
-       <TouchableOpacity
-         onPress={() => {this.props.navigation.navigate('StoryModal', {id: 4})}}>
+       <TouchableOpacity>
+         <Image style={s.relatedMediaCard} resizeMode="cover"
+           source={assetPaths.microbadges.Card02} />
+       </TouchableOpacity>
+       <TouchableOpacity>
+         <Image style={s.relatedMediaCard} resizeMode="cover"
+           source={assetPaths.microbadges.Card03} />
+       </TouchableOpacity>
+       <TouchableOpacity>
+         <Image style={s.relatedMediaCard} resizeMode="cover"
+           source={assetPaths.microbadges.Card01} />
+       </TouchableOpacity>
+       <TouchableOpacity>
          <Image style={s.relatedMediaCard} resizeMode="cover"
            source={assetPaths.microbadges.Card02} />
        </TouchableOpacity>
        <TouchableOpacity
          onPress={() => {this.props.navigation.navigate('StoryModal', {id: 4})}}>
          <Image style={s.relatedMediaCard} resizeMode="cover"
-           source={assetPaths.microbadges.Card01} />
+           source={assetPaths.microbadges.Card03} />
        </TouchableOpacity>
        </ScrollView >
+
 
       <AvaBottomMenu showTab={true} contextIcon={true} tabTitle={"Resume"} tabLeft={15} navigation={this.props.navigation}/>
       </LinearGradient>

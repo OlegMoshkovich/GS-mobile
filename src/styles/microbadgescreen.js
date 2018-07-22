@@ -24,10 +24,17 @@ var styles = StyleSheet.create({
     },
 
     microbadgeIcon:{
+
+
+      height:240,
+      width:260,
+      alignSelf:'center'
+    },
+    microbadgeContainer:{
       flex: 1,
       top:20,
-      height:240,
-      width:240,
+
+
       alignSelf:'center'
     },
 
