@@ -3,36 +3,28 @@ import Dimensions from 'Dimensions';
 import {Text, View,Image, Animated} from 'react-native';
 import { LinearGradient, MapView, Location, Permissions } from 'expo';
 
-
-import assetPaths from '../assetPaths';
-
-
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
-const color = '#FFF2AD';
 
-
+// map specific data
+import mapMarkers from '../../data/map/markers';
+import mapRegion from '../../data/map/region';
+import mapLocation from '../../data/map/location';
 
 // global styles
 import s from '../styles/mapscreen';
+import assetPaths from '../assetPaths';
 
-// map specific data
-import mapMarkers from '../../data/map/markers.js';
-import mapRegion from '../../data/map/region.js';
-import mapLocation from '../../data/map/location.js';
 
 const {width, height} = Dimensions.get('window');
-
 const CARD_HEIGHT = height / 4.5;
 const CARD_WIDTH = CARD_HEIGHT - 42;
+const color = '#FFF2AD';
 
 class MapScreen extends React.Component {
-
   state = {
-    activated    : true,
-    location: mapLocation,
-    markers: mapMarkers,
-    region: mapRegion,
+    activated    : true, location: mapLocation,
+    markers: mapMarkers, region: mapRegion,
   };
 
   componentWillMount() {

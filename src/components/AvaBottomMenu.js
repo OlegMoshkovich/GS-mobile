@@ -3,7 +3,6 @@ import Dimensions from 'Dimensions';
 import { Text, View, Modal, TouchableOpacity,Image, Animated, ScrollView} from 'react-native';
 import s from '../styles/avabottommenu';
 import assetPaths from '../assetPaths.js'
-import { Audio } from 'expo';
 
 const {width, height} = Dimensions.get('window');
 const heightResume = 560;
@@ -184,7 +183,7 @@ renderContextIcon() {
                     <Image style={[s.contextIcon]} source={assetPaths.bottomMenu.contextIcons.star} />
                 </TouchableOpacity>);
         case 'SystemModal':
-            return(<TouchableOpacity>
+            return(<TouchableOpacity onPress={() => {                 this.props.contextFunction(); }}>
                 <Image style={[s.contextIcon]} source={assetPaths.bottomMenu.contextIcons.profile} />
                 </TouchableOpacity>);
         case 'ShopModal':
@@ -283,7 +282,6 @@ renderRandomAva() {
 }
 
 renderAva() {
-
     return(<TouchableOpacity
                 style = {{  alignSelf: 'flex-end', position: 'absolute', right: 5, zIndex: 1,
                         bottom: this.state.activated ? avaLocationBottom_active : avaLocationBottom_inactive,
