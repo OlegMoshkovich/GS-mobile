@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity,Image,TouchableWithoutFeedback, Animated} from 'react-native';
+import { Text, View, TouchableOpacity,Image,TouchableWithoutFeedback, Animated} from 'react-native';
 import { LinearGradient } from "expo";
 import Dimensions from 'Dimensions';
 
@@ -25,81 +25,43 @@ class DashboardScreen extends React.Component {
       fadeAnim : new Animated.Value(0),
       blurRadius: 0,
       chatSessions: [
-        {
-          title: "Nicole Clark",
-          description: "",
+        { title: "Nicole Clark", description: "",
           image: require('../../assets/icons/Connect/Chat_Avatar_1.png'),
         },
-
-        {
-          title: "Emma Brownstein",
-          description: "",
+        { title: "Emma Brownstein", description: "",
+          image: require('../../assets/icons/Connect/Chat_Avatar_2.png'),
+        },
+        { title: "Nicole Clark", description: "",
+          image: require('../../assets/icons/Connect/Chat_Avatar_3.png'),
+        },
+        { title: "Emma Brownstein", description: "",
+          image: require('../../assets/icons/Connect/Chat_Avatar_1.png'),
+        },
+        { title: "Nicole Clark", description: "",
           image: require('../../assets/icons/Connect/Chat_Avatar_2.png'),
         },
         {
-          title: "Nicole Clark",
-          description: "",
+          title: "Emma Brownstein", description: "",
           image: require('../../assets/icons/Connect/Chat_Avatar_3.png'),
-        },
-
-        {
-          title: "Emma Brownstein",
-          description: "",
-          image: require('../../assets/icons/Connect/Chat_Avatar_1.png'),
-        },
-        {
-          title: "Nicole Clark",
-          description: "",
-          image: require('../../assets/icons/Connect/Chat_Avatar_2.png'),
-        },
-
-        {
-          title: "Emma Brownstein",
-          description: "",
-          image: require('../../assets/icons/Connect/Chat_Avatar_3.png'),
-        }
-
-
-
-      ],
+        }],
       gsEvents: [
-        {
-          title: "",
-          description: "",
+        { title: "", description: "",
+          image: require('../../assets/icons/Connect/Event_1.png'),},
+        { title: "", description: "",
+          image: require('../../assets/icons/Connect/Event_2.png'),},
+        { title: "", description: "",
           image: require('../../assets/icons/Connect/Event_1.png'),
-        },
-
-        {
-          title: "",
-          description: "",
+        },{ title: "", description: "",
           image: require('../../assets/icons/Connect/Event_2.png'),
-        },
-
-        {
-          title: "",
-          description: "",
-          image: require('../../assets/icons/Connect/Event_1.png'),
-        },
-        {
-          title: "",
-          description: "",
-          image: require('../../assets/icons/Connect/Event_2.png'),
-        },
-      ],
-    };
+        },],};
   };
 
   animate = () => {
     if (this.state.blurRadius == 10) {
-      this.setState({
-        blurRadius: 0
-      });
+      this.setState({ blurRadius: 0 });
     } else {
-      this.setState({
-        blurRadius: 10
-      });
+      this.setState({ blurRadius: 10 });
     }
-
     Animated.timing(
       this.state.fadeAnim,
         { toValue: this.state.activated ? 1: 0, duration: 500, }
@@ -115,33 +77,26 @@ class DashboardScreen extends React.Component {
             <View>
               <TouchableOpacity style={{ top:70 }} 
                 onPress={() => this.props.navigation.navigate({ routeName: 'Chat'})}>
-                <Image style={{height: 45,width: 45}}
-                      source={require('../../assets/icons/Connect/Icon_chat.png')} />
+                <Image style={s.chatIcon} source={require('../../assets/icons/Connect/Icon_chat.png')} />
               </TouchableOpacity>
               <Animated.ScrollView
-                style={{ left:60 }}
+                style={s.chatScrollView}
                 horizontal
                 scrollEventThrottle={1}
                 showsHorizontalScrollIndicator={false}
                 snapToInterval={CARD_WIDTH}
                 onScroll={Animated.event([
-                  { nativeEvent: {
-                      contentOffset: { x: this.animation},
-                    },
-                  },
+                  { nativeEvent: { contentOffset: { x: this.animation}, },},
                 ], { useNativeDriver: true } )}>
-                
                 {this.state.chatSessions.map((chatSession, index) => (
-                <View style={styles.card} key={index}>
+                <View style={s.chatCard} key={index}>
                   <TouchableWithoutFeedback
                     onPress={() => {this.props.navigation.navigate('Chat'); }}>
-                    <Image
-                      source={chatSession.image} style={styles.cardImage}
-                      resizeMode="cover"/>
+                    <Image source={chatSession.image} style={s.cardImage}     resizeMode="cover"/>
                   </TouchableWithoutFeedback>
                   <View>
-                    <Text numberOfLines={1} style={styles.cardtitle}>{chatSession.title}</Text>
-                    <Text numberOfLines={1} style={styles.cardDescription}>{chatSession.description}</Text>
+                    <Text numberOfLines={1} style={s.cardtitle}>{chatSession.title}</Text>
+                    <Text numberOfLines={1} style={s.cardDescription}>{chatSession.description}</Text>
                   </View>
                 </View>))}
               </Animated.ScrollView>
@@ -149,11 +104,9 @@ class DashboardScreen extends React.Component {
             <View>
               <TouchableOpacity style={{top:70}}
                 onPress={() => this.props.navigation.navigate({
-                  routeName: 'Events', params: {
-                    transition: 'default' }}
-                )}>
+                  routeName: 'Events', params: { transition: 'default' }})}>
                 <Image
-                  style={{height: 45,width: 45}}
+                  style={s.chatIcon}
                   source={require('../../assets/icons/Connect/Icon_events.png')} />
               </TouchableOpacity>
               <Animated.ScrollView
@@ -169,10 +122,10 @@ class DashboardScreen extends React.Component {
                   }], { useNativeDriver: true }
                 )}>
                 {this.state.gsEvents.map((gsEvent, index) => (
-                <View style={styles.eventCard} key={index}>
+                <View style={s.eventCard} key={index}>
                   <TouchableWithoutFeedback
                     onPress={() => {this.props.navigation.navigate('Events'); }}>
-                    <Image source={gsEvent.image} style={styles.eventImage} />
+                    <Image source={gsEvent.image} style={s.eventImage} />
                   </TouchableWithoutFeedback>
                 </View>))}
                </Animated.ScrollView>
@@ -182,7 +135,7 @@ class DashboardScreen extends React.Component {
                   onPress={() => this.props.navigation.navigate({
                   routeName: 'Calendar', params: { transition: 'default' } }
                 )}>
-                  <Image style={{height: 45,width: 45}}
+                  <Image style={s.chatIcon}
                     source={require('../../assets/icons/Connect/Icon_calendar.png')} />
                 </TouchableOpacity>
                 <Animated.ScrollView
@@ -198,7 +151,7 @@ class DashboardScreen extends React.Component {
                     <TouchableWithoutFeedback
                       onPress={() => {this.props.navigation.navigate('Calendar'); }}>
                       <Image source={require('../../assets/icons/Connect/Calendar2.png')}
-                        style={{ width:288, height:131, right:0, top: 10, }} />
+                        style={s.calendarImage} />
                     </TouchableWithoutFeedback>
                   </View>
                 </Animated.ScrollView>
@@ -208,74 +161,5 @@ class DashboardScreen extends React.Component {
           </LinearGradient>);
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  view: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  scrollViewChats: {
-    position: "absolute",
-    top:400,
-    left: 60,
-    right: 0,
-    paddingVertical: 10,
-  },
-  scrollViewEvents: {
-    position: "absolute",
-    top:520,
-    left: 60,
-    right: 0,
-    paddingVertical: 10,
-  },
-
-  card: {
-    padding: 0,
-    backgroundColor: "transparent",
-    marginHorizontal: 10,
-    height: CARD_HEIGHT,
-    width: CARD_WIDTH,
-    overflow: "hidden",
-  },
-  eventCard: {
-    padding: 0,
-    backgroundColor: "transparent",
-    marginHorizontal: 10,
-    height: CARD_HEIGHT,
-    width: 210,
-    overflow: "hidden",
-  },
-  eventImage: {
-    flex: 3,
-    height: CARD_HEIGHT,
-    width: 210,
-    alignSelf: "center",
-  },
-
-  cardImage: {
-    flex: 3,
-    width: "100%",
-    height: "100%",
-    alignSelf: "center",
-  },
-
-  cardtitle: {
-    fontSize: 12,
-    marginTop: 5,
-    color:'white',
-    backgroundColor:'transparent'
-  },
-  cardDescription: {
-    fontSize: 12,
-    color: "#444",
-  },
-
-
-
-});
 
 export default DashboardScreen
