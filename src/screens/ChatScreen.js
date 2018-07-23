@@ -5,14 +5,15 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { LinearGradient } from "expo";
 import CollapseView from "react-native-collapse-view";
 import GestureRecognizer from 'react-native-swipe-gestures';
-const color = '#FFF2AD';
-
-import assetPaths from '../assetPaths';
-import s from '../styles/chatscreen';
 
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
 
+import assetPaths from '../assetPaths';
+import s from '../styles/chatscreen';
+
+
+const color = '#FFF2AD';
 const {width, height} = Dimensions.get('window');
 
 class ChatScreen extends React.Component {
@@ -266,6 +267,5 @@ class ChatScreen extends React.Component {
       </GestureRecognizer>);
   }
 }
-
 
 export default ChatScreen
