@@ -1,22 +1,18 @@
 import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity,Image,TouchableWithoutFeedback, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import { StyleSheet, Text, View, TouchableOpacity,Image,TouchableWithoutFeedback, Animated} from 'react-native';
 import { LinearGradient } from "expo";
-import {Card, Button,Icon} from 'react-native-elements';
-import { Ionicons } from '@expo/vector-icons';
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
 import Dimensions from 'Dimensions';
+
+import AvaBottomMenu from '../components/AvaBottomMenu';
+import TopMenu from '../components/TopMenu';
+
+import assetPaths from '../assetPaths';
+import s from '../styles/connectscreen';
+
 const {width, height} = Dimensions.get('window');
 const CARD_HEIGHT =120;
 const CARD_WIDTH = CARD_HEIGHT - 29;
 const color = '#FFF2AD';
-
-
-import AvaBottomMenu from '../components/AvaBottomMenu';
-import TopMenu from '../components/TopMenu';
-import NavMenu from '../components/NavMenu';
-import assetPaths from '../assetPaths';
-import s from '../styles/connectscreen';
 
 class DashboardScreen extends React.Component {
 
@@ -89,9 +85,6 @@ class DashboardScreen extends React.Component {
           description: "",
           image: require('../../assets/icons/Connect/Event_2.png'),
         },
-
-
-
       ],
     };
   };
@@ -108,251 +101,114 @@ class DashboardScreen extends React.Component {
     }
 
     Animated.timing(
-        this.state.fadeAnim,
-        {
-          toValue: this.state.activated ? 1: 0,
-          duration: 500,
-        }
+      this.state.fadeAnim,
+        { toValue: this.state.activated ? 1: 0, duration: 500, }
       ).start();
-      this.setState({
-        activated : !this.state.activated,
-        }
-      )
+      this.setState({ activated : !this.state.activated});
   }
 
   render() {
-
     return (
       <LinearGradient colors={[color, color]} style={{ height: height,width:width, flex:1}}>
         <TopMenu navigation={this.props.navigation} menuTitle="connect" iconPath={assetPaths.topMenu.connectIcon} />
-
-        <View style={s.container}>
-
+          <View style={s.container}>
             <View>
-
-               <TouchableOpacity style={{ top:70 }}
-                 onPress={() => this.props.navigation.navigate({
-                   routeName: 'Chat'}
-                 )}>
-                 <Image
-                   style={{height: 45,width: 45}}
-                   source={require('../../assets/icons/Connect/Icon_chat.png')}
-                 />
-               </TouchableOpacity>
-
-               <Animated.ScrollView
-                   style={{ left:60 }}
-                   horizontal
-                   scrollEventThrottle={1}
-                   showsHorizontalScrollIndicator={false}
-                   snapToInterval={CARD_WIDTH}
-                   onScroll={Animated.event(
-                     [
-                       {
-                         nativeEvent: {
-                           contentOffset: {
-                             x: this.animation,
-                           },
-                         },
-                       },
-                     ],
-                     { useNativeDriver: true }
-                   )}>
-
-                   {this.state.chatSessions.map((chatSession, index) => (
-                     <View style={styles.card} key={index}>
-                     <TouchableWithoutFeedback
-                       onPress={() => {this.props.navigation.navigate('Chat'); }}>
-                       <Image
-                         source={chatSession.image}
-                         style={styles.cardImage}
-                         resizeMode="cover"/>
-                     </TouchableWithoutFeedback>
-                       <View>
-                         <Text numberOfLines={1} style={styles.cardtitle}>{chatSession.title}</Text>
-                         <Text numberOfLines={1} style={styles.cardDescription}>{chatSession.description}</Text>
-                       </View>
-
-
-                     </View>
-                   ))}
-               </Animated.ScrollView>
+              <TouchableOpacity style={{ top:70 }} 
+                onPress={() => this.props.navigation.navigate({ routeName: 'Chat'})}>
+                <Image style={{height: 45,width: 45}}
+                      source={require('../../assets/icons/Connect/Icon_chat.png')} />
+              </TouchableOpacity>
+              <Animated.ScrollView
+                style={{ left:60 }}
+                horizontal
+                scrollEventThrottle={1}
+                showsHorizontalScrollIndicator={false}
+                snapToInterval={CARD_WIDTH}
+                onScroll={Animated.event([
+                  { nativeEvent: {
+                      contentOffset: { x: this.animation},
+                    },
+                  },
+                ], { useNativeDriver: true } )}>
+                
+                {this.state.chatSessions.map((chatSession, index) => (
+                <View style={styles.card} key={index}>
+                  <TouchableWithoutFeedback
+                    onPress={() => {this.props.navigation.navigate('Chat'); }}>
+                    <Image
+                      source={chatSession.image} style={styles.cardImage}
+                      resizeMode="cover"/>
+                  </TouchableWithoutFeedback>
+                  <View>
+                    <Text numberOfLines={1} style={styles.cardtitle}>{chatSession.title}</Text>
+                    <Text numberOfLines={1} style={styles.cardDescription}>{chatSession.description}</Text>
+                  </View>
+                </View>))}
+              </Animated.ScrollView>
             </View>
             <View>
-               <TouchableOpacity style={{top:70}}
-                 onPress={() => this.props.navigation.navigate({
-                   routeName: 'Events',
-                       params: {
-                           transition: 'default'
-                       }
-                     }
-                 )}>
-                 <Image
-                   style={{height: 45,width: 45}}
-                   source={require('../../assets/icons/Connect/Icon_events.png')}
-                 />
-               </TouchableOpacity>
-               <Animated.ScrollView
-                   style={{
-                   left:60
-                   }}
-                   horizontal
-                   scrollEventThrottle={1}
-                   showsHorizontalScrollIndicator={false}
-                   snapToInterval={CARD_WIDTH}
-                   onScroll={Animated.event(
-                     [
-                       {
-                         nativeEvent: {
-                           contentOffset: {
-                             x: this.animation,
-                           },
-                         },
-                       },
-                     ],
-                     { useNativeDriver: true }
-
-                   )}
-
-                   >
-
-                   {this.state.gsEvents.map((gsEvent, index) => (
-                     <View style={styles.eventCard} key={index}>
-                     <TouchableWithoutFeedback
-                       onPress={() => {this.props.navigation.navigate('Events'); }}>
-                       <Image
-                         source={gsEvent.image}
-                         style={styles.eventImage}
-                       />
-                      </TouchableWithoutFeedback>
-                     </View>
-                   ))}
+              <TouchableOpacity style={{top:70}}
+                onPress={() => this.props.navigation.navigate({
+                  routeName: 'Events', params: {
+                    transition: 'default' }}
+                )}>
+                <Image
+                  style={{height: 45,width: 45}}
+                  source={require('../../assets/icons/Connect/Icon_events.png')} />
+              </TouchableOpacity>
+              <Animated.ScrollView
+                style={{ left:60 }}
+                horizontal
+                scrollEventThrottle={1}
+                showsHorizontalScrollIndicator={false}
+                snapToInterval={CARD_WIDTH}
+                onScroll={Animated.event([
+                  { nativeEvent: {
+                    contentOffset: {x: this.animation},
+                    },
+                  }], { useNativeDriver: true }
+                )}>
+                {this.state.gsEvents.map((gsEvent, index) => (
+                <View style={styles.eventCard} key={index}>
+                  <TouchableWithoutFeedback
+                    onPress={() => {this.props.navigation.navigate('Events'); }}>
+                    <Image source={gsEvent.image} style={styles.eventImage} />
+                  </TouchableWithoutFeedback>
+                </View>))}
                </Animated.ScrollView>
+              </View>
+              <View style={{bottom:7}}>
+                <TouchableOpacity style={{ top:70 }}
+                  onPress={() => this.props.navigation.navigate({
+                  routeName: 'Calendar', params: { transition: 'default' } }
+                )}>
+                  <Image style={{height: 45,width: 45}}
+                    source={require('../../assets/icons/Connect/Icon_calendar.png')} />
+                </TouchableOpacity>
+                <Animated.ScrollView
+                  style={{ left:60}}
+                  horizontal
+                  scrollEventThrottle={1}
+                  showsHorizontalScrollIndicator={false}
+                  snapToInterval={CARD_WIDTH}
+                  onScroll={Animated.event([
+                    { nativeEvent: { contentOffset: { x: this.animation},},},
+                    ], { useNativeDriver: true })}>
+                  <View>
+                    <TouchableWithoutFeedback
+                      onPress={() => {this.props.navigation.navigate('Calendar'); }}>
+                      <Image source={require('../../assets/icons/Connect/Calendar2.png')}
+                        style={{ width:288, height:131, right:0, top: 10, }} />
+                    </TouchableWithoutFeedback>
+                  </View>
+                </Animated.ScrollView>
+              </View>
             </View>
-            <View style={{bottom:7}}>
-             <TouchableOpacity
-               style={{
-               top:70
-               }}
-               onPress={() => this.props.navigation.navigate({
-                 routeName: 'Calendar',
-                     params: {
-                         transition: 'default'
-                     }
-                   }
-               )}>
-               <Image
-                 style={{height: 45,width: 45}}
-                   source={require('../../assets/icons/Connect/Icon_calendar.png')}
-               />
-             </TouchableOpacity>
-             <Animated.ScrollView
-                 style={{
-                 left:60
-                 }}
-                 horizontal
-                 scrollEventThrottle={1}
-                 showsHorizontalScrollIndicator={false}
-                 snapToInterval={CARD_WIDTH}
-                 onScroll={Animated.event(
-                   [
-                     {
-                       nativeEvent: {
-                         contentOffset: {
-                           x: this.animation,
-                         },
-                       },
-                     },
-                   ],
-                   { useNativeDriver: true }
-
-                 )}
-                 >
-                   <View >
-                   <TouchableWithoutFeedback
-                     onPress={() => {this.props.navigation.navigate('Calendar'); }}>
-                     <Image
-                        source={require('../../assets/icons/Connect/Calendar2.png')}
-                       style={{
-                         width:288,
-                         height:131,
-                         right:0,
-                         top: 10,
-                         
-
-                         
-                       }}
-                     />
-                   </TouchableWithoutFeedback>
-                   </View>
-             </Animated.ScrollView>
-            </View>
-
-          {/*  <View style={{bottom:15}}>
-               <TouchableOpacity
-                 style={{
-                 top:70
-                 }}
-                 onPress={() => this.props.navigation.navigate({
-                   routeName: 'Events',
-                       params: {
-                           transition: 'default'
-                       }
-                     }
-                 )}>
-                 <Image
-                   style={{height: 50,width: 50}}
-                     source={require('../../assets/icons/Connect/Icon_map.png')}
-                 />
-               </TouchableOpacity>
-
-               <Animated.ScrollView
-                   style={{
-                   left:60
-                   }}
-                   horizontal
-                   scrollEventThrottle={1}
-                   showsHorizontalScrollIndicator={false}
-                   snapToInterval={CARD_WIDTH}
-                   onScroll={Animated.event(
-                     [
-                       {
-                         nativeEvent: {
-                           contentOffset: {
-                             x: this.animation,
-                           },
-                         },
-                       },
-                     ],
-                     { useNativeDriver: true }
-
-                   )}
-                   >
-                     <View >
-                     <TouchableWithoutFeedback
-                       onPress={() => {this.props.navigation.navigate('Events'); }}>
-
-                       <Image
-                          source={require('../../assets/icons/Connect/Map.png')}
-                         style={{
-                           width:288,
-                           height:124,
-                           right:0,
-                           bottom:5
-                         }}
-                       />
-                     </TouchableWithoutFeedback>
-                     </View>
-               </Animated.ScrollView>
-            </View>
-            */}
-        </View>
-        <AvaBottomMenu currentSection={'connect'} showTab={false}  tabLeft={15} navigation={this.props.navigation}/>
-
-      </LinearGradient>
-    );
+            <AvaBottomMenu currentSection={'connect'} showTab={false}  tabLeft={15} navigation={this.props.navigation}/>
+          </LinearGradient>);
   }
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -422,4 +278,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default DashboardScreen;
+export default DashboardScreen
