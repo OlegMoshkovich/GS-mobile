@@ -30,14 +30,9 @@ class EventScreen extends React.Component {
       markers    : mapMarkers,
       region     : mapRegion,
       showingFriends: false,
-
-
     };
 
-    // bind to function
     this.toggleMap = this.toggleMap.bind(this);
-
-
  }
 
  toggleMap() {
@@ -52,9 +47,6 @@ class EventScreen extends React.Component {
         showingFriends: true,
       })
     }
-
-
-
  }
 
   componentWillMount() {
@@ -63,42 +55,31 @@ class EventScreen extends React.Component {
   }
   componentDidMount() {
     this.animation.addListener(({ value }) => {
-
-      console.log("animation handler", value);
-
       let index;
-
       if (this.state.showingFriends) {
         index = Math.floor(value / AVATAR_ICON+0.5);
       } else {
         index = Math.floor(value / CARD_WIDTH+0.5)
       }
-
-
-
-
       if (index >= this.state.markers.length) {
         index = this.state.markers.length - 1;
       }
-      if (index <= 0) {
-        index = 0;
-      }
+      if (index <= 0) { index = 0; }
+      
       clearTimeout(this.regionTimeout);
+      
       this.regionTimeout = setTimeout(() => {
         if (this.index !== index) {
           this.index = index;
           const { coordinate } = this.state.markers[index];
           this.map.animateToRegion(
-            {
-              ...coordinate,
+            { ...coordinate,
               latitudeDelta: this.state.region.latitudeDelta,
               longitudeDelta: this.state.region.longitudeDelta,
-            },
-            500);
-        }
-      }, 10);
+            },500);}}, 10);
     });
   }
+
   _getLocationAsync = async () => {
     let { status } = await Permissions.askAsync(Permissions.LOCATION);
     if (status !== 'granted') {
@@ -109,16 +90,17 @@ class EventScreen extends React.Component {
     let location = await Location.getCurrentPositionAsync({});
     this.setState({ location });
   };
+  
   _onPressButton=()=>{
-    console.log("Button is pressed")
     this.setState({
-    region: { latitude: 	this.state.location.coords.latitude, longitude: 	this.state.location.coords.longitude, latitudeDelta: 0.0222, longitudeDelta: 0.0221 }
+      region: { latitude: 	this.state.location.coords.latitude, longitude: 	this.state.location.coords.longitude, latitudeDelta: 0.0222, longitudeDelta: 0.0221 }
     })
     }
+  
   onRegionChangeComplete = (region) => {
-    console.log(region);
     this.setState({region});
   }
+  
   renderMapView(interpolations) {
     return(
       <MapView
@@ -126,43 +108,31 @@ class EventScreen extends React.Component {
         initialRegion={this.state.region}
         style={{height: height, width: width}}
         showsCompass={false}>
-          {this.state.markers.map((marker, index) => {
+        {this.state.markers.map((marker, index) => {
           const scaleStyle = {transform: [{scale: interpolations[index].scale}]};
           const opacityStyle = {opacity: interpolations[index].opacity};
-
           return (
             <MapView.Marker key={index} coordinate={marker.coordinate}>
               <Animated.View style={[s.markerWrap, opacityStyle]}>
                 <Animated.View style={[s.ring, scaleStyle]} />
                 <Image style={[s.marker, this.state.showingFriends ? s.markerFriend : null ]} source={marker.mapIcon} resizeMode="contain"/>
               </Animated.View>
-            </MapView.Marker>
-          );
-
-
+            </MapView.Marker>);
         })}
-
-
-      </MapView>
-    );
+      </MapView>);
   }
 
   render() {
     const interpolations = this.state.markers.map((marker, index) => {
-
       let opacity, scale, inputRange;
-
       if (this.state.showingFriends == true) {
-
         inputRange = [(index - 1) * AVATAR_ICON,
           index * AVATAR_ICON, ((index + 1) * AVATAR_ICON)];
         scale = this.animation.interpolate({
           inputRange, outputRange: [1, 1.5, 1], extrapolate: "clamp"});
         opacity = this.animation.interpolate({
           inputRange, outputRange: [0.35, 1, 0.35], extrapolate: "clamp",});
-
       } else {
-
         inputRange = [(index - 1) * CARD_WIDTH,
           index * CARD_WIDTH, ((index + 1) * CARD_WIDTH)];
         scale = this.animation.interpolate({
@@ -170,20 +140,15 @@ class EventScreen extends React.Component {
         opacity = this.animation.interpolate({
           inputRange, outputRange: [0.35, 1, 0.35], extrapolate: "clamp",});
       }
-
-
-
       return { scale, opacity };
     });
 
     return (
       <LinearGradient
-          colors={[color, color]}
-        style={{ height: height, width:width}}>
+        colors={[color, color]} style={{ height: height, width:width}}>
         <TopMenu navigation={this.props.navigation} menuTitle="what" iconPath={assetPaths.topMenu.connectIcon} />
           <View style={[s.container, {height: 330}]}>
             { this.renderMapView(interpolations) }
-
             <Animated.ScrollView
               horizontal
               scrollEventThrottle={1}
@@ -199,12 +164,10 @@ class EventScreen extends React.Component {
                   <Image source={marker.image} style={s.cardImage} resizeMode="cover" />
                 </View>))}
             </Animated.ScrollView>
-
           </View>
-          <AvaBottomMenu contextFunction={this.toggleMap} currentSection={'connect'} contextIcon={true} showTab={true} tabTitle={"All Events"} tabLeft={22} navigation={this.props.navigation}/>
-        </LinearGradient>);
-  }
-
+        <AvaBottomMenu contextFunction={this.toggleMap} currentSection={'connect'} contextIcon={true} showTab={true} tabTitle={"All Events"} tabLeft={22} navigation={this.props.navigation}/>
+      </LinearGradient>);
+    }
 }
 
-export default EventScreen;
+export default EventScreen
