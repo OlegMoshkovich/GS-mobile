@@ -1,30 +1,22 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import { StyleSheet, Text, View, TouchableOpacity,Image, TouchableHighlight,ScrollView,Toggle, Alert} from 'react-native';
-import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
+import { Text, View } from 'react-native';
 import { LinearGradient } from "expo";
-import {Card, Button,Icon} from 'react-native-elements';
-import { Calendar, CalendarList, Agenda } from 'react-native-calendars';
-const color = '#FFF2AD';
-
+import { Agenda } from 'react-native-calendars';
 import TopMenu from '../components/TopMenu';
-import NavMenu from '../components/NavMenu';
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import assetPaths from '../assetPaths';
 
 // global styles
 import s from '../styles/calendarscreen';
 
+const color = '#FFF2AD';
 const {width, height} = Dimensions.get('window');
-
 
 class CalendarScreen extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      items: {},
-      blurRadius: 0,
-    };
+    this.state = { items: {}, blurRadius: 0,};
   }
 
   render() {
