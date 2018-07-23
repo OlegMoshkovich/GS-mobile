@@ -80,27 +80,25 @@ class StoryModalScreen extends React.Component {
 		<View style={s.modalContainer}>
 			<View style={[s.modalMenuContainer, {width: width}]}>
 				<TouchableOpacity style={s.modalButton} >
-					<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.share} />
+					<Image style={s.shareIcon} source={assetPaths.modals.shareModal.share} />
 				</TouchableOpacity>
 				<TouchableOpacity style={s.modalButton} onPress={() => this.setState({starSolid: !this.state.starSolid})}>
 					
 					{ this.state.starSolid ? 
-						<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.starSolid} /> : 
-						<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.star} />
+						<Image style={s.starIcon} source={assetPaths.modals.shareModal.starSolid} /> : 
+						<Image style={s.starIcon} source={assetPaths.modals.shareModal.star} />
 					}
 					
 				</TouchableOpacity>
 				<TouchableOpacity style={s.modalButton} onPress={() => this.setState({heartSolid: !this.state.heartSolid})}>
 
 					{ this.state.heartSolid ? 
-						<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.likeSolid} /> :
-						<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.like} />
+						<Image style={s.heartIcon} source={assetPaths.modals.shareModal.likeSolid} /> :
+						<Image style={s.heartIcon} source={assetPaths.modals.shareModal.like} />
 					}
 					
 				</TouchableOpacity>
-				<TouchableOpacity style={s.exitButton} onPress={() => this.props.navigation.goBack()} >
-					<Image style={s.exitIconImage} source={assetPaths.modals.shareModal.close}/>
-				</TouchableOpacity>
+			
 				<TouchableOpacity style={s.addFriend} onPress={() => (this.addFriend())} >
 					<Image style={s.addFriendImage} source={
 						this.state.friendRequested ? assetPaths.modals.shareModal.requestSent :
@@ -108,6 +106,10 @@ class StoryModalScreen extends React.Component {
 
 						}/>
 				</TouchableOpacity>
+				<TouchableOpacity style={s.exitButton} onPress={() => this.props.navigation.goBack()} >
+					<Image style={s.exitIconImage} source={assetPaths.modals.shareModal.close}/>
+				</TouchableOpacity>
+				
 		</View>
   		<ScrollView style={s.storyContentContainer}>
   			{ this.renderStoryPng(id)}

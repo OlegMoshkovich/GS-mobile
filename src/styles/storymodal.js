@@ -66,26 +66,7 @@ var styles = StyleSheet.create({
     },
 
 
-    exitButton: {
-        right: -170
-    },
-
-    exitIconImage: {
-        height: 25,
-        width: 25,
-    },
-
-    addFriend: {
-        top: 0,
-        right: -36,
-
-
-    },
-    addFriendImage: {
-        width: 98,
-        height: 27,
-    },
-
+  
 
     storyTitle: {
         marginTop: 24,
@@ -143,7 +124,58 @@ storyContentContainer: {
         color: "black",
         fontSize: 17,
         fontFamily: 'trefoil-sans-light'
-    }
+    },
+
+
+
+    // v2 icons
+
+    shareIcon: {
+        height: 16,
+        width: 14,
+        top: 11,
+    },
+
+
+    starIcon: {
+        width: 15,
+        height: 14,
+        marginLeft: 21,
+        top: 11,
+    },
+
+    heartIcon: {
+        width: 15,
+        height: 14,
+        marginLeft: 21,
+        top: 11,
+    },
+
+
+
+
+    exitButton: {
+    },
+
+    exitIconImage: {
+        height: 39,
+        width: 39,
+        top: 0,
+        marginLeft: 150,
+    },
+
+
+    addFriendImage: {
+        width: 15,
+        height: 14,
+        marginLeft: 23,
+        top: 11,
+    },
+
+
+
+
+
 
 });
 

@@ -5,8 +5,8 @@ import { LinearGradient } from "expo";
 const {width, height} = Dimensions.get('window');
 const color = '#FFF2AD';
 // styles
-import s from '../styles/communityscreen.js';
-import AvaBottomMenu from '../components/AvaBottomMenu.js';
+import s from '../styles/communityscreen';
+import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
 import assetPaths from '../assetPaths';
 

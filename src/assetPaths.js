@@ -118,14 +118,14 @@ paths.modals = {
         exit: require('../assets/icons/Exit.png'),
     },
     shareModal: {
-        addFriend: require('../assets/icons/shareModals/addFriend.png'),
-        close: require('../assets/icons/shareModals/close.png'),
-        like: require('../assets/icons/shareModals/like.png'),
-        share: require('../assets/icons/shareModals/share.png'),
-        star: require('../assets/icons/shareModals/star.png'),
-        requestSent: require('../assets/icons/shareModals/friendRequestSent.png'),
-        likeSolid: require('../assets/icons/shareModals/like-solid.png'),
-        starSolid: require('../assets/icons/shareModals/star-solid.png'),
+        addFriend: require('../assets/icons/shareModals/v2/friend_off.png'),
+        close: require('../assets/icons/shareModals/v2/close.png'),
+        like: require('../assets/icons/shareModals/v2/heart_off.png'),
+        share: require('../assets/icons/shareModals/v2/share.png'),
+        star: require('../assets/icons/shareModals/v2/star_off.png'),
+        requestSent: require('../assets/icons/shareModals/v2/friend_on.png'),
+        likeSolid: require('../assets/icons/shareModals/v2/heart_on.png'),
+        starSolid: require('../assets/icons/shareModals/v2/star_on.png'),
     }
 }
 paths.stories = {
