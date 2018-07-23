@@ -18,6 +18,7 @@ import BadgeScreen from './src/screens/BadgeScreen';
 import JourneyScreen from './src/screens/JourneyScreen';
 import AwardScreen from './src/screens/AwardScreen';
 import StoryModalScreen from './src/screens/StoryModalScreen';
+import MicroBadgeModalScreen from './src/screens/MicroBadgeModalScreen';
 import BadgeModalScreen from './src/screens/BadgeModalScreen';
 import PostModalScreen from './src/screens/PostModalScreen';
 import Dimensions from 'Dimensions';
@@ -140,6 +141,8 @@ class App extends React.Component {
       ShopModal: { screen: ShopScreen },
       ArticleModal: { screen: ArticleModalScreen, },
       StoryModal: { screen: StoryModalScreen, },
+
+      MicroBadgeModal: { screen: MicroBadgeModalScreen },
       BadgeModal: { screen: BadgeModalScreen, },
       PostModal: { screen: PostModalScreen, }
       },

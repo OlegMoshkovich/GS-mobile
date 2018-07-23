@@ -38,27 +38,25 @@ class BadgeModalScreen extends React.Component {
 			case 'truth':
 				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/truthSeeker.png')} />);
 				break;
-
 			case 'voice':
 				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/voiceForAnimals.png')} />);
                 break;
             case 'website':
 				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/websiteDesigner.png')} />);
 				break;
+			case 'womens':
+				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/badges/womensHealth.png')} />);
+				break;
 		}
-
 	}
 
   render() {
 
 		const {params} = this.props.navigation.state;
 		const id = params ? params.id: 'style';
-		console.log("rendering id", id);
-
 
     return (
 		<View style={s.modalContainer}>
-		
 			<View style={[s.modalMenuContainer, {width: width}]}>
 				<TouchableOpacity style={s.modalButton} >
 					<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.share} />
@@ -72,14 +70,10 @@ class BadgeModalScreen extends React.Component {
 				<TouchableOpacity style={s.exitButton} onPress={() => this.props.navigation.goBack()} >
 					<Image style={s.exitIconImage} source={assetPaths.modals.shareModal.close}/>
 				</TouchableOpacity>
-		</View>
-  		<ScrollView style={s.storyContentContainer}>
-  			{ this.renderBadgePng(id)}
-		</ScrollView>
-
-
-</View>);
+			</View>
+  			<ScrollView style={s.storyContentContainer}>{ this.renderBadgePng(id)}</ScrollView>
+		</View>);
   }
 }
 
-export default BadgeModalScreen;
+export default BadgeModalScreen

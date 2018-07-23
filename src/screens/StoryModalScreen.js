@@ -78,6 +78,7 @@ class StoryModalScreen extends React.Component {
 
     return (
 		<View style={s.modalContainer}>
+			
 			<View style={[s.modalMenuContainer, {width: width}]}>
 				<TouchableOpacity style={s.modalButton} >
 					<Image style={s.shareIcon} source={assetPaths.modals.shareModal.share} />

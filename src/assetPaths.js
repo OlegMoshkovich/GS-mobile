@@ -6,7 +6,8 @@ let paths = {};
 // bottom menu with ava and icons
 paths.bottomMenu = {
     default: require('../assets/bottomMenu/ava/ava_default2.png'),
-    // ...
+
+    // faces
     capShout: require('../assets/bottomMenu/ava/ava_cap_yell.png'),
     capSmileEyesClosed: require('../assets/bottomMenu/ava/ava_cap_eyesClosed_smile.png'),
     capSmile: require('../assets/bottomMenu/ava/ava_cap_smile.png'),
@@ -23,27 +24,30 @@ paths.bottomMenu = {
     smile1: require('../assets/bottomMenu/ava/ava_smile1.png'),
     wave: require('../assets/bottomMenu/ava/ava_wave.png'),
     frown: require('../assets/bottomMenu/ava/ava_oh-no.png'),
+
     avaChatInterface: require('../assets/bottomMenu/ava/ava_chat_interface.png'),
+
+    // icons
     calendarIcon: require('../assets/bottomMenu/icons/Calendar-icon.png'),
     chatIcon: require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
-
-
     homeIcon: require('../assets/bottomMenu/icons/NAV_home-home.png'),
     communityIcon: require('../assets/bottomMenu/icons/NAV_share-home.png'),
     connectIcon: require('../assets/bottomMenu/icons/NAV_connect-home.png'),
     dashboardIcon: require('../assets/bottomMenu/icons/NAV_dash-home.png'),
     exploreIcon: require('../assets/bottomMenu/icons/NAV_explore-home.png'),
+    mapIcon: require('../assets/bottomMenu/icons/Map-icon.png'),
+    shopIcon: require('../assets/bottomMenu/icons/Shop-icon.png'),
+    tabBackground: require('../assets/bottomMenu/bottomTab.png'),
 
+    // icons on
     communityIconOn: require('../assets/bottomMenu/icons/home-share.png'),
     connectIconOn: require('../assets/bottomMenu/icons/home-connect.png'),
     dashboardIconOn: require('../assets/bottomMenu/icons/home-dash.png'),
     exploreIconOn: require('../assets/bottomMenu/icons/home-explore.png'),
 
-    mapIcon: require('../assets/bottomMenu/icons/Map-icon.png'),
-    shopIcon: require('../assets/bottomMenu/icons/Shop-icon.png'),
-    tabBackground: require('../assets/bottomMenu/bottomTab.png'),
     gradient: require('../assets/bottomMenu/avabottom-gradient.png'),
     relatedBackground: require('../assets/relatedBackground.png'),
+
     // contextual icons above ava head
     contextIcons: {
         addCalendar: require('../assets/bottomMenu/icons/context-addCalendarEntry.png'),
@@ -89,13 +93,9 @@ paths.staticScreens = {
     postModal: require('../assets/staticScreens/post.png'),
     resume: require('../assets/Resume.png'),
     related: require('../assets/Related.png'),
-    leaderBoard: require('../assets/Leaderboard.png'),
-    wishlist: require(
-        '../assets/staticScreens/wishlistModal.png'
-    ),
-    badgesOverview: require(
-        '../assets/staticScreens/badgeOverlay.png'
-    ),
+    leaderBoard: require('../assets/Leaderboard2.png'),
+    wishlist: require('../assets/staticScreens/wishlistModal3.png'),
+    badgesOverview: require('../assets/staticScreens/badgeOverlay.png'),
 }
 paths.homeScreen = {
     chatBubbles: require('../assets/Home_Bubble_Welcome1.png'),
@@ -129,7 +129,6 @@ paths.modals = {
     }
 }
 paths.stories = {
-
     marley: require('../assets/share/revised/marley2x.png'),
     supergirls: require('../assets/share/revised/supergirls2x.png'),
     muslim: require('../assets/share/revised/muslimGirls2x.png'),
@@ -159,6 +158,14 @@ paths.stories = {
         storyImage: require('../assets/Article_Image_3.png')
     }
 }
+
+paths.microbadges = {
+
+      Card01: require('../assets/badges/microBadgeCard01.png'),
+      Card02: require('../assets/badges/microBadgeCard02.png'),
+      Card03: require('../assets/badges/microBadgeCard03.png')
+  }
+
 paths.badges = {
     default: {
         // default badges are just white without drop shadow
@@ -299,8 +306,8 @@ paths.shop = {
                 require ('../assets/shop/bubble-headphones.png'),
             ],
         },
-        
-        
+
+
         {
             image: require('../assets/shop/featuredProduct00.png'),
             bubbles: [
@@ -343,4 +350,4 @@ paths.avatars = {
     grey2: require('../assets/avatars/avatar08.png'),
 }
 
-export default paths;
+export default paths

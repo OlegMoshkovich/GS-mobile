@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { StyleSheet, Text, View, TouchableOpacity,Image,TouchableWithoutFeedback, TouchableHighlight,ScrollView,Toggle, Alert, Animated} from 'react-native';
 import {StackNavigator,TabNavigator, TabBarBottom} from 'react-navigation';
 import { LinearGradient } from "expo";
@@ -16,7 +15,6 @@ const color = '#FFF2AD';
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
 import NavMenu from '../components/NavMenu';
-
 import assetPaths from '../assetPaths';
 import s from '../styles/connectscreen';
 
@@ -274,11 +272,15 @@ class DashboardScreen extends React.Component {
                    <TouchableWithoutFeedback
                      onPress={() => {this.props.navigation.navigate('Calendar'); }}>
                      <Image
-                        source={require('../../assets/icons/Connect/Calendar.png')}
+                        source={require('../../assets/icons/Connect/Calendar2.png')}
                        style={{
                          width:288,
-                         height:95,
-                         right:0
+                         height:131,
+                         right:0,
+                         top: 10,
+                         
+
+                         
                        }}
                      />
                    </TouchableWithoutFeedback>

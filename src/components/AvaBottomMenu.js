@@ -80,9 +80,7 @@ tabAnimation = () => {
     }
 }
 renderTabContent() {
-    console.log('rendering contextual content');
     switch(this.props.navigation.state.routeName){
-
     case 'SystemModal':
         return(
             <Animated.View style={[{ top:0, left:5, zIndex: 12, position:'absolute'},]}>
@@ -112,7 +110,7 @@ renderTabContent() {
     case 'Dashboard':
       return(<Animated.View style={{ top:0, left:5, zIndex: 12, position:'absolute'}}>
               <ScrollView style={{  height:521, paddingBottom:200}} bounces={false}>
-                <Image style={{ width: 366, height:1027}} source={assetPaths.staticScreens.leaderBoard} />
+                <Image style={{ width: 366, height:1104}} source={assetPaths.staticScreens.leaderBoard} />
               </ScrollView>
             </Animated.View>);
 
@@ -129,7 +127,7 @@ animate = async () => {
     this.setState({
       tab: !this.state.tab,
     })
-
+    /*
       const source = {
         uri: "http://soundimage.org/wp-content/uploads/2016/04/UI_Quirky34.mp3"
       };
@@ -142,7 +140,7 @@ animate = async () => {
       } catch(error) {
         console.error(error);
       }
-
+      */
 
     if (this.state.blurRadius == maxBlurRadius) { this.setState({ blurRadius: initialBlurRadius });
     } else { this.setState({ blurRadius: maxBlurRadius }); }
@@ -352,13 +350,12 @@ renderGradient() {
     );
 }
 
-showChatInterface() { console.log("showing chat"); }
-hideChatInterface() { console.log("hide chat"); }
+showChatInterface() { }
+hideChatInterface() { }
 
 renderChatInterface() {
     return (<View style={{top: 0}}>
-    <Modal animationType="slide" transparent={true} visible={this.state.chatInterface}
-        onRequestClose={() => console.log("modal closed")}>
+    <Modal animationType="slide" transparent={true} visible={this.state.chatInterface} >
         <TouchableOpacity onPress={() => this.setState({chatInterface: false})}>
             <Image key={'foobar123'} style={{width: width, height: height}} source={assetPaths.bottomMenu.avaChatInterface} />
         </TouchableOpacity>
@@ -367,8 +364,7 @@ renderChatInterface() {
 renderWishlistModal() {
 
     return (<View style={{top: 0}}>
-        <Modal animationType="slide" transparent={true} visible={this.state.wishlistModal}
-            onRequestClose={() => console.log("modal closed")}>
+        <Modal animationType="slide" transparent={true} visible={this.state.wishlistModal}>
             <TouchableOpacity onPress={() => this.setState({wishlistModal: false})}>
                 <Image key={'wishlistImage'} style={{width: width, height: height}} source={assetPaths.staticScreens.wishlist} />
             </TouchableOpacity>
@@ -391,4 +387,4 @@ render() {
 }
 
 
-export default AvaBottomMenu;
+export default AvaBottomMenu

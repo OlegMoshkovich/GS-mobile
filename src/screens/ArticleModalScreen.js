@@ -41,9 +41,8 @@ class ArticleModalScreen extends React.Component {
 
 		const {params} = this.props.navigation.state;
 		const id = params ? params.id: 1;
-		console.log("rendering id", id);
 
-    return (
+		return (
 		<View style={s.modalContainer}>
 			<View style={[s.modalMenuContainer, {width: width}]}>
 				<TouchableOpacity style={s.modalButton} >

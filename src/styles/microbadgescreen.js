@@ -24,26 +24,33 @@ var styles = StyleSheet.create({
     },
 
     microbadgeIcon:{
+
+
+      height:240,
+      width:260,
+      alignSelf:'center'
+    },
+    microbadgeContainer:{
       flex: 1,
       top:20,
-      height:240,
-      width:240,
+
+
       alignSelf:'center'
     },
 
-    featuredStoriesScrollView: {
+    relatedMediaScrollView: {
       marginTop: 180,
     },
 
-    featuredStoriesTitle: {
+    relatedMediaTitle: {
         color: "#51258A",
-        top:150,
+        top:155,
         fontSize: 18,
         left: 16,
         fontFamily: 'trefoil-sans-semibold'
     },
 
-    featuredStoryImage: {
+    relatedMediaCard: {
         height: 198,
         width: 148,
         marginBottom: 10,
