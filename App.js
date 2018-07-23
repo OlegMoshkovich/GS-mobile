@@ -3,7 +3,6 @@ import React from 'react';
 import { Animated} from 'react-native';
 import { Font } from 'expo';
 import {StackNavigator,TabNavigator} from 'react-navigation';
-import MapScreen from './src/screens/MapScreen';
 import HomeScreen from './src/screens/HomeScreen';
 import CommunityScreen from './src/screens/CommunityScreen';
 import CalendarScreen from './src/screens/CalendarScreen';
@@ -101,7 +100,6 @@ class App extends React.Component {
 
       { ConnectDashboard: { screen: CommsDashboardScreen, },
         Chat: { screen: ChatScreen, },
-        Map: { screen: MapScreen, },
         Calendar: { screen: CalendarScreen, },
         Events: { screen: EventScreen, }, },
       { headerMode: 'none', navigationOptions: { headerVisible: false, },

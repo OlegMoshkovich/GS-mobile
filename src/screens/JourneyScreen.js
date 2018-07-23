@@ -8,7 +8,6 @@ import AvaBottomMenu from '../components/AvaBottomMenu.js';
 import TopMenu from '../components/TopMenu';
 
 import assetPaths from '../assetPaths';
-import s from '../styles/journeyscreen';
 
 const {width, height} = Dimensions.get('window');
 const ItemWidth = 300.0;
