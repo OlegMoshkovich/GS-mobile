@@ -17,44 +17,26 @@ import FeaturedProduct from '../components/FeaturedProduct';
 class ShopScreen extends React.Component {
 
   constructor(props) { super(props);
-
     this.state = { activated    : true,
       moveAnim: new Animated.Value(0),
-      modalShowing: false,
-      activated: false
-
+      modalShowing: false, activated: false
     };
   }
 
   animate = () => {
-    Animated.timing(
-      this.state.moveAnim,
-      {
-        toValue: this.state.activated ? 1: 0,
-        duration: 500
-      }
+    Animated.timing( this.state.moveAnim,
+      { toValue: this.state.activated ? 1: 0, duration: 500 }
     ).start();
-    this.setState({
-      activated: !this.state.activated,
-
-    })
+    this.setState({ activated: !this.state.activated });
   }
-
-
-
-
 
   render() {
 
-    let {moveAnim} = this.state;
-
-
     return (
-        <LinearGradient
-         colors={[color, color]}
-         style={{ height: height, width:width}}>
+      <LinearGradient
+        colors={[color, color]}
+        style={{ height: height, width:width}}>
         <TopMenu menuTitle="shop" iconPath={assetPaths.shop.icons.close} navigation={this.props.navigation} />
-
         <ScrollView
           style ={{ top:91, position:'absolute', height: height}} showsVerticalScrollIndicator={false} >
           <Text style ={s.featuredTitle}>Featured</Text>
@@ -91,6 +73,7 @@ class ShopScreen extends React.Component {
                 { top: 208, left: 56, productBubble: assetPaths.shop.featuredProducts[5].bubbles[0],
                   bubbleOffset: { top: 0, left: 0 }}, ]} />
           </ScrollView>
+          
           <View style={s.categorySection}>
             <Text style ={s.whatsNewTitle}>Categories</Text>
             <Image style={s.searchIcon} resizeMode="contain" source={assetPaths.shop.icons.search} />
@@ -102,6 +85,7 @@ class ShopScreen extends React.Component {
               <View style={s.pill}><Text style={s.pillText}>Gifts</Text></View>
             </ScrollView>
           </View>
+          
           <View style={s.productContainer}>
             <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.socks1} />
             <Image style={s.productImage} resizeMode="cover" source={assetPaths.shop.productCards.vest} />

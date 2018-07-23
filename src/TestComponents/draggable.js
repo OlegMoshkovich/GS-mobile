@@ -1,19 +1,10 @@
+// likely will need to become native code for better graphics / physics on device -@vomc
 
 import React, { Component } from 'react';
-import { Animated, StyleSheet, View,Text,TouchableOpacity } from 'react-native';
-
-import {
-  PanGestureHandler,
-  ScrollView,
-  State,
-} from 'react-native-gesture-handler';
+import { Animated, StyleSheet, Text } from 'react-native';
+import { PanGestureHandler, State} from 'react-native-gesture-handler';
 
 import { USE_NATIVE_DRIVER } from './config';
-import { LoremIpsum } from './common';
-
-
-
-
 
 export class DraggableBox extends Component {
   constructor(props) {
@@ -22,17 +13,13 @@ export class DraggableBox extends Component {
     this._translateY = new Animated.Value(0);
     this._lastOffset = { x: 0, y: 0 };
     this._onGestureEvent = Animated.event(
-      [
-        {
-          nativeEvent: {
-            translationX: this._translateX,
-            translationY: this._translateY,
-          },
-        },
-      ],
-      { useNativeDriver: USE_NATIVE_DRIVER }
+      [{nativeEvent: {
+          translationX: this._translateX,
+          translationY: this._translateY,}},
+      ], { useNativeDriver: USE_NATIVE_DRIVER }
     );
   }
+  
   _onHandlerStateChange = event => {
     if (event.nativeEvent.oldState === State.ACTIVE) {
       this._lastOffset.x += event.nativeEvent.translationX;
@@ -43,42 +30,30 @@ export class DraggableBox extends Component {
       this._translateY.setValue(0);
     }
   };
+  
   render() {
     return (
-
       <PanGestureHandler
         {...this.props}
         onGestureEvent={this._onGestureEvent}
         onHandlerStateChange={this._onHandlerStateChange}
         id="dragbox">
-
         <Animated.View
-          style={[
-            styles.box,
+          style={[ styles.box,
             {
               transform: [
                 { translateX: this._translateX },
                 { translateY: this._translateY },
               ],
             },
-          ]}
-        >
-        <Text style={styles.text}>Outdoor</Text>
+          ]}>
+          <Text style={styles.text}>Outdoor</Text>
         </Animated.View>
-
-      </PanGestureHandler>
-
-
-
-
-    );
+      </PanGestureHandler>);
   }
 }
 
-
-
 const styles = StyleSheet.create({
-
   box: {
     bottom:40,
     right:80,
@@ -88,7 +63,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     backgroundColor: 'white',
     opacity:.4,
-
     zIndex: 0,
   },
   text: {
