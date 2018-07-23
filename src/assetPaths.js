@@ -126,6 +126,15 @@ paths.modals = {
         requestSent: require('../assets/icons/shareModals/v2/friend_on.png'),
         likeSolid: require('../assets/icons/shareModals/v2/heart_on.png'),
         starSolid: require('../assets/icons/shareModals/v2/star_on.png'),
+    },
+    badgeModal: {
+        share: require('../assets/icons/badgeModal/share_off.png'),
+        star: require('../assets/icons/badgeModal/star_off.png'),
+        starSolid: require('../assets/icons/badgeModal/star_on.png'),
+        like: require('../assets/icons/badgeModal/like_off.png'),
+        likeSolid: require('../assets/icons/badgeModal/like_on.png'),
+        close: require('../assets/icons/badgeModal/exit_off.png'),
+        
     }
 }
 paths.stories = {

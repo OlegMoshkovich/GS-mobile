@@ -164,6 +164,12 @@ storyContentContainer: {
         marginLeft: 150,
     },
 
+    exitIconImageBadge: {
+        height: 39,
+        width: 39,
+        top: 0,
+        marginLeft: 185,
+    },
 
     addFriendImage: {
         width: 15,

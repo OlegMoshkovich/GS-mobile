@@ -59,16 +59,16 @@ class BadgeModalScreen extends React.Component {
 		<View style={s.modalContainer}>
 			<View style={[s.modalMenuContainer, {width: width}]}>
 				<TouchableOpacity style={s.modalButton} >
-					<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.share} />
+					<Image style={s.shareIcon} source={assetPaths.modals.badgeModal.share} />
 				</TouchableOpacity>
 				<TouchableOpacity style={s.modalButton} >
-					<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.star} />
+					<Image style={s.starIcon} source={assetPaths.modals.badgeModal.star} />
 				</TouchableOpacity>
 				<TouchableOpacity style={s.modalButton} >
-					<Image style={s.modalIconImage} source={assetPaths.modals.shareModal.like} />
+					<Image style={s.heartIcon} source={assetPaths.modals.badgeModal.like} />
 				</TouchableOpacity>
 				<TouchableOpacity style={s.exitButton} onPress={() => this.props.navigation.goBack()} >
-					<Image style={s.exitIconImage} source={assetPaths.modals.shareModal.close}/>
+					<Image style={s.exitIconImageBadge} source={assetPaths.modals.badgeModal.close}/>
 				</TouchableOpacity>
 			</View>
   			<ScrollView style={s.storyContentContainer}>{ this.renderBadgePng(id)}</ScrollView>
