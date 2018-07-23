@@ -1,11 +1,13 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
 import { View, Modal, TouchableOpacity, Image, Animated} from 'react-native';
-import { Video, Constants, Audio } from "expo";
+import { Video, Audio } from "expo";
 import {swipeDirections} from 'react-native-swipe-gestures';
-import s from '../styles/homescreen';
+
 import AvaBottomMenuHomescreen from '../components/AvaBottomMenuHomescreen';
+
 import assetPaths from '../assetPaths';
+import s from '../styles/homescreen';
 
 const {width, height} = Dimensions.get('window');
 
@@ -16,10 +18,7 @@ class HomeScreen extends React.Component {
       backgroundColor: '#fff',
       navigation: this.props.navigation,
       awardTop: new Animated.Value(0),
-      showYesNo: true,
-      showSpeech: false,
-      chatInterface: false,
-      showVideo: false,
+      showYesNo: true, showSpeech: false, chatInterface: false, showVideo: false,
     };
   }
 
@@ -44,45 +43,26 @@ class HomeScreen extends React.Component {
   }
 
   renderNotification() {
-    return(<View style={[s.notificationContainer]}>
-        <TouchableOpacity
-
-        onPress={ async () => {
-          const source = {
-            uri: "http://www.slspencer.com/Sounds/Chewbacca/Chewie3.mp3"
-          };
-
-          try {
-            await Audio.setIsEnabledAsync(true);
-            const sound = new Audio.Sound();
-            await sound.loadAsync(source);
-            await sound.playAsync();
-            console.log('the sound button is pressed')
-          } catch(error) {
-            console.error(error);
-          }
-        }}>
+    return(
+      <View style={[s.notificationContainer]}>
+        <TouchableOpacity>
           <Image style={s.notificationIcon} source={assetPaths.homeScreen.icons.notificationIcon} />
         </TouchableOpacity>
       </View>);
   }
 
   renderChat() {
-    return(<View style={s.homeChatContainer}>
-
+    return(
+      <View style={s.homeChatContainer}>
         <TouchableOpacity >
           <Image style={[s.homeChatImage]} source={assetPaths.homeScreen.chatBubbles} />
         </TouchableOpacity>
-
         <TouchableOpacity style={s.chatQuestions} onPress={() => {
           this.setState({chatInterface: true, showYesNo: false}); }}>
         <Image style={s.homeTutorialImage} source={assetPaths.homeScreen.responseBubbles} />
         </TouchableOpacity>
-
       </View>);
   }
-
-  systemScreenStyle() { return { height: height, width: width, backgroundColor: 'transparent'} }
 
   render() {
     if (this.state.showVideo) {
@@ -111,38 +91,33 @@ class HomeScreen extends React.Component {
           isLooping
           style={{ width: width, height: height }}
         />
-
         { this.renderNotification() }
         { this.state.showYesNo ? this.renderChat() : null }
-
         { this.state.chatInterface ?
-
           <View style={{top: 0}}>
-
             <Modal animationType="slide" transparent={true} visible={true} onRequestClose={() => console.log("modal closed")}>
               <TouchableOpacity onPress={() => {this.setState({chatInterface: false}); this.setState({showYesNo: true})}}>
                 <Image style={{width: width, height: height}} source={assetPaths.bottomMenu.avaChatInterface} />
               </TouchableOpacity>
             </Modal>
           </View> : null }
-
+          
           <View style={s.profileButton}>
             <TouchableOpacity onPress={() => { this.props.navigation.navigate({ routeName: 'SystemModal',
                 params: { transition: 'systemTransition' }});}}>
               <Image source={assetPaths.homeScreen.icons.swipeUpIcon} style={s.upDownButtonIcon}/>
             </TouchableOpacity>
           </View>
-
+          
           <View style={s.shopButton}>
             <TouchableOpacity onPress={() => {this.props.navigation.navigate({ routeName: 'ShopModal',
                 params: { transition: 'shopTransition' }});}}>
                 <Image source={assetPaths.homeScreen.icons.swipeDownIcon} style={s.upDownButtonIcon}/>
             </TouchableOpacity>
           </View>
-          {
-            this.state.showSpeech ? null :
-              <AvaBottomMenuHomescreen navigation={this.props.navigation}/>}
-          </View>);
+          { this.state.showSpeech ? null :
+            <AvaBottomMenuHomescreen navigation={this.props.navigation}/>}
+        </View>);
     }
   }
 }
