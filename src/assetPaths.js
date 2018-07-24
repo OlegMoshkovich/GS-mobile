@@ -87,12 +87,9 @@ paths.staticScreens = {
     journeyScreen: require('../assets/staticScreens/journey-2x.png'),
     awardScreen: require('../assets/staticScreens/awards-2x.png'),
     badgeScreen: require('../assets/staticScreens/badges-2x.png'),
-    avaEndBlue: require('../assets/ava_end.png'),
-    avaEndYellow: require('../assets/ava_end_yellow.png'),
     eventScreen: require('../assets/staticScreens/AllEvents.png'),
     postModal: require('../assets/staticScreens/post.png'),
     resume: require('../assets/Resume.png'),
-    related: require('../assets/Related.png'),
     leaderBoard: require('../assets/Leaderboard2.png'),
     wishlist: require('../assets/staticScreens/wishlistModal3.png'),
     badgesOverview: require('../assets/staticScreens/badgeOverlay.png'),
@@ -100,7 +97,6 @@ paths.staticScreens = {
 paths.homeScreen = {
     chatBubbles: require('../assets/Home_Bubble_Welcome1.png'),
     responseBubbles: require('../assets/Home_Bubble_Response.png'),
-    background: require('../assets/Home_Background2.png'),
     speechInputImage: require('../assets/Speech-input.png'),
     icons: {
         notificationIcon: require('../assets/icons/notificationsHome.png'),
@@ -112,8 +108,6 @@ paths.modals = {
     articleModal: {
         shareIcon: require('../assets/Share.png'),
         starIcon: require('../assets/Star.png'),
-        commentIcon: require('../assets/Comment.png'),
-        clapIcon: require('../assets/Clap.png'),
         exitIcon: require('../assets/Exit-icon.png'),
         exit: require('../assets/icons/Exit.png'),
     },
@@ -162,10 +156,7 @@ paths.stories = {
         storyCard01: require('../assets/Article_2.3.png'),
         storyCard02: require('../assets/Article_2.2.png'),
         storyCard03: require('../assets/Article_2.1.png'),
-    },
-    storyModal: {
-        storyImage: require('../assets/Article_Image_3.png')
-    }
+    }    
 }
 
 paths.microbadges = {
@@ -260,6 +251,7 @@ paths.navMenu = {
     dotOn: require('../assets/navMenu/navDot_on.png'),
     dotOff: require('../assets/navMenu/navDot_off.png')
 };
+
 paths.shop = {
     icons: {
         wishlist: require('../assets/shop/shop-heart.png'),

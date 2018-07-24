@@ -1,6 +1,6 @@
 import React from 'react';
 import Dimensions from 'Dimensions';
-import {View, TouchableOpacity,Image,ScrollView} from 'react-native';
+import {View, Text, TouchableOpacity,Image,ScrollView} from 'react-native';
 const {width} = Dimensions.get('window');
 
 import s from '../styles/storymodal';
@@ -21,6 +21,7 @@ class StoryModalScreen extends React.Component {
 	}
 
 	renderStoryPng(id) {
+
 		switch (id) {
 			case 1:
 				return (<Image style={{width: width, height: 2719, marginBottom: 100, top: -84}} source={require('../../assets/staticScreens/stories/marleyRevised2x.png')} />);
@@ -52,34 +53,37 @@ class StoryModalScreen extends React.Component {
   render() {
 	const {params} = this.props.navigation.state;
 	const id = params ? params.id: 1;
-	return (
-		<View style={s.modalContainer}>
-			<View style={[s.modalMenuContainer, {width: width}]}>
-				<TouchableOpacity style={s.modalButton} >
-					<Image style={s.shareIcon} source={assetPaths.modals.shareModal.share} />
-				</TouchableOpacity>
-				<TouchableOpacity style={s.modalButton} onPress={() => this.setState({starSolid: !this.state.starSolid})}>
-					{ this.state.starSolid ? 
-					<Image style={s.starIcon} source={assetPaths.modals.shareModal.starSolid} /> : 
-					<Image style={s.starIcon} source={assetPaths.modals.shareModal.star} /> }
-				</TouchableOpacity>
-				<TouchableOpacity style={s.modalButton} onPress={() => this.setState({heartSolid: !this.state.heartSolid})}>
+	return (<View style={s.modalContainer}>
+				<View style={[s.modalMenuContainer, {width: width}]}>
+					<TouchableOpacity style={s.modalButton}><Image style={s.shareIcon} source={assetPaths.modals.shareModal.share} /></TouchableOpacity>
+					<TouchableOpacity style={s.modalButton} onPress={() => this.setState({starSolid: !this.state.starSolid})}>{ this.state.starSolid ? 
+	    				<Image style={s.starIcon} source={assetPaths.modals.shareModal.starSolid} /> : 
+						<Image style={s.starIcon} source={assetPaths.modals.shareModal.star}/>}
+					</TouchableOpacity>
+		
+    <TouchableOpacity style={s.modalButton} onPress={() => this.setState({heartSolid: !this.state.heartSolid})}>
 					{ this.state.heartSolid ? 
 						<Image style={s.heartIcon} source={assetPaths.modals.shareModal.likeSolid} /> :
 						<Image style={s.heartIcon} source={assetPaths.modals.shareModal.like} />
 					}
-				</TouchableOpacity>
-				<TouchableOpacity style={s.addFriend} onPress={() => (this.addFriend())} >
+    	</TouchableOpacity>
+		<TouchableOpacity style={s.addFriend} onPress={() => (this.addFriend())} >
 					<Image style={s.addFriendImage} source={
 						this.state.friendRequested ? assetPaths.modals.shareModal.requestSent :
 						assetPaths.modals.shareModal.addFriend }/>
-				</TouchableOpacity>
-				<TouchableOpacity style={s.exitButton} onPress={() => this.props.navigation.goBack()} >
-					<Image style={s.exitIconImage} source={assetPaths.modals.shareModal.close}/>
-				</TouchableOpacity>
-			</View>
-  			<ScrollView style={s.storyContentContainer}> { this.renderStoryPng(id)} </ScrollView>
-		</View>);
+    		</TouchableOpacity>
+    		<TouchableOpacity style={s.exitButton} onPress={() => this.props.navigation.goBack()} >
+				<Image style={s.exitIconImage} source={assetPaths.modals.shareModal.close}/>
+			</TouchableOpacity>
+		</View>
+		<ScrollView style={s.storyContentContainer}>
+		
+		
+
+		<ScrollView style={s.storyContentContainer}>{ this.renderStoryPng(id) }</ScrollView>
+
+</ScrollView>
+	</View>);
   }
 }
 
