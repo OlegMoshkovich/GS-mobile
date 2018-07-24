@@ -90,7 +90,6 @@ paths.staticScreens = {
     eventScreen: require('../assets/staticScreens/AllEvents.png'),
     postModal: require('../assets/staticScreens/post.png'),
     resume: require('../assets/Resume.png'),
-    related: require('../assets/Related.png'),
     leaderBoard: require('../assets/Leaderboard2.png'),
     wishlist: require('../assets/staticScreens/wishlistModal3.png'),
     badgesOverview: require('../assets/staticScreens/badgeOverlay.png'),
@@ -99,7 +98,6 @@ paths.homeScreen = {
     chatBubbles: require('../assets/Home_Bubble_Welcome1.png'),
     responseBubbles: require('../assets/Home_Bubble_Response.png'),
     speechInputImage: require('../assets/Speech-input.png'),
-    
     icons: {
         notificationIcon: require('../assets/icons/notificationsHome.png'),
         swipeUpIcon: require('../assets/topMenu/NAV_profile.png'),
