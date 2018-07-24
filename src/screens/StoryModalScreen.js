@@ -24,28 +24,28 @@ class StoryModalScreen extends React.Component {
 
 		switch (id) {
 			case 1:
-				return (<Image style={{width: width, height: 2719, marginBottom: 100, top: -84}} source={require('../../assets/staticScreens/stories/marleyRevised2x.png')} />);
+				return (<Image style={{width: width, height: 2719, marginBottom: 100, top: -169}} source={require('../../assets/staticScreens/stories/marleyRevised2x.png')} />);
 				break;
 			case 2:
-				return (<Image style={{width: width, height: 1702, marginBottom: 100, top: -110 }} source={require('../../assets/staticScreens/stories/superGirlsRevised2x.png')} />);
+				return (<Image style={{width: width, height: 1702, marginBottom: 100, top: -196 }} source={require('../../assets/staticScreens/stories/superGirlsRevised2x.png')} />);
 				break;
 			case 3:
-				return (<Image style={{width: width, height: 1869, marginBottom: 100, top: -114}} source={require('../../assets/staticScreens/stories/muslimGirlscoutsRevised2x.png')} />);
+				return (<Image style={{width: width, height: 1869, marginBottom: 100, top: -199}} source={require('../../assets/staticScreens/stories/muslimGirlscoutsRevised2x.png')} />);
 				break;
 			case 4:
-				return (<Image style={{width: width, height: 2684, marginBottom: 100, top: -121}} source={require('../../assets/staticScreens/stories/smokingBanRevised2x.png')} />);
+				return (<Image style={{width: width, height: 2684, marginBottom: 100, top: -205}} source={require('../../assets/staticScreens/stories/smokingBanRevised2x.png')} />);
 				break;
 			case 5:
-				return (<Image style={{width: width, height: 1823, marginBottom: 100, top: -121}} source={require('../../assets/staticScreens/stories/cookieDive2xv2Revised.png')} />);
+				return (<Image style={{width: width, height: 1823, marginBottom: 100, top: -205}} source={require('../../assets/staticScreens/stories/cookieDive2xv2Revised.png')} />);
 				break;
 			case 6:
-				return (<Image style={{width: width, height: 4082, marginBottom: 100, top: -120}} source={require('../../assets/staticScreens/stories/malala2xv2Revised.png')} />);
+				return (<Image style={{width: width, height: 4082, marginBottom: 100, top: -205}} source={require('../../assets/staticScreens/stories/malala2xv2Revised.png')} />);
 				break;
 			case 7:
-				return (<Image style={{width: width, height: 3406, marginBottom: 100, top: -122}} source={require('../../assets/staticScreens/stories/nasaRevised2x.png')} />);
+				return (<Image style={{width: width, height: 3406, marginBottom: 100, top: -205}} source={require('../../assets/staticScreens/stories/nasaRevised2x.png')} />);
 				break;
 			case 8:
-				return (<Image style={{width: width, height: 3406, marginBottom: 100, top: -122}} source={require('../../assets/staticScreens/stories/cassandra2xRevised.png')} />);
+				return (<Image style={{width: width, height: 3406, marginBottom: 100, top: -205}} source={require('../../assets/staticScreens/stories/cassandra2xRevised.png')} />);
 				break;
 		}
 	}
