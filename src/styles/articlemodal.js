@@ -5,9 +5,53 @@ import {
 } from 'react-native';
 
 var styles = StyleSheet.create({
+    modalContainer: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
 
-    // story modal - probably should
-    // go into its own file
+    modalMenuContainer: {
+        flex: 1,
+        position: 'absolute',
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+        marginTop: 20,
+        marginBottom: 20,
+        paddingLeft: 15,
+        paddingTop: 10,
+        paddingBottom: 5,
+        backgroundColor: 'rgba(255, 255, 255, 0)'
+    },
+
+    modalButton: {
+        marginRight: 10,
+    },
+
+    modalIconImage: {
+        height:17,
+        width: 17,
+        marginRight: 25,
+    },
+
+    exitButton: {
+        right: -170
+    },
+
+    exitIconImage: {
+        height: 25,
+        width: 25,
+    },
+
+    addFriend: {
+        top: 0,
+        right: -36,
+    },
+
+    addFriendImage: {
+        width: 98,
+        height: 27,
+    },
+
     storyModalView: {
         top: 200
     },
@@ -22,71 +66,6 @@ var styles = StyleSheet.create({
         left: 20
     },
 
-
-    modalContainer: {
-        flex: 1,
-        backgroundColor: 'white',
-
-    },
-
-
-    modalBackground: {
-
-        // backgroundColor: 'rgba(52,52,52,alpha)',
-
-    },
-    modalMenuContainer: {
-        position: 'absolute',
-        flex: 1,
-        flexDirection: 'row',
-        marginTop: 20,
-        alignItems: 'flex-start',
-        marginBottom: 20,
-        paddingLeft: 15,
-        paddingTop: 10,
-        paddingBottom: 5,
-        backgroundColor: 'rgba(255, 255, 255, 0)'
-
-
-
-
-    },
-
-
-    // menu -- TODO component
-    modalButton: {
-        marginRight: 10,
-    },
-
-
-    modalIconImage: {
-        height:17,
-        width: 17,
-        marginRight: 25,
-    },
-
-
-    exitButton: {
-        right: -170
-    },
-
-    exitIconImage: {
-        height: 25,
-        width: 25,
-    },
-
-    addFriend: {
-        top: 0,
-        right: -36,
-
-
-    },
-    addFriendImage: {
-        width: 98,
-        height: 27,
-    },
-
-
     storyTitle: {
         marginTop: 24,
         marginBottom: 0,
@@ -98,15 +77,11 @@ var styles = StyleSheet.create({
         fontFamily: 'trefoil-sans-semibold'
     },
 
-storyContentContainer: {
-    paddingTop: 20,
-    zIndex: -1,
-
-    paddingBottom: 0,
-
-
-
-},
+    storyContentContainer: {
+        paddingTop: 20,
+        zIndex: -1,
+        paddingBottom: 0,
+    },
 
     storyImage: {
         height: 225,

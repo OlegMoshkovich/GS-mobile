@@ -1,12 +1,12 @@
 'use strict'
 import Dimensions from 'Dimensions';
 const {
-    height
+    height,
+    width
 } = Dimensions.get('window');
 import {
     StyleSheet
 } from 'react-native';
-
 
 const CARD_HEIGHT =120;
 const CARD_WIDTH = CARD_HEIGHT - 29;
@@ -69,6 +69,8 @@ var styles = StyleSheet.create({
         right: 0,
         paddingVertical: 10,
     },
+
+    
     scrollViewEvents: {
         position: "absolute",
         top: 520,
@@ -98,13 +100,6 @@ var styles = StyleSheet.create({
         right: 0,
         top: 10,
     },
-
-
-
-
-
-
-
 });
 
 

@@ -10,8 +10,8 @@ var styles = StyleSheet.create({
     awardContainer: {
         flex: 1,
         top: -60,
-
     },
+
     awardHeader: {
         top: -100,
         marginBottom: 30,
@@ -21,6 +21,7 @@ var styles = StyleSheet.create({
         top: -100,
         marginBottom: 30
     },
+
     awardHeadline: {
         color: 'white',
         fontFamily: 'trefoil-sans-semibold',
