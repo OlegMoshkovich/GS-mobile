@@ -22,19 +22,6 @@ class DashboardScreen extends React.Component {
     };
   };
 
-  renderDashboardMenu() {
-    return(
-      <View style ={s.container}>
-        <Text style ={s.menuText}>#dashboard</Text>
-        <Image style={s.menuTapHereIcon} source={require('../../assets/Tap_here_icon.png')} />
-        <TouchableOpacity style ={s.dashboardIconButton} onPress={() => this.props.navigation.navigate({
-          routeName: 'Home', params: { transition: 'left' }}
-          )}>
-          <Image style={s.dashboardIconImage} source={require('../../assets/Dashboard-icon.png')} />
-        </TouchableOpacity>
-      </View>
-    );
-  }
   
   renderAvaDashboard() {
     return(
