@@ -4,7 +4,6 @@ import { Text, TouchableWithoutFeedback,Image,View} from 'react-native';
 import { LinearGradient } from "expo";
 import { Card } from 'react-native-elements';
 import Carousel from 'react-native-snap-carousel'; // 3.4.0
-import { PanGestureHandler, ScrollView, State} from 'react-native-gesture-handler';
 
 import AvaBottomMenu from '../components/AvaBottomMenu';
 import TopMenu from '../components/TopMenu';
