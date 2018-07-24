@@ -28,7 +28,6 @@ paths.bottomMenu = {
     avaChatInterface: require('../assets/bottomMenu/ava/ava_chat_interface.png'),
 
     // icons
-    calendarIcon: require('../assets/bottomMenu/icons/Calendar-icon.png'),
     homeIcon: require('../assets/bottomMenu/icons/NAV_home-home.png'),
     communityIcon: require('../assets/bottomMenu/icons/NAV_share-home.png'),
     connectIcon: require('../assets/bottomMenu/icons/NAV_connect-home.png'),
