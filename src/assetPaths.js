@@ -105,12 +105,10 @@ paths.homeScreen = {
     }
 }
 paths.modals = {
+    
     articleModal: {
-        shareIcon: require('../assets/Share.png'),
-        starIcon: require('../assets/Star.png'),
-        exitIcon: require('../assets/Exit-icon.png'),
-        exit: require('../assets/icons/Exit.png'),
     },
+
     shareModal: {
         addFriend: require('../assets/icons/shareModals/v2/friend_off.png'),
         close: require('../assets/icons/shareModals/v2/close.png'),
