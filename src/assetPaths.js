@@ -65,7 +65,6 @@ paths.bottomMenu.homeScreen = {
     dashboardIcon: require('../assets/bottomMenu/icons/home-dash.png'),
     exploreIcon: require('../assets/bottomMenu/icons/home-explore.png'),
     homeIcon: require('../assets/bottomMenu/icons/home-game.png'),
-    shopIcon: require('../assets/bottomMenu/icons/Shop-icon.png'),
     gradient: require('../assets/bottomMenu/homescreen_gradient-bottom.png')
 }
 paths.topMenu = {
