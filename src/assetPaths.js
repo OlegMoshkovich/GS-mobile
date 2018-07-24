@@ -29,14 +29,12 @@ paths.bottomMenu = {
 
     // icons
     calendarIcon: require('../assets/bottomMenu/icons/Calendar-icon.png'),
-    chatIcon: require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
     homeIcon: require('../assets/bottomMenu/icons/NAV_home-home.png'),
     communityIcon: require('../assets/bottomMenu/icons/NAV_share-home.png'),
     connectIcon: require('../assets/bottomMenu/icons/NAV_connect-home.png'),
     dashboardIcon: require('../assets/bottomMenu/icons/NAV_dash-home.png'),
     exploreIcon: require('../assets/bottomMenu/icons/NAV_explore-home.png'),
-    mapIcon: require('../assets/bottomMenu/icons/Map-icon.png'),
-    shopIcon: require('../assets/bottomMenu/icons/Shop-icon.png'),
+    
     tabBackground: require('../assets/bottomMenu/bottomTab.png'),
 
     // icons on
@@ -63,14 +61,11 @@ paths.bottomMenu = {
 };
 paths.bottomMenu.homeScreen = {
     avaFace: require('../assets/bottomMenu/ava/Ava_Default.png'),
-    calendarIcon: require('../assets/bottomMenu/icons/Calendar-icon.png'),
-    chatIcon: require('../assets/bottomMenu/icons/Home_Icon_Communication.png'),
     communityIcon: require('../assets/bottomMenu/icons/home-share.png'),
     connectIcon: require('../assets/bottomMenu/icons/home-connect.png'),
     dashboardIcon: require('../assets/bottomMenu/icons/home-dash.png'),
     exploreIcon: require('../assets/bottomMenu/icons/home-explore.png'),
     homeIcon: require('../assets/bottomMenu/icons/home-game.png'),
-    mapIcon: require('../assets/bottomMenu/icons/Map-icon.png'),
     shopIcon: require('../assets/bottomMenu/icons/Shop-icon.png'),
     gradient: require('../assets/bottomMenu/homescreen_gradient-bottom.png')
 }
@@ -79,7 +74,6 @@ paths.topMenu = {
     dashboardIcon: require('../assets/topMenu/NAV_dash-top.png'),
     exploreIcon: require('../assets/topMenu/NAV_explore-top.png'),
     shareIcon: require('../assets/topMenu/NAV_share-top.png'),
-    tapHereIcon: require('../assets/topMenu/Tap_here_icon.png'),
     profileIcon: require('../assets/topMenu/NAV_profile.png'),
     shopIcon: require('../assets/shop/nav-top-right.png'),
 }
