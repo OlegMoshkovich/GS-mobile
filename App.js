@@ -1,4 +1,5 @@
 console.disableYellowBox = true;
+
 import React from 'react';
 import { Animated} from 'react-native';
 import { Font } from 'expo';
@@ -79,18 +80,23 @@ class App extends React.Component {
 
   render() {
     const ConnectStack = StackNavigator(
-      { ConnectDashboard: { screen: CommsDashboardScreen, },
+      {
+        ConnectDashboard: { screen: CommsDashboardScreen, },
         Chat: { screen: ChatScreen, },
         Calendar: { screen: CalendarScreen, },
-        Events: { screen: EventScreen, }, },
-      { headerMode: 'none', navigationOptions: { headerVisible: false, },
-        transitionConfig: TransitionConfiguration, },
+        Events: { screen: EventScreen, },
+      },
+      {
+        headerMode: 'none', navigationOptions: { headerVisible: false, },
+        transitionConfig: TransitionConfiguration,
+      },
     );
 
     const EducationStack = StackNavigator(
       {
         Dashboard: { screen: DashboardScreen, },
         Badges: { screen: BadgeScreen, },
+        MicroBadge: { screen: MicroBadgeScreen },
         Journey: { screen: JourneyScreen, },
         Award: { screen: AwardScreen, }, },
       { headerMode: 'none', navigationOptions: { headerVisible: false, },
@@ -101,7 +107,6 @@ class App extends React.Component {
       Connect:{screen: ConnectStack},
       Community: { screen: CommunityScreen },
       Home: { screen: HomeScreen},
-      MicroBadge: { screen: MicroBadgeScreen },
       Explore: { screen: ExploreScreen },
       Dashboard: { screen: EducationStack },
       },

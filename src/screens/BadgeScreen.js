@@ -42,6 +42,33 @@ class BadgeScreen extends React.Component {
     </View>);
   }
 
+  renderMyMicroBadges() {
+    return(
+    <View style={[{width: width, height: 200, left: 10, flex: 1, }]}>
+      <Text style={s.myBadgesTitle}>Micro Badges</Text>
+      <ScrollView style={{height: 200, }} showsHorizontalScrollIndicator={false} horizontal={true} >
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'space'})} style={s.badgeContainer}>
+          <Image style={s.badgeCarousel} resizeMode="contain" source={assetPaths.badges.progress.spaceScienceExpert} />
+          <Text style={s.badgeTitleText}>Augmented Reality</Text>
+
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'truth'})} style={s.badgeContainer}>
+          <Image style={s.badgeCarousel} resizeMode="contain" source={assetPaths.badges.progress.truthSeeker} />
+          <Text style={s.badgeTitleText}>Neuroprosthetics</Text>
+
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'womens'})} style={s.badgeContainer}>
+          <Image style={s.badgeCarousel} resizeMode="contain" source={assetPaths.badges.progress.womensHealth} />
+          <Text style={s.badgeTitleText}>3D Printing</Text>
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'textile'})}style={s.badgeContainer}>
+          <Image style={s.badgeCarousel} resizeMode="contain" source={assetPaths.badges.progress.textileArtist} />
+          <Text style={s.badgeTitleText}>Vote</Text>
+        </TouchableOpacity>
+      </ScrollView>
+    </View>);
+  }
+
   renderExploreBadges() {
     return(
       <View style={{left: 14}}  >
@@ -101,6 +128,7 @@ class BadgeScreen extends React.Component {
         <View style={{top: 0, height: height-100}}>
           <ScrollView style={{width: width}} vertical={true} >
             { this.renderMyBadges() }
+            { this.renderMyMicroBadges() }
             { this.renderExploreBadges() }
           </ScrollView>
         </View>
