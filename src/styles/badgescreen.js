@@ -14,7 +14,7 @@ var styles = StyleSheet.create({
     },
 
     myBadgesTitle: {
-        color: 'white',
+        color: '#51258A',
         fontFamily: 'trefoil-sans-semibold',
         fontSize: 18,
         marginBottom: 10,
@@ -36,19 +36,19 @@ var styles = StyleSheet.create({
 
     badgeTitleText: {
         alignSelf: 'center',
-        color: 'white',
+        color: '#51258A',
         fontSize: 12,
         fontFamily: 'trefoil-sans-semibold'
     },
 
     badgeTitle: {
-        color: 'white',
+        color: '#51258A',
         fontSize: 88
     },
 
     badgeCompletion: {
         alignSelf: 'center',
-        color: 'white',
+        color: '#51258A',
         fontSize: 12,
         fontFamily: 'trefoil-sans-regular'
     },
@@ -68,7 +68,7 @@ var styles = StyleSheet.create({
     },
 
     exploreBadgeTitle: {
-        color: 'white',
+        color: '#51258A',
         fontSize: 12,
         fontFamily: 'trefoil-sans-semibold',
     },

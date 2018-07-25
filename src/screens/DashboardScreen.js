@@ -22,27 +22,27 @@ class DashboardScreen extends React.Component {
     };
   };
 
-  
+
   renderAvaDashboard() {
     return(
       <View style={s.mainDashboard}>
         <TouchableOpacity onPress={() => this.props.navigation.navigate({ routeName: 'Badges'} )}>
-          <Text style = {{color:'white',bottom:10,alignSelf:'center'}}>4</Text>
+          <Text style = {{color:'#51258A',bottom:10,alignSelf:'center'}}>4</Text>
           <Image style={s.progressImage} source={require('../../assets/icons/Dashboard_Icon_Badges.png')} />
         </TouchableOpacity>
-        
+
         <TouchableOpacity onPress={() => this.props.navigation.navigate({ routeName: 'Journey'} )}>
-        <Text style = {{color:'white',bottom:10,alignSelf:'center'}}>1</Text>
+        <Text style = {{color:'#51258A',bottom:10,alignSelf:'center'}}>1</Text>
           <Image style={s.progressImage} source={require('../../assets/icons/Dashboard_Icon_Journeys.png')} />
         </TouchableOpacity>
-        
+
         <TouchableOpacity onPress={() => this.props.navigation.navigate({ routeName: 'Award'} )}>
-          <Text style = {{color:'white',bottom:10,alignSelf:'center'}}>1</Text>
+          <Text style = {{color:'#51258A',bottom:10,alignSelf:'center'}}>1</Text>
           <Image style={s.progressImage} source={require('../../assets/icons/Dashboard_Icon_Awards.png')} />
         </TouchableOpacity>
       </View>);
   }
-  
+
   renderBadges() {
     return(
       <View style={s.badgeContainer}>
@@ -82,7 +82,7 @@ class DashboardScreen extends React.Component {
         <Image style={s.avaProfile} source={require('../../assets/Ava-Dashboard1.png')} />
         <Image style={s.progressBar} source={require('../../assets/Dashboard_ProgressBar.png')} />
         {this.renderAvaDashboard() }
-        <Text style={{color:'white',bottom:25,left:25, fontSize: 17,fontFamily: 'trefoil-sans-semibold'}}>My Badges</Text>
+        <Text style={{color:'#51258A',bottom:25,left:25, fontSize: 17,fontFamily: 'trefoil-sans-semibold'}}>My Badges</Text>
         {this.renderBadges()}
         <AvaBottomMenu currentSection={'dashboard'}  showTab={true} tabTitle={"Leaderboard"} tabLeft={13} navigation={this.props.navigation}/>
       </LinearGradient>);
