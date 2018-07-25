@@ -49,22 +49,22 @@ class BadgeScreen extends React.Component {
 
       <ScrollView style={{height: 200, }} showsHorizontalScrollIndicator={false} horizontal={true} >
 
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'space'})} style={s.badgeContainer}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('MicroBadgeModal', {id: 'space'})} style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain" source={assetPaths.microbadges.augmentedReality} />
           <Text style={s.badgeTitleText}>Augmented Reality</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'truth'})} style={s.badgeContainer}>
+        <TouchableOpacity style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain" source={assetPaths.microbadges.neuroprosthetics} />
           <Text style={s.badgeTitleText}>Neuroprosthetics</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'womens'})} style={s.badgeContainer}>
+        <TouchableOpacity style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain" source={assetPaths.microbadges.printing} />
           <Text style={s.badgeTitleText}>3D Printing</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('BadgeModal', {id: 'textile'})}style={s.badgeContainer}>
+        <TouchableOpacity style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain" source={assetPaths.microbadges.vote} />
           <Text style={s.badgeTitleText}>Vote</Text>
         </TouchableOpacity>
