@@ -87,13 +87,13 @@ var styles = StyleSheet.create({
         color:'white',
         fontSize: 12,
     },
-    
+
     // context icon
     contextIcon: {
         width: 40,
         height: 40,
         position: 'absolute',
-        right: 27,
+        right: 31,
         top: -45,
         zIndex: 12
     }

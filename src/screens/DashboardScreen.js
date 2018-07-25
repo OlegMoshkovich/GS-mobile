@@ -27,17 +27,17 @@ class DashboardScreen extends React.Component {
     return(
       <View style={s.mainDashboard}>
         <TouchableOpacity onPress={() => this.props.navigation.navigate({ routeName: 'Badges'} )}>
-          <Text style = {{color:'#51258A',bottom:10,alignSelf:'center'}}>4</Text>
+          <Text style = {{color:'white',bottom:10,alignSelf:'center'}}>4</Text>
           <Image style={s.progressImage} source={require('../../assets/icons/Dashboard_Icon_Badges.png')} />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => this.props.navigation.navigate({ routeName: 'Journey'} )}>
-        <Text style = {{color:'#51258A',bottom:10,alignSelf:'center'}}>1</Text>
+        <Text style = {{color:'white',bottom:10,alignSelf:'center'}}>1</Text>
           <Image style={s.progressImage} source={require('../../assets/icons/Dashboard_Icon_Journeys.png')} />
         </TouchableOpacity>
 
         <TouchableOpacity onPress={() => this.props.navigation.navigate({ routeName: 'Award'} )}>
-          <Text style = {{color:'#51258A',bottom:10,alignSelf:'center'}}>1</Text>
+          <Text style = {{color:'white',bottom:10,alignSelf:'center'}}>1</Text>
           <Image style={s.progressImage} source={require('../../assets/icons/Dashboard_Icon_Awards.png')} />
         </TouchableOpacity>
       </View>);
