@@ -75,9 +75,6 @@ paths.topMenu = {
     shopIcon: require('../assets/shop/nav-top-right.png'),
 }
 paths.staticScreens = {
-    journeyScreen: require('../assets/staticScreens/journey-2x.png'),
-    awardScreen: require('../assets/staticScreens/awards-2x.png'),
-    badgeScreen: require('../assets/staticScreens/badges-2x.png'),
     eventScreen: require('../assets/staticScreens/AllEvents.png'),
     postModal: require('../assets/staticScreens/post.png'),
     resume: require('../assets/Resume.png'),
