@@ -17,7 +17,7 @@ class MicroBadgeScreen extends React.Component {
     super(props);
     this.state = {
       moveAnim     : new Animated.Value(0),
-      activated    : true, 
+      activated    : true,
       fadeAnim     : new Animated.Value(0),
       blurRadius: 0,
     };
@@ -33,10 +33,10 @@ class MicroBadgeScreen extends React.Component {
         this.state.fadeAnim,
         { toValue: this.state.activated ? 1: 0, duration: 500, }
       ).start();
-      
+
       this.setState({ activated : !this.state.activated});
   }
-  
+
   render() {
     return (
       <LinearGradient
@@ -54,23 +54,23 @@ class MicroBadgeScreen extends React.Component {
           <ScrollView horizontal= {true} style={s.relatedMediaScrollView} showsHorizontalScrollIndicator={false}>
             <TouchableOpacity>
               <Image style={s.relatedMediaCard} resizeMode="cover"
-                source={assetPaths.microbadges.Card01} />
+                source={assetPaths.microbadges.cards.Card01} />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image style={s.relatedMediaCard} resizeMode="cover"
-                source={assetPaths.microbadges.Card02} />
+                source={assetPaths.microbadges.cards.Card02} />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image style={s.relatedMediaCard} resizeMode="cover"
-                source={assetPaths.microbadges.Card03} />
+                source={assetPaths.microbadges.cards.Card03} />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image style={s.relatedMediaCard} resizeMode="cover"
-                source={assetPaths.microbadges.Card01} />
+                source={assetPaths.microbadges.cards.Card01} />
             </TouchableOpacity>
             <TouchableOpacity>
               <Image style={s.relatedMediaCard} resizeMode="cover"
-                source={assetPaths.microbadges.Card02} />
+                source={assetPaths.microbadges.cards.Card02} />
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {this.props.navigation.navigate('StoryModal', {id: 4})}}>

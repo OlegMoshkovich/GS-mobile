@@ -109,6 +109,7 @@ class App extends React.Component {
       Home: { screen: HomeScreen},
       Explore: { screen: ExploreScreen },
       Dashboard: { screen: EducationStack },
+
       },
       { swipeEnabled:this.state.swiping,
         initialRouteName:'Home',

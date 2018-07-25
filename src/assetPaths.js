@@ -6,7 +6,6 @@ let paths = {};
 // bottom menu with ava and icons
 paths.bottomMenu = {
     default: require('../assets/bottomMenu/ava/ava_default2.png'),
-
     // faces
     capShout: require('../assets/bottomMenu/ava/ava_cap_yell.png'),
     capSmileEyesClosed: require('../assets/bottomMenu/ava/ava_cap_eyesClosed_smile.png'),
@@ -33,7 +32,7 @@ paths.bottomMenu = {
     connectIcon: require('../assets/bottomMenu/icons/NAV_connect-home.png'),
     dashboardIcon: require('../assets/bottomMenu/icons/NAV_dash-home.png'),
     exploreIcon: require('../assets/bottomMenu/icons/NAV_explore-home.png'),
-    
+
     tabBackground: require('../assets/bottomMenu/bottomTab.png'),
 
     // icons on
@@ -93,7 +92,7 @@ paths.homeScreen = {
     }
 }
 paths.modals = {
-    
+
     articleModal: {
     },
 
@@ -114,7 +113,7 @@ paths.modals = {
         like: require('../assets/icons/badgeModal/like_off.png'),
         likeSolid: require('../assets/icons/badgeModal/like_on.png'),
         close: require('../assets/icons/badgeModal/exit_off.png'),
-        
+
     }
 }
 paths.stories = {
@@ -142,14 +141,20 @@ paths.stories = {
         storyCard01: require('../assets/Article_2.3.png'),
         storyCard02: require('../assets/Article_2.2.png'),
         storyCard03: require('../assets/Article_2.1.png'),
-    }    
+    }
 }
 
 paths.microbadges = {
-
+    cards:{
       Card01: require('../assets/badges/microBadgeCard01.png'),
       Card02: require('../assets/badges/microBadgeCard02.png'),
       Card03: require('../assets/badges/microBadgeCard03.png')
+    },
+    augmentedReality: require('../assets/badges/microbadges/augmentedReality.png'),
+    neuroprosthetics: require('../assets/badges/microbadges/neuroprosthetics.png'),
+    printing: require('../assets/badges/microbadges/printing.png'),
+    vote: require('../assets/badges/microbadges/vote.png'),
+
   }
 
 paths.badges = {
