@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, Image, ScrollView} from 'react-native';
+import { View, TouchableOpacity, Image, ScrollView, Text} from 'react-native';
 import Dimensions from 'Dimensions';
 
 import s from '../styles/storymodal';
@@ -11,14 +11,17 @@ class MicroBadgeModalScreen extends React.Component {
 	constructor(props) {
 		super(props);
 	}
-	
-	renderStoryPng(id) {
+
+	renderMicroBadgePng(id) {
+
 		switch (id) {
-			case 1:
-				return (<Image style={{width: width, height: height, marginBottom: 100, top: -100}} source={require('../../assets/staticScreens/microbadges/MicroBadgeModaldScreen.png')} />);
-			break;
+			case 'augmentedReality':
+				return (<Image style={{width: width, height: height, top:  -100}} source={require('../../assets/staticScreens/microbadges/MicroBadgeModaldScreen.png')} />);
+				break;
+
 		}
 	}
+
 
   	render() {
 		const {params} = this.props.navigation.state;
@@ -39,7 +42,9 @@ class MicroBadgeModalScreen extends React.Component {
 						<Image style={s.exitIconImageBadge} source={assetPaths.modals.badgeModal.close}/>
 					</TouchableOpacity>
 				</View>
-  				<ScrollView style={s.storyContentContainer}>{ this.renderStoryPng(id)}</ScrollView>
+  				<ScrollView style={s.storyContentContainer}>{ this.renderMicroBadgePng(id)}</ScrollView>
+
+
 			</View>);
   	}
 }

@@ -49,7 +49,7 @@ class BadgeScreen extends React.Component {
 
       <ScrollView style={{height: 200, }} showsHorizontalScrollIndicator={false} horizontal={true} >
 
-        <TouchableOpacity onPress={() => this.props.navigation.navigate('MicroBadgeModal', {id: 'space'})} style={s.badgeContainer}>
+        <TouchableOpacity onPress={() => this.props.navigation.navigate('MicroBadgeModal', {id: 'augmentedReality'})} style={s.badgeContainer}>
           <Image style={s.badgeCarousel} resizeMode="contain" source={assetPaths.microbadges.augmentedReality} />
           <Text style={s.badgeTitleText}>Augmented Reality</Text>
         </TouchableOpacity>

@@ -93,7 +93,7 @@ var styles = StyleSheet.create({
         width: 40,
         height: 40,
         position: 'absolute',
-        right: 31,
+        right: 30,
         top: -45,
         zIndex: 12
     }
