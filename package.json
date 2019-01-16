@@ -3,10 +3,10 @@
   "private": true,
   "dependencies": {
     "@mapbox/react-native-mapbox-gl": "^6.1.1",
-    "expo": "^25.0.0",
+    "react-native": "https://github.com/expo/react-native/archive/sdk-30.0.0.tar.gz",
+    "expo": "^30.0.0",
+    "react": "16.3.1",
     "lorem-ipsum": "^1.0.4",
-    "react": "^16.3.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-25.0.0.tar.gz",
     "react-native-calendars": "^1.18.2",
     "react-native-camera-roll-picker": "^1.2.3",
     "react-native-collapse-view": "^1.0.0",
