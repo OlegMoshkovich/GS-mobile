@@ -21,9 +21,12 @@ class SystemScreen extends React.Component {
     super(props);
     this.state = {
       moveAnim     : new Animated.Value(0),
-      activated    : true, settings     : false,
-      users     : false, environmentSwitch: false,
-      fadeAnim     : new Animated.Value(0), blurRadius: 0,
+      activated    : true,
+      settings     : false,
+      users        : false,
+      environmentSwitch: false,
+      fadeAnim     : new Animated.Value(0),
+      blurRadius   : 0,
     };
 
     this.switch = this.switch.bind(this);
@@ -42,10 +45,10 @@ class SystemScreen extends React.Component {
       ).start();
       this.setState({ activated : !this.state.activated });
   }
-  
+
   switch = () => { this.setState({ settings: !this.state.settings })}
   users = () => { this.setState({users: !this.state.users}) }
-  
+
   render() {
     return (
       <LinearGradient colors={[color, color]}
@@ -54,7 +57,7 @@ class SystemScreen extends React.Component {
         style={[s.exit, {zIndex: 100}]} onPress={() => this.props.navigation.goBack()} >
         <Image style ={{width:35,height:35}} source={assetPaths.shop.icons.close}/>
        </TouchableOpacity>
-       
+
        <TopMenu menuTitle="profile" />
         <View style={[s.profileContainer,{left: this.state.users ? 600:50}]}>
           <TouchableOpacity>
@@ -70,6 +73,7 @@ class SystemScreen extends React.Component {
             source={require('../../assets/icons/Profile/AddUser.png')} />
           </TouchableOpacity>
         </View>
+
         <View style={[s.profileContainerUsers,{left: this.state.users ? 10:600}]}>
           <TouchableOpacity onPress={this.users}>
             <Image style={s.avaProfile}
@@ -148,7 +152,7 @@ class SystemScreen extends React.Component {
           </View>
           <View style={{ flex:1}}></View>
         </View>
-        
+
         <AvaBottomMenu contextFunction={this.switch} showTab={true} contextIcon={true} tabTitle={"Resume"} tabLeft={15} navigation={this.props.navigation}/>
 
     </LinearGradient>

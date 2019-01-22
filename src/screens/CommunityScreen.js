@@ -24,6 +24,7 @@ class CommunityScreen extends React.Component {
   }
   renderStories() {
     return(
+
     <View style={StyleSheet.absoluteFill} >
       <ScrollView style ={[s.mainScrollView]} showsVerticalScrollIndicator={false} >
           { this.renderSearchBar() }
@@ -35,6 +36,7 @@ class CommunityScreen extends React.Component {
             {this.renderAllStoriesSection()}
       </ScrollView>
     </View>);
+    
   }
   renderFeaturedStoriesSection() {
     return(
@@ -119,7 +121,7 @@ class CommunityScreen extends React.Component {
   renderSearchBar() {
     return(
       <View style={[s.searchBarView, {width: width}]}>
-      
+
         <Image style={s.searchBarStyle}source={require('../../assets/share/searchBar.png')} />
         <View style={s.tagAndAtViews}>
           <Text style ={[s.featuredStoriesTitle, {top: 0, marginBottom: 10}]}>Trending</Text>

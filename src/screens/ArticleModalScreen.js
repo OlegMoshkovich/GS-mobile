@@ -6,6 +6,7 @@ import s from '../styles/articlemodal';
 import assetPaths from '../assetPaths';
 
 class ArticleModalScreen extends React.Component {
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -14,8 +15,6 @@ class ArticleModalScreen extends React.Component {
 	}
 
 	renderStoryPng(id) {
-		
-
 		switch (id) {
 			case 1:
 				return (<Image style={{width: 375, height: 3810, marginBottom: 100}} source={require('../../assets/staticScreens/articles/Article_01.png')} />);
@@ -32,17 +31,14 @@ class ArticleModalScreen extends React.Component {
 			case 5:
 				return (<Image style={{width: 375, height: 3520, marginBottom: 100}} source={require('../../assets/staticScreens/articles/Article_04.png')} />);
 				break;
-	
-
 		}
 	}
 
   render() {
-
 		const {params} = this.props.navigation.state;
 		const id = params ? params.id: 1;
-
 		return (
+			
 		<View style={s.modalContainer}>
 			<View style={[s.modalMenuContainer, {width: width}]}>
 				<TouchableOpacity style={s.modalButton} >
@@ -57,14 +53,11 @@ class ArticleModalScreen extends React.Component {
 				<TouchableOpacity style={s.exitButton} onPress={() => this.props.navigation.goBack()} >
 					<Image style={s.exitIconImage} source={assetPaths.modals.shareModal.close}/>
 				</TouchableOpacity>
-
-		</View>
+			</View>
   		<ScrollView style={s.storyContentContainer}>
   			{ this.renderStoryPng(id)}
-		</ScrollView>
-
-
-</View>);
+		 	</ScrollView>
+		</View>);
   }
 }
 

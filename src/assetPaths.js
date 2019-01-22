@@ -81,6 +81,7 @@ paths.staticScreens = {
     wishlist: require('../assets/staticScreens/wishlistModal3.png'),
     badgesOverview: require('../assets/staticScreens/badgeOverlay.png'),
 }
+
 paths.homeScreen = {
     chatBubbles: require('../assets/Home_Bubble_Welcome1.png'),
     responseBubbles: require('../assets/Home_Bubble_Response.png'),
@@ -91,6 +92,7 @@ paths.homeScreen = {
         swipeDownIcon: require('../assets/topMenu/NAV_shop.png'),
     }
 }
+
 paths.modals = {
 
     articleModal: {

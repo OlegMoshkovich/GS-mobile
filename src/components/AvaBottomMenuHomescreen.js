@@ -3,9 +3,7 @@ import Dimensions from 'Dimensions';
 import { View, TouchableOpacity,Image, Animated} from 'react-native';
 import s from '../styles/avabottommenuhomescreen';
 import assetPaths from '../assetPaths'
-
 const {width} = Dimensions.get('window');
-
 
 // ava bottom menu specific configuration
 const animationDuration = 1000;
@@ -33,7 +31,7 @@ class AvaBottomMenuHomescreen extends Component {
     animate = () => {
         if (this.state.blurRadius == maxBlurRadius) { this.setState({ blurRadius: initialBlurRadius });
         } else { this.setState({ blurRadius: maxBlurRadius }); }
-        
+
         Animated.timing( this.state.fadeAnim, { toValue: this.state.activated ? 1: 0, duration: animationDuration, }).start();
         this.setState({activated : !this.state.activated});
     }
